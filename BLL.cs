@@ -1,8 +1,23 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
+using System.Drawing.Text;
 
-public class Class1
+namespace FitHub
 {
-	public Class1()
-	{
-	}
+    public class BLL
+    {
+        /*private readonly DAL dal = new();
+        static void DeleteMemberBLL()
+            {
+            DAL dal = new DAL();
+            var MemberID 
+            dal.DeleteMember();
+        } */     
+        
+        public List <Member> GetAllMembersBLL()
+        {
+            DAL dal = new DAL();
+            return dal.GetAll();
+        }
+    }
 }
