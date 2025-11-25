@@ -50,3 +50,8 @@ namespace FitHub
         }
     }
 }
+
+
+/*
+ * Make select from gridview work, and delete method work.
+ */
