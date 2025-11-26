@@ -33,7 +33,6 @@
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             dataGridView1 = new DataGridView();
-            button2 = new Button();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -72,7 +71,6 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(dataGridView1);
-            tabPage2.Controls.Add(button2);
             tabPage2.Controls.Add(button1);
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
@@ -94,16 +92,6 @@
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button2
-            // 
-            button2.Location = new Point(177, 329);
-            button2.Name = "button2";
-            button2.Size = new Size(110, 46);
-            button2.TabIndex = 2;
-            button2.Text = "Retrieve";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -124,7 +112,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private Button button2;
         private DataGridView dataGridView1;
     }
 }

@@ -14,17 +14,19 @@ namespace FitHub
          string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
             "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
-       /* public void DeleteMember()
+        public void DeleteMember(string memberID)
         {
             using var con = new SqlConnection(conn);
             con.Open();
             using var delMemCmd = new SqlCommand("DELETE FROM Members WHERE MemberID = @MemberID", con);
             {
-                delMemCmd.Parameters.AddWithValue("@MemberID",MemberID);
+                delMemCmd.Parameters.AddWithValue("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
                 delMemCmd.ExecuteNonQuery();
             }
-        }*/
-        
+        }
+
+
+        //Takes Members table and reads them into memberList.
         public List<Member> GetAll()
         {
             List<Member> memberList = new List<Member>();
@@ -37,12 +39,12 @@ namespace FitHub
             {
                 memberList.Add(new Member
                 {
-                    MemberID = reader.GetInt32(0),
-                    FirstName = reader.GetString(1),
-                    SurName = reader.GetString(2),
-                    Email = reader.GetString(3),
-                    Telephone = reader.GetString(4),
-                    MemberType = reader.GetInt32(5),
+                    MemberID = reader.IsDBNull(0) ? 0: reader.GetInt32(0),
+                    FirstName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    SurName = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    MemberType = reader.IsDBNull(5) ? 0: reader.GetInt32(5),
                 });  
             }
             con.Close();
@@ -53,5 +55,5 @@ namespace FitHub
 
 
 /*
- * Make select from gridview work, and delete method work.
+ * Make select from gridview work, and delete method work. + Update gridview after delete
  */

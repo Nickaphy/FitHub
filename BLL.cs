@@ -6,13 +6,12 @@ namespace FitHub
 {
     public class BLL
     {
-        /*private readonly DAL dal = new();
-        static void DeleteMemberBLL()
-            {
+        private readonly DAL dal = new();
+        public static void DeleteMemberBLL(string memberID)
+        {
             DAL dal = new DAL();
-            var MemberID 
-            dal.DeleteMember();
-        } */     
+            dal.DeleteMember(memberID);
+        }      
         
         public List <Member> GetAllMembersBLL()
         {
