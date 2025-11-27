@@ -14,6 +14,7 @@ namespace FitHub
          string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
             "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
+        //A method that deletes a member from the Members tale based on their MemberID.
         public void DeleteMember(int memberID)
         {
             using var con = new SqlConnection(conn);
@@ -22,6 +23,9 @@ namespace FitHub
             delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
             delMemCmd.ExecuteNonQuery();
         }
+
+
+
 
 
         //Takes Members table and reads them into memberList.
@@ -35,6 +39,8 @@ namespace FitHub
 
             while (reader.Read())
             {
+                //add new memebers to memberList (if DB=null, set to default value)
+                //else read the vale from the DB.
                 memberList.Add(new Member
                 {
                     MemberID = reader.IsDBNull(0) ? 0: reader.GetInt32(0),

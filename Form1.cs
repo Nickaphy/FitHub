@@ -23,26 +23,25 @@ namespace FitHub
             dataGridView1.DataSource = members;
         }
 
-      
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-
         //Handling cell click event to get the selected row's MemberID
         string memberID;
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Validating that user is clicking on a row, not the header
-            if ( dataGridView1.SelectedRows.Count > 0)
-            { 
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                var memberID = Convert.ToInt32(selectedRow.Cells[0].Value); 
+                var memberID = Convert.ToInt32(selectedRow.Cells[0].Value);
             }
             else
             {
                 MessageBox.Show("Please select a row first");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

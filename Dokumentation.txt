@@ -1,0 +1,2 @@
+Complete:
+- Member Delete module + Autoupdate on delete 

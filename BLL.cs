@@ -12,8 +12,11 @@ namespace FitHub
         {
             DAL dal = new DAL();
             dal.DeleteMember(memberID);
-        }      
-        
+        }
+
+
+
+        //Mid call to DAL to get all members
         public List <Member> GetAllMembersBLL()
         {
             DAL dal = new DAL();
