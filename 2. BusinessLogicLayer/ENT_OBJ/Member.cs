@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitHub
+namespace FitHub.B_BLL.ENT_OBJ
 {
     public class Member
     {

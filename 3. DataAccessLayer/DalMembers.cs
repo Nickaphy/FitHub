@@ -5,9 +5,10 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;               
+using FitHub.B_BLL.ENT_OBJ;
+using Microsoft.Data.SqlClient;
 
-namespace FitHub
+namespace FitHub.C_DAL
 {
     public class DAL
     {

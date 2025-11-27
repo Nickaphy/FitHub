@@ -2,8 +2,10 @@
 using System;
 using System.Drawing.Text;
 using System.Collections.Generic;
+using FitHub.C_DAL;
+using FitHub.B_BLL.ENT_OBJ;
 
-namespace FitHub
+namespace FitHub.B_BLL
 {
     public class BLL
     {

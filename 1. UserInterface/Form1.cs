@@ -1,3 +1,5 @@
+using FitHub.B_BLL;
+using FitHub.B_BLL.ENT_OBJ;
 using System.Windows.Forms;
 
 namespace FitHub

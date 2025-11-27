@@ -130,7 +130,7 @@
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1452, 896);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Edit Member";
+            tabPage2.Text = "Member Management";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // button2
