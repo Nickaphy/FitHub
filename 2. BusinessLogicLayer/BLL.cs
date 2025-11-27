@@ -9,10 +9,10 @@ namespace FitHub.B_BLL
 {
     public class BLL
     {
-        private readonly DAL dal = new();
+        private readonly DalMembers dal = new();
         public static void DeleteMemberBLL(int memberID)
         {
-            DAL dal = new DAL();
+            DalMembers dal = new DalMembers();
             dal.DeleteMember(memberID);
         }
 
@@ -21,8 +21,14 @@ namespace FitHub.B_BLL
         //Mid call to DAL to get all members
         public List <Member> GetAllMembersBLL()
         {
-            DAL dal = new DAL();
+            DalMembers dal = new DalMembers();
             return dal.GetAll();
+        }
+
+        public void AddMemberBLL(string firstName, string surName, string email, string telephone, int memberType)
+        {
+            DalMembers dal = new DalMembers();
+            dal.AddMember(firstName, surName, email, telephone, memberType);
         }
     }
 }

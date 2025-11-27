@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
-    internal class Class1
+    internal class DallInstructor
     {
     }
 }
