@@ -15,6 +15,7 @@ namespace FitHub
 
         public void button1_Click_1(object sender, EventArgs e)
         {
+            var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             BLL.DeleteMemberBLL(memberID);
             //refresh members after delete
             BLL bll = new BLL();
@@ -33,17 +34,14 @@ namespace FitHub
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Validating that user is clicking on a row, not the header
-            if (e.RowIndex >= 0)
-            {
-               var cellvalue = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-                memberID = cellvalue?.ToString();
-
-                dataGridView1.ClearSelection();
-                dataGridView1.Rows[e.RowIndex].Selected = true;
+            if ( dataGridView1.SelectedRows.Count > 0)
+            { 
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                var memberID = Convert.ToInt32(selectedRow.Cells[0].Value); 
             }
             else
             {
-                memberID = null;
+                MessageBox.Show("Please select a row first");
             }
         }
     }

@@ -14,15 +14,13 @@ namespace FitHub
          string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
             "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
-        public void DeleteMember(string memberID)
+        public void DeleteMember(int memberID)
         {
             using var con = new SqlConnection(conn);
             con.Open();
             using var delMemCmd = new SqlCommand("DELETE FROM Members WHERE MemberID = @MemberID", con);
-            {
-                delMemCmd.Parameters.AddWithValue("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
-                delMemCmd.ExecuteNonQuery();
-            }
+            delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
+            delMemCmd.ExecuteNonQuery();
         }
 
 
@@ -52,8 +50,3 @@ namespace FitHub
         }
     }
 }
-
-
-/*
- * Make select from gridview work, and delete method work. + Update gridview after delete
- */
