@@ -25,10 +25,10 @@ namespace FitHub.B_BLL
             return dal.GetAll();
         }
 
-        public void AddMemberBLL(string firstName, string surName, string email, string telephone, int memberType)
+        public void AddMemberBLL(string firstName, string surName, string email, string telephone, int memberType, string active)
         {
             DalMembers dal = new DalMembers();
-            dal.AddMember(firstName, surName, email, telephone, memberType);
+            dal.AddMember(firstName, surName, email, telephone, memberType, active);
         }
     }
 }

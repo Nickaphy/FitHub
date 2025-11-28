@@ -14,8 +14,8 @@ namespace FitHub.C_DAL
 {
     public class DalMembers
     {
-         string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
-            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+        string conn = "Server=MSIErikLaptop;DataBase=FitHubDB;" +
+           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
         //A method that deletes a member from the Members tale based on their MemberID.
         public void DeleteMember(int memberID)
@@ -32,7 +32,7 @@ namespace FitHub.C_DAL
         public List<Member> GetAll()
         {
             List<Member> memberList = new List<Member>();
-            using var con = new SqlConnection(conn);   
+            using var con = new SqlConnection(conn);
             con.Open();
             using var cmd = new SqlCommand("SELECT * FROM Members", con);
             using var reader = cmd.ExecuteReader();
@@ -43,26 +43,27 @@ namespace FitHub.C_DAL
                 //else read the vale from the DB.
                 memberList.Add(new Member
                 {
-                    MemberID = reader.IsDBNull(0) ? 0: reader.GetInt32(0),
+                    MemberID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                     FirstName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
                     SurName = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
                     Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                     Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
-                    MemberType = reader.IsDBNull(5) ? 0: reader.GetInt32(5),
-                });  
+                    MemberType = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                    Active = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                });
             }
             con.Close();
             return memberList;
         }
 
-        public void AddMember(string firstName, string surName, string email, string telephone, int memberType)
+        public void AddMember(string firstName, string surName, string email, string telephone, int memberType, string active)
         {
             BLL bll = new BLL();
             using var con = new SqlConnection(conn);
             con.Open();
 
-            string addMemberQuery = @"INSERT INTO Members (FirstName, SurName, Email, Telephone, MemberType) 
-                     VALUES (@FirstName, @SurName, @Email, @Telephone, @MemberType)";
+            string addMemberQuery = @"INSERT INTO Members (FirstName, SurName, Email, Telephone, MemberType, Active) 
+                     VALUES (@FirstName, @SurName, @Email, @Telephone, @MemberType, @Active)";
 
             using var addMemCmd = new SqlCommand(addMemberQuery, con);
             addMemCmd.Parameters.AddWithValue("@FirstName", firstName);
@@ -70,16 +71,36 @@ namespace FitHub.C_DAL
             addMemCmd.Parameters.AddWithValue("@Email", email);
             addMemCmd.Parameters.AddWithValue("@Telephone", telephone);
             addMemCmd.Parameters.AddWithValue("@MemberType", memberType);
+            addMemCmd.Parameters.AddWithValue("@Active", active);
             addMemCmd.ExecuteNonQuery();
             con.Close();
         }
 
+        public void UpdateSingleColumn(int memberID_, string columnName, object newValue)
+        {
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
 
+                string updateMemberColumn = $"UPDATE Members SET {columnName} = @Value WHERE MemberID = @memberID";
 
+                using (SqlCommand cmd = new SqlCommand(updateMemberColumn, con))
+                {
+                    cmd.Parameters.AddWithValue("@MemberID", memberID_);
 
+                    if (newValue == null)
+                    {
+                        cmd.Parameters.AddWithValue("@Value", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Value", newValue);
+                    }
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
 
-
-
-
+        }
     }
 }
