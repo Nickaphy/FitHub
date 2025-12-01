@@ -61,7 +61,7 @@ namespace FitHub
             string surName = textBox2.Text;
             string email = textBox3.Text;
             string telephone = textBox4.Text;
-            int memberType = Convert.ToInt32(textBox5.Text);
+            int memberType = int.Parse(comboBox1.Text);
             string active = "Active";
             //Call BLL to add member 
             bll.AddMemberBLL(firstName, surName, email, telephone, memberType, active);
@@ -111,6 +111,16 @@ namespace FitHub
                 case "MemberType":
                     dalMembers.UpdateSingleColumn(memberID_, "Membertype", newValue); break;
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
