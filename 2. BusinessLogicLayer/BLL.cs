@@ -4,6 +4,7 @@ using System.Drawing.Text;
 using System.Collections.Generic;
 using FitHub.C_DAL;
 using FitHub.B_BLL.ENT_OBJ;
+using FitHub._2._BusinessLogicLayer;
 
 namespace FitHub.B_BLL
 {
@@ -27,8 +28,25 @@ namespace FitHub.B_BLL
 
         public void AddMemberBLL(string firstName, string surName, string email, string telephone, int memberType, string active)
         {
+            BLL_Error bll_error = new BLL_Error();
             DalMembers dal = new DalMembers();
-            dal.AddMember(firstName, surName, email, telephone, memberType, active);
+
+            //Capitalize first letter of first name and surname only and lower cases rest
+            firstName = char.ToUpperInvariant(firstName[0]) + firstName.Substring(1).ToLowerInvariant();
+            surName = char.ToUpperInvariant(surName[0]) + surName.Substring(1).ToLowerInvariant();
+
+            bool emailErrorProceed = bll_error.emailError(email);
+            bool nameErrorProceed = bll_error.nameError(firstName, surName);
+            bool telephoneErrorProceed = bll_error.telephoneError(telephone);
+
+            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true)
+            {
+                dal.AddMember(firstName, surName, email, telephone, memberType, active);
+            }
+
+
+            
+           
         }
     }
 }

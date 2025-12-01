@@ -14,7 +14,7 @@ namespace FitHub.C_DAL
 {
     public class DalMembers
     {
-        string conn = "Server=MSIErikLaptop;DataBase=FitHubDB;" +
+        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
         //A method that deletes a member from the Members tale based on their MemberID.
