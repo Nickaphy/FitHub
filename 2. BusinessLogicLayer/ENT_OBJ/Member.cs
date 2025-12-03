@@ -13,7 +13,7 @@ namespace FitHub.B_BLL.ENT_OBJ
         public string SurName { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
-        public int MemberType { get; set; }
+        public string MemberType { get; set; }
 
         public string Active { get; set; }
 

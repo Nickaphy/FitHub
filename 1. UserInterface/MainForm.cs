@@ -61,11 +61,17 @@ namespace FitHub
             string surName = textBox2.Text;
             string email = textBox3.Text;
             string telephone = textBox4.Text;
-            int memberType = int.Parse(comboBox1.Text);
+            string memberType = comboBox1.Text;
             string active = "Active";
             //Call BLL to add member 
             bll.AddMemberBLL(firstName, surName, email, telephone, memberType, active);
             UpdateMembers();
+
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            comboBox1.Text = "";
 
 
         }
@@ -121,6 +127,19 @@ namespace FitHub
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            var activityStatus = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value);
+            bll.ActivityStatus(memberID, activityStatus);
+            UpdateMembers();
         }
     }
 }
