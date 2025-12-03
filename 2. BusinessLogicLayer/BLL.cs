@@ -20,13 +20,13 @@ namespace FitHub.B_BLL
 
 
         //Mid call to DAL to get all members
-        public List <Member> GetAllMembersBLL()
+        public List<Member> GetAllMembersBLL()
         {
             DalMembers dal = new DalMembers();
             return dal.GetAll();
         }
 
-        public void AddMemberBLL(string firstName, string surName, string email, string telephone, int memberType, string active)
+        public void AddMemberBLL(string firstName, string surName, string email, string telephone, string memberType, string active)
         {
             BLL_Error bll_error = new BLL_Error();
             DalMembers dal = new DalMembers();
@@ -38,15 +38,29 @@ namespace FitHub.B_BLL
             bool emailErrorProceed = bll_error.emailError(email);
             bool nameErrorProceed = bll_error.nameError(firstName, surName);
             bool telephoneErrorProceed = bll_error.telephoneError(telephone);
+            bool memberTypeErrorProceed = bll_error.memberTypeError(memberType);
 
-            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true)
+            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && memberTypeErrorProceed == true)
             {
                 dal.AddMember(firstName, surName, email, telephone, memberType, active);
             }
+        }
 
+        public string ActivityStatus(int memberID, string activityStatus)
+        {
+            DalMembers dalmembers = new DalMembers();
+            string newStatus;
+            if (activityStatus == "Active")
+            {
+                newStatus = "Inactive";
+            }
+            else
+            {
+                newStatus = "Active";
+            }
+            dalmembers.ChangeActivity(newStatus, memberID);
 
-            
-           
+            return newStatus;
         }
     }
 }

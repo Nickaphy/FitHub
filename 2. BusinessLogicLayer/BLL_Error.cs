@@ -42,14 +42,16 @@ namespace FitHub._2._BusinessLogicLayer
             }
             return true;
         }
-
-        public bool memberTypeError(int memberType)
+        
+        public bool memberTypeError(string memberType)
         {
-            if (memberType is int && memberType < 1 && memberType > 3)
+                        
+            if (string.IsNullOrWhiteSpace(memberType))
             {
-                return true;
+                MessageBox.Show("You must select a member type");
+                return false;
             }
-            return false;
+            return true;
         }
     }
 }

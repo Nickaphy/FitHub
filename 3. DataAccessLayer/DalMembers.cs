@@ -14,7 +14,7 @@ namespace FitHub.C_DAL
 {
     public class DalMembers
     {
-        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
+        string conn = "Server=MSIErikLaptop;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
         //A method that deletes a member from the Members tale based on their MemberID.
@@ -26,7 +26,7 @@ namespace FitHub.C_DAL
                 con.Open();
                 using var delMemCmd = new SqlCommand("DELETE FROM Members WHERE MemberID = @MemberID", con);
                 delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
-                delMemCmd.ExecuteNonQuery();        
+                delMemCmd.ExecuteNonQuery();
             }
         }
 
@@ -51,7 +51,7 @@ namespace FitHub.C_DAL
                     SurName = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
                     Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                     Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
-                    MemberType = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                    MemberType = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
                     Active = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
                 });
             }
@@ -59,7 +59,7 @@ namespace FitHub.C_DAL
             return memberList;
         }
 
-        public void AddMember(string firstName, string surName, string email, string telephone, int memberType, string active)
+        public void AddMember(string firstName, string surName, string email, string telephone, string memberType, string active)
         {
             BLL bll = new BLL();
             using var con = new SqlConnection(conn);
@@ -103,7 +103,23 @@ namespace FitHub.C_DAL
                     con.Close();
                 }
             }
+        }
+        public void ChangeActivity(string newStatus, int memberID)
+        {
+            using var con = new SqlConnection(conn);
+            {
+                con.Open();
+                    string changeActivityQuery = "UPDATE Members SET Active = @newStatus WHERE MemberID = @memberID";
 
+                using (SqlCommand cmd = new SqlCommand(changeActivityQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@newStatus", newStatus);
+                    cmd.Parameters.AddWithValue("@memberID", memberID);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
         }
     }
 }
