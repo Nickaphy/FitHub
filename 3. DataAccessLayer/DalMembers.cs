@@ -51,30 +51,32 @@ namespace FitHub.C_DAL
                     SurName = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
                     Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                     Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
-                    MemberType = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
-                    Active = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    Birthday = reader.IsDBNull(5) ? DateTime.UtcNow : reader.GetDateTime(5),
+                    MemberType = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    Active = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
                 });
             }
             con.Close();
             return memberList;
         }
 
-        public void AddMember(string firstName, string surName, string email, string telephone, string memberType, string active)
+        public void AddMember(Member member)
         {
             BLL bll = new BLL();
             using var con = new SqlConnection(conn);
             con.Open();
 
-            string addMemberQuery = @"INSERT INTO Members (FirstName, SurName, Email, Telephone, MemberType, Active) 
-                     VALUES (@FirstName, @SurName, @Email, @Telephone, @MemberType, @Active)";
+            string addMemberQuery = @"INSERT INTO Members (FirstName, SurName, Email, Telephone, Birthday, MemberType, Active) 
+                     VALUES (@FirstName, @SurName, @Email, @Telephone, @Birthday, @MemberType, @Active)";
 
             using var addMemCmd = new SqlCommand(addMemberQuery, con);
-            addMemCmd.Parameters.AddWithValue("@FirstName", firstName);
-            addMemCmd.Parameters.AddWithValue("@SurName", surName);
-            addMemCmd.Parameters.AddWithValue("@Email", email);
-            addMemCmd.Parameters.AddWithValue("@Telephone", telephone);
-            addMemCmd.Parameters.AddWithValue("@MemberType", memberType);
-            addMemCmd.Parameters.AddWithValue("@Active", active);
+            addMemCmd.Parameters.AddWithValue("@FirstName", member.FirstName);
+            addMemCmd.Parameters.AddWithValue("@SurName", member.SurName);
+            addMemCmd.Parameters.AddWithValue("@Email", member.Email);
+            addMemCmd.Parameters.AddWithValue("@Telephone", member.Telephone);
+            addMemCmd.Parameters.AddWithValue("@Birthday", member.Birthday);
+            addMemCmd.Parameters.AddWithValue("@MemberType", member.MemberType);
+            addMemCmd.Parameters.AddWithValue("@Active", member.Active);
             addMemCmd.ExecuteNonQuery();
             con.Close();
         }

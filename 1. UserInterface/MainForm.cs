@@ -1,3 +1,5 @@
+
+using FitHub._2._BusinessLogicLayer.ENT_OBJ;
 using FitHub.B_BLL;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
@@ -18,6 +20,10 @@ namespace FitHub
             dalMembers = new DalMembers();
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
+
+            List<Instructor> instructors = bll.GetAllInstructorsBLL();
+            dataGridView4.DataSource = instructors;
+
         }
 
         //delete member button
@@ -57,14 +63,17 @@ namespace FitHub
         //add member button
         public void button1_Click(object sender, EventArgs e)
         {
-            string firstName = textBox1.Text;
-            string surName = textBox2.Text;
-            string email = textBox3.Text;
-            string telephone = textBox4.Text;
-            string memberType = comboBox1.Text;
-            string active = "Active";
+            Member member = new Member();
+            member.FirstName = textBox1.Text;
+            member.SurName = textBox2.Text;
+            member.Email = textBox3.Text;
+            member.Telephone = textBox4.Text;
+            member.Birthday = dateTimePicker2.Value;
+            member.MemberType = comboBox1.Text;
+            member.Active = "Active";
+            
             //Call BLL to add member 
-            bll.AddMemberBLL(firstName, surName, email, telephone, memberType, active);
+            bll.AddMemberBLL(member);
             UpdateMembers();
 
             textBox1.Text = "";
@@ -137,7 +146,7 @@ namespace FitHub
         private void button3_Click(object sender, EventArgs e)
         {
             var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            var activityStatus = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value);
+            var activityStatus = Convert.ToString(dataGridView1.SelectedRows[0].Cells[7].Value);
             bll.ActivityStatus(memberID, activityStatus);
             UpdateMembers();
         }
@@ -158,6 +167,34 @@ namespace FitHub
         }
 
         private void button9_Click(object sender, EventArgs e)
+        {
+            Instructor instructor = new Instructor();
+            instructor.FirstName = textBox10.Text;
+            instructor.SurName = textBox9.Text;
+            instructor.Email = textBox8.Text;
+            instructor.Telephone = textBox7.Text;
+            instructor.Certification = textBox12.Text;
+
+            
+            
+            //Call BLL to add member 
+            bll.AddInstructorBLL(instructor);
+            UpdateInstructors();
+
+            textBox10.Text = "";
+            textBox9.Text = "";
+            textBox8.Text = "";
+            textBox7.Text = "";
+            textBox12.Text = "";
+        }
+
+        private void UpdateInstructors()
+        {
+            List<Instructor> instructors = bll.GetAllInstructorsBLL();
+            dataGridView4.DataSource = instructors;
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
         {
 
         }

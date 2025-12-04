@@ -68,12 +68,7 @@
             textBox1 = new TextBox();
             button1 = new Button();
             tabPage5 = new TabPage();
-            tabPage6 = new TabPage();
-            tabPage1 = new TabPage();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            dataGridView4 = new DataGridView();
-            button6 = new Button();
-            comboBox4 = new ComboBox();
+            textBox12 = new TextBox();
             label12 = new Label();
             label14 = new Label();
             label15 = new Label();
@@ -86,6 +81,12 @@
             textBox10 = new TextBox();
             button9 = new Button();
             button10 = new Button();
+            dataGridView4 = new DataGridView();
+            tabPage6 = new TabPage();
+            tabPage1 = new TabPage();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            dateTimePicker2 = new DateTimePicker();
+            label18 = new Label();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
@@ -122,7 +123,7 @@
             tabControl1.Margin = new Padding(1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1121, 442);
+            tabControl1.Size = new Size(1121, 485);
             tabControl1.TabIndex = 1;
             // 
             // tabPage3
@@ -332,6 +333,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label18);
+            tabPage2.Controls.Add(dateTimePicker2);
             tabPage2.Controls.Add(button3);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(comboBox1);
@@ -351,7 +354,7 @@
             tabPage2.Margin = new Padding(1);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(1);
-            tabPage2.Size = new Size(1113, 414);
+            tabPage2.Size = new Size(1113, 457);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Member Management";
             tabPage2.UseVisualStyleBackColor = true;
@@ -386,7 +389,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Basic", "Premium", "VIP" });
-            comboBox1.Location = new Point(38, 213);
+            comboBox1.Location = new Point(35, 222);
             comboBox1.Margin = new Padding(1);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(110, 23);
@@ -396,7 +399,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(38, 197);
+            label5.Location = new Point(35, 206);
             label5.Margin = new Padding(1, 0, 1, 0);
             label5.Name = "label5";
             label5.Size = new Size(80, 15);
@@ -406,7 +409,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(41, 117);
+            label4.Location = new Point(38, 126);
             label4.Margin = new Padding(1, 0, 1, 0);
             label4.Name = "label4";
             label4.Size = new Size(21, 15);
@@ -416,7 +419,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(38, 83);
+            label3.Location = new Point(35, 92);
             label3.Margin = new Padding(1, 0, 1, 0);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
@@ -427,7 +430,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(38, 50);
+            label2.Location = new Point(35, 59);
             label2.Margin = new Padding(1, 0, 1, 0);
             label2.Name = "label2";
             label2.Size = new Size(59, 15);
@@ -437,7 +440,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(38, 14);
+            label1.Location = new Point(35, 23);
             label1.Margin = new Padding(1, 0, 1, 0);
             label1.Name = "label1";
             label1.Size = new Size(64, 15);
@@ -446,7 +449,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(34, 312);
+            button2.Location = new Point(969, 410);
             button2.Margin = new Padding(1);
             button2.Name = "button2";
             button2.Size = new Size(144, 22);
@@ -457,7 +460,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(38, 132);
+            textBox4.Location = new Point(35, 141);
             textBox4.Margin = new Padding(1);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(110, 23);
@@ -465,7 +468,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(38, 100);
+            textBox3.Location = new Point(35, 109);
             textBox3.Margin = new Padding(1);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(110, 23);
@@ -473,7 +476,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(38, 65);
+            textBox2.Location = new Point(35, 74);
             textBox2.Margin = new Padding(1);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(110, 23);
@@ -481,7 +484,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(38, 31);
+            textBox1.Location = new Point(35, 40);
             textBox1.Margin = new Padding(1);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(110, 23);
@@ -490,7 +493,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(38, 247);
+            button1.Location = new Point(35, 256);
             button1.Margin = new Padding(1);
             button1.Name = "button1";
             button1.Size = new Size(80, 22);
@@ -501,14 +504,13 @@
             // 
             // tabPage5
             // 
-            tabPage5.Controls.Add(button6);
-            tabPage5.Controls.Add(comboBox4);
+            tabPage5.Controls.Add(textBox12);
             tabPage5.Controls.Add(label12);
+            tabPage5.Controls.Add(button8);
             tabPage5.Controls.Add(label14);
             tabPage5.Controls.Add(label15);
             tabPage5.Controls.Add(label16);
             tabPage5.Controls.Add(label17);
-            tabPage5.Controls.Add(button8);
             tabPage5.Controls.Add(textBox7);
             tabPage5.Controls.Add(textBox8);
             tabPage5.Controls.Add(textBox9);
@@ -519,80 +521,32 @@
             tabPage5.Location = new Point(4, 24);
             tabPage5.Margin = new Padding(1);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1113, 414);
+            tabPage5.Size = new Size(1113, 457);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Instructor Management";
             tabPage5.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // textBox12
             // 
-            tabPage6.Location = new Point(4, 24);
-            tabPage6.Margin = new Padding(1);
-            tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(1113, 414);
-            tabPage6.TabIndex = 5;
-            tabPage6.Text = "Member Overview";
-            tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Margin = new Padding(1);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(1);
-            tabPage1.Size = new Size(1113, 414);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Reports";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(32, 32);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // dataGridView4
-            // 
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Location = new Point(452, 51);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.Size = new Size(599, 360);
-            dataGridView4.TabIndex = 1;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(198, 350);
-            button6.Margin = new Padding(1);
-            button6.Name = "button6";
-            button6.Size = new Size(127, 22);
-            button6.TabIndex = 31;
-            button6.Text = "Active On/Off";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // comboBox4
-            // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "Basic", "Premium", "VIP" });
-            comboBox4.Location = new Point(32, 181);
-            comboBox4.Margin = new Padding(1);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(110, 23);
-            comboBox4.TabIndex = 30;
+            textBox12.Location = new Point(32, 188);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(100, 23);
+            textBox12.TabIndex = 34;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(32, 165);
+            label12.Location = new Point(32, 170);
             label12.Margin = new Padding(1, 0, 1, 0);
             label12.Name = "label12";
-            label12.Size = new Size(80, 15);
+            label12.Size = new Size(72, 15);
             label12.TabIndex = 29;
-            label12.Text = "Member Type";
+            label12.Text = "Certification";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(35, 128);
+            label14.Location = new Point(35, 133);
             label14.Margin = new Padding(1, 0, 1, 0);
             label14.Name = "label14";
             label14.Size = new Size(21, 15);
@@ -631,7 +585,7 @@
             // 
             // button8
             // 
-            button8.Location = new Point(28, 280);
+            button8.Location = new Point(907, 415);
             button8.Margin = new Padding(1);
             button8.Name = "button8";
             button8.Size = new Size(144, 22);
@@ -641,7 +595,7 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(32, 143);
+            textBox7.Location = new Point(32, 148);
             textBox7.Margin = new Padding(1);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(110, 23);
@@ -670,10 +624,11 @@
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(110, 23);
             textBox10.TabIndex = 20;
+            textBox10.TextChanged += textBox10_TextChanged;
             // 
             // button9
             // 
-            button9.Location = new Point(32, 215);
+            button9.Location = new Point(32, 220);
             button9.Margin = new Padding(1);
             button9.Name = "button9";
             button9.Size = new Size(80, 22);
@@ -691,6 +646,57 @@
             button10.TabIndex = 18;
             button10.Text = "Delete";
             button10.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Location = new Point(452, 3);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.Size = new Size(658, 408);
+            dataGridView4.TabIndex = 1;
+            // 
+            // tabPage6
+            // 
+            tabPage6.Location = new Point(4, 24);
+            tabPage6.Margin = new Padding(1);
+            tabPage6.Name = "tabPage6";
+            tabPage6.Size = new Size(1113, 414);
+            tabPage6.TabIndex = 5;
+            tabPage6.Text = "Member Overview";
+            tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(1);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(1);
+            tabPage1.Size = new Size(1113, 414);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Reports";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(32, 32);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(35, 180);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 18;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(38, 165);
+            label18.Name = "label18";
+            label18.Size = new Size(55, 15);
+            label18.TabIndex = 19;
+            label18.Text = "Birthdate";
             // 
             // MainForm
             // 
@@ -763,8 +769,6 @@
         private DataGridView dataGridView6;
         private Label label11;
         private Button button7;
-        private Button button6;
-        private ComboBox comboBox4;
         private Label label12;
         private Label label14;
         private Label label15;
@@ -778,5 +782,8 @@
         private Button button9;
         private Button button10;
         private DataGridView dataGridView4;
+        private TextBox textBox12;
+        private Label label18;
+        private DateTimePicker dateTimePicker2;
     }
 }
