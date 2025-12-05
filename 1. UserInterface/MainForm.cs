@@ -1,5 +1,6 @@
 
 using FitHub._2._BusinessLogicLayer.ENT_OBJ;
+using FitHub._3._DataAccessLayer;
 using FitHub.B_BLL;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
@@ -13,52 +14,40 @@ namespace FitHub
         //Initialisere gridview med data fra databasen fra start
         BLL bll;
         DalMembers dalMembers;
+        DalInstructor dalinstructor;
         public MainForm()
         {
             InitializeComponent();
             bll = new BLL();
+            dalinstructor = new DalInstructor();
             dalMembers = new DalMembers();
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
-            dataGridView4.DataSource = instructors;
+            InstructorGridView.DataSource = instructors;
+
 
         }
 
         //delete member button
         public void button1_Click_1(object sender, EventArgs e)
         {
-            var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            BLL.DeleteMemberBLL(memberID);
-            //refresh members after delete
-            List<Member> members = bll.GetAllMembersBLL();
-            dataGridView1.DataSource = members;
-        }
-
-
-
-        //Handling cell click event to get the selected row's MemberID
-        string memberID;
-        public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Validating that user is clicking on a row, not the header
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                var memberID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                BLL.DeleteMemberBLL(memberID);
+
+                //refresh members after delete
+                List<Member> members = bll.GetAllMembersBLL();
+                dataGridView1.DataSource = members;
             }
             else
             {
-                MessageBox.Show("Please select a row first");
+                MessageBox.Show("Please select a row");
             }
         }
 
-        // Updating a single fieldbox and saving it to the field itself and the database.
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         //add member button
         public void button1_Click(object sender, EventArgs e)
@@ -71,18 +60,20 @@ namespace FitHub
             member.Birthday = dateTimePicker2.Value;
             member.MemberType = comboBox1.Text;
             member.Active = "Active";
-            
+
+            bool wasAdded = bll.AddMemberBLL(member);
+            if (wasAdded)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                comboBox1.Text = "";
+            }
+
             //Call BLL to add member 
             bll.AddMemberBLL(member);
             UpdateMembers();
-
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            comboBox1.Text = "";
-
-
         }
 
         private void UpdateMembers()
@@ -91,11 +82,6 @@ namespace FitHub
             dataGridView1.DataSource = members;
         }
 
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,35 +98,20 @@ namespace FitHub
             switch (columnName)
             {
                 case "FirstName":
-                    dalMembers.UpdateSingleColumn(memberID_, "FirstName", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "FirstName", newValue); break;
 
                 case "SurName":
-                    dalMembers.UpdateSingleColumn(memberID_, "SurName", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "SurName", newValue); break;
 
                 case "Email":
-                    dalMembers.UpdateSingleColumn(memberID_, "Email", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "Email", newValue); break;
 
                 case "Telephone":
-                    dalMembers.UpdateSingleColumn(memberID_, "Telephone", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "Telephone", newValue); break;
 
                 case "MemberType":
-                    dalMembers.UpdateSingleColumn(memberID_, "Membertype", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "Membertype", newValue); break;
             }
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -151,21 +122,6 @@ namespace FitHub
             UpdateMembers();
         }
 
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button9_Click(object sender, EventArgs e)
         {
             Instructor instructor = new Instructor();
@@ -173,33 +129,86 @@ namespace FitHub
             instructor.SurName = textBox9.Text;
             instructor.Email = textBox8.Text;
             instructor.Telephone = textBox7.Text;
-            instructor.Certification = textBox12.Text;
+            instructor.Certification = InstructorCert.Text;
 
-            
-            
+            bool wasAdded = bll.AddInstructorBLL(instructor);
+
+            if (wasAdded)
+            {
+                textBox10.Text = "";
+                textBox9.Text = "";
+                textBox8.Text = "";
+                textBox7.Text = "";
+                InstructorCert.Text = "";
+            }
+
             //Call BLL to add member 
             bll.AddInstructorBLL(instructor);
             UpdateInstructors();
-
-            textBox10.Text = "";
-            textBox9.Text = "";
-            textBox8.Text = "";
-            textBox7.Text = "";
-            textBox12.Text = "";
         }
 
         private void UpdateInstructors()
         {
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
-            dataGridView4.DataSource = instructors;
+            InstructorGridView.DataSource = instructors;
         }
 
-        private void textBox10_TextChanged(object sender, EventArgs e)
+        //delete instructor button
+        public void button10_Click(object sender, EventArgs e)
+        {
+            if (InstructorGridView.SelectedRows.Count > 0)
+            {
+                DalInstructor dalinstructor = new DalInstructor();
+                DataGridViewRow selectedRow = InstructorGridView.SelectedRows[0];
+                var instructorID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                dalinstructor.DeleteInstructor(instructorID);
+
+                UpdateInstructors();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row");
+            }
+        }
+
+        private void InstructorGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var instructorID = InstructorGridView.Rows[e.RowIndex].Cells["InstructorID"].Value;
+
+            if (instructorID == DBNull.Value || instructorID == null) return;
+            int instructorID_ = Convert.ToInt32(instructorID);
+
+
+            string columnName = InstructorGridView.Columns[e.ColumnIndex].Name;
+            object newValue = InstructorGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+            switch (columnName)
+            {
+                case "FirstName":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "FirstName", newValue); break;
+
+                case "SurName":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "SurName", newValue); break;
+
+                case "Email":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Email", newValue); break;
+
+                case "Telephone":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Telephone", newValue); break;
+
+                case "Certifications":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Certifications", newValue); break;
+            }
+        }
+
+        private void InstructorCert_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
     }
 }
+
 
 
 

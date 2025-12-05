@@ -13,9 +13,9 @@ namespace FitHub._3._DataAccessLayer
 {
     internal class DalInstructor
     {
-        string conn = "Server=LAPTOP-KE4SJBN2;DataBase=FitHubDB;" +
+        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
-
+        
 
 
         public List<Instructor> GetAllInstructors()
@@ -61,6 +61,42 @@ namespace FitHub._3._DataAccessLayer
             addInsCmd.Parameters.AddWithValue("@Certifications", instructor.Certification);
             addInsCmd.ExecuteNonQuery();
             con.Close();
+        }
+        public void DeleteInstructor(int intstructorID)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using var con = new SqlConnection(conn);
+                con.Open();
+                using var delInsCmd = new SqlCommand("DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
+                delInsCmd.Parameters.Add("@InstructorID", System.Data.SqlDbType.Int).Value = intstructorID;
+                delInsCmd.ExecuteNonQuery();
+            }
+        }
+       public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
+        {
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                string updateInstructorColumn = $"UPDATE Instructors SET {columnName} = @Value WHERE InstructorID = @instructorID";
+
+                using (SqlCommand cmd = new SqlCommand(updateInstructorColumn, con))
+                {
+                    cmd.Parameters.AddWithValue("@InstructorID", instructorID_);
+
+                    if (newValue == null)
+                    {
+                        cmd.Parameters.AddWithValue("@Value", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Value", newValue);
+                    }
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
         }
     }
 }
