@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitHub._1._UserInterface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,12 @@ namespace FitHub._2._BusinessLogicLayer
 {
     internal class BLL_Error
     {
+        ErrorMessages errormessages = new ErrorMessages();
         public bool emailError(string email)
         {
             if (!email.Contains("@") || !email.Contains("."))
             {
-                MessageBox.Show("Invalid email format. Email must contain '@' and '.' characters.");
+                errormessages.EmailErrorMessage();
                 return false;
             }
             else if (string.IsNullOrWhiteSpace(email)) { return false; }
@@ -21,19 +23,23 @@ namespace FitHub._2._BusinessLogicLayer
 
         public bool nameError(string firstName, string surName)
         {
-            if (!firstName.All(char.IsLetter) || !surName.All(char.IsLetter))
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(surName)) { errormessages.NameErrorMessage(); return false; }
+            else
             {
-                MessageBox.Show("Names can only contain letters.");
-                return false;
+                if (!firstName.All(char.IsLetter) || !surName.All(char.IsLetter))
+                {
+                    errormessages.NameErrorMessage();
+                    return false;
+                }
+                return true;
             }
-            return true;
         }
 
         public bool telephoneError(string telephone)
         {
             if (!telephone.All(char.IsDigit) || telephone.Length != 8)
             {
-                MessageBox.Show("A telephone number can only contain 8 digits");
+                errormessages.TelephoneErrorMessage();
                 return false;
             }
             else if (string.IsNullOrWhiteSpace(telephone))
@@ -43,12 +49,12 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
         
-        public bool memberTypeError(string memberType)
+        public bool DropBoxTypeError(string memberType)
         {
                         
             if (string.IsNullOrWhiteSpace(memberType))
             {
-                MessageBox.Show("You must select a member type");
+                errormessages.DropBoxTypeErrorMessage();
                 return false;
             }
             return true;

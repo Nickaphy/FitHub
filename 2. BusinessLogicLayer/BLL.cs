@@ -30,25 +30,31 @@ namespace FitHub.B_BLL
             return dal.GetAll();
         }
 
-        public void AddMemberBLL(Member member)
+        public bool AddMemberBLL(Member member)
         {
             BLL_Error bll_error = new BLL_Error();
             DalMembers dal = new DalMembers();
 
-            //Capitalize first letter of first name and surname only and lower cases rest
-            member.FirstName = char.ToUpperInvariant(member.FirstName[0]) + member.FirstName.Substring(1).ToLowerInvariant();
-            member.SurName = char.ToUpperInvariant(member.SurName[0]) + member.SurName.Substring(1).ToLowerInvariant();
-
             bool emailErrorProceed = bll_error.emailError(member.Email);
             bool nameErrorProceed = bll_error.nameError(member.FirstName, member.SurName);
             bool telephoneErrorProceed = bll_error.telephoneError(member.Telephone);
-            bool memberTypeErrorProceed = bll_error.memberTypeError(member.MemberType);
+            bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(member.MemberType);
             
-
-            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && memberTypeErrorProceed == true)
+            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
+                //Capitalize first letter of first name and surname only and lower cases rest
+                if (string.IsNullOrWhiteSpace(member.FirstName) == false)
+                {
+                    member.FirstName = char.ToUpperInvariant(member.FirstName[0]) + member.FirstName.Substring(1).ToLowerInvariant();
+                }
+                if (string.IsNullOrWhiteSpace(member.SurName) == false)
+                {
+                    member.SurName = char.ToUpperInvariant(member.SurName[0]) + member.SurName.Substring(1).ToLowerInvariant();
+                }
                 dal.AddMember(member);
+                return true;
             }
+            return false;
         }
 
         public string ActivityStatus(int memberID, string activityStatus)
@@ -76,24 +82,33 @@ namespace FitHub.B_BLL
             return dal.GetAllInstructors();
         }
 
-        public void AddInstructorBLL(Instructor instructor)
+        public bool AddInstructorBLL(Instructor instructor)
         {
             BLL_Error bll_error = new BLL_Error();
             DalInstructor dal = new DalInstructor();
 
             //Capitalize first letter of first name and surname only and lower cases rest
-            instructor.FirstName  = char.ToUpperInvariant(instructor.FirstName[0]) + instructor.FirstName.Substring(1).ToLowerInvariant();
-            instructor.SurName = char.ToUpperInvariant(instructor.SurName[0]) + instructor.SurName.Substring(1).ToLowerInvariant();
+            if (string.IsNullOrWhiteSpace(instructor.FirstName) == false)
+            {
+                instructor.FirstName = char.ToUpperInvariant(instructor.FirstName[0]) + instructor.FirstName.Substring(1).ToLowerInvariant();
+            }
+            if (string.IsNullOrWhiteSpace(instructor.SurName) == false)
+            {
+                instructor.SurName = char.ToUpperInvariant(instructor.SurName[0]) + instructor.SurName.Substring(1).ToLowerInvariant();
+            }
 
             bool emailErrorProceed = bll_error.emailError(instructor.Email);
             bool nameErrorProceed = bll_error.nameError(instructor.FirstName, instructor.SurName);
             bool telephoneErrorProceed = bll_error.telephoneError(instructor.Telephone);
+            bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(instructor.Certification);
 
 
-            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true)
+            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
                 dal.AddInstructor(instructor);
+                return true;
             }
+            return false;
         }
     }
 }

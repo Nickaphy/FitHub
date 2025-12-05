@@ -14,7 +14,7 @@ namespace FitHub.C_DAL
 {
     public class DalMembers
     {
-        string conn = "Server=LAPTOP-KE4SJBN2;DataBase=FitHubDB;" +
+        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
         //A method that deletes a member from the Members tale based on their MemberID.
@@ -81,7 +81,7 @@ namespace FitHub.C_DAL
             con.Close();
         }
 
-        public void UpdateSingleColumn(int memberID_, string columnName, object newValue)
+        public void UpdateSingleColumnMember(int memberID_, string columnName, object newValue)
         {
             using (SqlConnection con = new SqlConnection(conn))
             {
