@@ -59,5 +59,65 @@ namespace FitHub._2._BusinessLogicLayer
             }
             return true;
         }
+
+        public bool classCapacityError(int capacity)
+        {
+            if (capacity <= 0 || capacity > 25)
+            {
+                errormessages.ClassCapacityErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classTypeError(string classType)
+        {
+            if (string.IsNullOrWhiteSpace(classType))
+            {
+                errormessages.classTypeErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool instructorIdError(string instructorID)
+        {
+            if (string.IsNullOrWhiteSpace(instructorID))
+            {
+                errormessages.instructorIDErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classDateError(DateTime classDate)
+        {
+            if (classDate < DateTime.Now.Date || classDate == null)
+            {
+                errormessages.classDateErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classTimeError(string classTime)
+        {
+            if (string.IsNullOrWhiteSpace(classTime))
+            {
+                errormessages.classTimeErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classLocationError(string classLocation)
+        {
+            if (string.IsNullOrWhiteSpace(classLocation))
+            {
+                errormessages.classLocationErrorMessage();
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -38,7 +38,7 @@
             dataGridView6 = new DataGridView();
             tabPage4 = new TabPage();
             label11 = new Label();
-            dataGridView3 = new DataGridView();
+            InstructorIDComboBox = new ComboBox();
             button5 = new Button();
             button4 = new Button();
             label10 = new Label();
@@ -46,12 +46,12 @@
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            comboBox3 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox2 = new ComboBox();
-            dataGridView2 = new DataGridView();
+            ClassLocationTextBox = new TextBox();
+            ClassCapacityTextBox = new TextBox();
+            ClassTimeComboBox = new ComboBox();
+            ClassCalender = new DateTimePicker();
+            ClassTypeComboBox = new ComboBox();
+            ClassManGrid = new DataGridView();
             tabPage2 = new TabPage();
             label18 = new Label();
             dateTimePicker2 = new DateTimePicker();
@@ -90,8 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
             tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ClassManGrid).BeginInit();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage5.SuspendLayout();
@@ -181,7 +180,7 @@
             // tabPage4
             // 
             tabPage4.Controls.Add(label11);
-            tabPage4.Controls.Add(dataGridView3);
+            tabPage4.Controls.Add(InstructorIDComboBox);
             tabPage4.Controls.Add(button5);
             tabPage4.Controls.Add(button4);
             tabPage4.Controls.Add(label10);
@@ -189,12 +188,12 @@
             tabPage4.Controls.Add(label8);
             tabPage4.Controls.Add(label7);
             tabPage4.Controls.Add(label6);
-            tabPage4.Controls.Add(textBox5);
-            tabPage4.Controls.Add(textBox6);
-            tabPage4.Controls.Add(comboBox3);
-            tabPage4.Controls.Add(dateTimePicker1);
-            tabPage4.Controls.Add(comboBox2);
-            tabPage4.Controls.Add(dataGridView2);
+            tabPage4.Controls.Add(ClassLocationTextBox);
+            tabPage4.Controls.Add(ClassCapacityTextBox);
+            tabPage4.Controls.Add(ClassTimeComboBox);
+            tabPage4.Controls.Add(ClassCalender);
+            tabPage4.Controls.Add(ClassTypeComboBox);
+            tabPage4.Controls.Add(ClassManGrid);
             tabPage4.Location = new Point(8, 46);
             tabPage4.Margin = new Padding(2);
             tabPage4.Name = "tabPage4";
@@ -206,22 +205,20 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(496, 343);
-            label11.Margin = new Padding(6, 0, 6, 0);
+            label11.Location = new Point(32, 815);
             label11.Name = "label11";
             label11.Size = new Size(125, 32);
             label11.TabIndex = 14;
             label11.Text = "Instructors";
             // 
-            // dataGridView3
+            // InstructorIDComboBox
             // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(488, 393);
-            dataGridView3.Margin = new Padding(6);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 82;
-            dataGridView3.Size = new Size(498, 320);
-            dataGridView3.TabIndex = 13;
+            InstructorIDComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            InstructorIDComboBox.FormattingEnabled = true;
+            InstructorIDComboBox.Location = new Point(15, 850);
+            InstructorIDComboBox.Name = "InstructorIDComboBox";
+            InstructorIDComboBox.Size = new Size(242, 40);
+            InstructorIDComboBox.TabIndex = 13;
             // 
             // button5
             // 
@@ -232,6 +229,7 @@
             button5.TabIndex = 12;
             button5.Text = "Make team";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -293,59 +291,62 @@
             label6.TabIndex = 6;
             label6.Text = "Location";
             // 
-            // textBox5
+            // ClassLocationTextBox
             // 
-            textBox5.Location = new Point(15, 723);
-            textBox5.Margin = new Padding(6);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(221, 39);
-            textBox5.TabIndex = 5;
+            ClassLocationTextBox.Location = new Point(15, 723);
+            ClassLocationTextBox.Margin = new Padding(6);
+            ClassLocationTextBox.Name = "ClassLocationTextBox";
+            ClassLocationTextBox.Size = new Size(221, 39);
+            ClassLocationTextBox.TabIndex = 5;
             // 
-            // textBox6
+            // ClassCapacityTextBox
             // 
-            textBox6.Location = new Point(15, 553);
-            textBox6.Margin = new Padding(6);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(221, 39);
-            textBox6.TabIndex = 4;
+            ClassCapacityTextBox.Location = new Point(15, 553);
+            ClassCapacityTextBox.Margin = new Padding(6);
+            ClassCapacityTextBox.Name = "ClassCapacityTextBox";
+            ClassCapacityTextBox.Size = new Size(221, 39);
+            ClassCapacityTextBox.TabIndex = 4;
             // 
-            // comboBox3
+            // ClassTimeComboBox
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
-            comboBox3.Location = new Point(15, 393);
-            comboBox3.Margin = new Padding(6);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(221, 40);
-            comboBox3.TabIndex = 3;
+            ClassTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ClassTimeComboBox.FormattingEnabled = true;
+            ClassTimeComboBox.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
+            ClassTimeComboBox.Location = new Point(15, 393);
+            ClassTimeComboBox.Margin = new Padding(6);
+            ClassTimeComboBox.Name = "ClassTimeComboBox";
+            ClassTimeComboBox.Size = new Size(221, 40);
+            ClassTimeComboBox.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // ClassCalender
             // 
-            dateTimePicker1.Location = new Point(15, 247);
-            dateTimePicker1.Margin = new Padding(6);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(368, 39);
-            dateTimePicker1.TabIndex = 2;
+            ClassCalender.Location = new Point(15, 247);
+            ClassCalender.Margin = new Padding(6);
+            ClassCalender.Name = "ClassCalender";
+            ClassCalender.Size = new Size(368, 39);
+            ClassCalender.TabIndex = 2;
             // 
-            // comboBox2
+            // ClassTypeComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
-            comboBox2.Location = new Point(15, 102);
-            comboBox2.Margin = new Padding(6);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(221, 40);
-            comboBox2.TabIndex = 1;
+            ClassTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ClassTypeComboBox.FormattingEnabled = true;
+            ClassTypeComboBox.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
+            ClassTypeComboBox.Location = new Point(15, 102);
+            ClassTypeComboBox.Margin = new Padding(6);
+            ClassTypeComboBox.Name = "ClassTypeComboBox";
+            ClassTypeComboBox.Size = new Size(221, 40);
+            ClassTypeComboBox.TabIndex = 1;
             // 
-            // dataGridView2
+            // ClassManGrid
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(1033, 0);
-            dataGridView2.Margin = new Padding(2);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(1038, 879);
-            dataGridView2.TabIndex = 0;
+            ClassManGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ClassManGrid.Location = new Point(1033, 0);
+            ClassManGrid.Margin = new Padding(2);
+            ClassManGrid.Name = "ClassManGrid";
+            ClassManGrid.RowHeadersWidth = 82;
+            ClassManGrid.Size = new Size(1038, 989);
+            ClassManGrid.TabIndex = 0;
+            ClassManGrid.CellContentClick += ClassManGrid_CellContentClick;
             // 
             // tabPage2
             // 
@@ -552,7 +553,6 @@
             InstructorCert.Name = "InstructorCert";
             InstructorCert.Size = new Size(242, 40);
             InstructorCert.TabIndex = 30;
-            InstructorCert.SelectedIndexChanged += InstructorCert_SelectedIndexChanged;
             // 
             // label12
             // 
@@ -714,8 +714,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView6).EndInit();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ClassManGrid).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -736,9 +735,9 @@
         private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
-        private DataGridView dataGridView2;
+        private DataGridView ClassManGrid;
         private Button button1;
-        private TextBox textBox5;
+        private TextBox ClassLocationTextBox;
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
@@ -751,22 +750,20 @@
         private ContextMenuStrip contextMenuStrip1;
         private ComboBox comboBox1;
         private Button button3;
-        private TextBox textBox6;
-        private ComboBox comboBox3;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox2;
+        private TextBox ClassCapacityTextBox;
+        private ComboBox ClassTimeComboBox;
+        private DateTimePicker ClassCalender;
+        private ComboBox ClassTypeComboBox;
         private Label label10;
         private Label label9;
         private Label label8;
         private Label label7;
         private Label label6;
-        private DataGridView dataGridView3;
         private Button button5;
         private Button button4;
         private Label label13;
         private DataGridView dataGridView7;
         private DataGridView dataGridView6;
-        private Label label11;
         private Button button7;
         private Label label12;
         private Label label14;
@@ -783,5 +780,7 @@
         private Label label18;
         private DateTimePicker dateTimePicker2;
         private ComboBox InstructorCert;
+        private Label label11;
+        private ComboBox InstructorIDComboBox;
     }
 }
