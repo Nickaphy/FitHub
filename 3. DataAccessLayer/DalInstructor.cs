@@ -8,6 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace FitHub._3._DataAccessLayer
 {
@@ -68,7 +70,7 @@ namespace FitHub._3._DataAccessLayer
             {
                 using var con = new SqlConnection(conn);
                 con.Open();
-                using var delInsCmd = new SqlCommand("DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
+                using var delInsCmd = new SqlCommand("DELETE FROM ClassMembers WHERE ClassID IN(SELECT ClassID FROM Classes WHERE InstructorID = @InstructorID) DELETE FROM Classes WHERE InstructorID = @InstructorID DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
                 delInsCmd.Parameters.Add("@InstructorID", System.Data.SqlDbType.Int).Value = intstructorID;
                 delInsCmd.ExecuteNonQuery();
             }

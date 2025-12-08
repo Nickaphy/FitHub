@@ -72,7 +72,6 @@ namespace FitHub
             }
 
             //Call BLL to add member 
-            bll.AddMemberBLL(member);
             UpdateMembers();
         }
 
@@ -143,7 +142,6 @@ namespace FitHub
             }
 
             //Call BLL to add member 
-            bll.AddInstructorBLL(instructor);
             UpdateInstructors();
         }
 

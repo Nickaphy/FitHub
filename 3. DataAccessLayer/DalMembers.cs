@@ -24,7 +24,7 @@ namespace FitHub.C_DAL
             {
                 using var con = new SqlConnection(conn);
                 con.Open();
-                using var delMemCmd = new SqlCommand("DELETE FROM Members WHERE MemberID = @MemberID", con);
+                using var delMemCmd = new SqlCommand("DELETE FROM ClassMembers WHERE MemberID = @MemberID DELETE FROM Members WHERE MemberID = @MemberID", con);
                 delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
                 delMemCmd.ExecuteNonQuery();
             }
