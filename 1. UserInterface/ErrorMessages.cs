@@ -28,5 +28,35 @@ namespace FitHub._1._UserInterface
         {
             MessageBox.Show("You have to make a selection");
         }
+
+        public void ClassCapacityErrorMessage()
+        {
+            MessageBox.Show("Class capacity must be between 1 and 25.");
+        }
+
+        public void classTypeErrorMessage()
+        {
+            MessageBox.Show("Must choose a class type");
+        }
+
+        public void instructorIDErrorMessage()
+        {
+            MessageBox.Show("Must choose an instructor");
+        }
+
+        public void classDateErrorMessage()
+        {
+            MessageBox.Show("Either you forgot to choose a date, or you chose a date from the past");
+        }
+
+        public void classTimeErrorMessage()
+        {
+            MessageBox.Show("You have to choose a time for the class");
+        }
+
+        public void classLocationErrorMessage()
+        {
+            MessageBox.Show("You have to enter a location for the class");
+        }
     }
 }

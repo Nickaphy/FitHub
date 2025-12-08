@@ -15,19 +15,24 @@ namespace FitHub
         BLL bll;
         DalMembers dalMembers;
         DalInstructor dalinstructor;
+        DalClasses dalclasses;
         public MainForm()
         {
             InitializeComponent();
             bll = new BLL();
             dalinstructor = new DalInstructor();
             dalMembers = new DalMembers();
+            dalclasses = new DalClasses();
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             InstructorGridView.DataSource = instructors;
 
+            List<Class> classes = bll.GetAllClassesBLL();
+            ClassManGrid.DataSource = classes;
 
+            ClassInstructorDropBox();
         }
 
         //delete member button
@@ -140,11 +145,15 @@ namespace FitHub
                 textBox7.Text = "";
                 InstructorCert.Text = "";
             }
-
-            //Call BLL to add member 
             UpdateInstructors();
+            dalclasses.UpdateClassManInstructorDropBox();
         }
 
+        private void UpdateClasses()
+        {
+            List<Class> classes = bll.GetAllClassesBLL();
+            ClassManGrid.DataSource = classes;
+        }
         private void UpdateInstructors()
         {
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
@@ -200,12 +209,61 @@ namespace FitHub
             }
         }
 
-        private void InstructorCert_SelectedIndexChanged(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Class classes = new Class();
+
+            classes.ClassType = ClassTypeComboBox.Text;
+            classes.ClassDate = ClassCalender.Value;
+            classes.ClassTime = ClassTimeComboBox.Text;
+            classes.ClassCapacity = Convert.ToInt32(ClassCapacityTextBox.Text);
+            classes.ClassLocation = ClassLocationTextBox.Text;
+            classes.InstructorID = Convert.ToInt32(InstructorIDComboBox.Text);
+
+            bool wasAdded = bll.AddClassBLL(classes);
+
+            if (wasAdded)
+            {
+                ClassTypeComboBox.Text = "";
+                ClassTimeComboBox.Text = "";
+                ClassCapacityTextBox.Text = "";
+                ClassLocationTextBox.Text = "";
+            }
+            UpdateClasses();
+        }
+
+        public void ClassInstructorDropBox()
+        {
+            // Refresh and bind instructor list so ComboBox.SelectedValue contains InstructorID
+            InstructorIDComboBox.DataSource = null;
+
+            var instructors = bll.GetAllInstructorsBLL();
+            var items = new List<KeyValuePair<int, string>>(instructors.Count);
+
+            foreach (var ins in instructors)
+            {
+                var fullName = string.IsNullOrWhiteSpace(ins.FirstName) && string.IsNullOrWhiteSpace(ins.SurName)
+                    ? "(Unknown)"
+                    : $"{ins.FirstName} {ins.SurName}".Trim();
+                items.Add(new KeyValuePair<int, string>(ins.InstructorID, fullName));
+            }
+
+            InstructorIDComboBox.DisplayMember = "Value";
+            InstructorIDComboBox.ValueMember = "Key";
+            InstructorIDComboBox.DataSource = items;
+
+            // No selection by default
+            InstructorIDComboBox.SelectedIndex = -1;
+        }
+
+
+        private void ClassManGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
     }
 }
+
 
 
 

@@ -30,6 +30,22 @@ namespace FitHub.B_BLL
             return dal.GetAll();
         }
 
+        public bool AddClassBLL(Class classes)
+        {
+            BLL_Error bll_error = new BLL_Error();
+            DalClasses dal = new DalClasses();
+
+            bool classCapacityErrorProceed = bll_error.classCapacityError(classes.ClassCapacity);
+            bool classTypeErrorProceed = bll_error.classTypeError(classes.ClassType);
+            bool instructorIdErrorProceed = bll_error.instructorIdError(classes.InstructorID.ToString());
+            bool classDateErrorProceed = bll_error.classDateError(classes.ClassDate);
+            bool classTimeErrorProceed = bll_error.classTimeError(classes.ClassTime);
+            bool classLocationErrorProceed = bll_error.classLocationError(classes.ClassLocation);
+
+            dal.AddClassDAL(classes);
+            return true;
+        }
+
         public bool AddMemberBLL(Member member)
         {
             BLL_Error bll_error = new BLL_Error();
@@ -80,6 +96,12 @@ namespace FitHub.B_BLL
         {
             DalInstructor dal = new DalInstructor();
             return dal.GetAllInstructors();
+        }
+
+        public List<Class> GetAllClassesBLL()
+        {
+            DalClasses dal = new DalClasses();
+            return dal.GetAllClassesDAL();
         }
 
         public bool AddInstructorBLL(Instructor instructor)
