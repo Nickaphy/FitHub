@@ -347,6 +347,7 @@
             ClassManGrid.Size = new Size(1038, 989);
             ClassManGrid.TabIndex = 0;
             ClassManGrid.CellContentClick += ClassManGrid_CellContentClick;
+            ClassManGrid.CellEndEdit += ClassManGrid_CellEndEdit;
             // 
             // tabPage2
             // 

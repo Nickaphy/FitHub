@@ -24,6 +24,7 @@ namespace FitHub._3._DataAccessLayer
                        i.InstructorID, i.FirstName, i.SurName
                 FROM Classes c
                 INNER JOIN Instructors i ON c.InstructorID = i.InstructorID
+                WHERE c.ClassDate >= CAST(GETDATE() AS DATE)
                 ORDER BY c.ClassDate, c.ClassTime ASC;", con);
 
             using var reader = cmd.ExecuteReader();
@@ -120,5 +121,33 @@ namespace FitHub._3._DataAccessLayer
             var dalInstructor = new DalInstructor();
             return dalInstructor.GetAllInstructors();
         }
+
+        public void UpdateSingleColumnClass(int classID, string columnName, object newValue)
+        {
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                string updateClassColumn = $"UPDATE Classes SET {columnName} = @Value WHERE ClassID = @classID";
+
+                using (SqlCommand cmd = new SqlCommand(updateClassColumn, con))
+                {
+                    cmd.Parameters.AddWithValue("@classID", classID);
+
+                    if (newValue == null)
+                    {
+                        cmd.Parameters.AddWithValue("@Value", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Value", newValue);
+                    }
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+
     }
 }

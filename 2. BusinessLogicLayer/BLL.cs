@@ -42,8 +42,12 @@ namespace FitHub.B_BLL
             bool classTimeErrorProceed = bll_error.classTimeError(classes.ClassTime);
             bool classLocationErrorProceed = bll_error.classLocationError(classes.ClassLocation);
 
-            dal.AddClassDAL(classes);
-            return true;
+            if (classCapacityErrorProceed == true && classTypeErrorProceed == true && instructorIdErrorProceed == true && classDateErrorProceed == true && classTimeErrorProceed == true && classLocationErrorProceed == true)
+            {
+                dal.AddClassDAL(classes);
+                return true;
+            }
+            return false;
         }
 
         public bool AddMemberBLL(Member member)

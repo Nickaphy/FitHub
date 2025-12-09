@@ -1,4 +1,3 @@
-
 using FitHub._2._BusinessLogicLayer.ENT_OBJ;
 using FitHub._3._DataAccessLayer;
 using FitHub.B_BLL;
@@ -126,14 +125,16 @@ namespace FitHub
             UpdateMembers();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        public void button9_Click(object sender, EventArgs e)
         {
-            Instructor instructor = new Instructor();
-            instructor.FirstName = textBox10.Text;
-            instructor.SurName = textBox9.Text;
-            instructor.Email = textBox8.Text;
-            instructor.Telephone = textBox7.Text;
-            instructor.Certification = InstructorCert.Text;
+            Instructor instructor = new Instructor
+            {
+                FirstName = textBox10.Text,
+                SurName = textBox9.Text,
+                Email = textBox8.Text,
+                Telephone = textBox7.Text,
+                Certification = InstructorCert.Text
+            };
 
             bool wasAdded = bll.AddInstructorBLL(instructor);
 
@@ -144,9 +145,11 @@ namespace FitHub
                 textBox8.Text = "";
                 textBox7.Text = "";
                 InstructorCert.Text = "";
+
+                // Refresh UI lists
+                UpdateInstructors();
+                ClassInstructorDropBox();
             }
-            UpdateInstructors();
-            dalclasses.UpdateClassManInstructorDropBox();
         }
 
         private void UpdateClasses()
@@ -218,7 +221,9 @@ namespace FitHub
             classes.ClassTime = ClassTimeComboBox.Text;
             classes.ClassCapacity = Convert.ToInt32(ClassCapacityTextBox.Text);
             classes.ClassLocation = ClassLocationTextBox.Text;
-            classes.InstructorID = Convert.ToInt32(InstructorIDComboBox.Text);
+            classes.InstructorID = Convert.ToInt32(InstructorIDComboBox.Text.Split(' ')[0]);
+            classes.FirstName = InstructorIDComboBox.Text;
+            classes.SurName = InstructorIDComboBox.Text;
 
             bool wasAdded = bll.AddClassBLL(classes);
 
@@ -228,31 +233,26 @@ namespace FitHub
                 ClassTimeComboBox.Text = "";
                 ClassCapacityTextBox.Text = "";
                 ClassLocationTextBox.Text = "";
+                InstructorIDComboBox.Text = "";
             }
             UpdateClasses();
         }
 
         public void ClassInstructorDropBox()
         {
-            // Refresh and bind instructor list so ComboBox.SelectedValue contains InstructorID
-            InstructorIDComboBox.DataSource = null;
+            InstructorIDComboBox.Items.Clear();
 
             var instructors = bll.GetAllInstructorsBLL();
-            var items = new List<KeyValuePair<int, string>>(instructors.Count);
-
             foreach (var ins in instructors)
             {
                 var fullName = string.IsNullOrWhiteSpace(ins.FirstName) && string.IsNullOrWhiteSpace(ins.SurName)
                     ? "(Unknown)"
-                    : $"{ins.FirstName} {ins.SurName}".Trim();
-                items.Add(new KeyValuePair<int, string>(ins.InstructorID, fullName));
+                    : $"{ins.InstructorID} {ins.FirstName} {ins.SurName}".Trim();
+
+                InstructorIDComboBox.Items.Add(fullName);
             }
 
-            InstructorIDComboBox.DisplayMember = "Value";
-            InstructorIDComboBox.ValueMember = "Key";
-            InstructorIDComboBox.DataSource = items;
-
-            // No selection by default
+            // leave no selection by default
             InstructorIDComboBox.SelectedIndex = -1;
         }
 
@@ -261,8 +261,54 @@ namespace FitHub
         {
 
         }
+
+        private void ClassManGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var classID = ClassManGrid.Rows[e.RowIndex].Cells["ClassID"].Value;
+
+            if (classID == DBNull.Value || classID == null) return;
+            int classID_ = Convert.ToInt32(classID);
+
+
+            string columnName = ClassManGrid.Columns[e.ColumnIndex].Name;
+            object newValue = ClassManGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+            switch (columnName)
+            {
+                case "ClassType":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassType", newValue); break;
+
+                case "ClassDate":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassDate", newValue); break;
+
+                case "ClassTime":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassTime", newValue); break;
+
+                case "ClassCapacity":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassCapacity", newValue); break;
+
+                case "ClassLocation":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassLocation", newValue); break;
+
+                case "InstructorID":
+                    dalclasses.UpdateSingleColumnClass(classID_, "InstructorID", newValue); break;
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
