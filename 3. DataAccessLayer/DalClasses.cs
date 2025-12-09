@@ -63,7 +63,7 @@ namespace FitHub._3._DataAccessLayer
                     ClassTime = classTimeString,
                     ClassLocation = reader.IsDBNull(ordClassLocation) ? string.Empty : reader.GetString(ordClassLocation),
                     ClassType = reader.IsDBNull(ordClassType) ? string.Empty : reader.GetString(ordClassType),
-                    ClassCapacity = reader.IsDBNull(ordClassCapacity) ? 0 : reader.GetInt32(ordClassCapacity),
+                    ClassCapacity = reader.IsDBNull(ordClassCapacity) ? string.Empty : reader.GetString(ordClassCapacity),
                     InstructorID = reader.IsDBNull(ordInstructorID) ? 0 : reader.GetInt32(ordInstructorID),
                     FirstName = reader.IsDBNull(ordFirstName) ? string.Empty : reader.GetString(ordFirstName),
                     SurName = reader.IsDBNull(ordSurName) ? string.Empty : reader.GetString(ordSurName),

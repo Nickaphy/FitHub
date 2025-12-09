@@ -14,7 +14,7 @@ namespace FitHub._2._BusinessLogicLayer.ENT_OBJ
         public string ClassTime { get; set; }
         public string ClassLocation { get; set; }
         public string ClassType { get; set; }
-        public int ClassCapacity { get; set; }
+        public string ClassCapacity { get; set; }
         public string FirstName { get; set; }
         public string SurName { get; set; } 
 
