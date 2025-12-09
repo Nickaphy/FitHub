@@ -102,6 +102,3 @@ namespace FitHub._3._DataAccessLayer
         }
     }
 }
-
-/* 
- * Thuesday fix instructor updating in DropBox in Class management when adding a new instructor
