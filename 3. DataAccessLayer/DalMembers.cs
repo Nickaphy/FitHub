@@ -111,7 +111,7 @@ namespace FitHub.C_DAL
             using var con = new SqlConnection(conn);
             {
                 con.Open();
-                    string changeActivityQuery = "UPDATE Members SET Active = @newStatus WHERE MemberID = @memberID";
+                string changeActivityQuery = "UPDATE Members SET Active = @newStatus WHERE MemberID = @memberID";
 
                 using (SqlCommand cmd = new SqlCommand(changeActivityQuery, con))
                 {

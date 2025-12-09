@@ -32,10 +32,10 @@
             MemberDeleteButton = new Button();
             tabControl1 = new TabControl();
             tabPage3 = new TabPage();
-            button7 = new Button();
+            BookingButton = new Button();
             label13 = new Label();
-            dataGridView7 = new DataGridView();
-            dataGridView6 = new DataGridView();
+            BookingClassGrid = new DataGridView();
+            BookingMemberGrid = new DataGridView();
             tabPage4 = new TabPage();
             label11 = new Label();
             InstructorIDComboBox = new ComboBox();
@@ -86,8 +86,8 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BookingClassGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BookingMemberGrid).BeginInit();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ClassManGrid).BeginInit();
             tabPage2.SuspendLayout();
@@ -124,10 +124,10 @@
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(button7);
+            tabPage3.Controls.Add(BookingButton);
             tabPage3.Controls.Add(label13);
-            tabPage3.Controls.Add(dataGridView7);
-            tabPage3.Controls.Add(dataGridView6);
+            tabPage3.Controls.Add(BookingClassGrid);
+            tabPage3.Controls.Add(BookingMemberGrid);
             tabPage3.Location = new Point(8, 46);
             tabPage3.Margin = new Padding(2);
             tabPage3.Name = "tabPage3";
@@ -136,15 +136,16 @@
             tabPage3.Text = "Booking";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // BookingButton
             // 
-            button7.Location = new Point(440, 429);
-            button7.Margin = new Padding(6);
-            button7.Name = "button7";
-            button7.Size = new Size(180, 49);
-            button7.TabIndex = 7;
-            button7.Text = "Book member";
-            button7.UseVisualStyleBackColor = true;
+            BookingButton.Location = new Point(440, 429);
+            BookingButton.Margin = new Padding(6);
+            BookingButton.Name = "BookingButton";
+            BookingButton.Size = new Size(180, 49);
+            BookingButton.TabIndex = 7;
+            BookingButton.Text = "Book member";
+            BookingButton.UseVisualStyleBackColor = true;
+            BookingButton.Click += BookingButton_Click;
             // 
             // label13
             // 
@@ -156,25 +157,27 @@
             label13.TabIndex = 5;
             label13.Text = "Members";
             // 
-            // dataGridView7
+            // BookingClassGrid
             // 
-            dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView7.Location = new Point(631, 6);
-            dataGridView7.Margin = new Padding(6);
-            dataGridView7.Name = "dataGridView7";
-            dataGridView7.RowHeadersWidth = 82;
-            dataGridView7.Size = new Size(1320, 870);
-            dataGridView7.TabIndex = 3;
+            BookingClassGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BookingClassGrid.Location = new Point(631, 6);
+            BookingClassGrid.Margin = new Padding(6);
+            BookingClassGrid.Name = "BookingClassGrid";
+            BookingClassGrid.RowHeadersWidth = 82;
+            BookingClassGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BookingClassGrid.Size = new Size(1320, 870);
+            BookingClassGrid.TabIndex = 3;
             // 
-            // dataGridView6
+            // BookingMemberGrid
             // 
-            dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView6.Location = new Point(15, 96);
-            dataGridView6.Margin = new Padding(6);
-            dataGridView6.Name = "dataGridView6";
-            dataGridView6.RowHeadersWidth = 82;
-            dataGridView6.Size = new Size(414, 781);
-            dataGridView6.TabIndex = 2;
+            BookingMemberGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BookingMemberGrid.Location = new Point(15, 96);
+            BookingMemberGrid.Margin = new Padding(6);
+            BookingMemberGrid.Name = "BookingMemberGrid";
+            BookingMemberGrid.RowHeadersWidth = 82;
+            BookingMemberGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BookingMemberGrid.Size = new Size(414, 781);
+            BookingMemberGrid.TabIndex = 2;
             // 
             // tabPage4
             // 
@@ -699,8 +702,8 @@
             tabControl1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BookingClassGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BookingMemberGrid).EndInit();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ClassManGrid).EndInit();
@@ -750,9 +753,9 @@
         private Label label6;
         private Button button5;
         private Label label13;
-        private DataGridView dataGridView7;
-        private DataGridView dataGridView6;
-        private Button button7;
+        private DataGridView BookingClassGrid;
+        private DataGridView BookingMemberGrid;
+        private Button BookingButton;
         private Label label12;
         private Label label14;
         private Label label15;

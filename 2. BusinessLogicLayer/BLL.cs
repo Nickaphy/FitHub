@@ -59,7 +59,7 @@ namespace FitHub.B_BLL
             bool nameErrorProceed = bll_error.nameError(member.FirstName, member.SurName);
             bool telephoneErrorProceed = bll_error.telephoneError(member.Telephone);
             bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(member.MemberType);
-            
+
             if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
                 //Capitalize first letter of first name and surname only and lower cases rest
@@ -93,8 +93,6 @@ namespace FitHub.B_BLL
 
             return newStatus;
         }
-
-
 
         public List<Instructor> GetAllInstructorsBLL()
         {
@@ -135,6 +133,12 @@ namespace FitHub.B_BLL
                 return true;
             }
             return false;
+        }
+
+        public void BookingClass(int classID, int memberID)
+        {
+            DalBooking dal = new DalBooking();
+            dal.BookingClassDAL(classID, memberID);
         }
     }
 }

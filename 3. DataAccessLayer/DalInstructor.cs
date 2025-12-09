@@ -17,7 +17,7 @@ namespace FitHub._3._DataAccessLayer
     {
         string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
-        
+
 
 
         public List<Instructor> GetAllInstructors()
@@ -40,7 +40,7 @@ namespace FitHub._3._DataAccessLayer
                     Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                     Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                     Certification = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
-                    
+
                 });
             }
             con.Close();
@@ -57,7 +57,7 @@ namespace FitHub._3._DataAccessLayer
 
             using var addInsCmd = new SqlCommand(addInstructorQuery, con);
             addInsCmd.Parameters.AddWithValue("@FirstName", instructor.FirstName);
-            addInsCmd.Parameters.AddWithValue("@SurName",  instructor.SurName);
+            addInsCmd.Parameters.AddWithValue("@SurName", instructor.SurName);
             addInsCmd.Parameters.AddWithValue("@Email", instructor.Email);
             addInsCmd.Parameters.AddWithValue("@Telephone", instructor.Telephone);
             addInsCmd.Parameters.AddWithValue("@Certifications", instructor.Certification);
@@ -75,7 +75,7 @@ namespace FitHub._3._DataAccessLayer
                 delInsCmd.ExecuteNonQuery();
             }
         }
-       public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
+        public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
         {
             using (SqlConnection con = new SqlConnection(conn))
             {
