@@ -219,7 +219,7 @@ namespace FitHub
             classes.ClassType = ClassTypeComboBox.Text;
             classes.ClassDate = ClassCalender.Value;
             classes.ClassTime = ClassTimeComboBox.Text;
-            classes.ClassCapacity = Convert.ToInt32(ClassCapacityTextBox.Text);
+            classes.ClassCapacity = ClassCapacityTextBox.Text;
             classes.ClassLocation = ClassLocationTextBox.Text;
             classes.InstructorID = Convert.ToInt32(InstructorIDComboBox.Text.Split(' ')[0]);
             classes.FirstName = InstructorIDComboBox.Text;

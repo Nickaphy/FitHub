@@ -31,7 +31,7 @@ namespace FitHub._1._UserInterface
 
         public void ClassCapacityErrorMessage()
         {
-            MessageBox.Show("Class capacity must be between 1 and 25.");
+            MessageBox.Show("Class capacity must be between 1 and 25, and must be a numeric value");
         }
 
         public void classTypeErrorMessage()

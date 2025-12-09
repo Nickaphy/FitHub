@@ -60,14 +60,18 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
-        public bool classCapacityError(int capacity)
+        public bool classCapacityError(string capacityString)
         {
-            if (capacity <= 0 || capacity > 25)
+            if (!int.TryParse(capacityString.ToString(), out int capacity))
             {
                 errormessages.ClassCapacityErrorMessage();
                 return false;
+            }else if(capacity <= 0 && capacity < 26)
+            {
+                return true;
             }
             return true;
+
         }
 
         public bool classTypeError(string classType)

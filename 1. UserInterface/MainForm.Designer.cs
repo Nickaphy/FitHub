@@ -40,7 +40,6 @@
             label11 = new Label();
             InstructorIDComboBox = new ComboBox();
             button5 = new Button();
-            button4 = new Button();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -182,7 +181,6 @@
             tabPage4.Controls.Add(label11);
             tabPage4.Controls.Add(InstructorIDComboBox);
             tabPage4.Controls.Add(button5);
-            tabPage4.Controls.Add(button4);
             tabPage4.Controls.Add(label10);
             tabPage4.Controls.Add(label9);
             tabPage4.Controls.Add(label8);
@@ -230,16 +228,6 @@
             button5.Text = "Make team";
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(405, 830);
-            button4.Margin = new Padding(6);
-            button4.Name = "button4";
-            button4.Size = new Size(163, 49);
-            button4.TabIndex = 11;
-            button4.Text = "Edit and save";
-            button4.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -761,7 +749,6 @@
         private Label label7;
         private Label label6;
         private Button button5;
-        private Button button4;
         private Label label13;
         private DataGridView dataGridView7;
         private DataGridView dataGridView6;
