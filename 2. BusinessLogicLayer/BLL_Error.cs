@@ -48,10 +48,10 @@ namespace FitHub._2._BusinessLogicLayer
             }
             return true;
         }
-        
+
         public bool DropBoxTypeError(string memberType)
         {
-                        
+
             if (string.IsNullOrWhiteSpace(memberType))
             {
                 errormessages.DropBoxTypeErrorMessage();
@@ -66,7 +66,8 @@ namespace FitHub._2._BusinessLogicLayer
             {
                 errormessages.ClassCapacityErrorMessage();
                 return false;
-            }else if(capacity <= 0 && capacity < 26)
+            }
+            else if (capacity <= 0 && capacity < 26)
             {
                 return true;
             }

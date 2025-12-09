@@ -22,14 +22,17 @@ namespace FitHub
             dalinstructor = new DalInstructor();
             dalMembers = new DalMembers();
             dalclasses = new DalClasses();
+
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
+            BookingMemberGrid.DataSource = members;
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             InstructorGridView.DataSource = instructors;
 
             List<Class> classes = bll.GetAllClassesBLL();
             ClassManGrid.DataSource = classes;
+            BookingClassGrid.DataSource = classes;
 
             ClassInstructorDropBox();
         }
@@ -79,11 +82,6 @@ namespace FitHub
             UpdateMembers();
         }
 
-        private void UpdateMembers()
-        {
-            List<Member> members = bll.GetAllMembersBLL();
-            dataGridView1.DataSource = members;
-        }
 
 
         public void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -156,11 +154,18 @@ namespace FitHub
         {
             List<Class> classes = bll.GetAllClassesBLL();
             ClassManGrid.DataSource = classes;
+            BookingClassGrid.DataSource = classes;
         }
         private void UpdateInstructors()
         {
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             InstructorGridView.DataSource = instructors;
+        }
+        private void UpdateMembers()
+        {
+            List<Member> members = bll.GetAllMembersBLL();
+            dataGridView1.DataSource = members;
+            BookingMemberGrid.DataSource = members;
         }
 
         //delete instructor button
@@ -294,6 +299,13 @@ namespace FitHub
                 case "InstructorID":
                     dalclasses.UpdateSingleColumnClass(classID_, "InstructorID", newValue); break;
             }
+        }
+
+        private void BookingButton_Click(object sender, EventArgs e)
+        {
+            var memberID = Convert.ToInt32(BookingMemberGrid.SelectedRows[0].Cells[0].Value);
+            var classID = Convert.ToInt32(BookingClassGrid.SelectedRows[0].Cells[0].Value);
+            bll.BookingClass(classID, memberID);
         }
     }
 }
