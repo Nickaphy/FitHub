@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Windows.Forms;
+using FitHub._1._UserInterface;
 
 namespace FitHub.B_BLL
 {
@@ -141,6 +142,7 @@ namespace FitHub.B_BLL
         {
             DalBooking dal = new DalBooking();
             DalClasses dalClasses = new DalClasses();
+            ErrorMessages errorMessages = new ErrorMessages();
 
             // get capacity for class
             var classes = dalClasses.GetAllClassesDAL();
@@ -148,6 +150,7 @@ namespace FitHub.B_BLL
             int capacity = 0;
             if (cls != null && int.TryParse(cls.ClassCapacity, out var parsed))
             {
+                errorMessages.ClassCapacityErrorMessage();
                 capacity = parsed;
             }
 
@@ -156,7 +159,16 @@ namespace FitHub.B_BLL
 
             if (capacity > 0 && current >= capacity)
             {
-                MessageBox.Show("Class is full. Cannot book more members.");
+                
+                return;
+            }
+
+            classes = dalClasses.GetAllClassesDAL();
+            cls = classes.FirstOrDefault(c => c.ClassID == classID);
+            int doublebooking = dal.CheckDoubleBookingDAL(classID, memberID);
+            if (doublebooking > 0)
+            {
+                errorMessages.doubleBookingErrorMessage();
                 return;
             }
 

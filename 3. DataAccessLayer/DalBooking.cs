@@ -42,5 +42,17 @@ namespace FitHub._3._DataAccessLayer
             addBookingCmd.ExecuteNonQuery();
             con.Close();
         }
+
+        public int CheckDoubleBookingDAL(int classID, int memberID)
+        {             using var con = new SqlConnection(conn);
+            con.Open();
+            string checkDoubleBookingQuery = "SELECT COUNT(*) FROM ClassMembers WHERE ClassID = @ClassID AND MemberID = @MemberID";
+            using var checkDoubleBookingCmd = new SqlCommand(checkDoubleBookingQuery, con);
+            checkDoubleBookingCmd.Parameters.AddWithValue("@ClassID", classID);
+            checkDoubleBookingCmd.Parameters.AddWithValue("@MemberID", memberID);
+            int count = Convert.ToInt32(checkDoubleBookingCmd.ExecuteScalar());
+            con.Close();
+            return count;
+        }
     }
 }
