@@ -89,11 +89,12 @@
             SearchAllMembersDataGrid = new DataGridView();
             tabPage7 = new TabPage();
             button2 = new Button();
-            Classes = new Label();
+            Instructor = new Label();
             label19 = new Label();
-            scopeClassesHistoryGridView = new DataGridView();
-            searchClassesDataGridView = new DataGridView();
+            scopeClassHistoryView = new DataGridView();
+            searchInstructorDataGridView = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            tabPage1 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BookingClassGrid).BeginInit();
@@ -108,8 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)scopeMemberHistoryDataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SearchAllMembersDataGrid).BeginInit();
             tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)scopeClassesHistoryGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)searchClassesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).BeginInit();
             SuspendLayout();
             // 
             // MemberDeleteButton
@@ -131,6 +132,7 @@
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
             tabControl1.Controls.Add(tabPage7);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Location = new Point(0, 1);
             tabControl1.Margin = new Padding(1);
             tabControl1.Name = "tabControl1";
@@ -723,14 +725,15 @@
             SearchAllMembersDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             SearchAllMembersDataGrid.Size = new Size(334, 352);
             SearchAllMembersDataGrid.TabIndex = 5;
+            SearchAllMembersDataGrid.CellContentClick += SearchAllMembersDataGrid_CellContentClick;
             // 
             // tabPage7
             // 
             tabPage7.Controls.Add(button2);
-            tabPage7.Controls.Add(Classes);
+            tabPage7.Controls.Add(Instructor);
             tabPage7.Controls.Add(label19);
-            tabPage7.Controls.Add(scopeClassesHistoryGridView);
-            tabPage7.Controls.Add(searchClassesDataGridView);
+            tabPage7.Controls.Add(scopeClassHistoryView);
+            tabPage7.Controls.Add(searchInstructorDataGridView);
             tabPage7.Location = new Point(4, 24);
             tabPage7.Name = "tabPage7";
             tabPage7.Size = new Size(1113, 457);
@@ -748,45 +751,56 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // Classes
+            // Instructor
             // 
-            Classes.AutoSize = true;
-            Classes.Location = new Point(24, 48);
-            Classes.Name = "Classes";
-            Classes.Size = new Size(45, 15);
-            Classes.TabIndex = 3;
-            Classes.Text = "Classes";
+            Instructor.AutoSize = true;
+            Instructor.Location = new Point(24, 48);
+            Instructor.Name = "Instructor";
+            Instructor.Size = new Size(58, 15);
+            Instructor.TabIndex = 3;
+            Instructor.Text = "Instructor";
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Location = new Point(564, 48);
             label19.Name = "label19";
-            label19.Size = new Size(75, 15);
+            label19.Size = new Size(45, 15);
             label19.TabIndex = 2;
-            label19.Text = "Class History";
+            label19.Text = "Classes";
             // 
-            // scopeClassesHistoryGridView
+            // scopeClassHistoryView
             // 
-            scopeClassesHistoryGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            scopeClassesHistoryGridView.Location = new Point(564, 66);
-            scopeClassesHistoryGridView.Name = "scopeClassesHistoryGridView";
-            scopeClassesHistoryGridView.Size = new Size(427, 352);
-            scopeClassesHistoryGridView.TabIndex = 1;
+            scopeClassHistoryView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            scopeClassHistoryView.Location = new Point(564, 66);
+            scopeClassHistoryView.Name = "scopeClassHistoryView";
+            scopeClassHistoryView.Size = new Size(427, 352);
+            scopeClassHistoryView.TabIndex = 1;
             // 
-            // searchClassesDataGridView
+            // searchInstructorDataGridView
             // 
-            searchClassesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            searchClassesDataGridView.Location = new Point(24, 66);
-            searchClassesDataGridView.Name = "searchClassesDataGridView";
-            searchClassesDataGridView.Size = new Size(334, 352);
-            searchClassesDataGridView.TabIndex = 0;
+            searchInstructorDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            searchInstructorDataGridView.Location = new Point(24, 66);
+            searchInstructorDataGridView.Name = "searchInstructorDataGridView";
+            searchInstructorDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            searchInstructorDataGridView.Size = new Size(334, 352);
+            searchInstructorDataGridView.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(32, 32);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1113, 457);
+            tabPage1.TabIndex = 7;
+            tabPage1.Text = "Reports";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -817,8 +831,8 @@
             ((System.ComponentModel.ISupportInitialize)SearchAllMembersDataGrid).EndInit();
             tabPage7.ResumeLayout(false);
             tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)scopeClassesHistoryGridView).EndInit();
-            ((System.ComponentModel.ISupportInitialize)searchClassesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -880,14 +894,15 @@
         private ComboBox InstructorIDComboBox;
         private TabPage tabPage7;
         private Button button2;
-        private Label Classes;
+        private Label Instructor;
         private Label label19;
-        private DataGridView scopeClassesHistoryGridView;
-        private DataGridView searchClassesDataGridView;
+        private DataGridView scopeClassHistoryView;
+        private DataGridView searchInstructorDataGridView;
         private Button GetMemberHistory;
         private Label label20;
         private Label label21;
         private DataGridView scopeMemberHistoryDataGrid;
         private DataGridView SearchAllMembersDataGrid;
+        private TabPage tabPage1;
     }
 }

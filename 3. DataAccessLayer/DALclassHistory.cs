@@ -13,10 +13,10 @@ namespace FitHub._3._DataAccessLayer
         string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
-        public List<ClassHistoryDTO> GetClassHistory(int classID)
+        public List<ClassHistoryDTO> GetClassHistory(int instructorID)
         {
             List<ClassHistoryDTO> history = new List<ClassHistoryDTO>();
-            string sql = "SELECT * FROM Class_Overview WHERE ClassID = @ClassID";
+            string sql = "SELECT * FROM Class_Overview WHERE InstructorID = @InstructorID";
             using (SqlConnection connection = new SqlConnection(conn))
             using (SqlCommand cmd = new SqlCommand(sql, connection))
 
@@ -24,7 +24,7 @@ namespace FitHub._3._DataAccessLayer
 
 
             {
-                cmd.Parameters.AddWithValue("@ClassID", classID);
+                cmd.Parameters.AddWithValue("@InstructorID", instructorID);
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -36,7 +36,7 @@ namespace FitHub._3._DataAccessLayer
 
                         classID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                         classDate = reader.IsDBNull(1) ? DateTime.UtcNow : reader.GetDateTime(1),
-                        classTime = reader.IsDBNull(2) ? DateTime.UtcNow : reader.GetDateTime(2),
+                        classTime = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
                         classLocation = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                         classType = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                         classCapacity = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
