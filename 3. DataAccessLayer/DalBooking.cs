@@ -15,8 +15,20 @@ namespace FitHub._3._DataAccessLayer
 {
     public class DalBooking
     {
-        string conn = "Server=LAPTOP-KE4SJBN2;DataBase=FitHubDB;" +
+        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+
+        public int GetBookingCountDAL(int classID)
+        {
+            using var con = new SqlConnection(conn);
+            con.Open();
+            using var cmd = new SqlCommand("SELECT COUNT(*) FROM ClassMembers WHERE ClassID = @ClassID", con);
+            cmd.Parameters.AddWithValue("@ClassID", classID);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return count;
+        }
+
         public void BookingClassDAL(int classID, int memberID)
         {
             using var con = new SqlConnection(conn);
@@ -29,6 +41,18 @@ namespace FitHub._3._DataAccessLayer
             addBookingCmd.Parameters.AddWithValue("@MemberID", memberID);
             addBookingCmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        public int CheckDoubleBookingDAL(int classID, int memberID)
+        {             using var con = new SqlConnection(conn);
+            con.Open();
+            string checkDoubleBookingQuery = "SELECT COUNT(*) FROM ClassMembers WHERE ClassID = @ClassID AND MemberID = @MemberID";
+            using var checkDoubleBookingCmd = new SqlCommand(checkDoubleBookingQuery, con);
+            checkDoubleBookingCmd.Parameters.AddWithValue("@ClassID", classID);
+            checkDoubleBookingCmd.Parameters.AddWithValue("@MemberID", memberID);
+            int count = Convert.ToInt32(checkDoubleBookingCmd.ExecuteScalar());
+            con.Close();
+            return count;
         }
     }
 }

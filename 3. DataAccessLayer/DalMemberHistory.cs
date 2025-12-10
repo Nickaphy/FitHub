@@ -10,7 +10,7 @@ namespace FitHub
 {
     internal class DalMemberHistory
     {
-        private string conn = "Server=LAPTOP-KE4SJBN2;DataBase=FitHubDB;" + "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+        private string conn = "Server=NICKLAS;DataBase=FitHubDB;" + "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
         public List<MemberHistoryDTO> GetMemberHistory(int memberID)
 
