@@ -140,5 +140,23 @@ namespace FitHub.B_BLL
             DalBooking dal = new DalBooking();
             dal.BookingClassDAL(classID, memberID);
         }
+
+
+        public List<ClassHistoryDTO> GetClassHistory(int classID)
+        {
+            DalClassHistory dal = new DalClassHistory();
+            return dal.GetClassHistory(classID);
+        }
+
+
+
+        DalMemberHistory dalHistory = new DalMemberHistory(); 
+        public List<MemberHistoryDTO> GetMemberHistory(int memberID) 
+        { 
+            return dalHistory.GetMemberHistory(memberID);
+        }
+
+
+
     }
 }
