@@ -26,6 +26,7 @@ namespace FitHub
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
             BookingMemberGrid.DataSource = members;
+            SearchAllMembersDataGrid.DataSource = members;
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             InstructorGridView.DataSource = instructors;
@@ -33,6 +34,7 @@ namespace FitHub
             List<Class> classes = bll.GetAllClassesBLL();
             ClassManGrid.DataSource = classes;
             BookingClassGrid.DataSource = classes;
+            searchClassesDataGridView.DataSource = classes;
 
             ClassInstructorDropBox();
         }
@@ -306,6 +308,39 @@ namespace FitHub
             var memberID = Convert.ToInt32(BookingMemberGrid.SelectedRows[0].Cells[0].Value);
             var classID = Convert.ToInt32(BookingClassGrid.SelectedRows[0].Cells[0].Value);
             bll.BookingClass(classID, memberID);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (searchClassesDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = searchClassesDataGridView.SelectedRows[0];
+
+                int classID = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+                var classHistory = bll.GetClassHistory(classID);
+
+                scopeClassesHistoryGridView.DataSource = classHistory;
+            }
+
+        }
+
+        private void GetMemberHistory_Click(object sender, EventArgs e)
+        {
+
+
+            if (SearchAllMembersDataGrid.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = SearchAllMembersDataGrid.SelectedRows[0];
+
+                int memberID = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+                var history = bll.GetMemberHistory(memberID);
+
+                scopeMemberHistoryDataGrid.DataSource = history;   // ? historik vises i DataGridView5
+            }
+
         }
     }
 }

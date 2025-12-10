@@ -11,7 +11,7 @@ namespace FitHub._3._DataAccessLayer
 {
     public class DalClasses
     {
-        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
+        string conn = "Server=LAPTOP-KE4SJBN2;DataBase=FitHubDB;" +
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
 
         public List<Class> GetAllClassesDAL()
