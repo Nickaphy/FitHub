@@ -148,9 +148,19 @@ namespace FitHub.B_BLL
             var classes = dalClasses.GetAllClassesDAL();
             var cls = classes.FirstOrDefault(c => c.ClassID == classID);
             int capacity = 0;
-            if (cls != null && int.TryParse(cls.ClassCapacity, out var parsed))
+            if (cls == null)
             {
+                // class not found
                 errorMessages.ClassCapacityErrorMessage();
+            }
+            else if (!int.TryParse(cls.ClassCapacity, out var parsed))
+            {
+                // capacity value invalid
+                errorMessages.ClassCapacityErrorMessage();
+            }
+            else
+            {
+                // parse succeeded — use capacity
                 capacity = parsed;
             }
 
@@ -159,12 +169,11 @@ namespace FitHub.B_BLL
 
             if (capacity > 0 && current >= capacity)
             {
-                
+                errorMessages.bookingFullErrorMessage();
                 return;
             }
 
-            classes = dalClasses.GetAllClassesDAL();
-            cls = classes.FirstOrDefault(c => c.ClassID == classID);
+            // check double booking
             int doublebooking = dal.CheckDoubleBookingDAL(classID, memberID);
             if (doublebooking > 0)
             {
