@@ -1,73 +1,143 @@
+
+using FitHub._1._UserInterface;
+using FitHub._2._BusinessLogicLayer.ENT_OBJ;
+using FitHub._3._DataAccessLayer;
 using FitHub.B_BLL;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
+using FitHub_UserInterface;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace FitHub
 {
     public partial class MainForm : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+            (
+            int nLeftRect,     // x-coordinate of upper-left corner)
+            int nTopRect,      // y-coordinate of upper-left corner)
+            int nRightRect,    // x-coordinate of lower-right corner)
+            int nBottomRect,   // y-coordinate of lower-right corner)
+            int nWidthEllipse, // height of ellipse)
+            int nHeightEllipse // width of ellipse)
+            );
+
+        private void MoveNavPanel(Button btn)
+        {
+            panelNavagation.Height = btn.Height; ;
+            panelNavagation.Top = btn.Top;
+            panelNavagation.Left = btn.Left;
+            //BackColor = Color.FromArgb(45, 51, 73);
+        }
+
 
         //Initialisere gridview med data fra databasen fra start
         BLL bll;
         DalMembers dalMembers;
+        DalInstructor dalinstructor;
         public MainForm()
         {
+
             InitializeComponent();
+
+
+
+
+
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            panelNavagation.Height = buttonBookingTab.Height;       //  Set initial height to match the first button
+            panelNavagation.Top = buttonBookingTab.Top;             //  Set initial top position to match the first button
+            panelNavagation.Left = buttonBookingTab.Left;           //  Set initial left position to match the first button
+            //buttonBookingTab.BackColor = Color.FromArgb(45, 51, 73);  //  Highlight the first button initially
+
+
+
+            labelTitle.Text = "Booking";
+            this.panelFormLoader.Controls.Clear();
+            formBookingTab FormBookingTab_Vrb = new formBookingTab() { Dock = DockStyle.Fill,TopLevel = false, TopMost = true };
+            FormBookingTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormBookingTab_Vrb);
+            FormBookingTab_Vrb.Show();
+
+
             bll = new BLL();
+            dalinstructor = new DalInstructor();
             dalMembers = new DalMembers();
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
+
+            List<Instructor> instructors = bll.GetAllInstructorsBLL();
+            InstructorGridView.DataSource = instructors;
+
+
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+
+            VerticalTabHelper.Apply(tabControl1, new VerticalTabSettings
+            {
+                Angle = 0f,
+                Font = new Font("Segoe UI", 9F),
+                Brush = Brushes.Blue,
+                OfsetX = 0,
+                OfsetY = 0,
+                ItemSize = new Size(45, 150)        //  Juster størrelsen på fanerne efter behov
+            });
+
+            //VerticalTabHelper.Apply(tabControl2); //  Anvend standardindstillingerne for den anden tab control
+
         }
+
+
+
 
         //delete member button
         public void button1_Click_1(object sender, EventArgs e)
         {
-            var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            BLL.DeleteMemberBLL(memberID);
-            //refresh members after delete
-            List<Member> members = bll.GetAllMembersBLL();
-            dataGridView1.DataSource = members;
-        }
-
-
-
-        //Handling cell click event to get the selected row's MemberID
-        string memberID;
-        public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Validating that user is clicking on a row, not the header
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                var memberID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                BLL.DeleteMemberBLL(memberID);
+
+                //refresh members after delete
+                List<Member> members = bll.GetAllMembersBLL();
+                dataGridView1.DataSource = members;
             }
             else
             {
-                MessageBox.Show("Please select a row first");
+                MessageBox.Show("Please select a row");
             }
         }
 
-        // Updating a single fieldbox and saving it to the field itself and the database.
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         //add member button
         public void button1_Click(object sender, EventArgs e)
         {
-            string firstName = textBox1.Text;
-            string surName = textBox2.Text;
-            string email = textBox3.Text;
-            string telephone = textBox4.Text;
-            int memberType = int.Parse(comboBox1.Text);
-            string active = "Active";
+            Member member = new Member();
+            member.FirstName = textBox1.Text;
+            member.SurName = textBox2.Text;
+            member.Email = textBox3.Text;
+            member.Telephone = textBox4.Text;
+            member.Birthday = dateTimePicker2.Value;
+            member.MemberType = comboBox1.Text;
+            member.Active = "Active";
+
+            bool wasAdded = bll.AddMemberBLL(member);
+            if (wasAdded)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                comboBox1.Text = "";
+            }
+
             //Call BLL to add member 
-            bll.AddMemberBLL(firstName, surName, email, telephone, memberType, active);
+
             UpdateMembers();
-
-
         }
 
         private void UpdateMembers()
@@ -76,11 +146,6 @@ namespace FitHub
             dataGridView1.DataSource = members;
         }
 
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -97,33 +162,322 @@ namespace FitHub
             switch (columnName)
             {
                 case "FirstName":
-                    dalMembers.UpdateSingleColumn(memberID_, "FirstName", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "FirstName", newValue); break;
 
                 case "SurName":
-                    dalMembers.UpdateSingleColumn(memberID_, "SurName", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "SurName", newValue); break;
 
                 case "Email":
-                    dalMembers.UpdateSingleColumn(memberID_, "Email", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "Email", newValue); break;
 
                 case "Telephone":
-                    dalMembers.UpdateSingleColumn(memberID_, "Telephone", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "Telephone", newValue); break;
 
                 case "MemberType":
-                    dalMembers.UpdateSingleColumn(memberID_, "Membertype", newValue); break;
+                    dalMembers.UpdateSingleColumnMember(memberID_, "Membertype", newValue); break;
             }
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            var activityStatus = Convert.ToString(dataGridView1.SelectedRows[0].Cells[7].Value);
+            bll.ActivityStatus(memberID, activityStatus);
+            UpdateMembers();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Instructor instructor = new Instructor();
+            instructor.FirstName = textBox10.Text;
+            instructor.SurName = textBox9.Text;
+            instructor.Email = textBox8.Text;
+            instructor.Telephone = textBox7.Text;
+            instructor.Certification = InstructorCert.Text;
+
+            bool wasAdded = bll.AddInstructorBLL(instructor);
+
+            if (wasAdded)
+            {
+                textBox10.Text = "";
+                textBox9.Text = "";
+                textBox8.Text = "";
+                textBox7.Text = "";
+                InstructorCert.Text = "";
+            }
+
+            //Call BLL to add member 
+            bll.AddInstructorBLL(instructor);
+            UpdateInstructors();
+        }
+
+        private void UpdateInstructors()
+        {
+            List<Instructor> instructors = bll.GetAllInstructorsBLL();
+            InstructorGridView.DataSource = instructors;
+        }
+
+        //delete instructor button
+        public void button10_Click(object sender, EventArgs e)
+        {
+            if (InstructorGridView.SelectedRows.Count > 0)
+            {
+                DalInstructor dalinstructor = new DalInstructor();
+                DataGridViewRow selectedRow = InstructorGridView.SelectedRows[0];
+                var instructorID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                dalinstructor.DeleteInstructor(instructorID);
+
+                UpdateInstructors();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row");
+            }
+        }
+
+        private void InstructorGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var instructorID = InstructorGridView.Rows[e.RowIndex].Cells["InstructorID"].Value;
+
+            if (instructorID == DBNull.Value || instructorID == null) return;
+            int instructorID_ = Convert.ToInt32(instructorID);
+
+
+            string columnName = InstructorGridView.Columns[e.ColumnIndex].Name;
+            object newValue = InstructorGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+            switch (columnName)
+            {
+                case "FirstName":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "FirstName", newValue); break;
+
+                case "SurName":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "SurName", newValue); break;
+
+                case "Email":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Email", newValue); break;
+
+                case "Telephone":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Telephone", newValue); break;
+
+                case "Certifications":
+                    dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Certifications", newValue); break;
+            }
+        }
+
+        private void InstructorCert_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void tabPage3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        /*private void buttonBooking_Click(object sender, EventArgs e)
+        {
+            panelNavagation.Height = buttonBooking.Height;
+            panelNavagation.Top = buttonBooking.Top;
+            panelNavagation.Left = buttonBooking.Left;
+            buttonBooking.BackColor = Color.FromArgb(45, 51, 73);
+        }*/
+
+        private void buttonClassManagement_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            labelTitle.Text = "Class Management";
+            this.panelFormLoader.Controls.Clear();
+            formClassManagementTab FormClassManagementTab_Vrb = new formClassManagementTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormClassManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormClassManagementTab_Vrb);
+            FormClassManagementTab_Vrb.Show();
+
+            /*panelNavagation.Height = buttonClassManagement.Height;
+            panelNavagation.Top = buttonClassManagement.Top;
+            buttonClassManagement.BackColor = Color.FromArgb(45, 51, 73);*/
+        }
+
+        private void buttonMemberManagement_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            labelTitle.Text = "Member Management";
+            this.panelFormLoader.Controls.Clear();
+            formMemberManagementTab FormMemberManagementTab_Vrb = new formMemberManagementTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormMemberManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormMemberManagementTab_Vrb);
+            FormMemberManagementTab_Vrb.Show();
+
+            /*panelNavagation.Height = buttonMemberManagement.Height;
+            panelNavagation.Top = buttonMemberManagement.Top;
+            buttonMemberManagement.BackColor = Color.FromArgb(45, 51, 73);*/
+        }
+
+        private void buttonInstructorManagemant_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            labelTitle.Text = "Instructor Management";
+            this.panelFormLoader.Controls.Clear();
+            formInstructorManagementTab FormInstructorManagementTab_Vrb = new formInstructorManagementTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormInstructorManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormInstructorManagementTab_Vrb);
+            FormInstructorManagementTab_Vrb.Show();
+
+            /*panelNavagation.Height = buttonInstructorManagemant.Height;
+            panelNavagation.Top = buttonInstructorManagemant.Top;
+            buttonInstructorManagemant.BackColor = Color.FromArgb(45, 51, 73);*/
+        }
+
+        private void buttonMemberOverview_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            labelTitle.Text = "Instructor Management";
+            this.panelFormLoader.Controls.Clear();
+            formMemberOverviewTab FormMemberOverviewTab_Vrb = new formMemberOverviewTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormMemberOverviewTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormMemberOverviewTab_Vrb);
+            FormMemberOverviewTab_Vrb.Show();
+
+            /*panelNavagation.Height = buttonMemberOverview.Height;
+            panelNavagation.Top = buttonMemberOverview.Top;
+            buttonMemberOverview.BackColor = Color.FromArgb(45, 51, 73);*/
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            labelTitle.Text = "Raports";
+            this.panelFormLoader.Controls.Clear();
+            formRaportsTab FormRaportsTab_Vrb = new formRaportsTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormRaportsTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormRaportsTab_Vrb);
+            FormRaportsTab_Vrb.Show();
+
+            /*
+            panelNavagation.Height = button2.Height;
+            panelNavagation.Top = button2.Top;
+            button2.BackColor = Color.FromArgb(45, 51, 73);*/
+        }
+
+        private void buttonBookingTab_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            /*panelNavagation.Height = buttonBookingTab.Height; 
+            panelNavagation.Top = buttonBookingTab.Top;
+            panelNavagation.Left = buttonBookingTab.Left;
+            buttonBookingTab.BackColor = Color.FromArgb(45, 51, 73);*/
+
+            labelTitle.Text = "Booking";
+            this.panelFormLoader.Controls.Clear();
+            formBookingTab FormBookingTab_Vrb = new formBookingTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormBookingTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormBookingTab_Vrb);
+            FormBookingTab_Vrb.Show();
+        }
+
+
+        private void buttonBookingTab_leave(object sender, EventArgs e)
+        {
+            buttonBookingTab.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void buttonClassManagement_leave(object sender, EventArgs e)
+        {
+            buttonClassManagement.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void buttonMemberManagement_leave(object sender, EventArgs e)
+        {
+            buttonMemberManagement.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void buttonInstructorManagemant_leave(object sender, EventArgs e)
+        {
+            buttonInstructorManagemant.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void buttonMemberOverview_leave(object sender, EventArgs e)
+        {
+            buttonMemberOverview.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void button2_leave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void buttonCloseDown_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+            /*panelNavagation.Height = buttonLogout.Height;
+            panelNavagation.Top = buttonLogout.Top;
+            panelNavagation.Left = buttonLogout.Left;
+            buttonLogout.BackColor = Color.FromArgb(45, 51, 73);*/
+
+            FitHub_Login_UI fithub_Login_UI = new FitHub_Login_UI();
+            fithub_Login_UI.Show();
+            this.Hide();
+        }
+
+        private void buttonLogout_leave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void buttonBookingTab_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void buttonClassManagement_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void buttonMemberManagement_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void buttonInstructorManagemant_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void buttonMemberOverview_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void buttonLogout_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
         }
     }
 }
+
 
 
 
