@@ -142,10 +142,10 @@ namespace FitHub.B_BLL
         }
 
 
-        public List<ClassHistoryDTO> GetClassHistory(int classID)
+        public List<ClassHistoryDTO> GetClassHistory(int InstructorID)
         {
             DalClassHistory dal = new DalClassHistory();
-            return dal.GetClassHistory(classID);
+            return dal.GetClassHistory(InstructorID);
         }
 
 

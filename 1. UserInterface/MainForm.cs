@@ -30,11 +30,11 @@ namespace FitHub
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             InstructorGridView.DataSource = instructors;
+            searchInstructorDataGridView.DataSource = instructors;
 
             List<Class> classes = bll.GetAllClassesBLL();
             ClassManGrid.DataSource = classes;
             BookingClassGrid.DataSource = classes;
-            searchClassesDataGridView.DataSource = classes;
 
             ClassInstructorDropBox();
         }
@@ -140,6 +140,7 @@ namespace FitHub
 
             if (wasAdded)
             {
+
                 textBox10.Text = "";
                 textBox9.Text = "";
                 textBox8.Text = "";
@@ -149,6 +150,7 @@ namespace FitHub
                 // Refresh UI lists
                 UpdateInstructors();
                 ClassInstructorDropBox();
+
             }
         }
 
@@ -313,15 +315,15 @@ namespace FitHub
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (searchClassesDataGridView.SelectedRows.Count > 0)
+            if (searchInstructorDataGridView.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = searchClassesDataGridView.SelectedRows[0];
+                DataGridViewRow selectedRow = searchInstructorDataGridView.SelectedRows[0];
 
-                int classID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                int instructorID = Convert.ToInt32(selectedRow.Cells[0].Value);
 
-                var classHistory = bll.GetClassHistory(classID);
+                var classHistory = bll.GetClassHistory(instructorID);
 
-                scopeClassesHistoryGridView.DataSource = classHistory;
+                scopeClassHistoryView.DataSource = classHistory;
             }
 
         }
@@ -338,8 +340,14 @@ namespace FitHub
 
                 var history = bll.GetMemberHistory(memberID);
 
-                scopeMemberHistoryDataGrid.DataSource = history;   // ? historik vises i DataGridView5
+                scopeMemberHistoryDataGrid.DataSource = history;
+
             }
+
+        }
+
+        private void SearchAllMembersDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
