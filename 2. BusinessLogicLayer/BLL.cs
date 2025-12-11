@@ -157,6 +157,11 @@ namespace FitHub.B_BLL
         }
 
 
+        DalInstructorViewMembers dalViewMembers = new DalInstructorViewMembers();
+        public List<InstructorViewMembersDTO> GetInstructorViewMembers(int classID)
+        {
+            return dalViewMembers.GetInstructorViewMembers(classID);
+        }
 
     }
 }

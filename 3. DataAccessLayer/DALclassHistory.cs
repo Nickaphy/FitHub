@@ -16,7 +16,7 @@ namespace FitHub._3._DataAccessLayer
         public List<ClassHistoryDTO> GetClassHistory(int instructorID)
         {
             List<ClassHistoryDTO> history = new List<ClassHistoryDTO>();
-            string sql = "SELECT * FROM Class_Overview WHERE InstructorID = @InstructorID";
+            string sql = "SELECT * FROM Instructor_Overview WHERE InstructorID = @InstructorID";
             using (SqlConnection connection = new SqlConnection(conn))
             using (SqlCommand cmd = new SqlCommand(sql, connection))
 
@@ -42,8 +42,7 @@ namespace FitHub._3._DataAccessLayer
                         classCapacity = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
                         instructorID = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
                         instructorName = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
-                        memberID = reader.IsDBNull(8) ? 0 : reader.GetInt32(8),
-                        memberName = reader.IsDBNull(9) ? string.Empty : reader.GetString(9)
+                       
 
 
                     });

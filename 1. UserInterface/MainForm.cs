@@ -346,9 +346,32 @@ namespace FitHub
 
         }
 
+
+
         private void SearchAllMembersDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        public void button4_Click(object sender, EventArgs e)
+        {
+            if (scopeClassHistoryView.SelectedRows.Count > 0)
+            {
+               // InstructorViewMembers newForm = new InstructorViewMembers();
+                //newForm.Show();
+
+                DataGridViewRow selectedRow = scopeClassHistoryView.SelectedRows[0];
+                
+                int classID = Convert.ToInt32(selectedRow.Cells[5].Value);
+                
+                var instructorViewMembers = bll.GetInstructorViewMembers(classID);
+
+                var instructorViewMembersForm = new InstructorViewMembers();
+                instructorViewMembersForm.SetMembers(instructorViewMembers); // <-- brug metoden
+                instructorViewMembersForm.Show();
+
+
+            }
         }
     }
 }
