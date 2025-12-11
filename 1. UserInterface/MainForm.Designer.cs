@@ -87,7 +87,8 @@
             label21 = new Label();
             scopeMemberHistoryDataGrid = new DataGridView();
             SearchAllMembersDataGrid = new DataGridView();
-            tabPage7 = new TabPage();
+            SeeMembersButton = new TabPage();
+            SeeMembers1Button = new Button();
             button2 = new Button();
             Instructor = new Label();
             label19 = new Label();
@@ -108,7 +109,7 @@
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)scopeMemberHistoryDataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SearchAllMembersDataGrid).BeginInit();
-            tabPage7.SuspendLayout();
+            SeeMembersButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).BeginInit();
             SuspendLayout();
@@ -131,7 +132,7 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
-            tabControl1.Controls.Add(tabPage7);
+            tabControl1.Controls.Add(SeeMembersButton);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Location = new Point(0, 2);
             tabControl1.Margin = new Padding(1, 2, 1, 2);
@@ -751,25 +752,34 @@
             SearchAllMembersDataGrid.TabIndex = 5;
             SearchAllMembersDataGrid.CellContentClick += SearchAllMembersDataGrid_CellContentClick;
             // 
-            // tabPage7
+            // SeeMembersButton
             // 
-            tabPage7.Controls.Add(button2);
-            tabPage7.Controls.Add(Instructor);
-            tabPage7.Controls.Add(label19);
-            tabPage7.Controls.Add(scopeClassHistoryView);
-            tabPage7.Controls.Add(searchInstructorDataGridView);
-            tabPage7.Location = new Point(4, 34);
-            tabPage7.Margin = new Padding(4, 5, 4, 5);
-            tabPage7.Name = "tabPage7";
-            tabPage7.Size = new Size(2375, 862);
-            tabPage7.TabIndex = 6;
-            tabPage7.Text = "Class Overview";
-            tabPage7.UseVisualStyleBackColor = true;
+            SeeMembersButton.Controls.Add(SeeMembers1Button);
+            SeeMembersButton.Controls.Add(button2);
+            SeeMembersButton.Controls.Add(Instructor);
+            SeeMembersButton.Controls.Add(label19);
+            SeeMembersButton.Controls.Add(scopeClassHistoryView);
+            SeeMembersButton.Controls.Add(searchInstructorDataGridView);
+            SeeMembersButton.Location = new Point(4, 24);
+            SeeMembersButton.Name = "SeeMembersButton";
+            SeeMembersButton.Size = new Size(1113, 457);
+            SeeMembersButton.TabIndex = 6;
+            SeeMembersButton.Text = "Class Overview";
+            SeeMembersButton.UseVisualStyleBackColor = true;
+            // 
+            // SeeMembers1Button
+            // 
+            SeeMembers1Button.Location = new Point(467, 388);
+            SeeMembers1Button.Name = "SeeMembers1Button";
+            SeeMembers1Button.Size = new Size(91, 30);
+            SeeMembers1Button.TabIndex = 5;
+            SeeMembers1Button.Text = "See Members";
+            SeeMembers1Button.UseVisualStyleBackColor = true;
+            SeeMembers1Button.Click += button4_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(599, 422);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Location = new Point(364, 388);
             button2.Name = "button2";
             button2.Size = new Size(120, 50);
             button2.TabIndex = 4;
@@ -803,8 +813,8 @@
             scopeClassHistoryView.Location = new Point(806, 110);
             scopeClassHistoryView.Margin = new Padding(4, 5, 4, 5);
             scopeClassHistoryView.Name = "scopeClassHistoryView";
-            scopeClassHistoryView.RowHeadersWidth = 62;
-            scopeClassHistoryView.Size = new Size(2000, 587);
+            scopeClassHistoryView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            scopeClassHistoryView.Size = new Size(427, 352);
             scopeClassHistoryView.TabIndex = 1;
             // 
             // searchInstructorDataGridView
@@ -862,8 +872,8 @@
             tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)scopeMemberHistoryDataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)SearchAllMembersDataGrid).EndInit();
-            tabPage7.ResumeLayout(false);
-            tabPage7.PerformLayout();
+            SeeMembersButton.ResumeLayout(false);
+            SeeMembersButton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).EndInit();
             ResumeLayout(false);
@@ -925,7 +935,7 @@
         private ComboBox InstructorCert;
         private Label label11;
         private ComboBox InstructorIDComboBox;
-        private TabPage tabPage7;
+        private TabPage SeeMembersButton;
         private Button button2;
         private Label Instructor;
         private Label label19;
@@ -937,5 +947,6 @@
         private DataGridView scopeMemberHistoryDataGrid;
         private DataGridView SearchAllMembersDataGrid;
         private TabPage tabPage1;
+        private Button SeeMembers1Button;
     }
 }
