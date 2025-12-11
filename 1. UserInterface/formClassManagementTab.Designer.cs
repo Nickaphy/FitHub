@@ -29,200 +29,201 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formClassManagementTab));
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            comboBox3 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox2 = new ComboBox();
-            dataGridView2 = new DataGridView();
-            labelClassOverviewBooking = new Label();
-            label1 = new Label();
-            buttonSearchBooking = new Button();
-            textBoxSearchBar = new TextBox();
-            button5 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            labelClassTypeClassManagement = new Label();
+            labelDateClassManagement = new Label();
+            labelTimeClassManagement = new Label();
+            labelCapacityClassManagement = new Label();
+            labelLocationClassManagement = new Label();
+            textBoxLocationClassManagement = new TextBox();
+            textBoxCapacityClassManagement = new TextBox();
+            comboBoxTimeClassManagement = new ComboBox();
+            dateTimePickerDateClassManagement = new DateTimePicker();
+            comboBoxClassTypeClassManagement = new ComboBox();
+            dataGridViewClassOverviewClassManagement = new DataGridView();
+            labelClassOverviewClassManagement = new Label();
+            labelClassInformationClassManagement = new Label();
+            buttonSearchClassManagement = new Button();
+            textBoxSearchBarClassManagement = new TextBox();
+            buttonCreateClass = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).BeginInit();
             SuspendLayout();
             // 
-            // label10
+            // labelClassTypeClassManagement
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label10.ForeColor = Color.FromArgb(73, 125, 201);
-            label10.Location = new Point(33, 135);
-            label10.Margin = new Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(81, 20);
-            label10.TabIndex = 25;
-            label10.Text = "Class Type";
+            labelClassTypeClassManagement.AutoSize = true;
+            labelClassTypeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelClassTypeClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelClassTypeClassManagement.Location = new Point(23, 137);
+            labelClassTypeClassManagement.Margin = new Padding(4, 0, 4, 0);
+            labelClassTypeClassManagement.Name = "labelClassTypeClassManagement";
+            labelClassTypeClassManagement.Size = new Size(81, 20);
+            labelClassTypeClassManagement.TabIndex = 25;
+            labelClassTypeClassManagement.Text = "Class Type";
             // 
-            // label9
+            // labelDateClassManagement
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label9.Location = new Point(35, 243);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(42, 20);
-            label9.TabIndex = 24;
-            label9.Text = "Date";
+            labelDateClassManagement.AutoSize = true;
+            labelDateClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelDateClassManagement.Location = new Point(22, 240);
+            labelDateClassManagement.Margin = new Padding(4, 0, 4, 0);
+            labelDateClassManagement.Name = "labelDateClassManagement";
+            labelDateClassManagement.Size = new Size(42, 20);
+            labelDateClassManagement.TabIndex = 24;
+            labelDateClassManagement.Text = "Date";
             // 
-            // label8
+            // labelTimeClassManagement
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label8.Location = new Point(34, 192);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(44, 20);
-            label8.TabIndex = 23;
-            label8.Text = "Time";
+            labelTimeClassManagement.AutoSize = true;
+            labelTimeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelTimeClassManagement.Location = new Point(23, 186);
+            labelTimeClassManagement.Margin = new Padding(4, 0, 4, 0);
+            labelTimeClassManagement.Name = "labelTimeClassManagement";
+            labelTimeClassManagement.Size = new Size(44, 20);
+            labelTimeClassManagement.TabIndex = 23;
+            labelTimeClassManagement.Text = "Time";
             // 
-            // label7
+            // labelCapacityClassManagement
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label7.Location = new Point(33, 292);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(68, 20);
-            label7.TabIndex = 22;
-            label7.Text = "Capacity";
+            labelCapacityClassManagement.AutoSize = true;
+            labelCapacityClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelCapacityClassManagement.Location = new Point(22, 287);
+            labelCapacityClassManagement.Margin = new Padding(4, 0, 4, 0);
+            labelCapacityClassManagement.Name = "labelCapacityClassManagement";
+            labelCapacityClassManagement.Size = new Size(68, 20);
+            labelCapacityClassManagement.TabIndex = 22;
+            labelCapacityClassManagement.Text = "Capacity";
             // 
-            // label6
+            // labelLocationClassManagement
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label6.Location = new Point(33, 340);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(69, 20);
-            label6.TabIndex = 21;
-            label6.Text = "Location";
+            labelLocationClassManagement.AutoSize = true;
+            labelLocationClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelLocationClassManagement.Location = new Point(22, 340);
+            labelLocationClassManagement.Margin = new Padding(4, 0, 4, 0);
+            labelLocationClassManagement.Name = "labelLocationClassManagement";
+            labelLocationClassManagement.Size = new Size(69, 20);
+            labelLocationClassManagement.TabIndex = 21;
+            labelLocationClassManagement.Text = "Location";
             // 
-            // textBox5
+            // textBoxLocationClassManagement
             // 
-            textBox5.Location = new Point(124, 337);
-            textBox5.Margin = new Padding(4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(138, 27);
-            textBox5.TabIndex = 20;
+            textBoxLocationClassManagement.Location = new Point(113, 337);
+            textBoxLocationClassManagement.Margin = new Padding(4);
+            textBoxLocationClassManagement.Name = "textBoxLocationClassManagement";
+            textBoxLocationClassManagement.Size = new Size(138, 27);
+            textBoxLocationClassManagement.TabIndex = 20;
             // 
-            // textBox6
+            // textBoxCapacityClassManagement
             // 
-            textBox6.Location = new Point(124, 285);
-            textBox6.Margin = new Padding(4);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(138, 27);
-            textBox6.TabIndex = 19;
+            textBoxCapacityClassManagement.Location = new Point(113, 285);
+            textBoxCapacityClassManagement.Margin = new Padding(4);
+            textBoxCapacityClassManagement.Name = "textBoxCapacityClassManagement";
+            textBoxCapacityClassManagement.Size = new Size(138, 27);
+            textBoxCapacityClassManagement.TabIndex = 19;
             // 
-            // comboBox3
+            // comboBoxTimeClassManagement
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
-            comboBox3.Location = new Point(124, 184);
-            comboBox3.Margin = new Padding(4);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(228, 28);
-            comboBox3.TabIndex = 18;
+            comboBoxTimeClassManagement.FormattingEnabled = true;
+            comboBoxTimeClassManagement.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
+            comboBoxTimeClassManagement.Location = new Point(112, 184);
+            comboBoxTimeClassManagement.Margin = new Padding(4);
+            comboBoxTimeClassManagement.Name = "comboBoxTimeClassManagement";
+            comboBoxTimeClassManagement.Size = new Size(230, 28);
+            comboBoxTimeClassManagement.TabIndex = 18;
             // 
-            // dateTimePicker1
+            // dateTimePickerDateClassManagement
             // 
-            dateTimePicker1.Location = new Point(124, 236);
-            dateTimePicker1.Margin = new Padding(4);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(228, 27);
-            dateTimePicker1.TabIndex = 17;
+            dateTimePickerDateClassManagement.Location = new Point(111, 236);
+            dateTimePickerDateClassManagement.Margin = new Padding(4);
+            dateTimePickerDateClassManagement.Name = "dateTimePickerDateClassManagement";
+            dateTimePickerDateClassManagement.Size = new Size(231, 27);
+            dateTimePickerDateClassManagement.TabIndex = 17;
             // 
-            // comboBox2
+            // comboBoxClassTypeClassManagement
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
-            comboBox2.Location = new Point(124, 135);
-            comboBox2.Margin = new Padding(4);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(228, 28);
-            comboBox2.TabIndex = 16;
+            comboBoxClassTypeClassManagement.FormattingEnabled = true;
+            comboBoxClassTypeClassManagement.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
+            comboBoxClassTypeClassManagement.Location = new Point(114, 135);
+            comboBoxClassTypeClassManagement.Margin = new Padding(4);
+            comboBoxClassTypeClassManagement.Name = "comboBoxClassTypeClassManagement";
+            comboBoxClassTypeClassManagement.Size = new Size(228, 28);
+            comboBoxClassTypeClassManagement.TabIndex = 16;
             // 
-            // dataGridView2
+            // dataGridViewClassOverviewClassManagement
             // 
-            dataGridView2.BackgroundColor = SystemColors.Window;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(403, 135);
-            dataGridView2.Margin = new Padding(1);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(482, 338);
-            dataGridView2.TabIndex = 15;
+            dataGridViewClassOverviewClassManagement.BackgroundColor = SystemColors.Window;
+            dataGridViewClassOverviewClassManagement.BorderStyle = BorderStyle.None;
+            dataGridViewClassOverviewClassManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClassOverviewClassManagement.Location = new Point(403, 131);
+            dataGridViewClassOverviewClassManagement.Margin = new Padding(1);
+            dataGridViewClassOverviewClassManagement.Name = "dataGridViewClassOverviewClassManagement";
+            dataGridViewClassOverviewClassManagement.RowHeadersWidth = 82;
+            dataGridViewClassOverviewClassManagement.Size = new Size(482, 338);
+            dataGridViewClassOverviewClassManagement.TabIndex = 15;
             // 
-            // labelClassOverviewBooking
+            // labelClassOverviewClassManagement
             // 
-            labelClassOverviewBooking.AutoSize = true;
-            labelClassOverviewBooking.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
-            labelClassOverviewBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewBooking.Location = new Point(403, 81);
-            labelClassOverviewBooking.Name = "labelClassOverviewBooking";
-            labelClassOverviewBooking.Size = new Size(193, 35);
-            labelClassOverviewBooking.TabIndex = 28;
-            labelClassOverviewBooking.Text = "Class Overview";
+            labelClassOverviewClassManagement.AutoSize = true;
+            labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
+            labelClassOverviewClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelClassOverviewClassManagement.Location = new Point(396, 81);
+            labelClassOverviewClassManagement.Name = "labelClassOverviewClassManagement";
+            labelClassOverviewClassManagement.Size = new Size(193, 35);
+            labelClassOverviewClassManagement.TabIndex = 28;
+            labelClassOverviewClassManagement.Text = "Class Overview";
             // 
-            // label1
+            // labelClassInformationClassManagement
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
-            label1.ForeColor = Color.FromArgb(73, 125, 201);
-            label1.Location = new Point(33, 81);
-            label1.Name = "label1";
-            label1.Size = new Size(221, 35);
-            label1.TabIndex = 29;
-            label1.Text = "Class Information";
+            labelClassInformationClassManagement.AutoSize = true;
+            labelClassInformationClassManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
+            labelClassInformationClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelClassInformationClassManagement.Location = new Point(20, 81);
+            labelClassInformationClassManagement.Name = "labelClassInformationClassManagement";
+            labelClassInformationClassManagement.Size = new Size(221, 35);
+            labelClassInformationClassManagement.TabIndex = 29;
+            labelClassInformationClassManagement.Text = "Class Information";
             // 
-            // buttonSearchBooking
+            // buttonSearchClassManagement
             // 
-            buttonSearchBooking.BackgroundImage = (Image)resources.GetObject("buttonSearchBooking.BackgroundImage");
-            buttonSearchBooking.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonSearchBooking.FlatAppearance.BorderColor = Color.FromArgb(31, 34, 56);
-            buttonSearchBooking.FlatStyle = FlatStyle.Flat;
-            buttonSearchBooking.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchBooking.ForeColor = SystemColors.ButtonHighlight;
-            buttonSearchBooking.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSearchBooking.Location = new Point(633, 21);
-            buttonSearchBooking.Name = "buttonSearchBooking";
-            buttonSearchBooking.Size = new Size(36, 35);
-            buttonSearchBooking.TabIndex = 31;
-            buttonSearchBooking.UseVisualStyleBackColor = true;
+            buttonSearchClassManagement.BackgroundImage = (Image)resources.GetObject("buttonSearchClassManagement.BackgroundImage");
+            buttonSearchClassManagement.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonSearchClassManagement.FlatAppearance.BorderColor = Color.FromArgb(31, 34, 56);
+            buttonSearchClassManagement.FlatStyle = FlatStyle.Flat;
+            buttonSearchClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSearchClassManagement.ForeColor = SystemColors.ButtonHighlight;
+            buttonSearchClassManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSearchClassManagement.Location = new Point(633, 22);
+            buttonSearchClassManagement.Name = "buttonSearchClassManagement";
+            buttonSearchClassManagement.Size = new Size(36, 35);
+            buttonSearchClassManagement.TabIndex = 31;
+            buttonSearchClassManagement.UseVisualStyleBackColor = true;
             // 
-            // textBoxSearchBar
+            // textBoxSearchBarClassManagement
             // 
-            textBoxSearchBar.BackColor = Color.FromArgb(74, 79, 99);
-            textBoxSearchBar.BorderStyle = BorderStyle.None;
-            textBoxSearchBar.ForeColor = Color.FromArgb(73, 125, 201);
-            textBoxSearchBar.Location = new Point(680, 28);
-            textBoxSearchBar.Name = "textBoxSearchBar";
-            textBoxSearchBar.Size = new Size(205, 20);
-            textBoxSearchBar.TabIndex = 30;
-            textBoxSearchBar.Text = "Search for...";
+            textBoxSearchBarClassManagement.BackColor = Color.FromArgb(74, 79, 99);
+            textBoxSearchBarClassManagement.BorderStyle = BorderStyle.None;
+            textBoxSearchBarClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            textBoxSearchBarClassManagement.Location = new Point(680, 29);
+            textBoxSearchBarClassManagement.Name = "textBoxSearchBarClassManagement";
+            textBoxSearchBarClassManagement.Size = new Size(205, 20);
+            textBoxSearchBarClassManagement.TabIndex = 30;
+            textBoxSearchBarClassManagement.Text = "Search for...";
             // 
-            // button5
+            // buttonCreateClass
             // 
-            button5.BackColor = Color.FromArgb(31, 34, 56);
-            button5.BackgroundImageLayout = ImageLayout.Zoom;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.TopRight;
-            button5.Location = new Point(35, 432);
-            button5.Margin = new Padding(4);
-            button5.Name = "button5";
-            button5.Size = new Size(319, 41);
-            button5.TabIndex = 27;
-            button5.Text = "Create Class";
-            button5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button5.UseVisualStyleBackColor = false;
+            buttonCreateClass.BackColor = Color.FromArgb(31, 34, 56);
+            buttonCreateClass.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonCreateClass.FlatStyle = FlatStyle.Flat;
+            buttonCreateClass.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            buttonCreateClass.Image = (Image)resources.GetObject("buttonCreateClass.Image");
+            buttonCreateClass.ImageAlign = ContentAlignment.TopRight;
+            buttonCreateClass.Location = new Point(27, 428);
+            buttonCreateClass.Margin = new Padding(4);
+            buttonCreateClass.Name = "buttonCreateClass";
+            buttonCreateClass.Size = new Size(315, 41);
+            buttonCreateClass.TabIndex = 27;
+            buttonCreateClass.Text = "Create Class";
+            buttonCreateClass.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonCreateClass.UseVisualStyleBackColor = false;
             // 
             // formClassManagementTab
             // 
@@ -230,47 +231,47 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
-            Controls.Add(buttonSearchBooking);
-            Controls.Add(textBoxSearchBar);
-            Controls.Add(label1);
-            Controls.Add(labelClassOverviewBooking);
-            Controls.Add(button5);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox6);
-            Controls.Add(comboBox3);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox2);
-            Controls.Add(dataGridView2);
+            Controls.Add(buttonSearchClassManagement);
+            Controls.Add(textBoxSearchBarClassManagement);
+            Controls.Add(labelClassInformationClassManagement);
+            Controls.Add(labelClassOverviewClassManagement);
+            Controls.Add(buttonCreateClass);
+            Controls.Add(labelClassTypeClassManagement);
+            Controls.Add(labelDateClassManagement);
+            Controls.Add(labelTimeClassManagement);
+            Controls.Add(labelCapacityClassManagement);
+            Controls.Add(labelLocationClassManagement);
+            Controls.Add(textBoxLocationClassManagement);
+            Controls.Add(textBoxCapacityClassManagement);
+            Controls.Add(comboBoxTimeClassManagement);
+            Controls.Add(dateTimePickerDateClassManagement);
+            Controls.Add(comboBoxClassTypeClassManagement);
+            Controls.Add(dataGridViewClassOverviewClassManagement);
             ForeColor = Color.FromArgb(73, 125, 201);
             FormBorderStyle = FormBorderStyle.None;
             Name = "formClassManagementTab";
             Text = "formClassManagementTab";
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private ComboBox comboBox3;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox2;
-        private DataGridView dataGridView2;
-        private Label labelClassOverviewBooking;
-        private Label label1;
-        private Button buttonSearchBooking;
-        private TextBox textBoxSearchBar;
-        private Button button5;
+        private Label labelClassTypeClassManagement;
+        private Label labelDateClassManagement;
+        private Label labelTimeClassManagement;
+        private Label labelCapacityClassManagement;
+        private Label labelLocationClassManagement;
+        private TextBox textBoxLocationClassManagement;
+        private TextBox textBoxCapacityClassManagement;
+        private ComboBox comboBoxTimeClassManagement;
+        private DateTimePicker dateTimePickerDateClassManagement;
+        private ComboBox comboBoxClassTypeClassManagement;
+        private DataGridView dataGridViewClassOverviewClassManagement;
+        private Label labelClassOverviewClassManagement;
+        private Label labelClassInformationClassManagement;
+        private Button buttonSearchClassManagement;
+        private TextBox textBoxSearchBarClassManagement;
+        private Button buttonCreateClass;
     }
 }

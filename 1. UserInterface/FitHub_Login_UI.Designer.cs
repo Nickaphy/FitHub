@@ -50,7 +50,7 @@
             comboBoxLoginDropMenu.ForeColor = Color.FromArgb(73, 125, 201);
             comboBoxLoginDropMenu.FormattingEnabled = true;
             comboBoxLoginDropMenu.Items.AddRange(new object[] { "Admin", "Receptionist" });
-            comboBoxLoginDropMenu.Location = new Point(362, 260);
+            comboBoxLoginDropMenu.Location = new Point(498, 328);
             comboBoxLoginDropMenu.Name = "comboBoxLoginDropMenu";
             comboBoxLoginDropMenu.Size = new Size(167, 28);
             comboBoxLoginDropMenu.TabIndex = 1;
@@ -61,7 +61,7 @@
             buttonLogIn.FlatStyle = FlatStyle.Flat;
             buttonLogIn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonLogIn.ForeColor = Color.FromArgb(73, 125, 201);
-            buttonLogIn.Location = new Point(400, 305);
+            buttonLogIn.Location = new Point(536, 373);
             buttonLogIn.Name = "buttonLogIn";
             buttonLogIn.Size = new Size(94, 29);
             buttonLogIn.TabIndex = 2;
@@ -74,7 +74,7 @@
             pictureBox1.BackColor = Color.FromArgb(46, 49, 84);
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(327, 68);
+            pictureBox1.Location = new Point(463, 136);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(239, 151);
             pictureBox1.TabIndex = 0;
@@ -88,7 +88,7 @@
             buttonCloseDown.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonCloseDown.ForeColor = SystemColors.ButtonShadow;
             buttonCloseDown.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonCloseDown.Location = new Point(876, 12);
+            buttonCloseDown.Location = new Point(1138, 12);
             buttonCloseDown.Name = "buttonCloseDown";
             buttonCloseDown.Size = new Size(34, 35);
             buttonCloseDown.TabIndex = 6;
@@ -103,7 +103,7 @@
             BackColor = Color.FromArgb(244, 241, 234);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(922, 533);
+            ClientSize = new Size(1184, 659);
             Controls.Add(buttonCloseDown);
             Controls.Add(buttonLogIn);
             Controls.Add(comboBoxLoginDropMenu);
