@@ -14,15 +14,14 @@ namespace FitHub.C_DAL
 {
     public class DalMembers
     {
-        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
-           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+        ConnectionString connectionstring = new ConnectionString();
 
         //A method that deletes a member from the Members tale based on their MemberID.
         public void DeleteMember(int memberID)
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                using var con = new SqlConnection(conn);
+                using var con = new SqlConnection(connectionstring.conn);
                 con.Open();
                 using var delMemCmd = new SqlCommand("DELETE FROM ClassMembers WHERE MemberID = @MemberID DELETE FROM Members WHERE MemberID = @MemberID", con);
                 delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
@@ -35,7 +34,7 @@ namespace FitHub.C_DAL
         public List<Member> GetAll()
         {
             List<Member> memberList = new List<Member>();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var cmd = new SqlCommand("SELECT * FROM Members", con);
             using var reader = cmd.ExecuteReader();
@@ -63,7 +62,7 @@ namespace FitHub.C_DAL
         public void AddMember(Member member)
         {
             BLL bll = new BLL();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
 
             string addMemberQuery = @"INSERT INTO Members (FirstName, SurName, Email, Telephone, Birthday, MemberType, Active) 
@@ -83,7 +82,7 @@ namespace FitHub.C_DAL
 
         public void UpdateSingleColumnMember(int memberID_, string columnName, object newValue)
         {
-            using (SqlConnection con = new SqlConnection(conn))
+            using (SqlConnection con = new SqlConnection(connectionstring.conn))
             {
                 con.Open();
 
@@ -108,7 +107,7 @@ namespace FitHub.C_DAL
         }
         public void ChangeActivity(string newStatus, int memberID)
         {
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             {
                 con.Open();
                 string changeActivityQuery = "UPDATE Members SET Active = @newStatus WHERE MemberID = @memberID";

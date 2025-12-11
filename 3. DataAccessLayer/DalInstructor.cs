@@ -15,15 +15,12 @@ namespace FitHub._3._DataAccessLayer
 {
     internal class DalInstructor
     {
-        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
-           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+		ConnectionString connectionstring = new ConnectionString();
 
-
-
-        public List<Instructor> GetAllInstructors()
+		public List<Instructor> GetAllInstructors()
         {
             List<Instructor> instructorList = new List<Instructor>();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var cmd = new SqlCommand("SELECT * FROM Instructors", con);
             using var reader = cmd.ExecuteReader();
@@ -49,7 +46,7 @@ namespace FitHub._3._DataAccessLayer
         public void AddInstructor(Instructor instructor)
         {
             BLL bll = new BLL();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
 
             string addInstructorQuery = @"INSERT INTO Instructors (FirstName, SurName, Email, Telephone, Certifications) 
@@ -68,7 +65,7 @@ namespace FitHub._3._DataAccessLayer
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                using var con = new SqlConnection(conn);
+                using var con = new SqlConnection(connectionstring.conn);
                 con.Open();
                 using var delInsCmd = new SqlCommand("DELETE FROM ClassMembers WHERE ClassID IN(SELECT ClassID FROM Classes WHERE InstructorID = @InstructorID) DELETE FROM Classes WHERE InstructorID = @InstructorID DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
                 delInsCmd.Parameters.Add("@InstructorID", System.Data.SqlDbType.Int).Value = intstructorID;
@@ -77,7 +74,7 @@ namespace FitHub._3._DataAccessLayer
         }
         public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
         {
-            using (SqlConnection con = new SqlConnection(conn))
+            using (SqlConnection con = new SqlConnection(connectionstring.conn))
             {
                 con.Open();
 

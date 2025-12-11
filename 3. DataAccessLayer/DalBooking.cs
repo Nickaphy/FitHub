@@ -15,12 +15,11 @@ namespace FitHub._3._DataAccessLayer
 {
     public class DalBooking
     {
-        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
-           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+        ConnectionString connectionstring = new ConnectionString();
 
         public int GetBookingCountDAL(int classID)
         {
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var cmd = new SqlCommand("SELECT COUNT(*) FROM ClassMembers WHERE ClassID = @ClassID", con);
             cmd.Parameters.AddWithValue("@ClassID", classID);
@@ -31,7 +30,7 @@ namespace FitHub._3._DataAccessLayer
 
         public void BookingClassDAL(int classID, int memberID)
         {
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
 
             string addBookingQuery = "INSERT INTO ClassMembers(ClassID, MemberID) VALUES(@ClassID, @MemberID)";
@@ -44,7 +43,7 @@ namespace FitHub._3._DataAccessLayer
         }
 
         public int CheckDoubleBookingDAL(int classID, int memberID)
-        {             using var con = new SqlConnection(conn);
+        {             using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             string checkDoubleBookingQuery = "SELECT COUNT(*) FROM ClassMembers WHERE ClassID = @ClassID AND MemberID = @MemberID";
             using var checkDoubleBookingCmd = new SqlCommand(checkDoubleBookingQuery, con);

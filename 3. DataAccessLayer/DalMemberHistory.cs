@@ -10,14 +10,14 @@ namespace FitHub
 {
     internal class DalMemberHistory
     {
-        private string conn = "Server=NICKLAS;DataBase=FitHubDB;" + "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+        ConnectionString connectionstring = new ConnectionString();
 
         public List<MemberHistoryDTO> GetMemberHistory(int memberID)
 
         {
             List<MemberHistoryDTO> history = new List<MemberHistoryDTO>();
             string sql = "SELECT * FROM Member_Overview WHERE MemberID = @MemberID";
-            using (SqlConnection connection = new SqlConnection(conn))
+            using (SqlConnection connection = new SqlConnection(connectionstring.conn))
             using (SqlCommand cmd = new SqlCommand(sql, connection))
             {
                 cmd.Parameters.AddWithValue("@MemberID", memberID);

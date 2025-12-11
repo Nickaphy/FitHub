@@ -11,15 +11,15 @@ namespace FitHub._3._DataAccessLayer
 {
     public class DalClasses
     {
-        string conn = "Server=NICKLAS;DataBase=FitHubDB;" +
-           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
-
+        ConnectionString connectionstring = new ConnectionString();
+        
         public List<Class> GetAllClassesDAL()
         {
             List<Class> classList = new List<Class>();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
-            using var cmd = new SqlCommand(@"
+            
+			using var cmd = new SqlCommand(@"
                 SELECT c.ClassID, c.ClassDate, c.ClassTime, c.ClassLocation, c.ClassType, c.ClassCapacity,
                        i.InstructorID, i.FirstName, i.SurName
                 FROM Classes c
@@ -97,7 +97,7 @@ namespace FitHub._3._DataAccessLayer
                 }
             }
 
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var cmd = new SqlCommand(@"
                 INSERT INTO Classes (InstructorID, ClassDate, ClassTime, ClassLocation, ClassType, ClassCapacity)
@@ -124,7 +124,7 @@ namespace FitHub._3._DataAccessLayer
 
         public void UpdateSingleColumnClass(int classID, string columnName, object newValue)
         {
-            using (SqlConnection con = new SqlConnection(conn))
+            using (SqlConnection con = new SqlConnection(connectionstring.conn))
             {
                 con.Open();
 
