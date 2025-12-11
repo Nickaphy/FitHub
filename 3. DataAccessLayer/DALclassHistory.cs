@@ -16,7 +16,7 @@ namespace FitHub._3._DataAccessLayer
         {
             List<ClassHistoryDTO> history = new List<ClassHistoryDTO>();
             string sql = "SELECT * FROM Instructor_Overview WHERE InstructorID = @InstructorID";
-            using (SqlConnection connection = new SqlConnection(conn))
+            using (SqlConnection connection = new SqlConnection(connectionstring.conn))
             using (SqlCommand cmd = new SqlCommand(sql, connection))
 
 
