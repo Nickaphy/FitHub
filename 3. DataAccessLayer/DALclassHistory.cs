@@ -10,10 +10,9 @@ namespace FitHub._3._DataAccessLayer
 {
     public class DalClassHistory
     {
-        string conn = "Server=LAPTOP-KE4SJBN2;DataBase=FitHubDB;" +
-           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
+		ConnectionString connectionstring = new ConnectionString();
 
-        public List<ClassHistoryDTO> GetClassHistory(int instructorID)
+		public List<ClassHistoryDTO> GetClassHistory(int instructorID)
         {
             List<ClassHistoryDTO> history = new List<ClassHistoryDTO>();
             string sql = "SELECT * FROM Instructor_Overview WHERE InstructorID = @InstructorID";

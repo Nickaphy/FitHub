@@ -58,5 +58,17 @@ namespace FitHub._1._UserInterface
         {
             MessageBox.Show("You have to enter a location for the class");
         }
+
+        public void bookingFullErrorMessage()
+        {
+            MessageBox.Show("Class is full. Cannot book more members.");
+        }
+
+        public void doubleBookingErrorMessage()
+        {
+            MessageBox.Show("You have already booked this class.");
+        }
+
+        
     }
 }

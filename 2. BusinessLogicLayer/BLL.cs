@@ -7,8 +7,11 @@ using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Text;
+using System.Linq;
 using System.Reflection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Windows.Forms;
+using FitHub._1._UserInterface;
 
 namespace FitHub.B_BLL
 {
@@ -138,6 +141,46 @@ namespace FitHub.B_BLL
         public void BookingClass(int classID, int memberID)
         {
             DalBooking dal = new DalBooking();
+            DalClasses dalClasses = new DalClasses();
+            ErrorMessages errorMessages = new ErrorMessages();
+
+            // get capacity for class
+            var classes = dalClasses.GetAllClassesDAL();
+            var cls = classes.FirstOrDefault(c => c.ClassID == classID);
+            int capacity = 0;
+            if (cls == null)
+            {
+                // class not found
+                errorMessages.ClassCapacityErrorMessage();
+            }
+            else if (!int.TryParse(cls.ClassCapacity, out var parsed))
+            {
+                // capacity value invalid
+                errorMessages.ClassCapacityErrorMessage();
+            }
+            else
+            {
+                // parse succeeded — use capacity
+                capacity = parsed;
+            }
+
+            // get current count
+            int current = dal.GetBookingCountDAL(classID);
+
+            if (capacity > 0 && current >= capacity)
+            {
+                errorMessages.bookingFullErrorMessage();
+                return;
+            }
+
+            // check double booking
+            int doublebooking = dal.CheckDoubleBookingDAL(classID, memberID);
+            if (doublebooking > 0)
+            {
+                errorMessages.doubleBookingErrorMessage();
+                return;
+            }
+
             dal.BookingClassDAL(classID, memberID);
         }
 
