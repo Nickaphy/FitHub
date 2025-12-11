@@ -88,6 +88,7 @@
             scopeMemberHistoryDataGrid = new DataGridView();
             SearchAllMembersDataGrid = new DataGridView();
             SeeMembersButton = new TabPage();
+            SeeMembers1Button = new Button();
             button2 = new Button();
             Instructor = new Label();
             label19 = new Label();
@@ -95,7 +96,6 @@
             searchInstructorDataGridView = new DataGridView();
             tabPage1 = new TabPage();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            SeeMembers1Button = new Button();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BookingClassGrid).BeginInit();
@@ -743,6 +743,16 @@
             SeeMembersButton.Text = "Class Overview";
             SeeMembersButton.UseVisualStyleBackColor = true;
             // 
+            // SeeMembers1Button
+            // 
+            SeeMembers1Button.Location = new Point(467, 388);
+            SeeMembers1Button.Name = "SeeMembers1Button";
+            SeeMembers1Button.Size = new Size(91, 30);
+            SeeMembers1Button.TabIndex = 5;
+            SeeMembers1Button.Text = "See Members";
+            SeeMembers1Button.UseVisualStyleBackColor = true;
+            SeeMembers1Button.Click += button4_Click;
+            // 
             // button2
             // 
             button2.Location = new Point(364, 388);
@@ -776,6 +786,7 @@
             scopeClassHistoryView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             scopeClassHistoryView.Location = new Point(564, 66);
             scopeClassHistoryView.Name = "scopeClassHistoryView";
+            scopeClassHistoryView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             scopeClassHistoryView.Size = new Size(427, 352);
             scopeClassHistoryView.TabIndex = 1;
             // 
@@ -803,16 +814,6 @@
             contextMenuStrip1.ImageScalingSize = new Size(32, 32);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // SeeMembers1Button
-            // 
-            SeeMembers1Button.Location = new Point(467, 388);
-            SeeMembers1Button.Name = "SeeMembers1Button";
-            SeeMembers1Button.Size = new Size(91, 30);
-            SeeMembers1Button.TabIndex = 5;
-            SeeMembers1Button.Text = "See Members";
-            SeeMembers1Button.UseVisualStyleBackColor = true;
-            SeeMembers1Button.Click += button4_Click;
             // 
             // MainForm
             // 

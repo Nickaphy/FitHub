@@ -38,6 +38,7 @@
             MembersForInstructorsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             MembersForInstructorsDataGridView.Location = new Point(81, 119);
             MembersForInstructorsDataGridView.Name = "MembersForInstructorsDataGridView";
+            MembersForInstructorsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             MembersForInstructorsDataGridView.Size = new Size(532, 342);
             MembersForInstructorsDataGridView.TabIndex = 0;
             MembersForInstructorsDataGridView.CellContentClick += MembersForInstructorsDataGridView_CellContentClick;
