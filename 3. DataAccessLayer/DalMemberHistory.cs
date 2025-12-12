@@ -13,7 +13,6 @@ namespace FitHub
         ConnectionString connectionstring = new ConnectionString();
 
         public List<MemberHistoryDTO> GetMemberHistory(int memberID)
-
         {
             List<MemberHistoryDTO> history = new List<MemberHistoryDTO>();
             string sql = "SELECT * FROM Member_Overview WHERE MemberID = @MemberID";
