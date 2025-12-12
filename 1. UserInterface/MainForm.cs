@@ -357,13 +357,13 @@ namespace FitHub
         {
             if (scopeClassHistoryView.SelectedRows.Count > 0)
             {
-               // InstructorViewMembers newForm = new InstructorViewMembers();
+                // InstructorViewMembers newForm = new InstructorViewMembers();
                 //newForm.Show();
 
                 DataGridViewRow selectedRow = scopeClassHistoryView.SelectedRows[0];
-                
+
                 int classID = Convert.ToInt32(selectedRow.Cells[5].Value);
-                
+
                 var instructorViewMembers = bll.GetInstructorViewMembers(classID);
 
                 var instructorViewMembersForm = new InstructorViewMembers();
@@ -372,6 +372,37 @@ namespace FitHub
 
 
             }
+        }
+
+        private void PrintReportButton_Click(object sender, EventArgs e)
+        {
+            //string selectedPrintDropBox = PrintDropBox.Text;
+            //bll.PrintDropBoxReport(selectedPrintDropBox);
+
+            string textToSave = "Hej"; //Her starter vi op næste gang
+
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Title = " Save As";
+                saveDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                saveDialog.DefaultExt = "txt";
+                saveDialog.AddExtension = true;
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(saveDialog.FileName, textToSave);
+                }
+            }
+        }
+
+        private void PrintDropBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }

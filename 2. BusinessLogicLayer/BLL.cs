@@ -193,9 +193,9 @@ namespace FitHub.B_BLL
 
 
 
-        DalMemberHistory dalHistory = new DalMemberHistory(); 
-        public List<MemberHistoryDTO> GetMemberHistory(int memberID) 
-        { 
+        DalMemberHistory dalHistory = new DalMemberHistory();
+        public List<MemberHistoryDTO> GetMemberHistory(int memberID)
+        {
             return dalHistory.GetMemberHistory(memberID);
         }
 
@@ -206,5 +206,16 @@ namespace FitHub.B_BLL
             return dalViewMembers.GetInstructorViewMembers(classID);
         }
 
+        DalPrintReport dalprintreport = new DalPrintReport();
+        public void PrintDropBoxReport(string selectedPrintDropBox)
+        {
+            dalprintreport.memberList = dalprintreport.GetAllInactive();
+            string filepath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string finalfolderpath = Path.Combine(filepath, "Reports");
+            if (!Directory.Exists(finalfolderpath))
+            {
+                Directory.CreateDirectory(finalfolderpath);
+            }
+        }
     }
 }

@@ -95,7 +95,13 @@
             scopeClassHistoryView = new DataGridView();
             searchInstructorDataGridView = new DataGridView();
             tabPage1 = new TabPage();
+            PrintReportButton = new Button();
+            PrintToPicker = new DateTimePicker();
+            PrintFromPicker = new DateTimePicker();
+            PrintDropBoxLabel = new Label();
+            PrintDropBox = new ComboBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            saveFileDialog1 = new SaveFileDialog();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BookingClassGrid).BeginInit();
@@ -112,6 +118,7 @@
             SeeMembersButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).BeginInit();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // MemberDeleteButton
@@ -150,7 +157,7 @@
             tabPage3.Location = new Point(4, 34);
             tabPage3.Margin = new Padding(1, 2, 1, 2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(2318, 862);
+            tabPage3.Size = new Size(2375, 862);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Booking";
             tabPage3.UseVisualStyleBackColor = true;
@@ -217,7 +224,7 @@
             tabPage4.Location = new Point(4, 34);
             tabPage4.Margin = new Padding(1, 2, 1, 2);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(2318, 862);
+            tabPage4.Size = new Size(2375, 862);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Class Management";
             tabPage4.UseVisualStyleBackColor = true;
@@ -382,7 +389,7 @@
             tabPage2.Margin = new Padding(1, 2, 1, 2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(1, 2, 1, 2);
-            tabPage2.Size = new Size(2318, 862);
+            tabPage2.Size = new Size(2375, 862);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Member Management";
             tabPage2.UseVisualStyleBackColor = true;
@@ -551,7 +558,7 @@
             tabPage5.Location = new Point(4, 34);
             tabPage5.Margin = new Padding(1, 2, 1, 2);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(2318, 862);
+            tabPage5.Size = new Size(2375, 862);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Instructor Management";
             tabPage5.UseVisualStyleBackColor = true;
@@ -694,7 +701,7 @@
             tabPage6.Location = new Point(4, 34);
             tabPage6.Margin = new Padding(1, 2, 1, 2);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(2318, 862);
+            tabPage6.Size = new Size(2375, 862);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Member Overview";
             tabPage6.UseVisualStyleBackColor = true;
@@ -760,9 +767,9 @@
             SeeMembersButton.Controls.Add(label19);
             SeeMembersButton.Controls.Add(scopeClassHistoryView);
             SeeMembersButton.Controls.Add(searchInstructorDataGridView);
-            SeeMembersButton.Location = new Point(4, 24);
+            SeeMembersButton.Location = new Point(4, 34);
             SeeMembersButton.Name = "SeeMembersButton";
-            SeeMembersButton.Size = new Size(1113, 457);
+            SeeMembersButton.Size = new Size(2375, 862);
             SeeMembersButton.TabIndex = 6;
             SeeMembersButton.Text = "Class Overview";
             SeeMembersButton.UseVisualStyleBackColor = true;
@@ -813,6 +820,7 @@
             scopeClassHistoryView.Location = new Point(806, 110);
             scopeClassHistoryView.Margin = new Padding(4, 5, 4, 5);
             scopeClassHistoryView.Name = "scopeClassHistoryView";
+            scopeClassHistoryView.RowHeadersWidth = 62;
             scopeClassHistoryView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             scopeClassHistoryView.Size = new Size(427, 352);
             scopeClassHistoryView.TabIndex = 1;
@@ -830,20 +838,72 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(PrintReportButton);
+            tabPage1.Controls.Add(PrintToPicker);
+            tabPage1.Controls.Add(PrintFromPicker);
+            tabPage1.Controls.Add(PrintDropBoxLabel);
+            tabPage1.Controls.Add(PrintDropBox);
             tabPage1.Location = new Point(4, 34);
             tabPage1.Margin = new Padding(4, 5, 4, 5);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(4, 5, 4, 5);
-            tabPage1.Size = new Size(2318, 862);
+            tabPage1.Size = new Size(2375, 862);
             tabPage1.TabIndex = 7;
             tabPage1.Text = "Reports";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // PrintReportButton
+            // 
+            PrintReportButton.Location = new Point(789, 535);
+            PrintReportButton.Name = "PrintReportButton";
+            PrintReportButton.Size = new Size(165, 34);
+            PrintReportButton.TabIndex = 4;
+            PrintReportButton.Text = "Print Report";
+            PrintReportButton.UseVisualStyleBackColor = true;
+            PrintReportButton.Click += PrintReportButton_Click;
+            // 
+            // PrintToPicker
+            // 
+            PrintToPicker.Location = new Point(654, 352);
+            PrintToPicker.Name = "PrintToPicker";
+            PrintToPicker.Size = new Size(300, 31);
+            PrintToPicker.TabIndex = 3;
+            // 
+            // PrintFromPicker
+            // 
+            PrintFromPicker.Location = new Point(654, 212);
+            PrintFromPicker.Name = "PrintFromPicker";
+            PrintFromPicker.Size = new Size(300, 31);
+            PrintFromPicker.TabIndex = 2;
+            // 
+            // PrintDropBoxLabel
+            // 
+            PrintDropBoxLabel.AutoSize = true;
+            PrintDropBoxLabel.Location = new Point(126, 170);
+            PrintDropBoxLabel.Name = "PrintDropBoxLabel";
+            PrintDropBoxLabel.Size = new Size(197, 25);
+            PrintDropBoxLabel.TabIndex = 1;
+            PrintDropBoxLabel.Text = "Choose subject to print";
+            // 
+            // PrintDropBox
+            // 
+            PrintDropBox.FormattingEnabled = true;
+            PrintDropBox.Items.AddRange(new object[] { "Inactive Members" });
+            PrintDropBox.Location = new Point(126, 210);
+            PrintDropBox.Name = "PrintDropBox";
+            PrintDropBox.Size = new Size(387, 33);
+            PrintDropBox.TabIndex = 0;
+            PrintDropBox.SelectedIndexChanged += PrintDropBox_SelectedIndexChanged;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(32, 32);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.FileOk += saveFileDialog1_FileOk;
             // 
             // MainForm
             // 
@@ -876,6 +936,8 @@
             SeeMembersButton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).EndInit();
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -948,5 +1010,11 @@
         private DataGridView SearchAllMembersDataGrid;
         private TabPage tabPage1;
         private Button SeeMembers1Button;
+        private ComboBox PrintDropBox;
+        private DateTimePicker PrintToPicker;
+        private DateTimePicker PrintFromPicker;
+        private Label PrintDropBoxLabel;
+        private Button PrintReportButton;
+        private SaveFileDialog saveFileDialog1;
     }
 }
