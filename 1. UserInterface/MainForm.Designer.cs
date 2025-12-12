@@ -102,6 +102,7 @@
             buttonMemberManagement = new Button();
             buttonClassManagement = new Button();
             buttonLogout = new Button();
+            buttonClassOverview = new Button();
             panel2 = new Panel();
             buttonCloseDown = new Button();
             panelFormLoader = new Panel();
@@ -146,7 +147,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.ImeMode = ImeMode.Alpha;
             tabControl1.ItemSize = new Size(140, 35);
-            tabControl1.Location = new Point(726, 97);
+            tabControl1.Location = new Point(633, 214);
             tabControl1.Margin = new Padding(1);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
@@ -795,6 +796,7 @@
             panel1.Controls.Add(buttonMemberManagement);
             panel1.Controls.Add(buttonClassManagement);
             panel1.Controls.Add(buttonLogout);
+            panel1.Controls.Add(buttonClassOverview);
             panel1.Location = new Point(0, 132);
             panel1.Name = "panel1";
             panel1.Size = new Size(220, 527);
@@ -827,6 +829,7 @@
             buttonBookingTab.Click += buttonBookingTab_Click;
             buttonBookingTab.Leave += buttonBookingTab_leave;
             buttonBookingTab.MouseEnter += buttonBookingTab_MouseEnter;
+            buttonBookingTab.MouseHover += buttonBookingTab_Hover;
             // 
             // button2
             // 
@@ -837,7 +840,7 @@
             button2.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(73, 125, 201);
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(0, 310);
+            button2.Location = new Point(0, 372);
             button2.Name = "button2";
             button2.Size = new Size(220, 62);
             button2.TabIndex = 6;
@@ -947,6 +950,26 @@
             buttonLogout.Click += buttonLogout_Click;
             buttonLogout.Leave += buttonLogout_leave;
             buttonLogout.MouseEnter += buttonLogout_MouseEnter;
+            // 
+            // buttonClassOverview
+            // 
+            buttonClassOverview.BackColor = Color.FromArgb(31, 34, 56);
+            buttonClassOverview.BackgroundImageLayout = ImageLayout.None;
+            buttonClassOverview.FlatAppearance.BorderSize = 0;
+            buttonClassOverview.FlatStyle = FlatStyle.Flat;
+            buttonClassOverview.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonClassOverview.ForeColor = Color.FromArgb(73, 125, 201);
+            buttonClassOverview.Image = (Image)resources.GetObject("buttonClassOverview.Image");
+            buttonClassOverview.Location = new Point(0, 310);
+            buttonClassOverview.Name = "buttonClassOverview";
+            buttonClassOverview.Size = new Size(220, 62);
+            buttonClassOverview.TabIndex = 9;
+            buttonClassOverview.Text = "Class\r\nOverview";
+            buttonClassOverview.TextImageRelation = TextImageRelation.TextBeforeImage;
+            buttonClassOverview.UseVisualStyleBackColor = false;
+            buttonClassOverview.Click += buttonClassOverview_Click;
+            buttonClassOverview.Leave += buttonClassOverview_leave;
+            buttonClassOverview.MouseEnter += buttonClassOverview_MouseEnter;
             // 
             // panel2
             // 
@@ -1112,5 +1135,6 @@
         private DateTimePicker dateTimePicker3;
         private DataGridView dataGridView4;
         private Button buttonLogout;
+        private Button buttonClassOverview;
     }
 }

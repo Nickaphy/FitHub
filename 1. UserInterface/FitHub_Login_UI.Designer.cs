@@ -50,7 +50,7 @@
             comboBoxLoginDropMenu.ForeColor = Color.FromArgb(73, 125, 201);
             comboBoxLoginDropMenu.FormattingEnabled = true;
             comboBoxLoginDropMenu.Items.AddRange(new object[] { "Admin", "Receptionist" });
-            comboBoxLoginDropMenu.Location = new Point(498, 328);
+            comboBoxLoginDropMenu.Location = new Point(511, 313);
             comboBoxLoginDropMenu.Name = "comboBoxLoginDropMenu";
             comboBoxLoginDropMenu.Size = new Size(167, 28);
             comboBoxLoginDropMenu.TabIndex = 1;
@@ -61,9 +61,9 @@
             buttonLogIn.FlatStyle = FlatStyle.Flat;
             buttonLogIn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonLogIn.ForeColor = Color.FromArgb(73, 125, 201);
-            buttonLogIn.Location = new Point(536, 373);
+            buttonLogIn.Location = new Point(511, 362);
             buttonLogIn.Name = "buttonLogIn";
-            buttonLogIn.Size = new Size(94, 29);
+            buttonLogIn.Size = new Size(167, 29);
             buttonLogIn.TabIndex = 2;
             buttonLogIn.Text = "Login";
             buttonLogIn.UseVisualStyleBackColor = false;
@@ -74,9 +74,9 @@
             pictureBox1.BackColor = Color.FromArgb(46, 49, 84);
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(463, 136);
+            pictureBox1.Location = new Point(361, 58);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(239, 151);
+            pictureBox1.Size = new Size(493, 216);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 

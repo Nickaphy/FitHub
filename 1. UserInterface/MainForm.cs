@@ -59,7 +59,7 @@ namespace FitHub
 
             labelTitle.Text = "Booking";
             this.panelFormLoader.Controls.Clear();
-            formBookingTab FormBookingTab_Vrb = new formBookingTab() { Dock = DockStyle.Fill,TopLevel = false, TopMost = true };
+            formBookingTab FormBookingTab_Vrb = new formBookingTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             FormBookingTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormBookingTab_Vrb);
             FormBookingTab_Vrb.Show();
@@ -75,19 +75,6 @@ namespace FitHub
             InstructorGridView.DataSource = instructors;
 
 
-            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
-
-            VerticalTabHelper.Apply(tabControl1, new VerticalTabSettings
-            {
-                Angle = 0f,
-                Font = new Font("Segoe UI", 9F),
-                Brush = Brushes.Blue,
-                OfsetX = 0,
-                OfsetY = 0,
-                ItemSize = new Size(45, 150)        //  Juster størrelsen på fanerne efter behov
-            });
-
-            //VerticalTabHelper.Apply(tabControl2); //  Anvend standardindstillingerne for den anden tab control
 
         }
 
@@ -300,9 +287,6 @@ namespace FitHub
             this.panelFormLoader.Controls.Add(FormClassManagementTab_Vrb);
             FormClassManagementTab_Vrb.Show();
 
-            /*panelNavagation.Height = buttonClassManagement.Height;
-            panelNavagation.Top = buttonClassManagement.Top;
-            buttonClassManagement.BackColor = Color.FromArgb(45, 51, 73);*/
         }
 
         private void buttonMemberManagement_Click(object sender, EventArgs e)
@@ -315,10 +299,7 @@ namespace FitHub
             FormMemberManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormMemberManagementTab_Vrb);
             FormMemberManagementTab_Vrb.Show();
-
-            /*panelNavagation.Height = buttonMemberManagement.Height;
-            panelNavagation.Top = buttonMemberManagement.Top;
-            buttonMemberManagement.BackColor = Color.FromArgb(45, 51, 73);*/
+  
         }
 
         private void buttonInstructorManagemant_Click(object sender, EventArgs e)
@@ -331,53 +312,37 @@ namespace FitHub
             FormInstructorManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormInstructorManagementTab_Vrb);
             FormInstructorManagementTab_Vrb.Show();
-
-            /*panelNavagation.Height = buttonInstructorManagemant.Height;
-            panelNavagation.Top = buttonInstructorManagemant.Top;
-            buttonInstructorManagemant.BackColor = Color.FromArgb(45, 51, 73);*/
+         
         }
 
         private void buttonMemberOverview_Click(object sender, EventArgs e)
         {
             MoveNavPanel((Button)sender);
 
-            labelTitle.Text = "Instructor Management";
+            labelTitle.Text = "Member Overview";
             this.panelFormLoader.Controls.Clear();
             formMemberOverviewTab FormMemberOverviewTab_Vrb = new formMemberOverviewTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             FormMemberOverviewTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormMemberOverviewTab_Vrb);
             FormMemberOverviewTab_Vrb.Show();
-
-            /*panelNavagation.Height = buttonMemberOverview.Height;
-            panelNavagation.Top = buttonMemberOverview.Top;
-            buttonMemberOverview.BackColor = Color.FromArgb(45, 51, 73);*/
+           
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             MoveNavPanel((Button)sender);
 
-            labelTitle.Text = "Raports";
+            labelTitle.Text = "Statistics Reports";
             this.panelFormLoader.Controls.Clear();
             formRaportsTab FormRaportsTab_Vrb = new formRaportsTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             FormRaportsTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormRaportsTab_Vrb);
             FormRaportsTab_Vrb.Show();
-
-            /*
-            panelNavagation.Height = button2.Height;
-            panelNavagation.Top = button2.Top;
-            button2.BackColor = Color.FromArgb(45, 51, 73);*/
         }
 
         private void buttonBookingTab_Click(object sender, EventArgs e)
         {
-            MoveNavPanel((Button)sender);
-
-            /*panelNavagation.Height = buttonBookingTab.Height; 
-            panelNavagation.Top = buttonBookingTab.Top;
-            panelNavagation.Left = buttonBookingTab.Left;
-            buttonBookingTab.BackColor = Color.FromArgb(45, 51, 73);*/
+            MoveNavPanel((Button)sender);            
 
             labelTitle.Text = "Booking";
             this.panelFormLoader.Controls.Clear();
@@ -390,38 +355,50 @@ namespace FitHub
 
         private void buttonBookingTab_leave(object sender, EventArgs e)
         {
-            buttonBookingTab.BackColor = Color.FromArgb(24, 30, 54);
+            buttonBookingTab.BackColor = Color.FromArgb(31, 34, 56);
         }
 
         private void buttonClassManagement_leave(object sender, EventArgs e)
         {
-            buttonClassManagement.BackColor = Color.FromArgb(24, 30, 54);
+            buttonClassManagement.BackColor = Color.FromArgb(31, 34, 56);
         }
 
         private void buttonMemberManagement_leave(object sender, EventArgs e)
         {
-            buttonMemberManagement.BackColor = Color.FromArgb(24, 30, 54);
+            buttonMemberManagement.BackColor = Color.FromArgb(31, 34, 56);
         }
 
         private void buttonInstructorManagemant_leave(object sender, EventArgs e)
         {
-            buttonInstructorManagemant.BackColor = Color.FromArgb(24, 30, 54);
+            buttonInstructorManagemant.BackColor = Color.FromArgb(31, 34, 56);
         }
 
         private void buttonMemberOverview_leave(object sender, EventArgs e)
         {
-            buttonMemberOverview.BackColor = Color.FromArgb(24, 30, 54);
+            buttonMemberOverview.BackColor = Color.FromArgb(31, 34, 56);
         }
 
         private void button2_leave(object sender, EventArgs e)
         {
-            button2.BackColor = Color.FromArgb(24, 30, 54);
+            button2.BackColor = Color.FromArgb(31, 34, 56);
         }
 
         private void buttonCloseDown_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        private void buttonClassOverview_Click(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+
+            labelTitle.Text = "Class Overview";
+            this.panelFormLoader.Controls.Clear();
+            formClassOverviewTab FormClassOverviewTab_Vrb = new formClassOverviewTab() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormClassOverviewTab_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.panelFormLoader.Controls.Add(FormClassOverviewTab_Vrb);
+            FormClassOverviewTab_Vrb.Show();
+        }
+
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -474,6 +451,23 @@ namespace FitHub
         private void buttonLogout_MouseEnter(object sender, EventArgs e)
         {
             MoveNavPanel((Button)sender);
+        }
+
+
+        private void buttonClassOverview_leave(object sender, EventArgs e)
+        {
+            buttonClassOverview.BackColor = Color.FromArgb(31, 34, 56);
+            
+        }
+
+        private void buttonClassOverview_MouseEnter(object sender, EventArgs e)
+        {
+            MoveNavPanel((Button)sender);
+        }
+
+        private void buttonBookingTab_Hover(object sender, EventArgs e)
+        {
+            //buttonClassOverview.BackColor = Color.FromArgb(158, 161, 176);
         }
     }
 }

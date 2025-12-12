@@ -53,7 +53,7 @@
             labelClassTypeClassManagement.AutoSize = true;
             labelClassTypeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             labelClassTypeClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassTypeClassManagement.Location = new Point(23, 137);
+            labelClassTypeClassManagement.Location = new Point(23, 95);
             labelClassTypeClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelClassTypeClassManagement.Name = "labelClassTypeClassManagement";
             labelClassTypeClassManagement.Size = new Size(81, 20);
@@ -64,7 +64,7 @@
             // 
             labelDateClassManagement.AutoSize = true;
             labelDateClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            labelDateClassManagement.Location = new Point(22, 240);
+            labelDateClassManagement.Location = new Point(22, 198);
             labelDateClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelDateClassManagement.Name = "labelDateClassManagement";
             labelDateClassManagement.Size = new Size(42, 20);
@@ -75,7 +75,7 @@
             // 
             labelTimeClassManagement.AutoSize = true;
             labelTimeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            labelTimeClassManagement.Location = new Point(23, 186);
+            labelTimeClassManagement.Location = new Point(23, 144);
             labelTimeClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelTimeClassManagement.Name = "labelTimeClassManagement";
             labelTimeClassManagement.Size = new Size(44, 20);
@@ -86,7 +86,7 @@
             // 
             labelCapacityClassManagement.AutoSize = true;
             labelCapacityClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            labelCapacityClassManagement.Location = new Point(22, 287);
+            labelCapacityClassManagement.Location = new Point(22, 245);
             labelCapacityClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelCapacityClassManagement.Name = "labelCapacityClassManagement";
             labelCapacityClassManagement.Size = new Size(68, 20);
@@ -97,7 +97,7 @@
             // 
             labelLocationClassManagement.AutoSize = true;
             labelLocationClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            labelLocationClassManagement.Location = new Point(22, 340);
+            labelLocationClassManagement.Location = new Point(22, 298);
             labelLocationClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelLocationClassManagement.Name = "labelLocationClassManagement";
             labelLocationClassManagement.Size = new Size(69, 20);
@@ -106,7 +106,7 @@
             // 
             // textBoxLocationClassManagement
             // 
-            textBoxLocationClassManagement.Location = new Point(113, 337);
+            textBoxLocationClassManagement.Location = new Point(113, 295);
             textBoxLocationClassManagement.Margin = new Padding(4);
             textBoxLocationClassManagement.Name = "textBoxLocationClassManagement";
             textBoxLocationClassManagement.Size = new Size(138, 27);
@@ -114,7 +114,7 @@
             // 
             // textBoxCapacityClassManagement
             // 
-            textBoxCapacityClassManagement.Location = new Point(113, 285);
+            textBoxCapacityClassManagement.Location = new Point(113, 243);
             textBoxCapacityClassManagement.Margin = new Padding(4);
             textBoxCapacityClassManagement.Name = "textBoxCapacityClassManagement";
             textBoxCapacityClassManagement.Size = new Size(138, 27);
@@ -124,7 +124,7 @@
             // 
             comboBoxTimeClassManagement.FormattingEnabled = true;
             comboBoxTimeClassManagement.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
-            comboBoxTimeClassManagement.Location = new Point(112, 184);
+            comboBoxTimeClassManagement.Location = new Point(112, 142);
             comboBoxTimeClassManagement.Margin = new Padding(4);
             comboBoxTimeClassManagement.Name = "comboBoxTimeClassManagement";
             comboBoxTimeClassManagement.Size = new Size(230, 28);
@@ -132,7 +132,7 @@
             // 
             // dateTimePickerDateClassManagement
             // 
-            dateTimePickerDateClassManagement.Location = new Point(111, 236);
+            dateTimePickerDateClassManagement.Location = new Point(111, 194);
             dateTimePickerDateClassManagement.Margin = new Padding(4);
             dateTimePickerDateClassManagement.Name = "dateTimePickerDateClassManagement";
             dateTimePickerDateClassManagement.Size = new Size(231, 27);
@@ -142,7 +142,7 @@
             // 
             comboBoxClassTypeClassManagement.FormattingEnabled = true;
             comboBoxClassTypeClassManagement.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
-            comboBoxClassTypeClassManagement.Location = new Point(114, 135);
+            comboBoxClassTypeClassManagement.Location = new Point(114, 93);
             comboBoxClassTypeClassManagement.Margin = new Padding(4);
             comboBoxClassTypeClassManagement.Name = "comboBoxClassTypeClassManagement";
             comboBoxClassTypeClassManagement.Size = new Size(228, 28);
@@ -163,11 +163,11 @@
             // labelClassOverviewClassManagement
             // 
             labelClassOverviewClassManagement.AutoSize = true;
-            labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
+            labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             labelClassOverviewClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewClassManagement.Location = new Point(396, 81);
+            labelClassOverviewClassManagement.Location = new Point(399, 89);
             labelClassOverviewClassManagement.Name = "labelClassOverviewClassManagement";
-            labelClassOverviewClassManagement.Size = new Size(193, 35);
+            labelClassOverviewClassManagement.Size = new Size(155, 28);
             labelClassOverviewClassManagement.TabIndex = 28;
             labelClassOverviewClassManagement.Text = "Class Overview";
             // 
@@ -176,7 +176,7 @@
             labelClassInformationClassManagement.AutoSize = true;
             labelClassInformationClassManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelClassInformationClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassInformationClassManagement.Location = new Point(20, 81);
+            labelClassInformationClassManagement.Location = new Point(20, 19);
             labelClassInformationClassManagement.Name = "labelClassInformationClassManagement";
             labelClassInformationClassManagement.Size = new Size(221, 35);
             labelClassInformationClassManagement.TabIndex = 29;

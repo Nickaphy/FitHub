@@ -316,6 +316,18 @@
         EEOOci02Q0KGzJUhc2XIXP0aMsf8N/IEN880yf/9lnWUXhwNuzj6QMHdAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="buttonClassOverview.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACkAAAAjCAYAAAAJ+yOQAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFeSURBVFhH7ZbBbQMhEEVdgktICS7BV24uwSW4AaR0
+        kBJSQkrImZNLSAkpIdGLBgt9YxYs2MgJX/paWJbZpxkWdrOZmpr6h3I+PDkf9it5p+9flAF+dfKH8+HT
+        2lzpp2OxvVeOopwPz5mX3WMgXpJ4XOlz/9X58G7XnzHlKKojJJkjVowXgYEEkPabjf0aZIvbIB9Czoej
+        lWNNH5WjqIco952QZ+fDwbYvKhG3nVoPhwRwa/MoHbC7zHMlD4ckcye5R0bj9lLj4ZBkTudw3MWNusbD
+        IckY5abs9IGj37Iuh0Pig8TgdNFnSl4FkqNua/MptY4vuTukbsSY0pI9ygwwpU/HNIa6O+TV6ZBkD7hL
+        Vm2Mr19jqLtDkpkLRDIvrsOrf0P5d8y5O+TNoDl4VLFOs/FuqhIym82SbH1qnKGQOP04alwqeTMkJ4gG
+        Ge2TcizKzmLNxCi3ZXFqauoP6Bt/a8ljrcUVQgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>56</value>
   </metadata>

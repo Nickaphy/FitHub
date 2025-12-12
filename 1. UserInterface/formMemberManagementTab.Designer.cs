@@ -29,195 +29,196 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMemberManagementTab));
-            label18 = new Label();
+            labelBirthdateMemberManagement = new Label();
             dateTimePicker2 = new DateTimePicker();
-            dataGridView1 = new DataGridView();
-            comboBox1 = new ComboBox();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            buttonSearchClassManagement = new Button();
-            textBoxSearchBarClassManagement = new TextBox();
+            dataGridViewMemberManagement = new DataGridView();
+            comboBoxMemberTypeMemberManagement = new ComboBox();
+            labelMemberTypeMemberManagement = new Label();
+            labelTlfMemberManagement = new Label();
+            labelEmailMemberManagement = new Label();
+            labelSurNameMemberManagement = new Label();
+            labelFirstNameMemberManagement = new Label();
+            textBoxTlfMemberManagement = new TextBox();
+            textBoxEmailMemberManagement = new TextBox();
+            textBoxSurNameMemberManagement = new TextBox();
+            textBoxFirstNameMemberManagement = new TextBox();
+            buttonSearchMemberManagement = new Button();
+            textBoxSearchBarMemberManagement = new TextBox();
             labelMemberInformationMemberManagement = new Label();
             buttonAddMember = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            labelClassOverviewClassManagement = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMemberManagement).BeginInit();
             SuspendLayout();
             // 
-            // label18
+            // labelBirthdateMemberManagement
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label18.ForeColor = Color.FromArgb(73, 125, 201);
-            label18.Location = new Point(21, 284);
-            label18.Margin = new Padding(4, 0, 4, 0);
-            label18.Name = "label18";
-            label18.Size = new Size(75, 20);
-            label18.TabIndex = 33;
-            label18.Text = "Birthdate";
+            labelBirthdateMemberManagement.AutoSize = true;
+            labelBirthdateMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelBirthdateMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelBirthdateMemberManagement.Location = new Point(21, 302);
+            labelBirthdateMemberManagement.Margin = new Padding(4, 0, 4, 0);
+            labelBirthdateMemberManagement.Name = "labelBirthdateMemberManagement";
+            labelBirthdateMemberManagement.Size = new Size(75, 20);
+            labelBirthdateMemberManagement.TabIndex = 33;
+            labelBirthdateMemberManagement.Text = "Birthdate";
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(117, 277);
+            dateTimePicker2.Location = new Point(117, 295);
             dateTimePicker2.Margin = new Padding(4);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(225, 27);
             dateTimePicker2.TabIndex = 32;
             // 
-            // dataGridView1
+            // dataGridViewMemberManagement
             // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.BackgroundColor = SystemColors.Window;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(399, 70);
-            dataGridView1.Margin = new Padding(1);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(486, 400);
-            dataGridView1.TabIndex = 20;
+            dataGridViewMemberManagement.AllowUserToOrderColumns = true;
+            dataGridViewMemberManagement.BackgroundColor = SystemColors.Window;
+            dataGridViewMemberManagement.BorderStyle = BorderStyle.None;
+            dataGridViewMemberManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMemberManagement.Location = new Point(399, 132);
+            dataGridViewMemberManagement.Margin = new Padding(1);
+            dataGridViewMemberManagement.Name = "dataGridViewMemberManagement";
+            dataGridViewMemberManagement.RowHeadersWidth = 82;
+            dataGridViewMemberManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewMemberManagement.Size = new Size(486, 338);
+            dataGridViewMemberManagement.TabIndex = 20;
             // 
-            // comboBox1
+            // comboBoxMemberTypeMemberManagement
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Basic", "Premium", "VIP" });
-            comboBox1.Location = new Point(117, 328);
-            comboBox1.Margin = new Padding(1);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(225, 28);
-            comboBox1.TabIndex = 31;
+            comboBoxMemberTypeMemberManagement.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMemberTypeMemberManagement.FormattingEnabled = true;
+            comboBoxMemberTypeMemberManagement.Items.AddRange(new object[] { "Basic", "Premium", "VIP" });
+            comboBoxMemberTypeMemberManagement.Location = new Point(117, 358);
+            comboBoxMemberTypeMemberManagement.Margin = new Padding(1);
+            comboBoxMemberTypeMemberManagement.Name = "comboBoxMemberTypeMemberManagement";
+            comboBoxMemberTypeMemberManagement.Size = new Size(225, 28);
+            comboBoxMemberTypeMemberManagement.TabIndex = 31;
             // 
-            // label5
+            // labelMemberTypeMemberManagement
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label5.ForeColor = Color.FromArgb(73, 125, 201);
-            label5.Location = new Point(21, 328);
-            label5.Margin = new Padding(1, 0, 1, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 40);
-            label5.TabIndex = 30;
-            label5.Text = "Member \r\nType";
+            labelMemberTypeMemberManagement.AutoSize = true;
+            labelMemberTypeMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelMemberTypeMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelMemberTypeMemberManagement.Location = new Point(21, 346);
+            labelMemberTypeMemberManagement.Margin = new Padding(1, 0, 1, 0);
+            labelMemberTypeMemberManagement.Name = "labelMemberTypeMemberManagement";
+            labelMemberTypeMemberManagement.Size = new Size(72, 40);
+            labelMemberTypeMemberManagement.TabIndex = 30;
+            labelMemberTypeMemberManagement.Text = "Member \r\nType";
             // 
-            // label4
+            // labelTlfMemberManagement
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label4.ForeColor = Color.FromArgb(73, 125, 201);
-            label4.Location = new Point(21, 231);
-            label4.Margin = new Padding(1, 0, 1, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(28, 20);
-            label4.TabIndex = 29;
-            label4.Text = "Tlf";
+            labelTlfMemberManagement.AutoSize = true;
+            labelTlfMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelTlfMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelTlfMemberManagement.Location = new Point(21, 249);
+            labelTlfMemberManagement.Margin = new Padding(1, 0, 1, 0);
+            labelTlfMemberManagement.Name = "labelTlfMemberManagement";
+            labelTlfMemberManagement.Size = new Size(28, 20);
+            labelTlfMemberManagement.TabIndex = 29;
+            labelTlfMemberManagement.Text = "Tlf";
             // 
-            // label3
+            // labelEmailMemberManagement
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label3.ForeColor = Color.FromArgb(73, 125, 201);
-            label3.Location = new Point(21, 180);
-            label3.Margin = new Padding(1, 0, 1, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(47, 20);
-            label3.TabIndex = 28;
-            label3.Text = "Email";
+            labelEmailMemberManagement.AutoSize = true;
+            labelEmailMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelEmailMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelEmailMemberManagement.Location = new Point(21, 198);
+            labelEmailMemberManagement.Margin = new Padding(1, 0, 1, 0);
+            labelEmailMemberManagement.Name = "labelEmailMemberManagement";
+            labelEmailMemberManagement.Size = new Size(47, 20);
+            labelEmailMemberManagement.TabIndex = 28;
+            labelEmailMemberManagement.Text = "Email";
             // 
-            // label2
+            // labelSurNameMemberManagement
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label2.ForeColor = Color.FromArgb(73, 125, 201);
-            label2.Location = new Point(21, 130);
-            label2.Margin = new Padding(1, 0, 1, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 20);
-            label2.TabIndex = 27;
-            label2.Text = "Sur Name";
+            labelSurNameMemberManagement.AutoSize = true;
+            labelSurNameMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelSurNameMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelSurNameMemberManagement.Location = new Point(21, 148);
+            labelSurNameMemberManagement.Margin = new Padding(1, 0, 1, 0);
+            labelSurNameMemberManagement.Name = "labelSurNameMemberManagement";
+            labelSurNameMemberManagement.Size = new Size(78, 20);
+            labelSurNameMemberManagement.TabIndex = 27;
+            labelSurNameMemberManagement.Text = "Sur Name";
             // 
-            // label1
+            // labelFirstNameMemberManagement
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            label1.ForeColor = Color.FromArgb(73, 125, 201);
-            label1.Location = new Point(21, 81);
-            label1.Margin = new Padding(1, 0, 1, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(86, 20);
-            label1.TabIndex = 26;
-            label1.Text = "First Name";
+            labelFirstNameMemberManagement.AutoSize = true;
+            labelFirstNameMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelFirstNameMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelFirstNameMemberManagement.Location = new Point(21, 99);
+            labelFirstNameMemberManagement.Margin = new Padding(1, 0, 1, 0);
+            labelFirstNameMemberManagement.Name = "labelFirstNameMemberManagement";
+            labelFirstNameMemberManagement.Size = new Size(86, 20);
+            labelFirstNameMemberManagement.TabIndex = 26;
+            labelFirstNameMemberManagement.Text = "First Name";
             // 
-            // textBox4
+            // textBoxTlfMemberManagement
             // 
-            textBox4.Location = new Point(117, 224);
-            textBox4.Margin = new Padding(1);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 25;
+            textBoxTlfMemberManagement.Location = new Point(117, 242);
+            textBoxTlfMemberManagement.Margin = new Padding(1);
+            textBoxTlfMemberManagement.Name = "textBoxTlfMemberManagement";
+            textBoxTlfMemberManagement.Size = new Size(125, 27);
+            textBoxTlfMemberManagement.TabIndex = 25;
             // 
-            // textBox3
+            // textBoxEmailMemberManagement
             // 
-            textBox3.Location = new Point(117, 173);
-            textBox3.Margin = new Padding(1);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(225, 27);
-            textBox3.TabIndex = 24;
+            textBoxEmailMemberManagement.Location = new Point(117, 191);
+            textBoxEmailMemberManagement.Margin = new Padding(1);
+            textBoxEmailMemberManagement.Name = "textBoxEmailMemberManagement";
+            textBoxEmailMemberManagement.Size = new Size(225, 27);
+            textBoxEmailMemberManagement.TabIndex = 24;
             // 
-            // textBox2
+            // textBoxSurNameMemberManagement
             // 
-            textBox2.Location = new Point(117, 123);
-            textBox2.Margin = new Padding(1);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 23;
+            textBoxSurNameMemberManagement.Location = new Point(117, 141);
+            textBoxSurNameMemberManagement.Margin = new Padding(1);
+            textBoxSurNameMemberManagement.Name = "textBoxSurNameMemberManagement";
+            textBoxSurNameMemberManagement.Size = new Size(125, 27);
+            textBoxSurNameMemberManagement.TabIndex = 23;
             // 
-            // textBox1
+            // textBoxFirstNameMemberManagement
             // 
-            textBox1.Location = new Point(117, 74);
-            textBox1.Margin = new Padding(1);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 22;
+            textBoxFirstNameMemberManagement.Location = new Point(117, 92);
+            textBoxFirstNameMemberManagement.Margin = new Padding(1);
+            textBoxFirstNameMemberManagement.Name = "textBoxFirstNameMemberManagement";
+            textBoxFirstNameMemberManagement.Size = new Size(125, 27);
+            textBoxFirstNameMemberManagement.TabIndex = 22;
             // 
-            // buttonSearchClassManagement
+            // buttonSearchMemberManagement
             // 
-            buttonSearchClassManagement.BackgroundImage = (Image)resources.GetObject("buttonSearchClassManagement.BackgroundImage");
-            buttonSearchClassManagement.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonSearchClassManagement.FlatAppearance.BorderColor = Color.FromArgb(31, 34, 56);
-            buttonSearchClassManagement.FlatStyle = FlatStyle.Flat;
-            buttonSearchClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchClassManagement.ForeColor = SystemColors.ButtonHighlight;
-            buttonSearchClassManagement.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSearchClassManagement.Location = new Point(633, 22);
-            buttonSearchClassManagement.Name = "buttonSearchClassManagement";
-            buttonSearchClassManagement.Size = new Size(36, 35);
-            buttonSearchClassManagement.TabIndex = 35;
-            buttonSearchClassManagement.UseVisualStyleBackColor = true;
+            buttonSearchMemberManagement.BackgroundImage = (Image)resources.GetObject("buttonSearchMemberManagement.BackgroundImage");
+            buttonSearchMemberManagement.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonSearchMemberManagement.FlatAppearance.BorderColor = Color.FromArgb(31, 34, 56);
+            buttonSearchMemberManagement.FlatStyle = FlatStyle.Flat;
+            buttonSearchMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSearchMemberManagement.ForeColor = SystemColors.ButtonHighlight;
+            buttonSearchMemberManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSearchMemberManagement.Location = new Point(633, 22);
+            buttonSearchMemberManagement.Name = "buttonSearchMemberManagement";
+            buttonSearchMemberManagement.Size = new Size(36, 35);
+            buttonSearchMemberManagement.TabIndex = 35;
+            buttonSearchMemberManagement.UseVisualStyleBackColor = true;
             // 
-            // textBoxSearchBarClassManagement
+            // textBoxSearchBarMemberManagement
             // 
-            textBoxSearchBarClassManagement.BackColor = Color.FromArgb(74, 79, 99);
-            textBoxSearchBarClassManagement.BorderStyle = BorderStyle.None;
-            textBoxSearchBarClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            textBoxSearchBarClassManagement.Location = new Point(680, 29);
-            textBoxSearchBarClassManagement.Name = "textBoxSearchBarClassManagement";
-            textBoxSearchBarClassManagement.Size = new Size(205, 20);
-            textBoxSearchBarClassManagement.TabIndex = 34;
-            textBoxSearchBarClassManagement.Text = "Search for...";
+            textBoxSearchBarMemberManagement.BackColor = Color.FromArgb(74, 79, 99);
+            textBoxSearchBarMemberManagement.BorderStyle = BorderStyle.None;
+            textBoxSearchBarMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            textBoxSearchBarMemberManagement.Location = new Point(680, 29);
+            textBoxSearchBarMemberManagement.Name = "textBoxSearchBarMemberManagement";
+            textBoxSearchBarMemberManagement.Size = new Size(205, 20);
+            textBoxSearchBarMemberManagement.TabIndex = 34;
+            textBoxSearchBarMemberManagement.Text = "Search for...";
             // 
             // labelMemberInformationMemberManagement
             // 
             labelMemberInformationMemberManagement.AutoSize = true;
             labelMemberInformationMemberManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelMemberInformationMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelMemberInformationMemberManagement.Location = new Point(18, 19);
+            labelMemberInformationMemberManagement.Location = new Point(20, 19);
             labelMemberInformationMemberManagement.Name = "labelMemberInformationMemberManagement";
             labelMemberInformationMemberManagement.Size = new Size(264, 35);
             labelMemberInformationMemberManagement.TabIndex = 36;
@@ -241,55 +242,68 @@
             buttonAddMember.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAddMember.UseVisualStyleBackColor = false;
             // 
+            // labelClassOverviewClassManagement
+            // 
+            labelClassOverviewClassManagement.AutoSize = true;
+            labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
+            labelClassOverviewClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            labelClassOverviewClassManagement.Location = new Point(394, 92);
+            labelClassOverviewClassManagement.Name = "labelClassOverviewClassManagement";
+            labelClassOverviewClassManagement.Size = new Size(155, 28);
+            labelClassOverviewClassManagement.TabIndex = 38;
+            labelClassOverviewClassManagement.Text = "Class Overview";
+            // 
             // formMemberManagementTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(labelClassOverviewClassManagement);
             Controls.Add(buttonAddMember);
             Controls.Add(labelMemberInformationMemberManagement);
-            Controls.Add(buttonSearchClassManagement);
-            Controls.Add(textBoxSearchBarClassManagement);
-            Controls.Add(label18);
+            Controls.Add(buttonSearchMemberManagement);
+            Controls.Add(textBoxSearchBarMemberManagement);
+            Controls.Add(labelBirthdateMemberManagement);
             Controls.Add(dateTimePicker2);
-            Controls.Add(dataGridView1);
-            Controls.Add(comboBox1);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(dataGridViewMemberManagement);
+            Controls.Add(comboBoxMemberTypeMemberManagement);
+            Controls.Add(labelMemberTypeMemberManagement);
+            Controls.Add(labelTlfMemberManagement);
+            Controls.Add(labelEmailMemberManagement);
+            Controls.Add(labelSurNameMemberManagement);
+            Controls.Add(labelFirstNameMemberManagement);
+            Controls.Add(textBoxTlfMemberManagement);
+            Controls.Add(textBoxEmailMemberManagement);
+            Controls.Add(textBoxSurNameMemberManagement);
+            Controls.Add(textBoxFirstNameMemberManagement);
             FormBorderStyle = FormBorderStyle.None;
             Name = "formMemberManagementTab";
             Text = "formMemberManagementTab";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMemberManagement).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label18;
+        private Label labelBirthdateMemberManagement;
         private DateTimePicker dateTimePicker2;
-        private DataGridView dataGridView1;
-        private ComboBox comboBox1;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button buttonSearchClassManagement;
-        private TextBox textBoxSearchBarClassManagement;
+        private DataGridView dataGridViewMemberManagement;
+        private ComboBox comboBoxMemberTypeMemberManagement;
+        private Label labelMemberTypeMemberManagement;
+        private Label labelTlfMemberManagement;
+        private Label labelEmailMemberManagement;
+        private Label labelSurNameMemberManagement;
+        private Label labelFirstNameMemberManagement;
+        private TextBox textBoxTlfMemberManagement;
+        private TextBox textBoxEmailMemberManagement;
+        private TextBox textBoxSurNameMemberManagement;
+        private TextBox textBoxFirstNameMemberManagement;
+        private Button buttonSearchMemberManagement;
+        private TextBox textBoxSearchBarMemberManagement;
         private Label labelMemberInformationMemberManagement;
         private Button buttonAddMember;
+        private Label labelClassOverviewClassManagement;
     }
 }
