@@ -888,7 +888,7 @@
             // PrintDropBox
             // 
             PrintDropBox.FormattingEnabled = true;
-            PrintDropBox.Items.AddRange(new object[] { "Inactive Members" });
+            PrintDropBox.Items.AddRange(new object[] { "All Members", "Active Members", "Inactive Members" });
             PrintDropBox.Location = new Point(126, 210);
             PrintDropBox.Name = "PrintDropBox";
             PrintDropBox.Size = new Size(387, 33);

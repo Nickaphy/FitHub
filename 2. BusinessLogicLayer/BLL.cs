@@ -206,15 +206,26 @@ namespace FitHub.B_BLL
             return dalViewMembers.GetInstructorViewMembers(classID);
         }
 
-        DalPrintReport dalprintreport = new DalPrintReport();
-        public void PrintDropBoxReport(string selectedPrintDropBox)
+        public class PrintReportBLL
         {
-            dalprintreport.memberList = dalprintreport.GetAllInactive();
-            string filepath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string finalfolderpath = Path.Combine(filepath, "Reports");
-            if (!Directory.Exists(finalfolderpath))
+            private readonly DalPrintReport dal = new DalPrintReport();
+
+            public List<Member> GetMembersForReport(string selectedReport)
             {
-                Directory.CreateDirectory(finalfolderpath);
+                switch (selectedReport)
+                {
+                    case "Inactive Members":
+                        return dal.GetAllInactive();
+
+                    case "Active Members":
+                        return dal.GetAllActive();
+
+                    case "All Members":
+                        return dal.GetAllMembers();
+
+                    default:
+                        return new List<Member>();
+                }
             }
         }
     }

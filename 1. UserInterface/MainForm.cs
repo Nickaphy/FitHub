@@ -3,7 +3,9 @@ using FitHub._3._DataAccessLayer;
 using FitHub.B_BLL;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
+using System.Text;
 using System.Windows.Forms;
+using static FitHub.B_BLL.BLL;
 
 namespace FitHub
 {
@@ -15,6 +17,7 @@ namespace FitHub
         DalMembers dalMembers;
         DalInstructor dalinstructor;
         DalClasses dalclasses;
+        DalPrintReport dalprintreport;
         public MainForm()
         {
             InitializeComponent();
@@ -22,6 +25,7 @@ namespace FitHub
             dalinstructor = new DalInstructor();
             dalMembers = new DalMembers();
             dalclasses = new DalClasses();
+            dalprintreport = new DalPrintReport();
 
             List<Member> members = bll.GetAllMembersBLL();
             dataGridView1.DataSource = members;
@@ -374,26 +378,46 @@ namespace FitHub
             }
         }
 
+        private PrintReportBLL bll2 = new PrintReportBLL();
+
         private void PrintReportButton_Click(object sender, EventArgs e)
         {
-            //string selectedPrintDropBox = PrintDropBox.Text;
-            //bll.PrintDropBoxReport(selectedPrintDropBox);
+            string selectedReport = PrintDropBox.Text;
 
-            string textToSave = "Hej"; //Her starter vi op næste gang
+            List<Member> members = bll2.GetMembersForReport(selectedReport);
+
+            if (members.Count == 0)
+            {
+                MessageBox.Show("No members found for this report.");
+                return;
+            }
 
             using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
-                saveDialog.Title = " Save As";
+                saveDialog.Title = "Save As";
                 saveDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
                 saveDialog.DefaultExt = "txt";
                 saveDialog.AddExtension = true;
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(saveDialog.FileName, textToSave);
+                    StringBuilder content = new StringBuilder();
+
+                    // Optional header
+                    content.AppendLine($"Report: {selectedReport}");
+                    content.AppendLine(new string('-', 40));
+
+                    foreach (var member in members)
+                    {
+                        content.AppendLine(
+                            $"{member.FirstName} {member.SurName} | {member.Email} | {member.Active}");
+                    }
+
+                    File.WriteAllText(saveDialog.FileName, content.ToString());
                 }
             }
         }
+
 
         private void PrintDropBox_SelectedIndexChanged(object sender, EventArgs e)
         {
