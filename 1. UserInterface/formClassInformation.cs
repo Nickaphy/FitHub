@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace FitHub._1._UserInterface
 {
-    public partial class FitHub_Login_UI : Form
+    public partial class formClassInformation : Form
     {
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -35,33 +35,34 @@ namespace FitHub._1._UserInterface
             int Msg,
             int wParam,
             int lParam
-        );
+            );
 
-        public FitHub_Login_UI()
+
+        public formClassInformation()
         {
             InitializeComponent();
 
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-        }
-
-        private void buttonLogIn_Click(object sender, EventArgs e)
-        {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-            this.Hide();
-        }
-
-        private void FitHub_Login_UI_Load(object sender, EventArgs e)
-        {
 
         }
 
         private void buttonCloseDown_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
-        private void FitHub_Login_UI_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBoxHelp_ClassInformation_MouseEnter(object sender, EventArgs e)
+        {
+            labelHelpClassinformation.Location = new Point(pictureBoxHelp_ClassInformation.Right + 10, pictureBoxHelp_ClassInformation.Top);
+            labelHelpClassinformation.Visible = true;
+        }
+
+        private void pictureBoxHelp_ClassInformation_MouseLeave(object sender, EventArgs e)
+        {
+            labelHelpClassinformation.Visible = false;
+        }
+
+        private void formClassInformation_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {

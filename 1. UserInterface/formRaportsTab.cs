@@ -16,5 +16,16 @@ namespace FitHub._1._UserInterface
         {
             InitializeComponent();
         }
+
+        private void pictureBox_Statistics1_MouseEnter(object sender, EventArgs e)
+        {
+            labelHelp_Statistics.Location = new Point(pictureBox_Statistics1.Right + 10, pictureBox_Statistics1.Top);
+            labelHelp_Statistics.Visible = true;
+        }
+
+        private void pictureBox_Statistics1_MouseLeave(object sender, EventArgs e)
+        {
+            labelHelp_Statistics.Visible = false;
+        }
     }
 }

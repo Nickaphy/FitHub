@@ -14,6 +14,7 @@ namespace FitHub
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FitHub_Login_UI());
+            //Application.Run(new MainForm());
         }
     }
 }

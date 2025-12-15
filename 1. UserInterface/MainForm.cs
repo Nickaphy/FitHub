@@ -27,6 +27,21 @@ namespace FitHub
             int nHeightEllipse // width of ellipse)
             );
 
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(
+            IntPtr hWnd,
+            int Msg,
+            int wParam,
+            int lParam
+        );
+
+
+
+
+
         private void MoveNavPanel(Button btn)
         {
             panelNavagation.Height = btn.Height; ;
@@ -44,7 +59,6 @@ namespace FitHub
         {
 
             InitializeComponent();
-
 
 
 
@@ -299,7 +313,7 @@ namespace FitHub
             FormMemberManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormMemberManagementTab_Vrb);
             FormMemberManagementTab_Vrb.Show();
-  
+
         }
 
         private void buttonInstructorManagemant_Click(object sender, EventArgs e)
@@ -312,7 +326,7 @@ namespace FitHub
             FormInstructorManagementTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormInstructorManagementTab_Vrb);
             FormInstructorManagementTab_Vrb.Show();
-         
+
         }
 
         private void buttonMemberOverview_Click(object sender, EventArgs e)
@@ -325,7 +339,7 @@ namespace FitHub
             FormMemberOverviewTab_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelFormLoader.Controls.Add(FormMemberOverviewTab_Vrb);
             FormMemberOverviewTab_Vrb.Show();
-           
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -342,7 +356,7 @@ namespace FitHub
 
         private void buttonBookingTab_Click(object sender, EventArgs e)
         {
-            MoveNavPanel((Button)sender);            
+            MoveNavPanel((Button)sender);
 
             labelTitle.Text = "Booking";
             this.panelFormLoader.Controls.Clear();
@@ -457,7 +471,7 @@ namespace FitHub
         private void buttonClassOverview_leave(object sender, EventArgs e)
         {
             buttonClassOverview.BackColor = Color.FromArgb(31, 34, 56);
-            
+
         }
 
         private void buttonClassOverview_MouseEnter(object sender, EventArgs e)
@@ -468,6 +482,15 @@ namespace FitHub
         private void buttonBookingTab_Hover(object sender, EventArgs e)
         {
             //buttonClassOverview.BackColor = Color.FromArgb(158, 161, 176);
+        }
+
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, 0xA1, 0x2, 0);
+            }
         }
     }
 }

@@ -147,7 +147,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.ImeMode = ImeMode.Alpha;
             tabControl1.ItemSize = new Size(140, 35);
-            tabControl1.Location = new Point(633, 214);
+            tabControl1.Location = new Point(815, 425);
             tabControl1.Margin = new Padding(1);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
@@ -1007,7 +1007,7 @@
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Microsoft Sans Serif", 38.2F, FontStyle.Bold);
-            labelTitle.ForeColor = Color.FromArgb(158, 161, 176);
+            labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(249, 29);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(272, 73);
@@ -1033,6 +1033,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += MainForm_Load;
+            MouseDown += MainForm_MouseDown;
             tabControl1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();

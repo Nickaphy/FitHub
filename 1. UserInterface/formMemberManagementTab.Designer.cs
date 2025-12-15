@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMemberManagementTab));
             labelBirthdateMemberManagement = new Label();
             dateTimePicker2 = new DateTimePicker();
-            dataGridViewMemberManagement = new DataGridView();
             comboBoxMemberTypeMemberManagement = new ComboBox();
             labelMemberTypeMemberManagement = new Label();
             labelTlfMemberManagement = new Label();
@@ -46,8 +45,18 @@
             textBoxSearchBarMemberManagement = new TextBox();
             labelMemberInformationMemberManagement = new Label();
             buttonAddMember = new Button();
+            labelHelp_MemberManagement2 = new Label();
+            pictureBox_MemberManagement2 = new PictureBox();
             labelClassOverviewClassManagement = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewMemberManagement).BeginInit();
+            dataGridViewClassOverviewClassManagement = new DataGridView();
+            labelHelp_MemberManagement1 = new Label();
+            pictureBoxHelp_MemberManagement1 = new PictureBox();
+            labelHelp_MemberManagement3 = new Label();
+            pictureBox_MemberManagement3 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_MemberManagement2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_MemberManagement1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_MemberManagement3).BeginInit();
             SuspendLayout();
             // 
             // labelBirthdateMemberManagement
@@ -64,35 +73,24 @@
             // 
             // dateTimePicker2
             // 
+            dateTimePicker2.CalendarFont = new Font("Nirmala UI", 9F);
+            dateTimePicker2.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             dateTimePicker2.Location = new Point(117, 295);
             dateTimePicker2.Margin = new Padding(4);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(225, 27);
             dateTimePicker2.TabIndex = 32;
             // 
-            // dataGridViewMemberManagement
-            // 
-            dataGridViewMemberManagement.AllowUserToOrderColumns = true;
-            dataGridViewMemberManagement.BackgroundColor = SystemColors.Window;
-            dataGridViewMemberManagement.BorderStyle = BorderStyle.None;
-            dataGridViewMemberManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMemberManagement.Location = new Point(399, 132);
-            dataGridViewMemberManagement.Margin = new Padding(1);
-            dataGridViewMemberManagement.Name = "dataGridViewMemberManagement";
-            dataGridViewMemberManagement.RowHeadersWidth = 82;
-            dataGridViewMemberManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewMemberManagement.Size = new Size(486, 338);
-            dataGridViewMemberManagement.TabIndex = 20;
-            // 
             // comboBoxMemberTypeMemberManagement
             // 
             comboBoxMemberTypeMemberManagement.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMemberTypeMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             comboBoxMemberTypeMemberManagement.FormattingEnabled = true;
             comboBoxMemberTypeMemberManagement.Items.AddRange(new object[] { "Basic", "Premium", "VIP" });
-            comboBoxMemberTypeMemberManagement.Location = new Point(117, 358);
+            comboBoxMemberTypeMemberManagement.Location = new Point(117, 346);
             comboBoxMemberTypeMemberManagement.Margin = new Padding(1);
             comboBoxMemberTypeMemberManagement.Name = "comboBoxMemberTypeMemberManagement";
-            comboBoxMemberTypeMemberManagement.Size = new Size(225, 28);
+            comboBoxMemberTypeMemberManagement.Size = new Size(190, 28);
             comboBoxMemberTypeMemberManagement.TabIndex = 31;
             // 
             // labelMemberTypeMemberManagement
@@ -242,16 +240,109 @@
             buttonAddMember.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAddMember.UseVisualStyleBackColor = false;
             // 
+            // labelHelp_MemberManagement2
+            // 
+            labelHelp_MemberManagement2.AutoSize = true;
+            labelHelp_MemberManagement2.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_MemberManagement2.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_MemberManagement2.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_MemberManagement2.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_MemberManagement2.Location = new Point(584, 64);
+            labelHelp_MemberManagement2.Name = "labelHelp_MemberManagement2";
+            labelHelp_MemberManagement2.Padding = new Padding(1);
+            labelHelp_MemberManagement2.Size = new Size(235, 19);
+            labelHelp_MemberManagement2.TabIndex = 93;
+            labelHelp_MemberManagement2.Text = "A list over the already existing members";
+            labelHelp_MemberManagement2.Visible = false;
+            // 
+            // pictureBox_MemberManagement2
+            // 
+            pictureBox_MemberManagement2.BackgroundImage = (Image)resources.GetObject("pictureBox_MemberManagement2.BackgroundImage");
+            pictureBox_MemberManagement2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox_MemberManagement2.Location = new Point(584, 92);
+            pictureBox_MemberManagement2.Name = "pictureBox_MemberManagement2";
+            pictureBox_MemberManagement2.Size = new Size(20, 20);
+            pictureBox_MemberManagement2.TabIndex = 92;
+            pictureBox_MemberManagement2.TabStop = false;
+            pictureBox_MemberManagement2.MouseEnter += pictureBoxHelp_MemberManagement2_MouseEnter;
+            pictureBox_MemberManagement2.MouseLeave += pictureBoxHelp_MemberManagement2_MouseLeave;
+            // 
             // labelClassOverviewClassManagement
             // 
             labelClassOverviewClassManagement.AutoSize = true;
             labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             labelClassOverviewClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewClassManagement.Location = new Point(394, 92);
+            labelClassOverviewClassManagement.Location = new Point(398, 86);
             labelClassOverviewClassManagement.Name = "labelClassOverviewClassManagement";
-            labelClassOverviewClassManagement.Size = new Size(155, 28);
-            labelClassOverviewClassManagement.TabIndex = 38;
-            labelClassOverviewClassManagement.Text = "Class Overview";
+            labelClassOverviewClassManagement.Size = new Size(187, 28);
+            labelClassOverviewClassManagement.TabIndex = 91;
+            labelClassOverviewClassManagement.Text = "Member Overview";
+            // 
+            // dataGridViewClassOverviewClassManagement
+            // 
+            dataGridViewClassOverviewClassManagement.BackgroundColor = SystemColors.Window;
+            dataGridViewClassOverviewClassManagement.BorderStyle = BorderStyle.None;
+            dataGridViewClassOverviewClassManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClassOverviewClassManagement.Location = new Point(402, 137);
+            dataGridViewClassOverviewClassManagement.Margin = new Padding(1);
+            dataGridViewClassOverviewClassManagement.Name = "dataGridViewClassOverviewClassManagement";
+            dataGridViewClassOverviewClassManagement.RowHeadersWidth = 82;
+            dataGridViewClassOverviewClassManagement.Size = new Size(482, 333);
+            dataGridViewClassOverviewClassManagement.TabIndex = 90;
+            // 
+            // labelHelp_MemberManagement1
+            // 
+            labelHelp_MemberManagement1.AutoSize = true;
+            labelHelp_MemberManagement1.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_MemberManagement1.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_MemberManagement1.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_MemberManagement1.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_MemberManagement1.Location = new Point(281, -1);
+            labelHelp_MemberManagement1.Name = "labelHelp_MemberManagement1";
+            labelHelp_MemberManagement1.Padding = new Padding(1);
+            labelHelp_MemberManagement1.Size = new Size(794, 19);
+            labelHelp_MemberManagement1.TabIndex = 95;
+            labelHelp_MemberManagement1.Text = "Register a new member, by adding the first and sure name, an email, a phonenumber, a birthdate and which type of member they wish to be. ";
+            labelHelp_MemberManagement1.Visible = false;
+            // 
+            // pictureBoxHelp_MemberManagement1
+            // 
+            pictureBoxHelp_MemberManagement1.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_MemberManagement1.BackgroundImage");
+            pictureBoxHelp_MemberManagement1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxHelp_MemberManagement1.Location = new Point(281, 27);
+            pictureBoxHelp_MemberManagement1.Name = "pictureBoxHelp_MemberManagement1";
+            pictureBoxHelp_MemberManagement1.Size = new Size(20, 20);
+            pictureBoxHelp_MemberManagement1.TabIndex = 94;
+            pictureBoxHelp_MemberManagement1.TabStop = false;
+            pictureBoxHelp_MemberManagement1.MouseEnter += pictureBoxHelp_MemberManagement1_MouseEnter;
+            pictureBoxHelp_MemberManagement1.MouseLeave += pictureBoxHelp_MemberManagement1_MouseLeave;
+            // 
+            // labelHelp_MemberManagement3
+            // 
+            labelHelp_MemberManagement3.AutoSize = true;
+            labelHelp_MemberManagement3.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_MemberManagement3.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_MemberManagement3.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_MemberManagement3.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_MemberManagement3.Location = new Point(322, 320);
+            labelHelp_MemberManagement3.Name = "labelHelp_MemberManagement3";
+            labelHelp_MemberManagement3.Padding = new Padding(1);
+            labelHelp_MemberManagement3.Size = new Size(415, 19);
+            labelHelp_MemberManagement3.TabIndex = 97;
+            labelHelp_MemberManagement3.Text = "Using which kind of membertype the member is; basic, premium and VIP";
+            labelHelp_MemberManagement3.Visible = false;
+            // 
+            // pictureBox_MemberManagement3
+            // 
+            pictureBox_MemberManagement3.BackgroundImage = (Image)resources.GetObject("pictureBox_MemberManagement3.BackgroundImage");
+            pictureBox_MemberManagement3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox_MemberManagement3.Location = new Point(322, 348);
+            pictureBox_MemberManagement3.Name = "pictureBox_MemberManagement3";
+            pictureBox_MemberManagement3.Size = new Size(20, 20);
+            pictureBox_MemberManagement3.TabIndex = 96;
+            pictureBox_MemberManagement3.TabStop = false;
+            pictureBox_MemberManagement3.MouseEnter += pictureBox_MemberManagement3_MouseEnter;
+            pictureBox_MemberManagement3.MouseLeave += pictureBox_MemberManagement3_MouseLeave;
             // 
             // formMemberManagementTab
             // 
@@ -259,14 +350,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(labelHelp_MemberManagement3);
+            Controls.Add(pictureBox_MemberManagement3);
+            Controls.Add(labelHelp_MemberManagement1);
+            Controls.Add(pictureBoxHelp_MemberManagement1);
+            Controls.Add(labelHelp_MemberManagement2);
+            Controls.Add(pictureBox_MemberManagement2);
             Controls.Add(labelClassOverviewClassManagement);
+            Controls.Add(dataGridViewClassOverviewClassManagement);
             Controls.Add(buttonAddMember);
             Controls.Add(labelMemberInformationMemberManagement);
             Controls.Add(buttonSearchMemberManagement);
             Controls.Add(textBoxSearchBarMemberManagement);
             Controls.Add(labelBirthdateMemberManagement);
             Controls.Add(dateTimePicker2);
-            Controls.Add(dataGridViewMemberManagement);
             Controls.Add(comboBoxMemberTypeMemberManagement);
             Controls.Add(labelMemberTypeMemberManagement);
             Controls.Add(labelTlfMemberManagement);
@@ -280,7 +377,10 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "formMemberManagementTab";
             Text = "formMemberManagementTab";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewMemberManagement).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_MemberManagement2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_MemberManagement1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_MemberManagement3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -289,7 +389,6 @@
 
         private Label labelBirthdateMemberManagement;
         private DateTimePicker dateTimePicker2;
-        private DataGridView dataGridViewMemberManagement;
         private ComboBox comboBoxMemberTypeMemberManagement;
         private Label labelMemberTypeMemberManagement;
         private Label labelTlfMemberManagement;
@@ -304,6 +403,13 @@
         private TextBox textBoxSearchBarMemberManagement;
         private Label labelMemberInformationMemberManagement;
         private Button buttonAddMember;
+        private Label labelHelp_MemberManagement2;
+        private PictureBox pictureBox_MemberManagement2;
         private Label labelClassOverviewClassManagement;
+        private DataGridView dataGridViewClassOverviewClassManagement;
+        private Label labelHelp_MemberManagement1;
+        private PictureBox pictureBoxHelp_MemberManagement1;
+        private Label labelHelp_MemberManagement3;
+        private PictureBox pictureBox_MemberManagement3;
     }
 }

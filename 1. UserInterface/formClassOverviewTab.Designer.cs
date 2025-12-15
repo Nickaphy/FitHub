@@ -37,8 +37,14 @@
             textBoxSearchBarBooking = new TextBox();
             buttonBooking = new Button();
             buttonAddInstructor = new Button();
+            labelHelp_ClassOverview1 = new Label();
+            pictureBoxHelp_ClassOverview1 = new PictureBox();
+            labelHelp_ClassOverview2 = new Label();
+            pictureBoxHelp_ClassOverview2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)InstructorGridViewInstructorManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview2).BeginInit();
             SuspendLayout();
             // 
             // InstructorGridViewInstructorManagement
@@ -61,12 +67,12 @@
             dataGridView1.BackgroundColor = SystemColors.Window;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(377, 216);
+            dataGridView1.Location = new Point(377, 145);
             dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(240, 255);
+            dataGridView1.Size = new Size(240, 326);
             dataGridView1.TabIndex = 51;
             // 
             // labelMemberBooking
@@ -85,7 +91,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(73, 125, 201);
-            label1.Location = new Point(371, 160);
+            label1.Location = new Point(377, 96);
             label1.Name = "label1";
             label1.Size = new Size(79, 28);
             label1.TabIndex = 53;
@@ -148,6 +154,61 @@
             buttonAddInstructor.Text = "Show Members";
             buttonAddInstructor.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAddInstructor.UseVisualStyleBackColor = false;
+            buttonAddInstructor.Click += buttonAddInstructor_Click;
+            // 
+            // labelHelp_ClassOverview1
+            // 
+            labelHelp_ClassOverview1.AutoSize = true;
+            labelHelp_ClassOverview1.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_ClassOverview1.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_ClassOverview1.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_ClassOverview1.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_ClassOverview1.Location = new Point(133, 73);
+            labelHelp_ClassOverview1.Name = "labelHelp_ClassOverview1";
+            labelHelp_ClassOverview1.Padding = new Padding(1);
+            labelHelp_ClassOverview1.Size = new Size(197, 19);
+            labelHelp_ClassOverview1.TabIndex = 74;
+            labelHelp_ClassOverview1.Text = "An overview of all the instructors";
+            labelHelp_ClassOverview1.Visible = false;
+            // 
+            // pictureBoxHelp_ClassOverview1
+            // 
+            pictureBoxHelp_ClassOverview1.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_ClassOverview1.BackgroundImage");
+            pictureBoxHelp_ClassOverview1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxHelp_ClassOverview1.Location = new Point(133, 101);
+            pictureBoxHelp_ClassOverview1.Name = "pictureBoxHelp_ClassOverview1";
+            pictureBoxHelp_ClassOverview1.Size = new Size(20, 20);
+            pictureBoxHelp_ClassOverview1.TabIndex = 73;
+            pictureBoxHelp_ClassOverview1.TabStop = false;
+            pictureBoxHelp_ClassOverview1.MouseEnter += pictureBoxHelp_ClassOverview1_MouseEnter;
+            pictureBoxHelp_ClassOverview1.MouseLeave += pictureBoxHelp_ClassOverview1_MouseLeave;
+            // 
+            // labelHelp_ClassOverview2
+            // 
+            labelHelp_ClassOverview2.AutoSize = true;
+            labelHelp_ClassOverview2.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_ClassOverview2.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_ClassOverview2.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_ClassOverview2.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_ClassOverview2.Location = new Point(458, 73);
+            labelHelp_ClassOverview2.Name = "labelHelp_ClassOverview2";
+            labelHelp_ClassOverview2.Padding = new Padding(1);
+            labelHelp_ClassOverview2.Size = new Size(261, 19);
+            labelHelp_ClassOverview2.TabIndex = 76;
+            labelHelp_ClassOverview2.Text = "An overview of an specific instructors classes";
+            labelHelp_ClassOverview2.Visible = false;
+            // 
+            // pictureBoxHelp_ClassOverview2
+            // 
+            pictureBoxHelp_ClassOverview2.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_ClassOverview2.BackgroundImage");
+            pictureBoxHelp_ClassOverview2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxHelp_ClassOverview2.Location = new Point(458, 101);
+            pictureBoxHelp_ClassOverview2.Name = "pictureBoxHelp_ClassOverview2";
+            pictureBoxHelp_ClassOverview2.Size = new Size(20, 20);
+            pictureBoxHelp_ClassOverview2.TabIndex = 75;
+            pictureBoxHelp_ClassOverview2.TabStop = false;
+            pictureBoxHelp_ClassOverview2.MouseEnter += pictureBoxHelp_ClassOverview2_MouseEnter;
+            pictureBoxHelp_ClassOverview2.MouseLeave += pictureBoxHelp_ClassOverview2_MouseLeave;
             // 
             // formClassOverviewTab
             // 
@@ -155,6 +216,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(labelHelp_ClassOverview2);
+            Controls.Add(pictureBoxHelp_ClassOverview2);
+            Controls.Add(labelHelp_ClassOverview1);
+            Controls.Add(pictureBoxHelp_ClassOverview1);
             Controls.Add(buttonAddInstructor);
             Controls.Add(buttonBooking);
             Controls.Add(dataGridView1);
@@ -168,6 +233,8 @@
             Text = "formClassOverviewTab";
             ((System.ComponentModel.ISupportInitialize)InstructorGridViewInstructorManagement).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,5 +249,9 @@
         private TextBox textBoxSearchBarBooking;
         private Button buttonBooking;
         private Button buttonAddInstructor;
+        private Label labelHelp_ClassOverview1;
+        private PictureBox pictureBoxHelp_ClassOverview1;
+        private Label labelHelp_ClassOverview2;
+        private PictureBox pictureBoxHelp_ClassOverview2;
     }
 }

@@ -45,7 +45,19 @@
             buttonSearchClassManagement = new Button();
             textBoxSearchBarClassManagement = new TextBox();
             buttonCreateClass = new Button();
+            labelHelp_ClassManagement1 = new Label();
+            pictureBoxHelp_ClassManagement1 = new PictureBox();
+            labelHelp_ClassManagement2 = new Label();
+            pictureBox_ClassManagement2 = new PictureBox();
+            labelHelp_ClassManagement3 = new Label();
+            pictureBox_ClassManagement3 = new PictureBox();
+            labelHelp_ClassManagement4 = new Label();
+            pictureBox_ClassManagement4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassManagement1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement4).BeginInit();
             SuspendLayout();
             // 
             // labelClassTypeClassManagement
@@ -122,6 +134,7 @@
             // 
             // comboBoxTimeClassManagement
             // 
+            comboBoxTimeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             comboBoxTimeClassManagement.FormattingEnabled = true;
             comboBoxTimeClassManagement.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
             comboBoxTimeClassManagement.Location = new Point(112, 142);
@@ -132,6 +145,8 @@
             // 
             // dateTimePickerDateClassManagement
             // 
+            dateTimePickerDateClassManagement.CalendarFont = new Font("Nirmala UI", 9F);
+            dateTimePickerDateClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             dateTimePickerDateClassManagement.Location = new Point(111, 194);
             dateTimePickerDateClassManagement.Margin = new Padding(4);
             dateTimePickerDateClassManagement.Name = "dateTimePickerDateClassManagement";
@@ -140,6 +155,7 @@
             // 
             // comboBoxClassTypeClassManagement
             // 
+            comboBoxClassTypeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             comboBoxClassTypeClassManagement.FormattingEnabled = true;
             comboBoxClassTypeClassManagement.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
             comboBoxClassTypeClassManagement.Location = new Point(114, 93);
@@ -153,11 +169,11 @@
             dataGridViewClassOverviewClassManagement.BackgroundColor = SystemColors.Window;
             dataGridViewClassOverviewClassManagement.BorderStyle = BorderStyle.None;
             dataGridViewClassOverviewClassManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClassOverviewClassManagement.Location = new Point(403, 131);
+            dataGridViewClassOverviewClassManagement.Location = new Point(403, 136);
             dataGridViewClassOverviewClassManagement.Margin = new Padding(1);
             dataGridViewClassOverviewClassManagement.Name = "dataGridViewClassOverviewClassManagement";
             dataGridViewClassOverviewClassManagement.RowHeadersWidth = 82;
-            dataGridViewClassOverviewClassManagement.Size = new Size(482, 338);
+            dataGridViewClassOverviewClassManagement.Size = new Size(482, 333);
             dataGridViewClassOverviewClassManagement.TabIndex = 15;
             // 
             // labelClassOverviewClassManagement
@@ -165,7 +181,7 @@
             labelClassOverviewClassManagement.AutoSize = true;
             labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             labelClassOverviewClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewClassManagement.Location = new Point(399, 89);
+            labelClassOverviewClassManagement.Location = new Point(399, 85);
             labelClassOverviewClassManagement.Name = "labelClassOverviewClassManagement";
             labelClassOverviewClassManagement.Size = new Size(155, 28);
             labelClassOverviewClassManagement.TabIndex = 28;
@@ -225,12 +241,128 @@
             buttonCreateClass.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonCreateClass.UseVisualStyleBackColor = false;
             // 
+            // labelHelp_ClassManagement1
+            // 
+            labelHelp_ClassManagement1.AutoSize = true;
+            labelHelp_ClassManagement1.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_ClassManagement1.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_ClassManagement1.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_ClassManagement1.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_ClassManagement1.Location = new Point(238, 1);
+            labelHelp_ClassManagement1.Name = "labelHelp_ClassManagement1";
+            labelHelp_ClassManagement1.Padding = new Padding(1);
+            labelHelp_ClassManagement1.Size = new Size(567, 19);
+            labelHelp_ClassManagement1.TabIndex = 72;
+            labelHelp_ClassManagement1.Text = "Create new classes, by setting a type, time and date, capacity and the location for the upcoming class";
+            labelHelp_ClassManagement1.Visible = false;
+            // 
+            // pictureBoxHelp_ClassManagement1
+            // 
+            pictureBoxHelp_ClassManagement1.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_ClassManagement1.BackgroundImage");
+            pictureBoxHelp_ClassManagement1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxHelp_ClassManagement1.Location = new Point(238, 29);
+            pictureBoxHelp_ClassManagement1.Name = "pictureBoxHelp_ClassManagement1";
+            pictureBoxHelp_ClassManagement1.Size = new Size(20, 20);
+            pictureBoxHelp_ClassManagement1.TabIndex = 71;
+            pictureBoxHelp_ClassManagement1.TabStop = false;
+            pictureBoxHelp_ClassManagement1.MouseEnter += pictureBoxHelp_ClassManagement1_MouseEnter;
+            pictureBoxHelp_ClassManagement1.MouseLeave += pictureBoxHelp_ClassManagement1_MouseLeave;
+            // 
+            // labelHelp_ClassManagement2
+            // 
+            labelHelp_ClassManagement2.AutoSize = true;
+            labelHelp_ClassManagement2.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_ClassManagement2.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_ClassManagement2.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_ClassManagement2.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_ClassManagement2.Location = new Point(553, 63);
+            labelHelp_ClassManagement2.Name = "labelHelp_ClassManagement2";
+            labelHelp_ClassManagement2.Padding = new Padding(1);
+            labelHelp_ClassManagement2.Size = new Size(219, 19);
+            labelHelp_ClassManagement2.TabIndex = 74;
+            labelHelp_ClassManagement2.Text = "A list over the already existing classes";
+            labelHelp_ClassManagement2.Visible = false;
+            // 
+            // pictureBox_ClassManagement2
+            // 
+            pictureBox_ClassManagement2.BackgroundImage = (Image)resources.GetObject("pictureBox_ClassManagement2.BackgroundImage");
+            pictureBox_ClassManagement2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox_ClassManagement2.Location = new Point(553, 91);
+            pictureBox_ClassManagement2.Name = "pictureBox_ClassManagement2";
+            pictureBox_ClassManagement2.Size = new Size(20, 20);
+            pictureBox_ClassManagement2.TabIndex = 73;
+            pictureBox_ClassManagement2.TabStop = false;
+            pictureBox_ClassManagement2.MouseEnter += pictureBox_ClassManagement2_MouseEnter;
+            pictureBox_ClassManagement2.MouseLeave += pictureBox_ClassManagement2_MouseLEave;
+            // 
+            // labelHelp_ClassManagement3
+            // 
+            labelHelp_ClassManagement3.AutoSize = true;
+            labelHelp_ClassManagement3.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_ClassManagement3.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_ClassManagement3.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_ClassManagement3.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_ClassManagement3.Location = new Point(266, 216);
+            labelHelp_ClassManagement3.Name = "labelHelp_ClassManagement3";
+            labelHelp_ClassManagement3.Padding = new Padding(1);
+            labelHelp_ClassManagement3.Size = new Size(169, 19);
+            labelHelp_ClassManagement3.TabIndex = 76;
+            labelHelp_ClassManagement3.Text = "This is a maximum for a class";
+            labelHelp_ClassManagement3.Visible = false;
+            // 
+            // pictureBox_ClassManagement3
+            // 
+            pictureBox_ClassManagement3.BackgroundImage = (Image)resources.GetObject("pictureBox_ClassManagement3.BackgroundImage");
+            pictureBox_ClassManagement3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox_ClassManagement3.Location = new Point(266, 244);
+            pictureBox_ClassManagement3.Name = "pictureBox_ClassManagement3";
+            pictureBox_ClassManagement3.Size = new Size(20, 20);
+            pictureBox_ClassManagement3.TabIndex = 75;
+            pictureBox_ClassManagement3.TabStop = false;
+            pictureBox_ClassManagement3.MouseEnter += pictureBox_ClassManagement3_MouseEnter;
+            pictureBox_ClassManagement3.MouseLeave += pictureBox_ClassManagement3_MouseLeave;
+            // 
+            // labelHelp_ClassManagement4
+            // 
+            labelHelp_ClassManagement4.AutoSize = true;
+            labelHelp_ClassManagement4.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp_ClassManagement4.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp_ClassManagement4.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp_ClassManagement4.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp_ClassManagement4.Location = new Point(266, 270);
+            labelHelp_ClassManagement4.Name = "labelHelp_ClassManagement4";
+            labelHelp_ClassManagement4.Padding = new Padding(1);
+            labelHelp_ClassManagement4.Size = new Size(183, 19);
+            labelHelp_ClassManagement4.TabIndex = 78;
+            labelHelp_ClassManagement4.Text = "This is the location for the class";
+            labelHelp_ClassManagement4.Visible = false;
+            // 
+            // pictureBox_ClassManagement4
+            // 
+            pictureBox_ClassManagement4.BackgroundImage = (Image)resources.GetObject("pictureBox_ClassManagement4.BackgroundImage");
+            pictureBox_ClassManagement4.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox_ClassManagement4.Location = new Point(266, 298);
+            pictureBox_ClassManagement4.Name = "pictureBox_ClassManagement4";
+            pictureBox_ClassManagement4.Size = new Size(20, 20);
+            pictureBox_ClassManagement4.TabIndex = 77;
+            pictureBox_ClassManagement4.TabStop = false;
+            pictureBox_ClassManagement4.MouseEnter += pictureBox_ClassManagement4_MouseEnter;
+            pictureBox_ClassManagement4.MouseLeave += pictureBox_ClassManagement4_MouseLeave;
+            // 
             // formClassManagementTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(labelHelp_ClassManagement4);
+            Controls.Add(pictureBox_ClassManagement4);
+            Controls.Add(labelHelp_ClassManagement3);
+            Controls.Add(pictureBox_ClassManagement3);
+            Controls.Add(labelHelp_ClassManagement2);
+            Controls.Add(pictureBox_ClassManagement2);
+            Controls.Add(labelHelp_ClassManagement1);
+            Controls.Add(pictureBoxHelp_ClassManagement1);
             Controls.Add(buttonSearchClassManagement);
             Controls.Add(textBoxSearchBarClassManagement);
             Controls.Add(labelClassInformationClassManagement);
@@ -252,6 +384,10 @@
             Name = "formClassManagementTab";
             Text = "formClassManagementTab";
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassManagement1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,5 +409,13 @@
         private Button buttonSearchClassManagement;
         private TextBox textBoxSearchBarClassManagement;
         private Button buttonCreateClass;
+        private Label labelHelp_ClassManagement1;
+        private PictureBox pictureBoxHelp_ClassManagement1;
+        private Label labelHelp_ClassManagement2;
+        private PictureBox pictureBox_ClassManagement2;
+        private Label labelHelp_ClassManagement3;
+        private PictureBox pictureBox_ClassManagement3;
+        private Label labelHelp_ClassManagement4;
+        private PictureBox pictureBox_ClassManagement4;
     }
 }

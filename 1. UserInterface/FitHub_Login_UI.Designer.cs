@@ -47,7 +47,7 @@
             // comboBoxLoginDropMenu
             // 
             comboBoxLoginDropMenu.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            comboBoxLoginDropMenu.ForeColor = Color.FromArgb(73, 125, 201);
+            comboBoxLoginDropMenu.ForeColor = SystemColors.ControlText;
             comboBoxLoginDropMenu.FormattingEnabled = true;
             comboBoxLoginDropMenu.Items.AddRange(new object[] { "Admin", "Receptionist" });
             comboBoxLoginDropMenu.Location = new Point(511, 313);
@@ -113,6 +113,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FitHub_Login_UI";
             Load += FitHub_Login_UI_Load;
+            MouseDown += FitHub_Login_UI_MouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

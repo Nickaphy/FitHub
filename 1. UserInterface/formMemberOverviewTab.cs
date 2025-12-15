@@ -16,5 +16,38 @@ namespace FitHub._1._UserInterface
         {
             InitializeComponent();
         }
+
+        private void pictureBox_MemberOverview1_MouseEnter(object sender, EventArgs e)
+        {
+            labelHelp_MemberOverview1.Location = new Point(pictureBox_MemberOverview1.Right + 10, pictureBox_MemberOverview1.Top);
+            labelHelp_MemberOverview1.Visible = true;
+        }
+
+        private void pictureBox_MemberOverview1_MouseLeave(object sender, EventArgs e)
+        {
+            labelHelp_MemberOverview1.Visible = false;
+        }
+
+        private void pictureBox_MemberOverview2_MouseEnter(object sender, EventArgs e)
+        {
+            labelHelp_MemberOverview2.Location = new Point(pictureBox_MemberOverview2.Right + 10, pictureBox_MemberOverview2.Top);
+            labelHelp_MemberOverview2.Visible = true;
+        }
+
+        private void pictureBox_MemberOverview2_MouseLeave(object sender, EventArgs e)
+        {
+            labelHelp_MemberOverview2.Visible = false;
+        }
+
+        private void buttonMemberHistory_MouseEnter(object sender, EventArgs e)
+        {
+            labelHelp_MemberOverview3.Location = new Point(buttonMemberHistory.Left, buttonMemberHistory.Top - 30);
+            labelHelp_MemberOverview3.Visible = true;
+        }
+
+        private void buttonMemberHistory_MouseLeave(object sender, EventArgs e)
+        {
+            labelHelp_MemberOverview3.Visible = false;
+        }
     }
 }

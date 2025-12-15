@@ -36,8 +36,15 @@
             labelClassOverviewBooking = new Label();
             textBoxSearchBarBooking = new TextBox();
             buttonSearchBooking = new Button();
+            pictureBoxHelp_Booking = new PictureBox();
+            labelHelp = new Label();
+            labelAddingMemberToClass = new Label();
+            labelHelpClassOverviewBooking = new Label();
+            pictureBoxHelpClassOverview = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewBooking).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMemberBooking).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_Booking).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelpClassOverview).BeginInit();
             SuspendLayout();
             // 
             // buttonBooking
@@ -45,15 +52,18 @@
             buttonBooking.BackColor = Color.FromArgb(31, 34, 56);
             buttonBooking.BackgroundImage = (Image)resources.GetObject("buttonBooking.BackgroundImage");
             buttonBooking.BackgroundImageLayout = ImageLayout.Center;
+            buttonBooking.FlatAppearance.BorderSize = 0;
             buttonBooking.FlatStyle = FlatStyle.Flat;
             buttonBooking.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonBooking.ForeColor = Color.FromArgb(73, 125, 201);
             buttonBooking.Location = new Point(305, 275);
             buttonBooking.Margin = new Padding(4);
             buttonBooking.Name = "buttonBooking";
-            buttonBooking.Size = new Size(50, 50);
+            buttonBooking.Size = new Size(45, 45);
             buttonBooking.TabIndex = 10;
             buttonBooking.UseVisualStyleBackColor = false;
+            buttonBooking.MouseEnter += buttonBooking_MouseEnter;
+            buttonBooking.MouseLeave += buttonBooking_MouseLeave;
             // 
             // dataGridViewClassOverviewBooking
             // 
@@ -84,7 +94,7 @@
             labelMemberBooking.AutoSize = true;
             labelMemberBooking.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             labelMemberBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelMemberBooking.Location = new Point(18, 81);
+            labelMemberBooking.Location = new Point(18, 83);
             labelMemberBooking.Name = "labelMemberBooking";
             labelMemberBooking.Size = new Size(91, 28);
             labelMemberBooking.TabIndex = 11;
@@ -95,7 +105,7 @@
             labelClassOverviewBooking.AutoSize = true;
             labelClassOverviewBooking.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             labelClassOverviewBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewBooking.Location = new Point(397, 81);
+            labelClassOverviewBooking.Location = new Point(397, 83);
             labelClassOverviewBooking.Name = "labelClassOverviewBooking";
             labelClassOverviewBooking.Size = new Size(155, 28);
             labelClassOverviewBooking.TabIndex = 12;
@@ -127,12 +137,86 @@
             buttonSearchBooking.TabIndex = 14;
             buttonSearchBooking.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxHelp_Booking
+            // 
+            pictureBoxHelp_Booking.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_Booking.BackgroundImage");
+            pictureBoxHelp_Booking.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxHelp_Booking.Location = new Point(109, 88);
+            pictureBoxHelp_Booking.Name = "pictureBoxHelp_Booking";
+            pictureBoxHelp_Booking.Size = new Size(20, 20);
+            pictureBoxHelp_Booking.TabIndex = 15;
+            pictureBoxHelp_Booking.TabStop = false;
+            pictureBoxHelp_Booking.MouseEnter += pictureBoxHelp_Booking_MouseEnter;
+            pictureBoxHelp_Booking.MouseLeave += pictureBoxHelp_Booking_MouseLeave;
+            // 
+            // labelHelp
+            // 
+            labelHelp.AutoSize = true;
+            labelHelp.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelp.BorderStyle = BorderStyle.FixedSingle;
+            labelHelp.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelp.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelp.Location = new Point(109, 60);
+            labelHelp.Name = "labelHelp";
+            labelHelp.Padding = new Padding(1);
+            labelHelp.Size = new Size(158, 19);
+            labelHelp.TabIndex = 16;
+            labelHelp.Text = "A list showing all members";
+            labelHelp.Visible = false;
+            // 
+            // labelAddingMemberToClass
+            // 
+            labelAddingMemberToClass.AutoSize = true;
+            labelAddingMemberToClass.BackColor = Color.FromArgb(74, 79, 99);
+            labelAddingMemberToClass.BorderStyle = BorderStyle.FixedSingle;
+            labelAddingMemberToClass.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelAddingMemberToClass.ForeColor = Color.FromArgb(73, 125, 201);
+            labelAddingMemberToClass.Location = new Point(317, 261);
+            labelAddingMemberToClass.Name = "labelAddingMemberToClass";
+            labelAddingMemberToClass.Padding = new Padding(1);
+            labelAddingMemberToClass.Size = new Size(162, 19);
+            labelAddingMemberToClass.TabIndex = 17;
+            labelAddingMemberToClass.Text = "Adding a member to a class";
+            labelAddingMemberToClass.Visible = false;
+            // 
+            // labelHelpClassOverviewBooking
+            // 
+            labelHelpClassOverviewBooking.AutoSize = true;
+            labelHelpClassOverviewBooking.BackColor = Color.FromArgb(74, 79, 99);
+            labelHelpClassOverviewBooking.BorderStyle = BorderStyle.FixedSingle;
+            labelHelpClassOverviewBooking.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
+            labelHelpClassOverviewBooking.ForeColor = Color.FromArgb(73, 125, 201);
+            labelHelpClassOverviewBooking.Location = new Point(552, 61);
+            labelHelpClassOverviewBooking.Name = "labelHelpClassOverviewBooking";
+            labelHelpClassOverviewBooking.Padding = new Padding(1);
+            labelHelpClassOverviewBooking.Size = new Size(142, 19);
+            labelHelpClassOverviewBooking.TabIndex = 19;
+            labelHelpClassOverviewBooking.Text = "A list showing all classes";
+            labelHelpClassOverviewBooking.Visible = false;
+            // 
+            // pictureBoxHelpClassOverview
+            // 
+            pictureBoxHelpClassOverview.BackgroundImage = (Image)resources.GetObject("pictureBoxHelpClassOverview.BackgroundImage");
+            pictureBoxHelpClassOverview.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxHelpClassOverview.Location = new Point(552, 89);
+            pictureBoxHelpClassOverview.Name = "pictureBoxHelpClassOverview";
+            pictureBoxHelpClassOverview.Size = new Size(20, 20);
+            pictureBoxHelpClassOverview.TabIndex = 18;
+            pictureBoxHelpClassOverview.TabStop = false;
+            pictureBoxHelpClassOverview.MouseEnter += pictureBoxHelpClassOverview_MouseEnter;
+            pictureBoxHelpClassOverview.MouseLeave += pictureBoxHelpClassOverview_MouseLeave;
+            // 
             // formBookingTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(labelHelpClassOverviewBooking);
+            Controls.Add(pictureBoxHelpClassOverview);
+            Controls.Add(labelAddingMemberToClass);
+            Controls.Add(labelHelp);
+            Controls.Add(pictureBoxHelp_Booking);
             Controls.Add(buttonSearchBooking);
             Controls.Add(textBoxSearchBarBooking);
             Controls.Add(labelClassOverviewBooking);
@@ -145,6 +229,8 @@
             Text = "formBookingTab";
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewBooking).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMemberBooking).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_Booking).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxHelpClassOverview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,5 +244,10 @@
         private Label labelClassOverviewBooking;
         private TextBox textBoxSearchBarBooking;
         private Button buttonSearchBooking;
+        private PictureBox pictureBoxHelp_Booking;
+        private Label labelHelp;
+        private Label labelAddingMemberToClass;
+        private Label labelHelpClassOverviewBooking;
+        private PictureBox pictureBoxHelpClassOverview;
     }
 }
