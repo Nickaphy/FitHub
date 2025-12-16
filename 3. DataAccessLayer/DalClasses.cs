@@ -1,25 +1,19 @@
 ﻿using FitHub._2._BusinessLogicLayer.ENT_OBJ;
-using FitHub.B_BLL.ENT_OBJ;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
     public class DalClasses
     {
         ConnectionString connectionstring = new ConnectionString();
-        
+
         public List<Class> GetAllClassesDAL()
         {
             List<Class> classList = new List<Class>();
             using var con = new SqlConnection(connectionstring.conn);
             con.Open();
-            
-			using var cmd = new SqlCommand(@"
+
+            using var cmd = new SqlCommand(@"
                 SELECT c.ClassID, c.ClassDate, c.ClassTime, c.ClassLocation, c.ClassType, c.ClassCapacity,
                        i.InstructorID, i.FirstName, i.SurName
                 FROM Classes c
@@ -147,7 +141,5 @@ namespace FitHub._3._DataAccessLayer
                 }
             }
         }
-
-
     }
 }

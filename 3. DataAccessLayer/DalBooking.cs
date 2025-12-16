@@ -1,15 +1,4 @@
-﻿using FitHub._2._BusinessLogicLayer;
-using FitHub._2._BusinessLogicLayer.ENT_OBJ;
-using FitHub._3._DataAccessLayer;
-using FitHub.B_BLL.ENT_OBJ;
-using FitHub.C_DAL;
-using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Microsoft.Data.SqlClient;
 
 namespace FitHub._3._DataAccessLayer
 {
@@ -43,7 +32,8 @@ namespace FitHub._3._DataAccessLayer
         }
 
         public int CheckDoubleBookingDAL(int classID, int memberID)
-        {             using var con = new SqlConnection(connectionstring.conn);
+        {
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             string checkDoubleBookingQuery = "SELECT COUNT(*) FROM ClassMembers WHERE ClassID = @ClassID AND MemberID = @MemberID";
             using var checkDoubleBookingCmd = new SqlCommand(checkDoubleBookingQuery, con);

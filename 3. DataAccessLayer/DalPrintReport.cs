@@ -1,15 +1,8 @@
-﻿using FitHub._2._BusinessLogicLayer.ENT_OBJ;
-using FitHub.B_BLL.ENT_OBJ;
+﻿using FitHub.B_BLL.ENT_OBJ;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
-
     internal class DalPrintReport
     {
         ConnectionString connectionstring = new ConnectionString();
@@ -43,6 +36,7 @@ namespace FitHub._3._DataAccessLayer
 
             return member;
         }
+
         public List<Member> GetAllMembers()
         {
             List<Member> member = new List<Member>();
@@ -70,6 +64,7 @@ namespace FitHub._3._DataAccessLayer
 
             return member;
         }
+
         public List<Member> GetAllActive()
         {
             List<Member> member = new List<Member>();
@@ -99,7 +94,8 @@ namespace FitHub._3._DataAccessLayer
 
             return member;
         }
-        public List<Member>  GetPopClassSum()
+
+        public List<Member> GetPopClassSum()
         {
             List<Member> member = new List<Member>();
 

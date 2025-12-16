@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FitHub._2._BusinessLogicLayer.ENT_OBJ
+﻿namespace FitHub._2._BusinessLogicLayer.ENT_OBJ
 {
     public class MemberHistoryDTO
     {
-
         public string ClassType { get; set; }
         public DateTime ClassDate { get; set; }
         public string ClassCapacity { get; set; }
@@ -18,6 +11,5 @@ namespace FitHub._2._BusinessLogicLayer.ENT_OBJ
         public string MemberName { get; set; }
         public DateTime Birthday { get; set; }
         public int MemberID { get; set; }
-
     }
 }
