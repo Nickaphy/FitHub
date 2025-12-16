@@ -19,14 +19,11 @@ namespace FitHub.C_DAL
         //A method that deletes a member from the Members tale based on their MemberID.
         public void DeleteMember(int memberID)
         {
-            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                using var con = new SqlConnection(connectionstring.conn);
-                con.Open();
-                using var delMemCmd = new SqlCommand("DELETE FROM ClassMembers WHERE MemberID = @MemberID DELETE FROM Members WHERE MemberID = @MemberID", con);
-                delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
-                delMemCmd.ExecuteNonQuery();
-            }
+            using var con = new SqlConnection(connectionstring.conn);
+            con.Open();
+            using var delMemCmd = new SqlCommand("DELETE FROM ClassMembers WHERE MemberID = @MemberID DELETE FROM Members WHERE MemberID = @MemberID", con);
+            delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
+            delMemCmd.ExecuteNonQuery();
         }
 
 
