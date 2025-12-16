@@ -6,27 +6,18 @@ using FitHub.B_BLL;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
 using FitHub_UserInterface;
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static FitHub._1._UserInterface.RoundedCorners;
 
 namespace FitHub
 {
     public partial class MainForm : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
-        private static extern IntPtr CreateRoundRectRgn
-            (
-            int nLeftRect,     // x-coordinate of upper-left corner)
-            int nTopRect,      // y-coordinate of upper-left corner)
-            int nRightRect,    // x-coordinate of lower-right corner)
-            int nBottomRect,   // y-coordinate of lower-right corner)
-            int nWidthEllipse, // height of ellipse)
-            int nHeightEllipse // width of ellipse)
-            );
-
+        
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
 
@@ -37,10 +28,7 @@ namespace FitHub
             int wParam,
             int lParam
         );
-
-
-
-
+        
 
         private void MoveNavPanel(Button btn)
         {
@@ -55,15 +43,16 @@ namespace FitHub
         BLL bll;
         DalMembers dalMembers;
         DalInstructor dalinstructor;
+
+
         public MainForm()
         {
 
             InitializeComponent();
 
+            RoundedCornersHelper.Apply(this, 20);                   // Apply rounded corners to the form
 
 
-
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             panelNavagation.Height = buttonBookingTab.Height;       //  Set initial height to match the first button
             panelNavagation.Top = buttonBookingTab.Top;             //  Set initial top position to match the first button
             panelNavagation.Left = buttonBookingTab.Left;           //  Set initial left position to match the first button
