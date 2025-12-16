@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FitHub.B_BLL;
+﻿using FitHub.B_BLL;
 using FitHub.B_BLL.ENT_OBJ;
 using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Tokens;
 
 namespace FitHub.C_DAL
 {
@@ -16,7 +8,6 @@ namespace FitHub.C_DAL
     {
         ConnectionString connectionstring = new ConnectionString();
 
-        //A method that deletes a member from the Members tale based on their MemberID.
         public void DeleteMember(int memberID)
         {
             using var con = new SqlConnection(connectionstring.conn);
@@ -26,8 +17,6 @@ namespace FitHub.C_DAL
             delMemCmd.ExecuteNonQuery();
         }
 
-
-        //Takes Members table and reads them into memberList.
         public List<Member> GetAll()
         {
             List<Member> memberList = new List<Member>();
@@ -38,8 +27,6 @@ namespace FitHub.C_DAL
 
             while (reader.Read())
             {
-                //add new memebers to memberList (if DB=null, set to default value)
-                //else read the vale from the DB.
                 memberList.Add(new Member
                 {
                     MemberID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
@@ -102,6 +89,7 @@ namespace FitHub.C_DAL
                 }
             }
         }
+
         public void ChangeActivity(string newStatus, int memberID)
         {
             using var con = new SqlConnection(connectionstring.conn);

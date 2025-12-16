@@ -1,9 +1,4 @@
 ﻿using FitHub._1._UserInterface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitHub._2._BusinessLogicLayer
 {
@@ -79,7 +74,7 @@ namespace FitHub._2._BusinessLogicLayer
         {
             if (string.IsNullOrWhiteSpace(classType))
             {
-                errormessages.classTypeErrorMessage();
+                errormessages.ClassTypeErrorMessage();
                 return false;
             }
             return true;
@@ -89,7 +84,7 @@ namespace FitHub._2._BusinessLogicLayer
         {
             if (string.IsNullOrWhiteSpace(instructorID))
             {
-                errormessages.instructorIDErrorMessage();
+                errormessages.InstructorIDErrorMessage();
                 return false;
             }
             return true;
@@ -99,7 +94,7 @@ namespace FitHub._2._BusinessLogicLayer
         {
             if (classDate < DateTime.Now.Date || classDate == null)
             {
-                errormessages.classDateErrorMessage();
+                errormessages.ClassDateErrorMessage();
                 return false;
             }
             return true;
@@ -109,7 +104,7 @@ namespace FitHub._2._BusinessLogicLayer
         {
             if (string.IsNullOrWhiteSpace(classTime))
             {
-                errormessages.classTimeErrorMessage();
+                errormessages.ClassTimeErrorMessage();
                 return false;
             }
             return true;
@@ -119,7 +114,7 @@ namespace FitHub._2._BusinessLogicLayer
         {
             if (string.IsNullOrWhiteSpace(classLocation))
             {
-                errormessages.classLocationErrorMessage();
+                errormessages.ClassLocationErrorMessage();
                 return false;
             }
             return true;

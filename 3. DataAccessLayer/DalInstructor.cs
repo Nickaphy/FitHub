@@ -1,23 +1,15 @@
 ﻿using FitHub._2._BusinessLogicLayer.ENT_OBJ;
 using FitHub.B_BLL;
-using FitHub.B_BLL.ENT_OBJ;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace FitHub._3._DataAccessLayer
 {
     internal class DalInstructor
     {
-		ConnectionString connectionstring = new ConnectionString();
+        ConnectionString connectionstring = new ConnectionString();
 
-		public List<Instructor> GetAllInstructors()
+        public List<Instructor> GetAllInstructors()
         {
             List<Instructor> instructorList = new List<Instructor>();
             using var con = new SqlConnection(connectionstring.conn);
@@ -27,8 +19,6 @@ namespace FitHub._3._DataAccessLayer
 
             while (reader.Read())
             {
-                //add new memebers to memberList (if DB=null, set to default value)
-                //else read the vale from the DB.
                 instructorList.Add(new Instructor
                 {
                     InstructorID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
@@ -37,12 +27,12 @@ namespace FitHub._3._DataAccessLayer
                     Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                     Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                     Certification = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
-
                 });
             }
             con.Close();
             return instructorList;
         }
+
         public void AddInstructor(Instructor instructor)
         {
             BLL bll = new BLL();
@@ -61,6 +51,7 @@ namespace FitHub._3._DataAccessLayer
             addInsCmd.ExecuteNonQuery();
             con.Close();
         }
+
         public void DeleteInstructor(int intstructorID)
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -72,6 +63,7 @@ namespace FitHub._3._DataAccessLayer
                 delInsCmd.ExecuteNonQuery();
             }
         }
+
         public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
         {
             using (SqlConnection con = new SqlConnection(connectionstring.conn))

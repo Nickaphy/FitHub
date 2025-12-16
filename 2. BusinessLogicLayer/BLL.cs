@@ -1,17 +1,9 @@
 ﻿using FitHub._2._BusinessLogicLayer;
 using FitHub._2._BusinessLogicLayer.ENT_OBJ;
 using FitHub._3._DataAccessLayer;
+using FitHub._1._UserInterface;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
-using Microsoft.Identity.Client;
-using System;
-using System.Collections.Generic;
-using System.Drawing.Text;
-using System.Linq;
-using System.Reflection;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Windows.Forms;
-using FitHub._1._UserInterface;
 
 namespace FitHub.B_BLL
 {
@@ -24,9 +16,6 @@ namespace FitHub.B_BLL
             dal.DeleteMember(memberID);
         }
 
-
-
-        //Mid call to DAL to get all members
         public List<Member> GetAllMembersBLL()
         {
             DalMembers dal = new DalMembers();
@@ -169,7 +158,7 @@ namespace FitHub.B_BLL
 
             if (capacity > 0 && current >= capacity)
             {
-                errorMessages.bookingFullErrorMessage();
+                errorMessages.BookingFullErrorMessage();
                 return;
             }
 
@@ -177,13 +166,12 @@ namespace FitHub.B_BLL
             int doublebooking = dal.CheckDoubleBookingDAL(classID, memberID);
             if (doublebooking > 0)
             {
-                errorMessages.doubleBookingErrorMessage();
+                errorMessages.DoubleBookingErrorMessage();
                 return;
             }
 
             dal.BookingClassDAL(classID, memberID);
         }
-
 
         public List<ClassHistoryDTO> GetClassHistory(int InstructorID)
         {
@@ -191,14 +179,11 @@ namespace FitHub.B_BLL
             return dal.GetClassHistory(InstructorID);
         }
 
-
-
         DalMemberHistory dalHistory = new DalMemberHistory();
         public List<MemberHistoryDTO> GetMemberHistory(int memberID)
         {
             return dalHistory.GetMemberHistory(memberID);
         }
-
 
         DalInstructorViewMembers dalViewMembers = new DalInstructorViewMembers();
         public List<InstructorViewMembersDTO> GetInstructorViewMembers(int classID)
