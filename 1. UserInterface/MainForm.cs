@@ -410,7 +410,7 @@ namespace FitHub
                     foreach (var member in members)
                     {
                         content.AppendLine(
-                            $"{member.FirstName} {member.SurName} | {member.Email} | {member.Active}");
+                            $"{member.FirstName} {member.SurName} | {member.Telephone} | {member.Email} | {member.Active}");
                     }
 
                     File.WriteAllText(saveDialog.FileName, content.ToString());

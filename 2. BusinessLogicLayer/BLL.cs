@@ -206,6 +206,12 @@ namespace FitHub.B_BLL
             return dalViewMembers.GetInstructorViewMembers(classID);
         }
 
+        DalPrintReport dalPopClassSum = new DalPrintReport();
+        public List<Member> GetPopClassSum()
+        {
+            return dalPopClassSum.GetPopClassSum();
+        }
+
         public class PrintReportBLL
         {
             private readonly DalPrintReport dal = new DalPrintReport();
@@ -222,6 +228,9 @@ namespace FitHub.B_BLL
 
                     case "All Members":
                         return dal.GetAllMembers();
+
+                    case "Popular Classes (Sum)":
+                        return dal.GetPopClassSum();
 
                     default:
                         return new List<Member>();
