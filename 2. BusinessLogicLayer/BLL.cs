@@ -2,6 +2,8 @@
 using FitHub._2._BusinessLogicLayer.ENT_OBJ;
 using FitHub._3._DataAccessLayer;
 using FitHub._1._UserInterface;
+using FitHub.B_BLL.ENT_OBJ;
+using FitHub.C_DAL;
 
 namespace FitHub.B_BLL
 {

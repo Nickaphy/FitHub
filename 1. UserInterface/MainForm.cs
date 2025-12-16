@@ -44,7 +44,7 @@ namespace FitHub
         }
 
         //delete member button
-        public void button1_Click_1(object sender, EventArgs e)
+        public void btton1_Click_1(object sender, EventArgs e)
         {
             // Check if a row is selected
             if (dataGridView1.SelectedRows.Count == 0)
@@ -231,32 +231,6 @@ namespace FitHub
                 case "Certifications":
                     dalinstructor.UpdateSingleColumnInstructor(instructorID_, "Certifications", newValue); break;
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Class classes = new Class();
-
-            classes.ClassType = ClassTypeComboBox.Text;
-            classes.ClassDate = ClassCalender.Value;
-            classes.ClassTime = ClassTimeComboBox.Text;
-            classes.ClassCapacity = ClassCapacityTextBox.Text;
-            classes.ClassLocation = ClassLocationTextBox.Text;
-            classes.InstructorID = Convert.ToInt32(InstructorIDComboBox.Text.Split(' ')[0]);
-            classes.FirstName = InstructorIDComboBox.Text;
-            classes.SurName = InstructorIDComboBox.Text;
-
-            bool wasAdded = bll.AddClassBLL(classes);
-
-            if (wasAdded)
-            {
-                ClassTypeComboBox.Text = null;
-                ClassTimeComboBox.Text = null;
-                ClassCapacityTextBox.Text = "";
-                ClassLocationTextBox.Text = "";
-                InstructorIDComboBox.Text = null;
-            }
-            UpdateClasses();
         }
 
         public void ClassInstructorDropBox()
@@ -481,6 +455,32 @@ namespace FitHub
             ).ToList();
             SearchAllMembersDataGrid.DataSource = filteredMembers;
             //Capitalize first
+        }
+
+        private void ButtonMakeTeam_Click_1(object sender, EventArgs e)
+        {
+            Class classes = new Class();
+
+            classes.ClassType = ClassTypeComboBox.Text;
+            classes.ClassDate = ClassCalender.Value;
+            classes.ClassTime = ClassTimeComboBox.Text;
+            classes.ClassCapacity = ClassCapacityTextBox.Text;
+            classes.ClassLocation = ClassLocationTextBox.Text;
+            classes.InstructorID = Convert.ToInt32(InstructorIDComboBox.Text.Split(' ')[0]);
+            classes.FirstName = InstructorIDComboBox.Text;
+            classes.SurName = InstructorIDComboBox.Text;
+
+            bool wasAdded = bll.AddClassBLL(classes);
+
+            if (wasAdded)
+            {
+                ClassTypeComboBox.Text = null;
+                ClassTimeComboBox.Text = null;
+                ClassCapacityTextBox.Text = "";
+                ClassLocationTextBox.Text = "";
+                InstructorIDComboBox.Text = null;
+            }
+            UpdateClasses();
         }
     }
 }
