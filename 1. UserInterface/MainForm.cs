@@ -46,18 +46,26 @@ namespace FitHub
         //delete member button
         public void button1_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-                BLL.DeleteMemberBLL(memberID);
-
-                //refresh members after delete
-                List<Member> members = bll.GetAllMembersBLL();
-                dataGridView1.DataSource = members;
-            }
-            else
+            // Check if a row is selected
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row");
+                return;
+            }
+
+            // Get MemberID from selected row
+            var memberID = Convert.ToInt32(
+                dataGridView1.SelectedRows[0].Cells[0].Value);
+
+            // Ask user for confirmation
+            if (MessageBox.Show("Are you sure?\n(Member will be deleted permanently!)", "Confirm",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // Call BLL to delete member
+                bll.DeleteMemberBLL(memberID);
+
+                // Refresh members after delete
+                dataGridView1.DataSource = bll.GetAllMembersBLL();
             }
         }
 
@@ -81,7 +89,7 @@ namespace FitHub
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
-                comboBox1.Text = "";
+                comboBox1.Text = null;
             }
 
             //Call BLL to add member 
@@ -149,7 +157,7 @@ namespace FitHub
                 textBox9.Text = "";
                 textBox8.Text = "";
                 textBox7.Text = "";
-                InstructorCert.Text = "";
+                InstructorCert.Text = null;
 
                 // Refresh UI lists
                 UpdateInstructors();
@@ -242,11 +250,11 @@ namespace FitHub
 
             if (wasAdded)
             {
-                ClassTypeComboBox.Text = "";
-                ClassTimeComboBox.Text = "";
+                ClassTypeComboBox.Text = null;
+                ClassTimeComboBox.Text = null;
                 ClassCapacityTextBox.Text = "";
                 ClassLocationTextBox.Text = "";
-                InstructorIDComboBox.Text = "";
+                InstructorIDComboBox.Text = null;
             }
             UpdateClasses();
         }

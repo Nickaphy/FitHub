@@ -18,7 +18,7 @@ namespace FitHub.B_BLL
     public class BLL
     {
         private readonly DalMembers dal = new();
-        public static void DeleteMemberBLL(int memberID)
+        public void DeleteMemberBLL(int memberID)
         {
             DalMembers dal = new DalMembers();
             dal.DeleteMember(memberID);
