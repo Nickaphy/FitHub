@@ -371,7 +371,7 @@ namespace FitHub
                 var instructorViewMembers = bll.GetInstructorViewMembers(classID);
 
                 var instructorViewMembersForm = new InstructorViewMembers();
-                instructorViewMembersForm.SetMembers(instructorViewMembers); // <-- brug metoden
+                instructorViewMembersForm.SetMembers(instructorViewMembers); // <-- brug medoden
                 instructorViewMembersForm.Show();
 
 
@@ -383,8 +383,19 @@ namespace FitHub
         private void PrintReportButton_Click(object sender, EventArgs e)
         {
             string selectedReport = PrintDropBox.Text;
+            DateTime startDate = PrintFromPicker.Value;
+            DateTime endDate = PrintToPicker.Value;
 
-            List<Member> members = bll2.GetMembersForReport(selectedReport);
+            // Use time-constrained overload for popularity report, otherwise keep existing call
+            List<Member> members;
+            if (selectedReport == "Popular Classes (Sum)")
+            {
+                members = bll2.GetMembersForReport(selectedReport, startDate, endDate);
+            }
+            else
+            {
+                members = bll2.GetMembersForReport(selectedReport);
+            }
 
             if (members.Count == -1)
             {
@@ -405,6 +416,13 @@ namespace FitHub
 
                     // Optional header
                     content.AppendLine($"Report: {selectedReport}");
+
+                    // Include selected time constraint in header when applicable
+                    if (selectedReport == "Popular Classes (Sum)")
+                    {
+                        content.AppendLine($"Period: {startDate:yyyy-MM-dd} - {endDate:yyyy-MM-dd}");
+                    }
+
                     content.AppendLine(new string('-', 40));
 
                     foreach (var member in members)
@@ -438,6 +456,54 @@ namespace FitHub
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
