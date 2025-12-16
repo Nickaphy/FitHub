@@ -193,9 +193,9 @@ namespace FitHub.B_BLL
 
 
 
-        DalMemberHistory dalHistory = new DalMemberHistory(); 
-        public List<MemberHistoryDTO> GetMemberHistory(int memberID) 
-        { 
+        DalMemberHistory dalHistory = new DalMemberHistory();
+        public List<MemberHistoryDTO> GetMemberHistory(int memberID)
+        {
             return dalHistory.GetMemberHistory(memberID);
         }
 
@@ -206,5 +206,36 @@ namespace FitHub.B_BLL
             return dalViewMembers.GetInstructorViewMembers(classID);
         }
 
+        DalPrintReport dalPopClassSum = new DalPrintReport();
+        public List<Member> GetPopClassSum()
+        {
+            return dalPopClassSum.GetPopClassSum();
+        }
+
+        public class PrintReportBLL
+        {
+            private readonly DalPrintReport dal = new DalPrintReport();
+
+            public List<Member> GetMembersForReport(string selectedReport)
+            {
+                switch (selectedReport)
+                {
+                    case "Inactive Members":
+                        return dal.GetAllInactive();
+
+                    case "Active Members":
+                        return dal.GetAllActive();
+
+                    case "All Members":
+                        return dal.GetAllMembers();
+
+                    case "Popular Classes (Sum)":
+                        return dal.GetPopClassSum();
+
+                    default:
+                        return new List<Member>();
+                }
+            }
+        }
     }
 }
