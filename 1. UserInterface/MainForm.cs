@@ -462,6 +462,26 @@ namespace FitHub
         {
 
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            Member member = new Member();
+            string searchTerm = textBox5.Text;
+
+
+            if (string.IsNullOrWhiteSpace(searchTerm) == false)
+                searchTerm = char.ToUpperInvariant(searchTerm[0]) + searchTerm.Substring(1).ToLowerInvariant();
+
+            List<Member> allMembers = bll.GetAllMembersBLL();
+            var filteredMembers = allMembers.Where(m =>
+                (m.FirstName != null && m.FirstName.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase)) ||
+                (m.SurName != null && m.SurName.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase)) ||
+                (m.Email != null && m.Email.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase)) ||
+                (m.Telephone != null && m.Telephone.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase))
+            ).ToList();
+            SearchAllMembersDataGrid.DataSource = filteredMembers;
+            //Capitalize first
+        }
     }
 }
 
