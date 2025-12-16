@@ -386,7 +386,7 @@ namespace FitHub
 
             List<Member> members = bll2.GetMembersForReport(selectedReport);
 
-            if (members.Count == 0)
+            if (members.Count == -1)
             {
                 MessageBox.Show("No members found for this report.");
                 return;
@@ -409,8 +409,16 @@ namespace FitHub
 
                     foreach (var member in members)
                     {
-                        content.AppendLine(
-                            $"{member.FirstName} {member.SurName} | {member.Telephone} | {member.Email} | {member.Active}");
+                        if (selectedReport == "Popular Classes (Sum)")
+                        {
+                            content.AppendLine(
+                                $"{member.ClassType} | Total members: {member.TotalMembers}");
+                        }
+                        else
+                        {
+                            content.AppendLine(
+                                $"{member.FirstName} {member.SurName} | {member.Telephone} | {member.Email} | {member.Active}");
+                        }
                     }
 
                     File.WriteAllText(saveDialog.FileName, content.ToString());

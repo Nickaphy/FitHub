@@ -22,7 +22,7 @@ namespace FitHub._3._DataAccessLayer
             con.Open();
 
             using var cmd = new SqlCommand(
-                "SELECT * FROM Members WHERE Active = 'Inactive'", con);
+                "SELECT * FROM Members WHERE Active = 'Inactive' ORDER BY FirstName", con);
 
             using var reader = cmd.ExecuteReader();
 
@@ -50,7 +50,7 @@ namespace FitHub._3._DataAccessLayer
             using var con = new SqlConnection(connectionstring.conn);
             con.Open();
 
-            using var cmd = new SqlCommand("SELECT * FROM Members", con);
+            using var cmd = new SqlCommand("SELECT * FROM Members ORDER BY FirstName", con);
             using var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -78,7 +78,7 @@ namespace FitHub._3._DataAccessLayer
             con.Open();
 
             using var cmd = new SqlCommand(
-                "SELECT * FROM Members WHERE Active = 'Active'", con);
+                "SELECT * FROM Members WHERE Active = 'Active' ORDER BY FirstName", con);
 
             using var reader = cmd.ExecuteReader();
 
@@ -100,40 +100,30 @@ namespace FitHub._3._DataAccessLayer
             return member;
         }
         public List<Member> GetPopClassSum()
-
         {
-           /* List<Member> member = new List<Member>();
+            List<Member> member = new List<Member>();
+
+            string sql =
+                "SELECT ClassType, SUM(TotalMembers) AS TotalMembers " +
+                "FROM PopClassSum_Overview " +
+                "GROUP BY ClassType " +
+                "ORDER BY TotalMembers DESC;";
 
             using var con = new SqlConnection(connectionstring.conn);
+            using var cmd = new SqlCommand(sql, con);
+
             con.Open();
+            using var reader = cmd.ExecuteReader();
 
-            using var cmd = new SqlCommand(
-                "SELECT ClassType, SUM(TotalMembers) AS TotalMembers\r\n" +
-                "FROM PopClassSum_Overview\r\nWHERE ClassDate BETWEEN @PrintFromPicker AND " +
-                "@PrintToPicker\r\nGROUP BY ClassType, ClassDate\r\nORDER BY TotalMembers DESC;", con);
-
-            using var reader = cmd.ExecuteReader();*/
-
-
-           List<Member> member = new List<Member>();
-            string sql = "SELECT ClassType, SUM(TotalMembers) AS TotalMembers\r\n" +
-                "FROM PopClassSum_Overview\r\nWHERE ClassDate BETWEEN @PrintFromPicker AND " +
-                "@PrintToPicker\r\nGROUP BY ClassType, ClassDate\r\nORDER BY TotalMembers DESC;";
-            using (SqlConnection connection = new SqlConnection(connectionstring.conn))
-            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            while (reader.Read())
             {
-               connection.Open(); SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-
+                member.Add(new Member
                 {
-                    member.Add(new Member
-                    {
-                        ClassType = reader.IsDBNull(0) ? string.Empty : reader.GetString(0),
-                        ClassDate = reader.IsDBNull(1) ? DateTime.UtcNow : reader.GetDateTime(1),
-                        TotalMembers = reader.IsDBNull(2) ? 0 : reader.GetInt32(2)
-                    });
-                }
+                    ClassType = reader.IsDBNull(0) ? string.Empty : reader.GetString(0),
+                    TotalMembers = reader.IsDBNull(1) ? 0 : reader.GetInt32(1)
+                });
             }
+
             return member;
         }
     }
