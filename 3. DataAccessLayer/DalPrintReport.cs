@@ -99,7 +99,7 @@ namespace FitHub._3._DataAccessLayer
 
             return member;
         }
-        public List<Member> GetPopClassSum()
+        public List<Member>  GetPopClassSum()
         {
             List<Member> member = new List<Member>();
 
@@ -111,6 +111,39 @@ namespace FitHub._3._DataAccessLayer
 
             using var con = new SqlConnection(connectionstring.conn);
             using var cmd = new SqlCommand(sql, con);
+
+            con.Open();
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                member.Add(new Member
+                {
+                    ClassType = reader.IsDBNull(0) ? string.Empty : reader.GetString(0),
+                    TotalMembers = reader.IsDBNull(1) ? 0 : reader.GetInt32(1)
+                });
+            }
+
+            return member;
+        }
+
+        // New: time-constrained popularity summary
+        public List<Member> GetPopClassSum(DateTime startDate, DateTime endDate)
+        {
+            List<Member> member = new List<Member>();
+
+            string sql =
+                "SELECT ClassType, SUM(TotalMembers) AS TotalMembers " +
+                "FROM PopClassSum_Overview " +
+                "WHERE ClassDate >= @startDate AND ClassDate <= @endDate " +
+                "GROUP BY ClassType " +
+                "ORDER BY TotalMembers DESC;";
+
+            using var con = new SqlConnection(connectionstring.conn);
+            using var cmd = new SqlCommand(sql, con);
+
+            cmd.Parameters.AddWithValue("@startDate", startDate.Date);
+            cmd.Parameters.AddWithValue("@endDate", endDate.Date);
 
             con.Open();
             using var reader = cmd.ExecuteReader();

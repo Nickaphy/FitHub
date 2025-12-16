@@ -236,6 +236,28 @@ namespace FitHub.B_BLL
                         return new List<Member>();
                 }
             }
+
+            // New overload that accepts date range
+            public List<Member> GetMembersForReport(string selectedReport, DateTime startDate, DateTime endDate)
+            {
+                switch (selectedReport)
+                {
+                    case "Inactive Members":
+                        return dal.GetAllInactive();
+
+                    case "Active Members":
+                        return dal.GetAllActive();
+
+                    case "All Members":
+                        return dal.GetAllMembers();
+
+                    case "Popular Classes (Sum)":
+                        return dal.GetPopClassSum(startDate, endDate);
+
+                    default:
+                        return new List<Member>();
+                }
+            }
         }
     }
 }
