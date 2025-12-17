@@ -295,7 +295,17 @@ namespace FitHub
         {
             var memberID = Convert.ToInt32(BookingMemberGrid.SelectedRows[0].Cells[0].Value);
             var classID = Convert.ToInt32(BookingClassGrid.SelectedRows[0].Cells[0].Value);
-            bll.BookingClass(classID, memberID);
+
+            bool success = bll.BookingClass(classID, memberID);
+
+            if (success)
+            {
+                MessageBox.Show(
+                    "Booking completed successfully!",
+                    "Success",
+                    MessageBoxButtons.OK
+                );
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

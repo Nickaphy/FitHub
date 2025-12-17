@@ -127,7 +127,7 @@ namespace FitHub.B_BLL
             return false;
         }
 
-        public void BookingClass(int classID, int memberID)
+        public bool BookingClass(int classID, int memberID)
         {
             DalBooking dal = new DalBooking();
             DalClasses dalClasses = new DalClasses();
@@ -137,19 +137,19 @@ namespace FitHub.B_BLL
             var classes = dalClasses.GetAllClassesDAL();
             var cls = classes.FirstOrDefault(c => c.ClassID == classID);
             int capacity = 0;
+
             if (cls == null)
             {
-                // class not found
                 errorMessages.ClassCapacityErrorMessage();
+                return false;
             }
             else if (!int.TryParse(cls.ClassCapacity, out var parsed))
             {
-                // capacity value invalid
                 errorMessages.ClassCapacityErrorMessage();
+                return false;
             }
             else
             {
-                // parse succeeded — use capacity
                 capacity = parsed;
             }
 
@@ -159,7 +159,7 @@ namespace FitHub.B_BLL
             if (capacity > 0 && current >= capacity)
             {
                 errorMessages.BookingFullErrorMessage();
-                return;
+                return false;
             }
 
             // check double booking
@@ -167,10 +167,12 @@ namespace FitHub.B_BLL
             if (doublebooking > 0)
             {
                 errorMessages.DoubleBookingErrorMessage();
-                return;
+                return false;
             }
 
+            // booking succeeds
             dal.BookingClassDAL(classID, memberID);
+            return true;
         }
 
         public List<ClassHistoryDTO> GetClassHistory(int InstructorID)
