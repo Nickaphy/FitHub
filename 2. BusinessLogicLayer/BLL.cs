@@ -1,6 +1,14 @@
 ﻿using FitHub._2._BusinessLogicLayer;
 using FitHub._2._BusinessLogicLayer.ENT_OBJ;
 using FitHub._3._DataAccessLayer;
+using FitHub.B_BLL.ENT_OBJ;
+using FitHub.C_DAL;
+using Microsoft.Identity.Client;
+using System;
+using System.Collections.Generic;
+using System.Drawing.Text;
+using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using FitHub._1._UserInterface;
 using FitHub.B_BLL.ENT_OBJ;
 using FitHub.C_DAL;
@@ -16,6 +24,9 @@ namespace FitHub.B_BLL
             dal.DeleteMember(memberID);
         }
 
+
+
+        //Mid call to DAL to get all members
         public List<Member> GetAllMembersBLL()
         {
             DalMembers dal = new DalMembers();
@@ -51,6 +62,7 @@ namespace FitHub.B_BLL
             bool nameErrorProceed = bll_error.nameError(member.FirstName, member.SurName);
             bool telephoneErrorProceed = bll_error.telephoneError(member.Telephone);
             bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(member.MemberType);
+            
 
             if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
@@ -68,6 +80,59 @@ namespace FitHub.B_BLL
             }
             return false;
         }
+
+        public string ActivityStatus(int memberID, string activityStatus)
+        {
+            DalMembers dalmembers = new DalMembers();
+            string newStatus;
+            if (activityStatus == "Active")
+            {
+                newStatus = "Inactive";
+            }
+            else
+            {
+                newStatus = "Active";
+            }
+            dalmembers.ChangeActivity(newStatus, memberID);
+
+            return newStatus;
+        }
+
+
+
+        public List<Instructor> GetAllInstructorsBLL()
+        {
+            DalInstructor dal = new DalInstructor();
+            return dal.GetAllInstructors();
+        }
+
+        public bool AddInstructorBLL(Instructor instructor)
+        {
+            BLL_Error bll_error = new BLL_Error();
+            DalInstructor dal = new DalInstructor();
+
+            //Capitalize first letter of first name and surname only and lower cases rest
+            if (string.IsNullOrWhiteSpace(instructor.FirstName) == false)
+            {
+                instructor.FirstName = char.ToUpperInvariant(instructor.FirstName[0]) + instructor.FirstName.Substring(1).ToLowerInvariant();
+            }
+            if (string.IsNullOrWhiteSpace(instructor.SurName) == false)
+            {
+                instructor.SurName = char.ToUpperInvariant(instructor.SurName[0]) + instructor.SurName.Substring(1).ToLowerInvariant();
+            }
+
+            bool emailErrorProceed = bll_error.emailError(instructor.Email);
+            bool nameErrorProceed = bll_error.nameError(instructor.FirstName, instructor.SurName);
+            bool telephoneErrorProceed = bll_error.telephoneError(instructor.Telephone);
+            bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(instructor.Certification);
+
+
+            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
+            {
+                dal.AddInstructor(instructor);
+                return true;
+            }
+            return false;
 
         public string ActivityStatus(int memberID, string activityStatus)
         {

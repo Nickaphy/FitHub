@@ -1,4 +1,9 @@
 ﻿using FitHub._1._UserInterface;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FitHub._2._BusinessLogicLayer
 {
@@ -43,6 +48,11 @@ namespace FitHub._2._BusinessLogicLayer
             }
             return true;
         }
+        
+        public bool DropBoxTypeError(string memberType)
+        {
+                        
+            if (string.IsNullOrWhiteSpace(memberType))
 
         public bool DropBoxTypeError(string memberType)
         {
@@ -64,7 +74,8 @@ namespace FitHub._2._BusinessLogicLayer
             }
             else if (capacity <= 0 && capacity < 26)
             {
-                return true;
+                errormessages.DropBoxTypeErrorMessage();
+                return false;
             }
             return true;
 

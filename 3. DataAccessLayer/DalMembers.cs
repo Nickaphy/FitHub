@@ -6,10 +6,20 @@ namespace FitHub.C_DAL
 {
     public class DalMembers
     {
+        string conn = "Server=MÅSEN;DataBase=FitHubDB;" +
+           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
         ConnectionString connectionstring = new ConnectionString();
 
         public void DeleteMember(int memberID)
         {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using var con = new SqlConnection(conn);
+                con.Open();
+                using var delMemCmd = new SqlCommand("DELETE FROM ClassMembers WHERE MemberID = @MemberID DELETE FROM Members WHERE MemberID = @MemberID", con);
+                delMemCmd.Parameters.Add("@MemberID", System.Data.SqlDbType.Int).Value = memberID;
+                delMemCmd.ExecuteNonQuery();
+            }
             using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var delMemCmd = new SqlCommand("DELETE FROM ClassMembers WHERE MemberID = @MemberID DELETE FROM Members WHERE MemberID = @MemberID", con);
@@ -89,6 +99,18 @@ namespace FitHub.C_DAL
                 }
             }
         }
+        public void ChangeActivity(string newStatus, int memberID)
+        {
+            using var con = new SqlConnection(conn);
+            {
+                con.Open();
+                    string changeActivityQuery = "UPDATE Members SET Active = @newStatus WHERE MemberID = @memberID";
+
+                using (SqlCommand cmd = new SqlCommand(changeActivityQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@newStatus", newStatus);
+                    cmd.Parameters.AddWithValue("@memberID", memberID);
+
 
         public void ChangeActivity(string newStatus, int memberID)
         {
