@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace FitHub._1._UserInterface
 {
@@ -28,5 +29,46 @@ namespace FitHub._1._UserInterface
         {
             MessageBox.Show("You have to make a selection");
         }
+
+        public void ClassCapacityErrorMessage()
+        {
+            MessageBox.Show("Class capacity must be between 1 and 25, and must be a numeric value");
+        }
+
+        public void ClassTypeErrorMessage()
+        {
+            MessageBox.Show("Must choose a class type");
+        }
+
+        public void InstructorIDErrorMessage()
+        {
+            MessageBox.Show("Must choose an instructor");
+        }
+
+        public void ClassDateErrorMessage()
+        {
+            MessageBox.Show("Either you forgot to choose a date, or you chose a date from the past");
+        }
+
+        public void ClassTimeErrorMessage()
+        {
+            MessageBox.Show("You have to choose a time for the class");
+        }
+
+        public void ClassLocationErrorMessage()
+        {
+            MessageBox.Show("You have to enter a location for the class");
+        }
+
+        public void BookingFullErrorMessage()
+        {
+            MessageBox.Show("Class is full. Cannot book more members.");
+        }
+
+        public void DoubleBookingErrorMessage()
+        {
+            MessageBox.Show("You have already booked this class.");
+        }
+
     }
 }

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace FitHub._3._DataAccessLayer
 {
@@ -17,11 +19,13 @@ namespace FitHub._3._DataAccessLayer
            "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
         
 
+        ConnectionString connectionstring = new ConnectionString();
 
         public List<Instructor> GetAllInstructors()
         {
             List<Instructor> instructorList = new List<Instructor>();
             using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var cmd = new SqlCommand("SELECT * FROM Instructors", con);
             using var reader = cmd.ExecuteReader();
@@ -48,6 +52,11 @@ namespace FitHub._3._DataAccessLayer
         {
             BLL bll = new BLL();
             using var con = new SqlConnection(conn);
+
+        public void AddInstructor(Instructor instructor)
+        {
+            BLL bll = new BLL();
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
 
             string addInstructorQuery = @"INSERT INTO Instructors (FirstName, SurName, Email, Telephone, Certifications) 
@@ -56,12 +65,14 @@ namespace FitHub._3._DataAccessLayer
             using var addInsCmd = new SqlCommand(addInstructorQuery, con);
             addInsCmd.Parameters.AddWithValue("@FirstName", instructor.FirstName);
             addInsCmd.Parameters.AddWithValue("@SurName",  instructor.SurName);
+            addInsCmd.Parameters.AddWithValue("@SurName", instructor.SurName);
             addInsCmd.Parameters.AddWithValue("@Email", instructor.Email);
             addInsCmd.Parameters.AddWithValue("@Telephone", instructor.Telephone);
             addInsCmd.Parameters.AddWithValue("@Certifications", instructor.Certification);
             addInsCmd.ExecuteNonQuery();
             con.Close();
         }
+
         public void DeleteInstructor(int intstructorID)
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -69,6 +80,9 @@ namespace FitHub._3._DataAccessLayer
                 using var con = new SqlConnection(conn);
                 con.Open();                             //Her sletter vi først slette fra ClassMembers tabellen for å unngå fremmednøglebrud
                 using var delInsCmd = new SqlCommand("DELETE FROM Classes WHERE InstructorID = @InstructorID DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
+                using var con = new SqlConnection(connectionstring.conn);
+                con.Open();
+                using var delInsCmd = new SqlCommand("DELETE FROM ClassMembers WHERE ClassID IN(SELECT ClassID FROM Classes WHERE InstructorID = @InstructorID) DELETE FROM Classes WHERE InstructorID = @InstructorID DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
                 delInsCmd.Parameters.Add("@InstructorID", System.Data.SqlDbType.Int).Value = intstructorID;
                 delInsCmd.ExecuteNonQuery();
             }
@@ -76,6 +90,10 @@ namespace FitHub._3._DataAccessLayer
        public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
         {
             using (SqlConnection con = new SqlConnection(conn))
+
+        public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
+        {
+            using (SqlConnection con = new SqlConnection(connectionstring.conn))
             {
                 con.Open();
 
@@ -99,4 +117,5 @@ namespace FitHub._3._DataAccessLayer
             }
         }
     }
+}
 }

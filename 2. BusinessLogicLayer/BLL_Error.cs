@@ -53,8 +53,79 @@ namespace FitHub._2._BusinessLogicLayer
         {
                         
             if (string.IsNullOrWhiteSpace(memberType))
+
+        public bool DropBoxTypeError(string memberType)
+        {
+
+            if (string.IsNullOrWhiteSpace(memberType))
             {
                 errormessages.DropBoxTypeErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classCapacityError(string capacityString)
+        {
+            if (!int.TryParse(capacityString.ToString(), out int capacity))
+            {
+                errormessages.ClassCapacityErrorMessage();
+                return false;
+            }
+            else if (capacity <= 0 && capacity < 26)
+            {
+                errormessages.DropBoxTypeErrorMessage();
+                return false;
+            }
+            return true;
+
+        }
+
+        public bool classTypeError(string classType)
+        {
+            if (string.IsNullOrWhiteSpace(classType))
+            {
+                errormessages.ClassTypeErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool instructorIdError(string instructorID)
+        {
+            if (string.IsNullOrWhiteSpace(instructorID))
+            {
+                errormessages.InstructorIDErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classDateError(DateTime classDate)
+        {
+            if (classDate < DateTime.Now.Date || classDate == null)
+            {
+                errormessages.ClassDateErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classTimeError(string classTime)
+        {
+            if (string.IsNullOrWhiteSpace(classTime))
+            {
+                errormessages.ClassTimeErrorMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public bool classLocationError(string classLocation)
+        {
+            if (string.IsNullOrWhiteSpace(classLocation))
+            {
+                errormessages.ClassLocationErrorMessage();
                 return false;
             }
             return true;

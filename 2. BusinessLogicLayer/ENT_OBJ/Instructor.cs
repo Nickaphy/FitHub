@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FitHub._2._BusinessLogicLayer.ENT_OBJ
+﻿namespace FitHub._2._BusinessLogicLayer.ENT_OBJ
 {
     public class Instructor
     {

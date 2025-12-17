@@ -9,13 +9,16 @@ using System.Collections.Generic;
 using System.Drawing.Text;
 using System.Reflection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using FitHub._1._UserInterface;
+using FitHub.B_BLL.ENT_OBJ;
+using FitHub.C_DAL;
 
 namespace FitHub.B_BLL
 {
     public class BLL
     {
         private readonly DalMembers dal = new();
-        public static void DeleteMemberBLL(int memberID)
+        public void DeleteMemberBLL(int memberID)
         {
             DalMembers dal = new DalMembers();
             dal.DeleteMember(memberID);
@@ -30,6 +33,26 @@ namespace FitHub.B_BLL
             return dal.GetAll();
         }
 
+        public bool AddClassBLL(Class classes)
+        {
+            BLL_Error bll_error = new BLL_Error();
+            DalClasses dal = new DalClasses();
+
+            bool classCapacityErrorProceed = bll_error.classCapacityError(classes.ClassCapacity);
+            bool classTypeErrorProceed = bll_error.classTypeError(classes.ClassType);
+            bool instructorIdErrorProceed = bll_error.instructorIdError(classes.InstructorID.ToString());
+            bool classDateErrorProceed = bll_error.classDateError(classes.ClassDate);
+            bool classTimeErrorProceed = bll_error.classTimeError(classes.ClassTime);
+            bool classLocationErrorProceed = bll_error.classLocationError(classes.ClassLocation);
+
+            if (classCapacityErrorProceed == true && classTypeErrorProceed == true && instructorIdErrorProceed == true && classDateErrorProceed == true && classTimeErrorProceed == true && classLocationErrorProceed == true)
+            {
+                dal.AddClassDAL(classes);
+                return true;
+            }
+            return false;
+        }
+
         public bool AddMemberBLL(Member member)
         {
             BLL_Error bll_error = new BLL_Error();
@@ -40,6 +63,7 @@ namespace FitHub.B_BLL
             bool telephoneErrorProceed = bll_error.telephoneError(member.Telephone);
             bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(member.MemberType);
             
+
             if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
                 //Capitalize first letter of first name and surname only and lower cases rest
@@ -109,6 +133,181 @@ namespace FitHub.B_BLL
                 return true;
             }
             return false;
+
+        public string ActivityStatus(int memberID, string activityStatus)
+        {
+            DalMembers dalmembers = new DalMembers();
+            string newStatus;
+            if (activityStatus == "Active")
+            {
+                newStatus = "Inactive";
+            }
+            else
+            {
+                newStatus = "Active";
+            }
+            dalmembers.ChangeActivity(newStatus, memberID);
+
+            return newStatus;
+        }
+
+        public List<Instructor> GetAllInstructorsBLL()
+        {
+            DalInstructor dal = new DalInstructor();
+            return dal.GetAllInstructors();
+        }
+
+        public List<Class> GetAllClassesBLL()
+        {
+            DalClasses dal = new DalClasses();
+            return dal.GetAllClassesDAL();
+        }
+
+        public bool AddInstructorBLL(Instructor instructor)
+        {
+            BLL_Error bll_error = new BLL_Error();
+            DalInstructor dal = new DalInstructor();
+
+            //Capitalize first letter of first name and surname only and lower cases rest
+            if (string.IsNullOrWhiteSpace(instructor.FirstName) == false)
+            {
+                instructor.FirstName = char.ToUpperInvariant(instructor.FirstName[0]) + instructor.FirstName.Substring(1).ToLowerInvariant();
+            }
+            if (string.IsNullOrWhiteSpace(instructor.SurName) == false)
+            {
+                instructor.SurName = char.ToUpperInvariant(instructor.SurName[0]) + instructor.SurName.Substring(1).ToLowerInvariant();
+            }
+
+            bool emailErrorProceed = bll_error.emailError(instructor.Email);
+            bool nameErrorProceed = bll_error.nameError(instructor.FirstName, instructor.SurName);
+            bool telephoneErrorProceed = bll_error.telephoneError(instructor.Telephone);
+            bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(instructor.Certification);
+
+
+            if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
+            {
+                dal.AddInstructor(instructor);
+                return true;
+            }
+            return false;
+        }
+
+        public void BookingClass(int classID, int memberID)
+        {
+            DalBooking dal = new DalBooking();
+            DalClasses dalClasses = new DalClasses();
+            ErrorMessages errorMessages = new ErrorMessages();
+
+            // get capacity for class
+            var classes = dalClasses.GetAllClassesDAL();
+            var cls = classes.FirstOrDefault(c => c.ClassID == classID);
+            int capacity = 0;
+            if (cls == null)
+            {
+                // class not found
+                errorMessages.ClassCapacityErrorMessage();
+            }
+            else if (!int.TryParse(cls.ClassCapacity, out var parsed))
+            {
+                // capacity value invalid
+                errorMessages.ClassCapacityErrorMessage();
+            }
+            else
+            {
+                // parse succeeded — use capacity
+                capacity = parsed;
+            }
+
+            // get current count
+            int current = dal.GetBookingCountDAL(classID);
+
+            if (capacity > 0 && current >= capacity)
+            {
+                errorMessages.BookingFullErrorMessage();
+                return;
+            }
+
+            // check double booking
+            int doublebooking = dal.CheckDoubleBookingDAL(classID, memberID);
+            if (doublebooking > 0)
+            {
+                errorMessages.DoubleBookingErrorMessage();
+                return;
+            }
+
+            dal.BookingClassDAL(classID, memberID);
+        }
+
+        public List<ClassHistoryDTO> GetClassHistory(int InstructorID)
+        {
+            DalClassHistory dal = new DalClassHistory();
+            return dal.GetClassHistory(InstructorID);
+        }
+
+        DalMemberHistory dalHistory = new DalMemberHistory();
+        public List<MemberHistoryDTO> GetMemberHistory(int memberID)
+        {
+            return dalHistory.GetMemberHistory(memberID);
+        }
+
+        DalInstructorViewMembers dalViewMembers = new DalInstructorViewMembers();
+        public List<InstructorViewMembersDTO> GetInstructorViewMembers(int classID)
+        {
+            return dalViewMembers.GetInstructorViewMembers(classID);
+        }
+
+        DalPrintReport dalPopClassSum = new DalPrintReport();
+        public List<Member> GetPopClassSum()
+        {
+            return dalPopClassSum.GetPopClassSum();
+        }
+
+        public class PrintReportBLL
+        {
+            private readonly DalPrintReport dal = new DalPrintReport();
+
+            public List<Member> GetMembersForReport(string selectedReport)
+            {
+                switch (selectedReport)
+                {
+                    case "Inactive Members":
+                        return dal.GetAllInactive();
+
+                    case "Active Members":
+                        return dal.GetAllActive();
+
+                    case "All Members":
+                        return dal.GetAllMembers();
+
+                    case "Popular Classes (Sum)":
+                        return dal.GetPopClassSum();
+
+                    default:
+                        return new List<Member>();
+                }
+            }
+
+            // New overload that accepts date range
+            public List<Member> GetMembersForReport(string selectedReport, DateTime startDate, DateTime endDate)
+            {
+                switch (selectedReport)
+                {
+                    case "Inactive Members":
+                        return dal.GetAllInactive();
+
+                    case "Active Members":
+                        return dal.GetAllActive();
+
+                    case "All Members":
+                        return dal.GetAllMembers();
+
+                    case "Popular Classes (Sum)":
+                        return dal.GetPopClassSum(startDate, endDate);
+
+                    default:
+                        return new List<Member>();
+                }
+            }
         }
     }
 }

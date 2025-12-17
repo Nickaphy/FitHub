@@ -46,6 +46,14 @@
             dataGridView3 = new DataGridView();
             button5 = new Button();
             button4 = new Button();
+            BookingButton = new Button();
+            label13 = new Label();
+            BookingClassGrid = new DataGridView();
+            BookingMemberGrid = new DataGridView();
+            tabPage4 = new TabPage();
+            label11 = new Label();
+            InstructorIDComboBox = new ComboBox();
+            ButtonMakeTeam = new Button();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -63,6 +71,16 @@
             label18 = new Label();
             dateTimePicker2 = new DateTimePicker();
             button3 = new Button();
+            ClassLocationTextBox = new TextBox();
+            ClassCapacityTextBox = new TextBox();
+            ClassTimeComboBox = new ComboBox();
+            ClassCalender = new DateTimePicker();
+            ClassTypeComboBox = new ComboBox();
+            ClassManGrid = new DataGridView();
+            tabPage2 = new TabPage();
+            label18 = new Label();
+            dateTimePicker2 = new DateTimePicker();
+            ButtonMemeberActiveInactive = new Button();
             dataGridView1 = new DataGridView();
             comboBox1 = new ComboBox();
             label5 = new Label();
@@ -75,6 +93,7 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             button1 = new Button();
+            ButtonMemberAdd = new Button();
             tabPage5 = new TabPage();
             InstructorCert = new ComboBox();
             label12 = new Label();
@@ -116,6 +135,34 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            button4 = new Button();
+            textBox5 = new TextBox();
+            GetMemberHistory = new Button();
+            label20 = new Label();
+            label21 = new Label();
+            scopeMemberHistoryDataGrid = new DataGridView();
+            SearchAllMembersDataGrid = new DataGridView();
+            SeeMembersButton = new TabPage();
+            SeeMembers1Button = new Button();
+            button2 = new Button();
+            Instructor = new Label();
+            label19 = new Label();
+            scopeClassHistoryView = new DataGridView();
+            searchInstructorDataGridView = new DataGridView();
+            tabPage1 = new TabPage();
+            PrintReportButton = new Button();
+            PrintToPicker = new DateTimePicker();
+            PrintFromPicker = new DateTimePicker();
+            PrintDropBoxLabel = new Label();
+            PrintDropBox = new ComboBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            saveFileDialog1 = new SaveFileDialog();
+            tabControl1.SuspendLayout();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BookingClassGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BookingMemberGrid).BeginInit();
+            tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ClassManGrid).BeginInit();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage5.SuspendLayout();
@@ -124,6 +171,13 @@
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panelFormLoader.SuspendLayout();
+            tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)scopeMemberHistoryDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SearchAllMembersDataGrid).BeginInit();
+            SeeMembersButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).BeginInit();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // MemberDeleteButton
@@ -132,10 +186,13 @@
             MemberDeleteButton.Margin = new Padding(1);
             MemberDeleteButton.Name = "MemberDeleteButton";
             MemberDeleteButton.Size = new Size(145, 29);
+            MemberDeleteButton.Location = new Point(379, 798);
+            MemberDeleteButton.Margin = new Padding(2);
+            MemberDeleteButton.Name = "MemberDeleteButton";
+            MemberDeleteButton.Size = new Size(236, 47);
             MemberDeleteButton.TabIndex = 0;
             MemberDeleteButton.Text = "Delete";
             MemberDeleteButton.UseVisualStyleBackColor = true;
-            MemberDeleteButton.Click += button1_Click_1;
             // 
             // tabControl1
             // 
@@ -154,6 +211,13 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1031, 656);
             tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.Controls.Add(SeeMembersButton);
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Location = new Point(0, 2);
+            tabControl1.Margin = new Padding(2);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(3098, 1152);
             tabControl1.TabIndex = 1;
             // 
             // tabPage3
@@ -168,6 +232,14 @@
             tabPage3.Margin = new Padding(1);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1023, 613);
+            tabPage3.Controls.Add(BookingButton);
+            tabPage3.Controls.Add(label13);
+            tabPage3.Controls.Add(BookingClassGrid);
+            tabPage3.Controls.Add(BookingMemberGrid);
+            tabPage3.Location = new Point(8, 46);
+            tabPage3.Margin = new Padding(2);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(3082, 1098);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Booking";
             tabPage3.Click += tabPage3_Click;
@@ -221,6 +293,49 @@
             dataGridView6.Size = new Size(231, 488);
             dataGridView6.TabIndex = 2;
             // 
+            // BookingButton
+            // 
+            BookingButton.Location = new Point(440, 429);
+            BookingButton.Margin = new Padding(6);
+            BookingButton.Name = "BookingButton";
+            BookingButton.Size = new Size(180, 49);
+            BookingButton.TabIndex = 7;
+            BookingButton.Text = "Book member";
+            BookingButton.UseVisualStyleBackColor = true;
+            BookingButton.Click += BookingButton_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(15, 32);
+            label13.Margin = new Padding(6, 0, 6, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(115, 32);
+            label13.TabIndex = 5;
+            label13.Text = "Members";
+            // 
+            // BookingClassGrid
+            // 
+            BookingClassGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BookingClassGrid.Location = new Point(639, 4);
+            BookingClassGrid.Margin = new Padding(6);
+            BookingClassGrid.Name = "BookingClassGrid";
+            BookingClassGrid.RowHeadersWidth = 82;
+            BookingClassGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BookingClassGrid.Size = new Size(2600, 1024);
+            BookingClassGrid.TabIndex = 3;
+            // 
+            // BookingMemberGrid
+            // 
+            BookingMemberGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BookingMemberGrid.Location = new Point(15, 96);
+            BookingMemberGrid.Margin = new Padding(6);
+            BookingMemberGrid.Name = "BookingMemberGrid";
+            BookingMemberGrid.RowHeadersWidth = 82;
+            BookingMemberGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BookingMemberGrid.Size = new Size(414, 781);
+            BookingMemberGrid.TabIndex = 2;
+            // 
             // tabPage4
             // 
             tabPage4.Controls.Add(label11);
@@ -228,6 +343,8 @@
             tabPage4.Controls.Add(dataGridView3);
             tabPage4.Controls.Add(button5);
             tabPage4.Controls.Add(button4);
+            tabPage4.Controls.Add(InstructorIDComboBox);
+            tabPage4.Controls.Add(ButtonMakeTeam);
             tabPage4.Controls.Add(label10);
             tabPage4.Controls.Add(label9);
             tabPage4.Controls.Add(label8);
@@ -245,6 +362,16 @@
             tabPage4.Margin = new Padding(1);
             tabPage4.Name = "tabPage4";
             tabPage4.Size = new Size(1023, 613);
+            tabPage4.Controls.Add(ClassLocationTextBox);
+            tabPage4.Controls.Add(ClassCapacityTextBox);
+            tabPage4.Controls.Add(ClassTimeComboBox);
+            tabPage4.Controls.Add(ClassCalender);
+            tabPage4.Controls.Add(ClassTypeComboBox);
+            tabPage4.Controls.Add(ClassManGrid);
+            tabPage4.Location = new Point(8, 46);
+            tabPage4.Margin = new Padding(2);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(3082, 1098);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Class Management";
             tabPage4.UseVisualStyleBackColor = true;
@@ -298,6 +425,33 @@
             button4.TabIndex = 11;
             button4.Text = "Edit and save";
             button4.UseVisualStyleBackColor = true;
+            label11.Location = new Point(32, 815);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(125, 32);
+            label11.TabIndex = 14;
+            label11.Text = "Instructors";
+            // 
+            // InstructorIDComboBox
+            // 
+            InstructorIDComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            InstructorIDComboBox.FormattingEnabled = true;
+            InstructorIDComboBox.Location = new Point(15, 849);
+            InstructorIDComboBox.Margin = new Padding(4, 2, 4, 2);
+            InstructorIDComboBox.Name = "InstructorIDComboBox";
+            InstructorIDComboBox.Size = new Size(242, 40);
+            InstructorIDComboBox.TabIndex = 13;
+            // 
+            // ButtonMakeTeam
+            // 
+            ButtonMakeTeam.Location = new Point(405, 770);
+            ButtonMakeTeam.Margin = new Padding(6);
+            ButtonMakeTeam.Name = "ButtonMakeTeam";
+            ButtonMakeTeam.Size = new Size(163, 47);
+            ButtonMakeTeam.TabIndex = 12;
+            ButtonMakeTeam.Text = "Make team";
+            ButtonMakeTeam.UseVisualStyleBackColor = true;
+            ButtonMakeTeam.Click += ButtonMakeTeam_Click_1;
             // 
             // label10
             // 
@@ -306,6 +460,10 @@
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(77, 20);
+            label10.Location = new Point(32, 64);
+            label10.Margin = new Padding(6, 0, 6, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(125, 32);
             label10.TabIndex = 10;
             label10.Text = "Class Type";
             // 
@@ -318,6 +476,12 @@
             label9.Size = new Size(41, 20);
             label9.TabIndex = 9;
             label9.Text = "Date";
+            label9.Location = new Point(32, 209);
+            label9.Margin = new Padding(6, 0, 6, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(78, 32);
+            label9.TabIndex = 9;
+            label9.Text = "label9";
             // 
             // label8
             // 
@@ -326,6 +490,10 @@
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(42, 20);
+            label8.Location = new Point(32, 354);
+            label8.Margin = new Padding(6, 0, 6, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(67, 32);
             label8.TabIndex = 8;
             label8.Text = "Time";
             // 
@@ -336,6 +504,10 @@
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(66, 20);
+            label7.Location = new Point(32, 514);
+            label7.Margin = new Padding(6, 0, 6, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(104, 32);
             label7.TabIndex = 7;
             label7.Text = "Capacity";
             // 
@@ -420,12 +592,77 @@
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(511, 516);
             dataGridView2.TabIndex = 0;
+            label6.Location = new Point(32, 685);
+            label6.Margin = new Padding(6, 0, 6, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(104, 32);
+            label6.TabIndex = 6;
+            label6.Text = "Location";
+            // 
+            // ClassLocationTextBox
+            // 
+            ClassLocationTextBox.Location = new Point(15, 723);
+            ClassLocationTextBox.Margin = new Padding(6);
+            ClassLocationTextBox.Name = "ClassLocationTextBox";
+            ClassLocationTextBox.Size = new Size(221, 39);
+            ClassLocationTextBox.TabIndex = 5;
+            // 
+            // ClassCapacityTextBox
+            // 
+            ClassCapacityTextBox.Location = new Point(15, 553);
+            ClassCapacityTextBox.Margin = new Padding(6);
+            ClassCapacityTextBox.Name = "ClassCapacityTextBox";
+            ClassCapacityTextBox.Size = new Size(221, 39);
+            ClassCapacityTextBox.TabIndex = 4;
+            // 
+            // ClassTimeComboBox
+            // 
+            ClassTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ClassTimeComboBox.FormattingEnabled = true;
+            ClassTimeComboBox.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
+            ClassTimeComboBox.Location = new Point(15, 393);
+            ClassTimeComboBox.Margin = new Padding(6);
+            ClassTimeComboBox.Name = "ClassTimeComboBox";
+            ClassTimeComboBox.Size = new Size(221, 40);
+            ClassTimeComboBox.TabIndex = 3;
+            // 
+            // ClassCalender
+            // 
+            ClassCalender.Location = new Point(15, 247);
+            ClassCalender.Margin = new Padding(6);
+            ClassCalender.Name = "ClassCalender";
+            ClassCalender.Size = new Size(368, 39);
+            ClassCalender.TabIndex = 2;
+            // 
+            // ClassTypeComboBox
+            // 
+            ClassTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ClassTypeComboBox.FormattingEnabled = true;
+            ClassTypeComboBox.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
+            ClassTypeComboBox.Location = new Point(15, 102);
+            ClassTypeComboBox.Margin = new Padding(6);
+            ClassTypeComboBox.Name = "ClassTypeComboBox";
+            ClassTypeComboBox.Size = new Size(221, 40);
+            ClassTypeComboBox.TabIndex = 1;
+            // 
+            // ClassManGrid
+            // 
+            ClassManGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ClassManGrid.Location = new Point(639, 4);
+            ClassManGrid.Margin = new Padding(2);
+            ClassManGrid.Name = "ClassManGrid";
+            ClassManGrid.RowHeadersWidth = 82;
+            ClassManGrid.Size = new Size(2600, 1024);
+            ClassManGrid.TabIndex = 0;
+            ClassManGrid.CellContentClick += ClassManGrid_CellContentClick;
+            ClassManGrid.CellEndEdit += ClassManGrid_CellEndEdit;
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(label18);
             tabPage2.Controls.Add(dateTimePicker2);
             tabPage2.Controls.Add(button3);
+            tabPage2.Controls.Add(ButtonMemeberActiveInactive);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(comboBox1);
             tabPage2.Controls.Add(label5);
@@ -444,6 +681,13 @@
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(1);
             tabPage2.Size = new Size(1023, 613);
+            tabPage2.Controls.Add(ButtonMemberAdd);
+            tabPage2.Controls.Add(MemberDeleteButton);
+            tabPage2.Location = new Point(8, 46);
+            tabPage2.Margin = new Padding(2);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(2);
+            tabPage2.Size = new Size(3082, 1098);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Member Management";
             tabPage2.UseVisualStyleBackColor = true;
@@ -455,6 +699,10 @@
             label18.Margin = new Padding(4, 0, 4, 0);
             label18.Name = "label18";
             label18.Size = new Size(70, 20);
+            label18.Location = new Point(71, 352);
+            label18.Margin = new Padding(6, 0, 6, 0);
+            label18.Name = "label18";
+            label18.Size = new Size(111, 32);
             label18.TabIndex = 19;
             label18.Text = "Birthdate";
             // 
@@ -476,6 +724,22 @@
             button3.Text = "Active On/Off";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
+            dateTimePicker2.Location = new Point(65, 384);
+            dateTimePicker2.Margin = new Padding(6);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(368, 39);
+            dateTimePicker2.TabIndex = 18;
+            // 
+            // ButtonMemeberActiveInactive
+            // 
+            ButtonMemeberActiveInactive.Location = new Point(379, 723);
+            ButtonMemeberActiveInactive.Margin = new Padding(2);
+            ButtonMemeberActiveInactive.Name = "ButtonMemeberActiveInactive";
+            ButtonMemeberActiveInactive.Size = new Size(236, 47);
+            ButtonMemeberActiveInactive.TabIndex = 17;
+            ButtonMemeberActiveInactive.Text = "Active On/Off";
+            ButtonMemeberActiveInactive.UseVisualStyleBackColor = true;
+            ButtonMemeberActiveInactive.Click += button3_Click;
             // 
             // dataGridView1
             // 
@@ -487,6 +751,12 @@
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(879, 541);
+            dataGridView1.Location = new Point(639, 4);
+            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(2600, 1024);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
             // 
@@ -499,6 +769,10 @@
             comboBox1.Margin = new Padding(1);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(125, 28);
+            comboBox1.Location = new Point(65, 474);
+            comboBox1.Margin = new Padding(2);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(201, 40);
             comboBox1.TabIndex = 16;
             // 
             // label5
@@ -506,6 +780,8 @@
             label5.AutoSize = true;
             label5.Location = new Point(40, 274);
             label5.Margin = new Padding(1, 0, 1, 0);
+            label5.Location = new Point(65, 439);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(100, 20);
             label5.TabIndex = 15;
@@ -516,6 +792,8 @@
             label4.AutoSize = true;
             label4.Location = new Point(44, 168);
             label4.Margin = new Padding(1, 0, 1, 0);
+            label4.Location = new Point(71, 269);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(26, 20);
             label4.TabIndex = 14;
@@ -526,6 +804,8 @@
             label3.AutoSize = true;
             label3.Location = new Point(40, 122);
             label3.Margin = new Padding(1, 0, 1, 0);
+            label3.Location = new Point(65, 196);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(46, 20);
             label3.TabIndex = 13;
@@ -536,6 +816,8 @@
             label2.AutoSize = true;
             label2.Location = new Point(40, 79);
             label2.Margin = new Padding(1, 0, 1, 0);
+            label2.Location = new Point(65, 126);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(74, 20);
             label2.TabIndex = 12;
@@ -546,6 +828,8 @@
             label1.AutoSize = true;
             label1.Location = new Point(40, 31);
             label1.Margin = new Padding(1, 0, 1, 0);
+            label1.Location = new Point(65, 49);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(80, 20);
             label1.TabIndex = 11;
@@ -557,6 +841,10 @@
             textBox4.Margin = new Padding(1);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(125, 27);
+            textBox4.Location = new Point(65, 301);
+            textBox4.Margin = new Padding(2);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(201, 39);
             textBox4.TabIndex = 8;
             // 
             // textBox3
@@ -565,6 +853,10 @@
             textBox3.Margin = new Padding(1);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(125, 27);
+            textBox3.Location = new Point(65, 233);
+            textBox3.Margin = new Padding(2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(201, 39);
             textBox3.TabIndex = 7;
             // 
             // textBox2
@@ -573,6 +865,10 @@
             textBox2.Margin = new Padding(1);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(125, 27);
+            textBox2.Location = new Point(65, 158);
+            textBox2.Margin = new Padding(2);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(201, 39);
             textBox2.TabIndex = 6;
             // 
             // textBox1
@@ -581,9 +877,13 @@
             textBox1.Margin = new Padding(1);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
+            textBox1.Location = new Point(65, 85);
+            textBox1.Margin = new Padding(2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(201, 39);
             textBox1.TabIndex = 5;
             // 
-            // button1
+            // ButtonMemberAdd
             // 
             button1.Location = new Point(40, 341);
             button1.Margin = new Padding(1);
@@ -593,6 +893,14 @@
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            ButtonMemberAdd.Location = new Point(65, 546);
+            ButtonMemberAdd.Margin = new Padding(2);
+            ButtonMemberAdd.Name = "ButtonMemberAdd";
+            ButtonMemberAdd.Size = new Size(149, 47);
+            ButtonMemberAdd.TabIndex = 4;
+            ButtonMemberAdd.Text = "Add";
+            ButtonMemberAdd.UseVisualStyleBackColor = true;
+            ButtonMemberAdd.Click += button1_Click;
             // 
             // tabPage5
             // 
@@ -613,6 +921,10 @@
             tabPage5.Margin = new Padding(1);
             tabPage5.Name = "tabPage5";
             tabPage5.Size = new Size(1023, 613);
+            tabPage5.Location = new Point(8, 46);
+            tabPage5.Margin = new Padding(2);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(3082, 1098);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Instructor Management";
             tabPage5.UseVisualStyleBackColor = true;
@@ -628,6 +940,11 @@
             InstructorCert.Size = new Size(150, 28);
             InstructorCert.TabIndex = 30;
             InstructorCert.SelectedIndexChanged += InstructorCert_SelectedIndexChanged;
+            InstructorCert.Location = new Point(59, 399);
+            InstructorCert.Margin = new Padding(4, 2, 4, 2);
+            InstructorCert.Name = "InstructorCert";
+            InstructorCert.Size = new Size(242, 40);
+            InstructorCert.TabIndex = 30;
             // 
             // label12
             // 
@@ -636,6 +953,10 @@
             label12.Margin = new Padding(1, 0, 1, 0);
             label12.Name = "label12";
             label12.Size = new Size(90, 20);
+            label12.Location = new Point(59, 363);
+            label12.Margin = new Padding(2, 0, 2, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(143, 32);
             label12.TabIndex = 29;
             label12.Text = "Certification";
             // 
@@ -646,6 +967,10 @@
             label14.Margin = new Padding(1, 0, 1, 0);
             label14.Name = "label14";
             label14.Size = new Size(26, 20);
+            label14.Location = new Point(65, 284);
+            label14.Margin = new Padding(2, 0, 2, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(41, 32);
             label14.TabIndex = 28;
             label14.Text = "Tlf";
             // 
@@ -656,6 +981,10 @@
             label15.Margin = new Padding(1, 0, 1, 0);
             label15.Name = "label15";
             label15.Size = new Size(46, 20);
+            label15.Location = new Point(59, 201);
+            label15.Margin = new Padding(2, 0, 2, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(71, 32);
             label15.TabIndex = 27;
             label15.Text = "Email";
             // 
@@ -666,6 +995,10 @@
             label16.Margin = new Padding(1, 0, 1, 0);
             label16.Name = "label16";
             label16.Size = new Size(74, 20);
+            label16.Location = new Point(59, 130);
+            label16.Margin = new Padding(2, 0, 2, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(120, 32);
             label16.TabIndex = 26;
             label16.Text = "Sur Name";
             // 
@@ -676,6 +1009,10 @@
             label17.Margin = new Padding(1, 0, 1, 0);
             label17.Name = "label17";
             label17.Size = new Size(80, 20);
+            label17.Location = new Point(59, 53);
+            label17.Margin = new Padding(2, 0, 2, 0);
+            label17.Name = "label17";
+            label17.Size = new Size(129, 32);
             label17.TabIndex = 25;
             label17.Text = "First Name";
             // 
@@ -685,6 +1022,10 @@
             textBox7.Margin = new Padding(1);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(125, 27);
+            textBox7.Location = new Point(59, 316);
+            textBox7.Margin = new Padding(2);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(201, 39);
             textBox7.TabIndex = 23;
             // 
             // textBox8
@@ -693,6 +1034,10 @@
             textBox8.Margin = new Padding(1);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(125, 27);
+            textBox8.Location = new Point(59, 237);
+            textBox8.Margin = new Padding(2);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(201, 39);
             textBox8.TabIndex = 22;
             // 
             // textBox9
@@ -701,6 +1046,10 @@
             textBox9.Margin = new Padding(1);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(125, 27);
+            textBox9.Location = new Point(59, 162);
+            textBox9.Margin = new Padding(2);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(201, 39);
             textBox9.TabIndex = 21;
             // 
             // textBox10
@@ -709,6 +1058,10 @@
             textBox10.Margin = new Padding(1);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(125, 27);
+            textBox10.Location = new Point(65, 85);
+            textBox10.Margin = new Padding(2);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(201, 39);
             textBox10.TabIndex = 20;
             // 
             // button9
@@ -717,6 +1070,10 @@
             button9.Margin = new Padding(1);
             button9.Name = "button9";
             button9.Size = new Size(92, 29);
+            button9.Location = new Point(59, 469);
+            button9.Margin = new Padding(2);
+            button9.Name = "button9";
+            button9.Size = new Size(149, 47);
             button9.TabIndex = 19;
             button9.Text = "Add";
             button9.UseVisualStyleBackColor = true;
@@ -728,6 +1085,10 @@
             button10.Margin = new Padding(1);
             button10.Name = "button10";
             button10.Size = new Size(145, 29);
+            button10.Location = new Point(379, 798);
+            button10.Margin = new Padding(2);
+            button10.Name = "button10";
+            button10.Size = new Size(236, 47);
             button10.TabIndex = 18;
             button10.Text = "Delete";
             button10.UseVisualStyleBackColor = true;
@@ -743,6 +1104,12 @@
             InstructorGridView.RowHeadersWidth = 82;
             InstructorGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             InstructorGridView.Size = new Size(752, 606);
+            InstructorGridView.Location = new Point(639, 4);
+            InstructorGridView.Margin = new Padding(6);
+            InstructorGridView.Name = "InstructorGridView";
+            InstructorGridView.RowHeadersWidth = 82;
+            InstructorGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            InstructorGridView.Size = new Size(2600, 1024);
             InstructorGridView.TabIndex = 1;
             InstructorGridView.CellEndEdit += InstructorGridView_CellEndEdit;
             // 
@@ -752,6 +1119,17 @@
             tabPage6.Margin = new Padding(1);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(1023, 613);
+            tabPage6.Controls.Add(button4);
+            tabPage6.Controls.Add(textBox5);
+            tabPage6.Controls.Add(GetMemberHistory);
+            tabPage6.Controls.Add(label20);
+            tabPage6.Controls.Add(label21);
+            tabPage6.Controls.Add(scopeMemberHistoryDataGrid);
+            tabPage6.Controls.Add(SearchAllMembersDataGrid);
+            tabPage6.Location = new Point(8, 46);
+            tabPage6.Margin = new Padding(2);
+            tabPage6.Name = "tabPage6";
+            tabPage6.Size = new Size(3082, 1098);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Member Overview";
             tabPage6.UseVisualStyleBackColor = true;
@@ -767,6 +1145,222 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Reports";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(841, 335);
+            button4.Margin = new Padding(6);
+            button4.Name = "button4";
+            button4.Size = new Size(139, 49);
+            button4.TabIndex = 11;
+            button4.Text = "Search";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(832, 194);
+            textBox5.Margin = new Padding(6);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(182, 39);
+            textBox5.TabIndex = 10;
+            // 
+            // GetMemberHistory
+            // 
+            GetMemberHistory.Location = new Point(832, 531);
+            GetMemberHistory.Margin = new Padding(6);
+            GetMemberHistory.Name = "GetMemberHistory";
+            GetMemberHistory.Size = new Size(156, 64);
+            GetMemberHistory.TabIndex = 9;
+            GetMemberHistory.Text = "Get History";
+            GetMemberHistory.UseVisualStyleBackColor = true;
+            GetMemberHistory.Click += GetMemberHistory_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(98, 94);
+            label20.Margin = new Padding(6, 0, 6, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(115, 32);
+            label20.TabIndex = 8;
+            label20.Text = "Members";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(1101, 94);
+            label21.Margin = new Padding(6, 0, 6, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(187, 32);
+            label21.TabIndex = 7;
+            label21.Text = "Member History";
+            // 
+            // scopeMemberHistoryDataGrid
+            // 
+            scopeMemberHistoryDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            scopeMemberHistoryDataGrid.Location = new Point(1101, 132);
+            scopeMemberHistoryDataGrid.Margin = new Padding(6);
+            scopeMemberHistoryDataGrid.Name = "scopeMemberHistoryDataGrid";
+            scopeMemberHistoryDataGrid.RowHeadersWidth = 62;
+            scopeMemberHistoryDataGrid.Size = new Size(2600, 751);
+            scopeMemberHistoryDataGrid.TabIndex = 6;
+            // 
+            // SearchAllMembersDataGrid
+            // 
+            SearchAllMembersDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            SearchAllMembersDataGrid.Location = new Point(98, 132);
+            SearchAllMembersDataGrid.Margin = new Padding(6);
+            SearchAllMembersDataGrid.Name = "SearchAllMembersDataGrid";
+            SearchAllMembersDataGrid.RowHeadersWidth = 62;
+            SearchAllMembersDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            SearchAllMembersDataGrid.Size = new Size(620, 751);
+            SearchAllMembersDataGrid.TabIndex = 5;
+            SearchAllMembersDataGrid.CellContentClick += SearchAllMembersDataGrid_CellContentClick;
+            // 
+            // SeeMembersButton
+            // 
+            SeeMembersButton.Controls.Add(SeeMembers1Button);
+            SeeMembersButton.Controls.Add(button2);
+            SeeMembersButton.Controls.Add(Instructor);
+            SeeMembersButton.Controls.Add(label19);
+            SeeMembersButton.Controls.Add(scopeClassHistoryView);
+            SeeMembersButton.Controls.Add(searchInstructorDataGridView);
+            SeeMembersButton.Location = new Point(8, 46);
+            SeeMembersButton.Margin = new Padding(4);
+            SeeMembersButton.Name = "SeeMembersButton";
+            SeeMembersButton.Size = new Size(3082, 1098);
+            SeeMembersButton.TabIndex = 6;
+            SeeMembersButton.Text = "Class Overview";
+            SeeMembersButton.UseVisualStyleBackColor = true;
+            // 
+            // SeeMembers1Button
+            // 
+            SeeMembers1Button.Location = new Point(782, 625);
+            SeeMembers1Button.Margin = new Padding(4);
+            SeeMembers1Button.Name = "SeeMembers1Button";
+            SeeMembers1Button.Size = new Size(119, 38);
+            SeeMembers1Button.TabIndex = 5;
+            SeeMembers1Button.Text = "See Members";
+            SeeMembers1Button.UseVisualStyleBackColor = true;
+            SeeMembers1Button.Click += button4_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(745, 348);
+            button2.Margin = new Padding(4);
+            button2.Name = "button2";
+            button2.Size = new Size(156, 64);
+            button2.TabIndex = 4;
+            button2.Text = "Get History";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // Instructor
+            // 
+            Instructor.AutoSize = true;
+            Instructor.Location = new Point(45, 102);
+            Instructor.Margin = new Padding(6, 0, 6, 0);
+            Instructor.Name = "Instructor";
+            Instructor.Size = new Size(115, 32);
+            Instructor.TabIndex = 3;
+            Instructor.Text = "Instructor";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(1047, 102);
+            label19.Margin = new Padding(6, 0, 6, 0);
+            label19.Name = "label19";
+            label19.Size = new Size(90, 32);
+            label19.TabIndex = 2;
+            label19.Text = "Classes";
+            // 
+            // scopeClassHistoryView
+            // 
+            scopeClassHistoryView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            scopeClassHistoryView.Location = new Point(1047, 141);
+            scopeClassHistoryView.Margin = new Padding(6);
+            scopeClassHistoryView.Name = "scopeClassHistoryView";
+            scopeClassHistoryView.RowHeadersWidth = 62;
+            scopeClassHistoryView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            scopeClassHistoryView.Size = new Size(555, 450);
+            scopeClassHistoryView.TabIndex = 1;
+            // 
+            // searchInstructorDataGridView
+            // 
+            searchInstructorDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            searchInstructorDataGridView.Location = new Point(45, 141);
+            searchInstructorDataGridView.Margin = new Padding(6);
+            searchInstructorDataGridView.Name = "searchInstructorDataGridView";
+            searchInstructorDataGridView.RowHeadersWidth = 62;
+            searchInstructorDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            searchInstructorDataGridView.Size = new Size(620, 751);
+            searchInstructorDataGridView.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(PrintReportButton);
+            tabPage1.Controls.Add(PrintToPicker);
+            tabPage1.Controls.Add(PrintFromPicker);
+            tabPage1.Controls.Add(PrintDropBoxLabel);
+            tabPage1.Controls.Add(PrintDropBox);
+            tabPage1.Location = new Point(8, 46);
+            tabPage1.Margin = new Padding(6);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(6);
+            tabPage1.Size = new Size(3082, 1098);
+            tabPage1.TabIndex = 7;
+            tabPage1.Text = "Reports";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // PrintReportButton
+            // 
+            PrintReportButton.Location = new Point(1025, 685);
+            PrintReportButton.Margin = new Padding(4);
+            PrintReportButton.Name = "PrintReportButton";
+            PrintReportButton.Size = new Size(215, 43);
+            PrintReportButton.TabIndex = 4;
+            PrintReportButton.Text = "Print Report";
+            PrintReportButton.UseVisualStyleBackColor = true;
+            PrintReportButton.Click += PrintReportButton_Click;
+            // 
+            // PrintToPicker
+            // 
+            PrintToPicker.Location = new Point(851, 450);
+            PrintToPicker.Margin = new Padding(4);
+            PrintToPicker.Name = "PrintToPicker";
+            PrintToPicker.Size = new Size(388, 39);
+            PrintToPicker.TabIndex = 3;
+            // 
+            // PrintFromPicker
+            // 
+            PrintFromPicker.Location = new Point(851, 271);
+            PrintFromPicker.Margin = new Padding(4);
+            PrintFromPicker.Name = "PrintFromPicker";
+            PrintFromPicker.Size = new Size(388, 39);
+            PrintFromPicker.TabIndex = 2;
+            // 
+            // PrintDropBoxLabel
+            // 
+            PrintDropBoxLabel.AutoSize = true;
+            PrintDropBoxLabel.Location = new Point(163, 218);
+            PrintDropBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            PrintDropBoxLabel.Name = "PrintDropBoxLabel";
+            PrintDropBoxLabel.Size = new Size(263, 32);
+            PrintDropBoxLabel.TabIndex = 1;
+            PrintDropBoxLabel.Text = "Choose subject to print";
+            // 
+            // PrintDropBox
+            // 
+            PrintDropBox.FormattingEnabled = true;
+            PrintDropBox.Items.AddRange(new object[] { "All Members", "Active Members", "Inactive Members", "Popular Classes (Sum)" });
+            PrintDropBox.Location = new Point(163, 269);
+            PrintDropBox.Margin = new Padding(4);
+            PrintDropBox.Name = "PrintDropBox";
+            PrintDropBox.Size = new Size(502, 40);
+            PrintDropBox.TabIndex = 0;
+            PrintDropBox.SelectedIndexChanged += PrintDropBox_SelectedIndexChanged;
             // 
             // contextMenuStrip1
             // 
@@ -1013,6 +1607,9 @@
             labelTitle.Size = new Size(272, 73);
             labelTitle.TabIndex = 7;
             labelTitle.Text = "Booking";
+            // saveFileDialog1
+            // 
+            saveFileDialog1.FileOk += saveFileDialog1_FileOk;
             // 
             // MainForm
             // 
@@ -1029,6 +1626,9 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(1);
+            ClientSize = new Size(2502, 1184);
+            Controls.Add(tabControl1);
+            Margin = new Padding(2);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
@@ -1045,6 +1645,11 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BookingClassGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BookingMemberGrid).EndInit();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ClassManGrid).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -1055,6 +1660,16 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panelFormLoader.ResumeLayout(false);
+            tabPage6.ResumeLayout(false);
+            tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)scopeMemberHistoryDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SearchAllMembersDataGrid).EndInit();
+            SeeMembersButton.ResumeLayout(false);
+            SeeMembersButton.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)scopeClassHistoryView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)searchInstructorDataGridView).EndInit();
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1063,16 +1678,15 @@
 
         private Button MemberDeleteButton;
         private TabControl tabControl1;
-        private TabPage tabPage1;
         private TabPage tabPage2;
         private DataGridView dataGridView1;
         private TabPage tabPage3;
         private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
-        private DataGridView dataGridView2;
-        private Button button1;
-        private TextBox textBox5;
+        private DataGridView ClassManGrid;
+        private Button ButtonMemberAdd;
+        private TextBox ClassLocationTextBox;
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
@@ -1089,6 +1703,11 @@
         private ComboBox comboBox3;
         private DateTimePicker dateTimePicker1;
         private ComboBox comboBox2;
+        private Button ButtonMemeberActiveInactive;
+        private TextBox ClassCapacityTextBox;
+        private ComboBox ClassTimeComboBox;
+        private DateTimePicker ClassCalender;
+        private ComboBox ClassTypeComboBox;
         private Label label10;
         private Label label9;
         private Label label8;
@@ -1102,6 +1721,11 @@
         private DataGridView dataGridView6;
         private Label label11;
         private Button button7;
+        private Button ButtonMakeTeam;
+        private Label label13;
+        private DataGridView BookingClassGrid;
+        private DataGridView BookingMemberGrid;
+        private Button BookingButton;
         private Label label12;
         private Label label14;
         private Label label15;
@@ -1137,5 +1761,28 @@
         private DataGridView dataGridView4;
         private Button buttonLogout;
         private Button buttonClassOverview;
+        private Label label11;
+        private ComboBox InstructorIDComboBox;
+        private TabPage SeeMembersButton;
+        private Button button2;
+        private Label Instructor;
+        private Label label19;
+        private DataGridView scopeClassHistoryView;
+        private DataGridView searchInstructorDataGridView;
+        private Button GetMemberHistory;
+        private Label label20;
+        private Label label21;
+        private DataGridView scopeMemberHistoryDataGrid;
+        private DataGridView SearchAllMembersDataGrid;
+        private TabPage tabPage1;
+        private Button SeeMembers1Button;
+        private ComboBox PrintDropBox;
+        private DateTimePicker PrintToPicker;
+        private DateTimePicker PrintFromPicker;
+        private Label PrintDropBoxLabel;
+        private Button PrintReportButton;
+        private SaveFileDialog saveFileDialog1;
+        private Button button4;
+        private TextBox textBox5;
     }
 }
