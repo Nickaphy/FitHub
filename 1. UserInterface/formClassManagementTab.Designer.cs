@@ -53,6 +53,8 @@
             pictureBox_ClassManagement3 = new PictureBox();
             labelHelp_ClassManagement4 = new Label();
             pictureBox_ClassManagement4 = new PictureBox();
+            labelInstructorClassManagement = new Label();
+            comboBoxInstructorClassManagement = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassManagement1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_ClassManagement2).BeginInit();
@@ -240,6 +242,7 @@
             buttonCreateClass.Text = "Create Class";
             buttonCreateClass.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonCreateClass.UseVisualStyleBackColor = false;
+            buttonCreateClass.Click += buttonCreateClass_Click;
             // 
             // labelHelp_ClassManagement1
             // 
@@ -349,12 +352,36 @@
             pictureBox_ClassManagement4.MouseEnter += pictureBox_ClassManagement4_MouseEnter;
             pictureBox_ClassManagement4.MouseLeave += pictureBox_ClassManagement4_MouseLeave;
             // 
+            // labelInstructorClassManagement
+            // 
+            labelInstructorClassManagement.AutoSize = true;
+            labelInstructorClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelInstructorClassManagement.Location = new Point(23, 351);
+            labelInstructorClassManagement.Margin = new Padding(4, 0, 4, 0);
+            labelInstructorClassManagement.Name = "labelInstructorClassManagement";
+            labelInstructorClassManagement.Size = new Size(79, 20);
+            labelInstructorClassManagement.TabIndex = 79;
+            labelInstructorClassManagement.Text = "Instructor";
+            // 
+            // comboBoxInstructorClassManagement
+            // 
+            comboBoxInstructorClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            comboBoxInstructorClassManagement.FormattingEnabled = true;
+            comboBoxInstructorClassManagement.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
+            comboBoxInstructorClassManagement.Location = new Point(114, 346);
+            comboBoxInstructorClassManagement.Margin = new Padding(4);
+            comboBoxInstructorClassManagement.Name = "comboBoxInstructorClassManagement";
+            comboBoxInstructorClassManagement.Size = new Size(230, 28);
+            comboBoxInstructorClassManagement.TabIndex = 80;
+            // 
             // formClassManagementTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(comboBoxInstructorClassManagement);
+            Controls.Add(labelInstructorClassManagement);
             Controls.Add(labelHelp_ClassManagement4);
             Controls.Add(pictureBox_ClassManagement4);
             Controls.Add(labelHelp_ClassManagement3);
@@ -417,5 +444,7 @@
         private PictureBox pictureBox_ClassManagement3;
         private Label labelHelp_ClassManagement4;
         private PictureBox pictureBox_ClassManagement4;
+        private Label labelInstructorClassManagement;
+        private ComboBox comboBoxInstructorClassManagement;
     }
 }

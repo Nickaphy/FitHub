@@ -87,7 +87,7 @@ namespace FitHub
         //delete member button
         public void button1_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            /*if (dataGridView1.SelectedRows.Count > 0)
             {
                 var memberID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 BLL.DeleteMemberBLL(memberID);
@@ -99,7 +99,7 @@ namespace FitHub
             else
             {
                 MessageBox.Show("Please select a row");
-            }
+            }*/
         }
 
 

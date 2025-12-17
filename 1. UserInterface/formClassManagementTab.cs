@@ -1,4 +1,9 @@
-﻿using System;
+﻿using FitHub._2._BusinessLogicLayer.ENT_OBJ;
+using FitHub._3._DataAccessLayer;
+using FitHub.B_BLL;
+using FitHub.B_BLL.ENT_OBJ;
+using FitHub.C_DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +12,104 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FitHub.B_BLL.BLL;
 
 namespace FitHub._1._UserInterface
 {
     public partial class formClassManagementTab : Form
     {
+
+        //Initialisere gridview med data fra databasen fra start
+        BLL bll;
+        DalMembers dalMembers;
+        DalInstructor dalinstructor;
+        DalClasses dalclasses;
+        DalPrintReport dalprintreport;
+
+        
+
         public formClassManagementTab()
         {
+           
             InitializeComponent();
+            bll = new BLL();
+            dalinstructor = new DalInstructor();
+            dalMembers = new DalMembers();
+            dalclasses = new DalClasses();
+            dalprintreport = new DalPrintReport();
+
+            List<Class> classes = bll.GetAllClassesBLL();
+            dataGridViewClassOverviewClassManagement.DataSource = classes;
+
+
+
+            ClassInstructorDropBox();
+
+
         }
+
+        private void ClassManGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var classID = dataGridViewClassOverviewClassManagement.Rows[e.RowIndex].Cells["ClassID"].Value;
+
+            if (classID == DBNull.Value || classID == null) return;
+            int classID_ = Convert.ToInt32(classID);
+
+
+            string columnName = dataGridViewClassOverviewClassManagement.Columns[e.ColumnIndex].Name;
+            object newValue = dataGridViewClassOverviewClassManagement.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+            switch (columnName)
+            {
+                case "ClassType":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassType", newValue); break;
+
+                case "ClassDate":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassDate", newValue); break;
+
+                case "ClassTime":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassTime", newValue); break;
+
+                case "ClassCapacity":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassCapacity", newValue); break;
+
+                case "ClassLocation":
+                    dalclasses.UpdateSingleColumnClass(classID_, "ClassLocation", newValue); break;
+
+                case "InstructorID":
+                    dalclasses.UpdateSingleColumnClass(classID_, "InstructorID", newValue); break;
+            }
+        }
+
+
+        private void UpdateClasses()
+        {
+            List<Class> classes = bll.GetAllClassesBLL();
+            dataGridViewClassOverviewClassManagement.DataSource = classes;
+
+            
+        }
+
+        public void ClassInstructorDropBox()
+        {
+            comboBoxInstructorClassManagement.Items.Clear();
+
+            var instructors = bll.GetAllInstructorsBLL();
+            foreach (var ins in instructors)
+            {
+                var fullName = string.IsNullOrWhiteSpace(ins.FirstName) && string.IsNullOrWhiteSpace(ins.SurName)
+                    ? "(Unknown)"
+                    : $"{ins.InstructorID} {ins.FirstName} {ins.SurName}".Trim();
+
+                comboBoxInstructorClassManagement.Items.Add(fullName);
+            }
+
+            // leave no selection by default
+            comboBoxInstructorClassManagement.SelectedIndex = -1;
+        }
+
+
 
         private void pictureBoxHelp_ClassManagement1_MouseEnter(object sender, EventArgs e)
         {
@@ -60,5 +154,33 @@ namespace FitHub._1._UserInterface
         {
             labelHelp_ClassManagement4.Visible = false;
         }
+
+        private void buttonCreateClass_Click(object sender, EventArgs e)
+        {
+            Class classes = new Class();
+
+            classes.ClassType = comboBoxClassTypeClassManagement.Text;
+            classes.ClassDate = dateTimePickerDateClassManagement.Value;
+            classes.ClassTime = comboBoxTimeClassManagement.Text;
+            classes.ClassCapacity = textBoxCapacityClassManagement.Text;
+            classes.ClassLocation = textBoxLocationClassManagement.Text;
+            classes.InstructorID = Convert.ToInt32(comboBoxInstructorClassManagement.Text.Split(' ')[0]);
+            classes.FirstName = comboBoxInstructorClassManagement.Text;
+            classes.SurName = comboBoxInstructorClassManagement.Text;
+
+            bool wasAdded = bll.AddClassBLL(classes);
+
+            if (wasAdded)
+            {
+                comboBoxClassTypeClassManagement.Text = null;
+                comboBoxTimeClassManagement.Text = null;
+                textBoxCapacityClassManagement.Text = "";
+                textBoxLocationClassManagement.Text = "";
+                comboBoxInstructorClassManagement.Text = null;
+            }
+            UpdateClasses();
+
+        }
+
     }
 }

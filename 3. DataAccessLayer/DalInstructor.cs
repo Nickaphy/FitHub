@@ -13,23 +13,18 @@ namespace FitHub._3._DataAccessLayer
 {
     internal class DalInstructor
     {
-        string conn = "Server=MÅSEN;DataBase=FitHubDB;" +
-           "Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
-        
-
+        ConnectionString connectionstring = new ConnectionString();
 
         public List<Instructor> GetAllInstructors()
         {
             List<Instructor> instructorList = new List<Instructor>();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
             using var cmd = new SqlCommand("SELECT * FROM Instructors", con);
             using var reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                //add new memebers to memberList (if DB=null, set to default value)
-                //else read the vale from the DB.
                 instructorList.Add(new Instructor
                 {
                     InstructorID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
@@ -38,16 +33,16 @@ namespace FitHub._3._DataAccessLayer
                     Email = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                     Telephone = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
                     Certification = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
-                    
                 });
             }
             con.Close();
             return instructorList;
         }
+
         public void AddInstructor(Instructor instructor)
         {
             BLL bll = new BLL();
-            using var con = new SqlConnection(conn);
+            using var con = new SqlConnection(connectionstring.conn);
             con.Open();
 
             string addInstructorQuery = @"INSERT INTO Instructors (FirstName, SurName, Email, Telephone, Certifications) 
@@ -55,27 +50,29 @@ namespace FitHub._3._DataAccessLayer
 
             using var addInsCmd = new SqlCommand(addInstructorQuery, con);
             addInsCmd.Parameters.AddWithValue("@FirstName", instructor.FirstName);
-            addInsCmd.Parameters.AddWithValue("@SurName",  instructor.SurName);
+            addInsCmd.Parameters.AddWithValue("@SurName", instructor.SurName);
             addInsCmd.Parameters.AddWithValue("@Email", instructor.Email);
             addInsCmd.Parameters.AddWithValue("@Telephone", instructor.Telephone);
             addInsCmd.Parameters.AddWithValue("@Certifications", instructor.Certification);
             addInsCmd.ExecuteNonQuery();
             con.Close();
         }
+
         public void DeleteInstructor(int intstructorID)
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                using var con = new SqlConnection(conn);
-                con.Open();                             //Her sletter vi først slette fra ClassMembers tabellen for å unngå fremmednøglebrud
-                using var delInsCmd = new SqlCommand("DELETE FROM Classes WHERE InstructorID = @InstructorID DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
+                using var con = new SqlConnection(connectionstring.conn);
+                con.Open();
+                using var delInsCmd = new SqlCommand("DELETE FROM ClassMembers WHERE ClassID IN(SELECT ClassID FROM Classes WHERE InstructorID = @InstructorID) DELETE FROM Classes WHERE InstructorID = @InstructorID DELETE FROM Instructors WHERE InstructorID = @InstructorID", con);
                 delInsCmd.Parameters.Add("@InstructorID", System.Data.SqlDbType.Int).Value = intstructorID;
                 delInsCmd.ExecuteNonQuery();
             }
         }
-       public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
+
+        public void UpdateSingleColumnInstructor(int instructorID_, string columnName, object newValue)
         {
-            using (SqlConnection con = new SqlConnection(conn))
+            using (SqlConnection con = new SqlConnection(connectionstring.conn))
             {
                 con.Open();
 
@@ -99,4 +96,6 @@ namespace FitHub._3._DataAccessLayer
             }
         }
     }
+
+
 }
