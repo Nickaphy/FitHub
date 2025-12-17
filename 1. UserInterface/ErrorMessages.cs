@@ -61,7 +61,7 @@ namespace FitHub._1._UserInterface
 
         public void DoubleBookingErrorMessage()
         {
-            MessageBox.Show("You have already booked this class.");
+            MessageBox.Show("Member already booked to this class.");
         }
 
     }

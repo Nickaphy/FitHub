@@ -32,6 +32,8 @@
             MemberDeleteButton = new Button();
             tabControl1 = new TabControl();
             tabPage3 = new TabPage();
+            label23 = new Label();
+            label22 = new Label();
             BookingButton = new Button();
             label13 = new Label();
             BookingClassGrid = new DataGridView();
@@ -97,6 +99,8 @@
             scopeClassHistoryView = new DataGridView();
             searchInstructorDataGridView = new DataGridView();
             tabPage1 = new TabPage();
+            label25 = new Label();
+            label24 = new Label();
             PrintReportButton = new Button();
             PrintToPicker = new DateTimePicker();
             PrintFromPicker = new DateTimePicker();
@@ -125,6 +129,7 @@
             // 
             // MemberDeleteButton
             // 
+            MemberDeleteButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MemberDeleteButton.Location = new Point(379, 798);
             MemberDeleteButton.Margin = new Padding(2);
             MemberDeleteButton.Name = "MemberDeleteButton";
@@ -135,6 +140,7 @@
             // 
             // tabControl1
             // 
+            tabControl1.Appearance = TabAppearance.Buttons;
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage2);
@@ -151,24 +157,49 @@
             // 
             // tabPage3
             // 
+            tabPage3.BackColor = Color.FromArgb(128, 128, 255);
+            tabPage3.Controls.Add(label23);
+            tabPage3.Controls.Add(label22);
             tabPage3.Controls.Add(BookingButton);
             tabPage3.Controls.Add(label13);
             tabPage3.Controls.Add(BookingClassGrid);
             tabPage3.Controls.Add(BookingMemberGrid);
-            tabPage3.Location = new Point(8, 46);
+            tabPage3.Location = new Point(4, 44);
             tabPage3.Margin = new Padding(2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(3082, 1098);
+            tabPage3.Size = new Size(3090, 1104);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Booking";
-            tabPage3.UseVisualStyleBackColor = true;
+            tabPage3.Text = "Book";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.Location = new Point(1400, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(108, 37);
+            label23.TabIndex = 9;
+            label23.Text = "Classes";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.Location = new Point(134, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(138, 37);
+            label22.TabIndex = 8;
+            label22.Text = "Members";
             // 
             // BookingButton
             // 
-            BookingButton.Location = new Point(440, 429);
+            BookingButton.Cursor = Cursors.Cross;
+            BookingButton.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BookingButton.ForeColor = Color.Black;
+            BookingButton.Location = new Point(440, 433);
             BookingButton.Margin = new Padding(6);
             BookingButton.Name = "BookingButton";
-            BookingButton.Size = new Size(180, 49);
+            BookingButton.Size = new Size(195, 49);
             BookingButton.TabIndex = 7;
             BookingButton.Text = "Book member";
             BookingButton.UseVisualStyleBackColor = true;
@@ -180,34 +211,38 @@
             label13.Location = new Point(15, 32);
             label13.Margin = new Padding(6, 0, 6, 0);
             label13.Name = "label13";
-            label13.Size = new Size(115, 32);
+            label13.Size = new Size(0, 32);
             label13.TabIndex = 5;
-            label13.Text = "Members";
             // 
             // BookingClassGrid
             // 
+            BookingClassGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
             BookingClassGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BookingClassGrid.Location = new Point(639, 4);
+            BookingClassGrid.GridColor = Color.FromArgb(192, 192, 255);
+            BookingClassGrid.Location = new Point(647, 42);
             BookingClassGrid.Margin = new Padding(6);
             BookingClassGrid.Name = "BookingClassGrid";
             BookingClassGrid.RowHeadersWidth = 82;
             BookingClassGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            BookingClassGrid.Size = new Size(2600, 1024);
+            BookingClassGrid.Size = new Size(1547, 826);
             BookingClassGrid.TabIndex = 3;
+            BookingClassGrid.CellContentClick += BookingClassGrid_CellContentClick;
             // 
             // BookingMemberGrid
             // 
+            BookingMemberGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
             BookingMemberGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BookingMemberGrid.Location = new Point(15, 96);
+            BookingMemberGrid.Location = new Point(14, 43);
             BookingMemberGrid.Margin = new Padding(6);
             BookingMemberGrid.Name = "BookingMemberGrid";
             BookingMemberGrid.RowHeadersWidth = 82;
             BookingMemberGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            BookingMemberGrid.Size = new Size(414, 781);
+            BookingMemberGrid.Size = new Size(414, 825);
             BookingMemberGrid.TabIndex = 2;
             // 
             // tabPage4
             // 
+            tabPage4.BackColor = Color.FromArgb(128, 128, 255);
             tabPage4.Controls.Add(label11);
             tabPage4.Controls.Add(InstructorIDComboBox);
             tabPage4.Controls.Add(ButtonMakeTeam);
@@ -222,21 +257,22 @@
             tabPage4.Controls.Add(ClassCalender);
             tabPage4.Controls.Add(ClassTypeComboBox);
             tabPage4.Controls.Add(ClassManGrid);
-            tabPage4.Location = new Point(8, 46);
+            tabPage4.Location = new Point(4, 44);
             tabPage4.Margin = new Padding(2);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(3082, 1098);
+            tabPage4.Size = new Size(3090, 1104);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Class Management";
-            tabPage4.UseVisualStyleBackColor = true;
+            tabPage4.Click += tabPage4_Click;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(32, 815);
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label11.Location = new Point(9, 694);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(125, 32);
+            label11.Size = new Size(135, 32);
             label11.TabIndex = 14;
             label11.Text = "Instructors";
             // 
@@ -244,7 +280,7 @@
             // 
             InstructorIDComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             InstructorIDComboBox.FormattingEnabled = true;
-            InstructorIDComboBox.Location = new Point(15, 849);
+            InstructorIDComboBox.Location = new Point(9, 738);
             InstructorIDComboBox.Margin = new Padding(4, 2, 4, 2);
             InstructorIDComboBox.Name = "InstructorIDComboBox";
             InstructorIDComboBox.Size = new Size(242, 40);
@@ -252,7 +288,8 @@
             // 
             // ButtonMakeTeam
             // 
-            ButtonMakeTeam.Location = new Point(405, 770);
+            ButtonMakeTeam.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonMakeTeam.Location = new Point(328, 823);
             ButtonMakeTeam.Margin = new Padding(6);
             ButtonMakeTeam.Name = "ButtonMakeTeam";
             ButtonMakeTeam.Size = new Size(163, 47);
@@ -264,56 +301,62 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(32, 64);
+            label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label10.Location = new Point(15, 16);
             label10.Margin = new Padding(6, 0, 6, 0);
             label10.Name = "label10";
-            label10.Size = new Size(125, 32);
+            label10.Size = new Size(128, 32);
             label10.TabIndex = 10;
             label10.Text = "Class Type";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(32, 209);
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label9.Location = new Point(9, 157);
             label9.Margin = new Padding(6, 0, 6, 0);
             label9.Name = "label9";
-            label9.Size = new Size(78, 32);
+            label9.Size = new Size(136, 32);
             label9.TabIndex = 9;
-            label9.Text = "label9";
+            label9.Text = "Class Time";
+            label9.Click += label9_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(32, 354);
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label8.Location = new Point(6, 299);
             label8.Margin = new Padding(6, 0, 6, 0);
             label8.Name = "label8";
-            label8.Size = new Size(67, 32);
+            label8.Size = new Size(70, 32);
             label8.TabIndex = 8;
             label8.Text = "Time";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(32, 514);
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label7.Location = new Point(9, 425);
             label7.Margin = new Padding(6, 0, 6, 0);
             label7.Name = "label7";
-            label7.Size = new Size(104, 32);
+            label7.Size = new Size(112, 32);
             label7.TabIndex = 7;
             label7.Text = "Capacity";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(32, 685);
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.Location = new Point(11, 558);
             label6.Margin = new Padding(6, 0, 6, 0);
             label6.Name = "label6";
-            label6.Size = new Size(104, 32);
+            label6.Size = new Size(110, 32);
             label6.TabIndex = 6;
             label6.Text = "Location";
             // 
             // ClassLocationTextBox
             // 
-            ClassLocationTextBox.Location = new Point(15, 723);
+            ClassLocationTextBox.Location = new Point(11, 596);
             ClassLocationTextBox.Margin = new Padding(6);
             ClassLocationTextBox.Name = "ClassLocationTextBox";
             ClassLocationTextBox.Size = new Size(221, 39);
@@ -321,7 +364,7 @@
             // 
             // ClassCapacityTextBox
             // 
-            ClassCapacityTextBox.Location = new Point(15, 553);
+            ClassCapacityTextBox.Location = new Point(11, 463);
             ClassCapacityTextBox.Margin = new Padding(6);
             ClassCapacityTextBox.Name = "ClassCapacityTextBox";
             ClassCapacityTextBox.Size = new Size(221, 39);
@@ -332,7 +375,7 @@
             ClassTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ClassTimeComboBox.FormattingEnabled = true;
             ClassTimeComboBox.Items.AddRange(new object[] { "10.00", "10.30", "11.00", "11.30", "12.00", "12.30", "13.00", "13.30", "14.00", "14.30", "15.00", "15.30", "16.00", "16.30", "17.00", "17.30", "18.00", "18.30", "19.00", "19.30", "20.00", "20.30" });
-            ClassTimeComboBox.Location = new Point(15, 393);
+            ClassTimeComboBox.Location = new Point(11, 337);
             ClassTimeComboBox.Margin = new Padding(6);
             ClassTimeComboBox.Name = "ClassTimeComboBox";
             ClassTimeComboBox.Size = new Size(221, 40);
@@ -340,7 +383,7 @@
             // 
             // ClassCalender
             // 
-            ClassCalender.Location = new Point(15, 247);
+            ClassCalender.Location = new Point(15, 195);
             ClassCalender.Margin = new Padding(6);
             ClassCalender.Name = "ClassCalender";
             ClassCalender.Size = new Size(368, 39);
@@ -348,10 +391,11 @@
             // 
             // ClassTypeComboBox
             // 
+            ClassTypeComboBox.BackColor = Color.FromArgb(224, 224, 224);
             ClassTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ClassTypeComboBox.FormattingEnabled = true;
             ClassTypeComboBox.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
-            ClassTypeComboBox.Location = new Point(15, 102);
+            ClassTypeComboBox.Location = new Point(15, 54);
             ClassTypeComboBox.Margin = new Padding(6);
             ClassTypeComboBox.Name = "ClassTypeComboBox";
             ClassTypeComboBox.Size = new Size(221, 40);
@@ -359,18 +403,20 @@
             // 
             // ClassManGrid
             // 
+            ClassManGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
             ClassManGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ClassManGrid.Location = new Point(639, 4);
+            ClassManGrid.Location = new Point(593, 26);
             ClassManGrid.Margin = new Padding(2);
             ClassManGrid.Name = "ClassManGrid";
             ClassManGrid.RowHeadersWidth = 82;
-            ClassManGrid.Size = new Size(2600, 1024);
+            ClassManGrid.Size = new Size(1600, 834);
             ClassManGrid.TabIndex = 0;
             ClassManGrid.CellContentClick += ClassManGrid_CellContentClick;
             ClassManGrid.CellEndEdit += ClassManGrid_CellEndEdit;
             // 
             // tabPage2
             // 
+            tabPage2.BackColor = Color.FromArgb(128, 128, 255);
             tabPage2.Controls.Add(label18);
             tabPage2.Controls.Add(dateTimePicker2);
             tabPage2.Controls.Add(ButtonMemeberActiveInactive);
@@ -387,24 +433,26 @@
             tabPage2.Controls.Add(textBox1);
             tabPage2.Controls.Add(ButtonMemberAdd);
             tabPage2.Controls.Add(MemberDeleteButton);
-            tabPage2.Location = new Point(8, 46);
+            tabPage2.Location = new Point(4, 44);
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(3082, 1098);
+            tabPage2.Size = new Size(3090, 1104);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Member Management";
-            tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Click += tabPage2_Click;
             // 
             // label18
             // 
             label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label18.Location = new Point(71, 352);
             label18.Margin = new Padding(6, 0, 6, 0);
             label18.Name = "label18";
-            label18.Size = new Size(111, 32);
+            label18.Size = new Size(120, 32);
             label18.TabIndex = 19;
             label18.Text = "Birthdate";
+            label18.Click += label18_Click;
             // 
             // dateTimePicker2
             // 
@@ -416,6 +464,7 @@
             // 
             // ButtonMemeberActiveInactive
             // 
+            ButtonMemeberActiveInactive.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ButtonMemeberActiveInactive.Location = new Point(379, 723);
             ButtonMemeberActiveInactive.Margin = new Padding(2);
             ButtonMemeberActiveInactive.Name = "ButtonMemeberActiveInactive";
@@ -428,13 +477,14 @@
             // dataGridView1
             // 
             dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(639, 4);
+            dataGridView1.Location = new Point(693, 19);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(2600, 1024);
+            dataGridView1.Size = new Size(1499, 844);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
             // 
@@ -452,50 +502,55 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label5.Location = new Point(65, 439);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(163, 32);
+            label5.Size = new Size(165, 32);
             label5.TabIndex = 15;
             label5.Text = "Member Type";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.Location = new Point(71, 269);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(41, 32);
+            label4.Size = new Size(45, 32);
             label4.TabIndex = 14;
             label4.Text = "Tlf";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.Location = new Point(65, 196);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(71, 32);
+            label3.Size = new Size(79, 32);
             label3.TabIndex = 13;
             label3.Text = "Email";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.Location = new Point(65, 126);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(120, 32);
+            label2.Size = new Size(125, 32);
             label2.TabIndex = 12;
             label2.Text = "Sur Name";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(65, 49);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(65, 51);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(129, 32);
+            label1.Size = new Size(139, 32);
             label1.TabIndex = 11;
             label1.Text = "First Name";
             // 
@@ -533,6 +588,7 @@
             // 
             // ButtonMemberAdd
             // 
+            ButtonMemberAdd.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ButtonMemberAdd.Location = new Point(65, 546);
             ButtonMemberAdd.Margin = new Padding(2);
             ButtonMemberAdd.Name = "ButtonMemberAdd";
@@ -544,6 +600,7 @@
             // 
             // tabPage5
             // 
+            tabPage5.BackColor = Color.FromArgb(128, 128, 255);
             tabPage5.Controls.Add(InstructorCert);
             tabPage5.Controls.Add(label12);
             tabPage5.Controls.Add(label14);
@@ -557,13 +614,13 @@
             tabPage5.Controls.Add(button9);
             tabPage5.Controls.Add(button10);
             tabPage5.Controls.Add(InstructorGridView);
-            tabPage5.Location = new Point(8, 46);
+            tabPage5.Location = new Point(4, 44);
             tabPage5.Margin = new Padding(2);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(3082, 1098);
+            tabPage5.Size = new Size(3090, 1104);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Instructor Management";
-            tabPage5.UseVisualStyleBackColor = true;
+            tabPage5.Click += tabPage5_Click;
             // 
             // InstructorCert
             // 
@@ -579,50 +636,56 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label12.Location = new Point(59, 363);
             label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(143, 32);
+            label12.Size = new Size(155, 32);
             label12.TabIndex = 29;
             label12.Text = "Certification";
             // 
             // label14
             // 
             label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label14.Location = new Point(65, 284);
             label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
-            label14.Size = new Size(41, 32);
+            label14.Size = new Size(45, 32);
             label14.TabIndex = 28;
             label14.Text = "Tlf";
+            label14.Click += label14_Click;
             // 
             // label15
             // 
             label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label15.Location = new Point(59, 201);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(71, 32);
+            label15.Size = new Size(79, 32);
             label15.TabIndex = 27;
             label15.Text = "Email";
             // 
             // label16
             // 
             label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label16.Location = new Point(59, 130);
             label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
-            label16.Size = new Size(120, 32);
+            label16.Size = new Size(125, 32);
             label16.TabIndex = 26;
             label16.Text = "Sur Name";
             // 
             // label17
             // 
             label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label17.Location = new Point(59, 53);
             label17.Margin = new Padding(2, 0, 2, 0);
             label17.Name = "label17";
-            label17.Size = new Size(129, 32);
+            label17.Size = new Size(139, 32);
             label17.TabIndex = 25;
             label17.Text = "First Name";
             // 
@@ -652,7 +715,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(65, 85);
+            textBox10.Location = new Point(59, 87);
             textBox10.Margin = new Padding(2);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(201, 39);
@@ -660,6 +723,7 @@
             // 
             // button9
             // 
+            button9.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button9.Location = new Point(59, 469);
             button9.Margin = new Padding(2);
             button9.Name = "button9";
@@ -671,6 +735,8 @@
             // 
             // button10
             // 
+            button10.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button10.ForeColor = SystemColors.ControlText;
             button10.Location = new Point(379, 798);
             button10.Margin = new Padding(2);
             button10.Name = "button10";
@@ -683,18 +749,21 @@
             // InstructorGridView
             // 
             InstructorGridView.AccessibleRole = AccessibleRole.Cursor;
+            InstructorGridView.BackgroundColor = Color.FromArgb(224, 224, 224);
             InstructorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            InstructorGridView.Location = new Point(639, 4);
+            InstructorGridView.Location = new Point(642, 23);
             InstructorGridView.Margin = new Padding(6);
             InstructorGridView.Name = "InstructorGridView";
             InstructorGridView.RowHeadersWidth = 82;
             InstructorGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            InstructorGridView.Size = new Size(2600, 1024);
+            InstructorGridView.Size = new Size(1547, 834);
             InstructorGridView.TabIndex = 1;
+            InstructorGridView.CellContentClick += InstructorGridView_CellContentClick;
             InstructorGridView.CellEndEdit += InstructorGridView_CellEndEdit;
             // 
             // tabPage6
             // 
+            tabPage6.BackColor = Color.FromArgb(128, 128, 255);
             tabPage6.Controls.Add(button4);
             tabPage6.Controls.Add(textBox5);
             tabPage6.Controls.Add(GetMemberHistory);
@@ -702,20 +771,20 @@
             tabPage6.Controls.Add(label21);
             tabPage6.Controls.Add(scopeMemberHistoryDataGrid);
             tabPage6.Controls.Add(SearchAllMembersDataGrid);
-            tabPage6.Location = new Point(8, 46);
+            tabPage6.Location = new Point(4, 44);
             tabPage6.Margin = new Padding(2);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(3082, 1098);
+            tabPage6.Size = new Size(3090, 1104);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Member Overview";
-            tabPage6.UseVisualStyleBackColor = true;
+            tabPage6.Click += tabPage6_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(841, 335);
+            button4.Location = new Point(962, 82);
             button4.Margin = new Padding(6);
             button4.Name = "button4";
-            button4.Size = new Size(139, 49);
+            button4.Size = new Size(102, 35);
             button4.TabIndex = 11;
             button4.Text = "Search";
             button4.UseVisualStyleBackColor = true;
@@ -723,7 +792,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(832, 194);
+            textBox5.Location = new Point(768, 78);
             textBox5.Margin = new Padding(6);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(182, 39);
@@ -731,10 +800,11 @@
             // 
             // GetMemberHistory
             // 
-            GetMemberHistory.Location = new Point(832, 531);
+            GetMemberHistory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GetMemberHistory.Location = new Point(809, 601);
             GetMemberHistory.Margin = new Padding(6);
             GetMemberHistory.Name = "GetMemberHistory";
-            GetMemberHistory.Size = new Size(156, 64);
+            GetMemberHistory.Size = new Size(209, 68);
             GetMemberHistory.TabIndex = 9;
             GetMemberHistory.Text = "Get History";
             GetMemberHistory.UseVisualStyleBackColor = true;
@@ -743,64 +813,71 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(98, 94);
+            label20.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.Location = new Point(603, 19);
             label20.Margin = new Padding(6, 0, 6, 0);
             label20.Name = "label20";
-            label20.Size = new Size(115, 32);
+            label20.Size = new Size(138, 37);
             label20.TabIndex = 8;
             label20.Text = "Members";
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(1101, 94);
+            label21.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Location = new Point(1101, 19);
             label21.Margin = new Padding(6, 0, 6, 0);
             label21.Name = "label21";
-            label21.Size = new Size(187, 32);
+            label21.Size = new Size(229, 37);
             label21.TabIndex = 7;
             label21.Text = "Member History";
             // 
             // scopeMemberHistoryDataGrid
             // 
+            scopeMemberHistoryDataGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
             scopeMemberHistoryDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            scopeMemberHistoryDataGrid.Location = new Point(1101, 132);
+            scopeMemberHistoryDataGrid.Location = new Point(1101, 57);
             scopeMemberHistoryDataGrid.Margin = new Padding(6);
             scopeMemberHistoryDataGrid.Name = "scopeMemberHistoryDataGrid";
             scopeMemberHistoryDataGrid.RowHeadersWidth = 62;
-            scopeMemberHistoryDataGrid.Size = new Size(2600, 751);
+            scopeMemberHistoryDataGrid.Size = new Size(1083, 798);
             scopeMemberHistoryDataGrid.TabIndex = 6;
+            scopeMemberHistoryDataGrid.CellContentClick += scopeMemberHistoryDataGrid_CellContentClick;
             // 
             // SearchAllMembersDataGrid
             // 
+            SearchAllMembersDataGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
             SearchAllMembersDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            SearchAllMembersDataGrid.Location = new Point(98, 132);
+            SearchAllMembersDataGrid.Location = new Point(27, 57);
             SearchAllMembersDataGrid.Margin = new Padding(6);
             SearchAllMembersDataGrid.Name = "SearchAllMembersDataGrid";
             SearchAllMembersDataGrid.RowHeadersWidth = 62;
             SearchAllMembersDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            SearchAllMembersDataGrid.Size = new Size(620, 751);
+            SearchAllMembersDataGrid.Size = new Size(691, 798);
             SearchAllMembersDataGrid.TabIndex = 5;
             SearchAllMembersDataGrid.CellContentClick += SearchAllMembersDataGrid_CellContentClick;
             // 
             // SeeMembersButton
             // 
+            SeeMembersButton.BackColor = Color.FromArgb(128, 128, 255);
             SeeMembersButton.Controls.Add(SeeMembers1Button);
             SeeMembersButton.Controls.Add(button2);
             SeeMembersButton.Controls.Add(Instructor);
             SeeMembersButton.Controls.Add(label19);
             SeeMembersButton.Controls.Add(scopeClassHistoryView);
             SeeMembersButton.Controls.Add(searchInstructorDataGridView);
-            SeeMembersButton.Location = new Point(8, 46);
+            SeeMembersButton.Location = new Point(4, 44);
             SeeMembersButton.Margin = new Padding(4);
             SeeMembersButton.Name = "SeeMembersButton";
-            SeeMembersButton.Size = new Size(3082, 1098);
+            SeeMembersButton.Size = new Size(3090, 1104);
             SeeMembersButton.TabIndex = 6;
             SeeMembersButton.Text = "Class Overview";
-            SeeMembersButton.UseVisualStyleBackColor = true;
+            SeeMembersButton.Click += SeeMembersButton_Click;
             // 
             // SeeMembers1Button
             // 
-            SeeMembers1Button.Location = new Point(782, 625);
+            SeeMembers1Button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SeeMembers1Button.Location = new Point(835, 380);
             SeeMembers1Button.Margin = new Padding(4);
             SeeMembers1Button.Name = "SeeMembers1Button";
             SeeMembers1Button.Size = new Size(119, 38);
@@ -811,10 +888,11 @@
             // 
             // button2
             // 
-            button2.Location = new Point(745, 348);
+            button2.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(795, 312);
             button2.Margin = new Padding(4);
             button2.Name = "button2";
-            button2.Size = new Size(156, 64);
+            button2.Size = new Size(212, 49);
             button2.TabIndex = 4;
             button2.Text = "Get History";
             button2.UseVisualStyleBackColor = true;
@@ -823,67 +901,96 @@
             // Instructor
             // 
             Instructor.AutoSize = true;
-            Instructor.Location = new Point(45, 102);
+            Instructor.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Instructor.Location = new Point(626, 0);
             Instructor.Margin = new Padding(6, 0, 6, 0);
             Instructor.Name = "Instructor";
-            Instructor.Size = new Size(115, 32);
+            Instructor.Size = new Size(144, 37);
             Instructor.TabIndex = 3;
             Instructor.Text = "Instructor";
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(1047, 102);
+            label19.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Location = new Point(1039, 4);
             label19.Margin = new Padding(6, 0, 6, 0);
             label19.Name = "label19";
-            label19.Size = new Size(90, 32);
+            label19.Size = new Size(108, 37);
             label19.TabIndex = 2;
             label19.Text = "Classes";
+            label19.Click += label19_Click;
             // 
             // scopeClassHistoryView
             // 
+            scopeClassHistoryView.BackgroundColor = Color.FromArgb(224, 224, 224);
             scopeClassHistoryView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            scopeClassHistoryView.Location = new Point(1047, 141);
+            scopeClassHistoryView.Location = new Point(1039, 42);
             scopeClassHistoryView.Margin = new Padding(6);
             scopeClassHistoryView.Name = "scopeClassHistoryView";
             scopeClassHistoryView.RowHeadersWidth = 62;
             scopeClassHistoryView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            scopeClassHistoryView.Size = new Size(555, 450);
+            scopeClassHistoryView.Size = new Size(1144, 819);
             scopeClassHistoryView.TabIndex = 1;
             // 
             // searchInstructorDataGridView
             // 
+            searchInstructorDataGridView.BackgroundColor = Color.FromArgb(224, 224, 224);
             searchInstructorDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            searchInstructorDataGridView.Location = new Point(45, 141);
+            searchInstructorDataGridView.Location = new Point(26, 42);
             searchInstructorDataGridView.Margin = new Padding(6);
             searchInstructorDataGridView.Name = "searchInstructorDataGridView";
             searchInstructorDataGridView.RowHeadersWidth = 62;
             searchInstructorDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            searchInstructorDataGridView.Size = new Size(620, 751);
+            searchInstructorDataGridView.Size = new Size(744, 819);
             searchInstructorDataGridView.TabIndex = 0;
+            searchInstructorDataGridView.CellContentClick += searchInstructorDataGridView_CellContentClick;
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = Color.FromArgb(128, 128, 255);
+            tabPage1.Controls.Add(label25);
+            tabPage1.Controls.Add(label24);
             tabPage1.Controls.Add(PrintReportButton);
             tabPage1.Controls.Add(PrintToPicker);
             tabPage1.Controls.Add(PrintFromPicker);
             tabPage1.Controls.Add(PrintDropBoxLabel);
             tabPage1.Controls.Add(PrintDropBox);
-            tabPage1.Location = new Point(8, 46);
+            tabPage1.Location = new Point(4, 44);
             tabPage1.Margin = new Padding(6);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(6);
-            tabPage1.Size = new Size(3082, 1098);
+            tabPage1.Size = new Size(3090, 1104);
             tabPage1.TabIndex = 7;
             tabPage1.Text = "Reports";
-            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label25.Location = new Point(851, 235);
+            label25.Name = "label25";
+            label25.Size = new Size(133, 32);
+            label25.TabIndex = 6;
+            label25.Text = "From Date";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label24.Location = new Point(851, 414);
+            label24.Name = "label24";
+            label24.Size = new Size(102, 32);
+            label24.TabIndex = 5;
+            label24.Text = "To Date";
             // 
             // PrintReportButton
             // 
-            PrintReportButton.Location = new Point(1025, 685);
+            PrintReportButton.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PrintReportButton.Location = new Point(1008, 567);
             PrintReportButton.Margin = new Padding(4);
             PrintReportButton.Name = "PrintReportButton";
-            PrintReportButton.Size = new Size(215, 43);
+            PrintReportButton.Size = new Size(231, 48);
             PrintReportButton.TabIndex = 4;
             PrintReportButton.Text = "Print Report";
             PrintReportButton.UseVisualStyleBackColor = true;
@@ -908,10 +1015,11 @@
             // PrintDropBoxLabel
             // 
             PrintDropBoxLabel.AutoSize = true;
-            PrintDropBoxLabel.Location = new Point(163, 218);
+            PrintDropBoxLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            PrintDropBoxLabel.Location = new Point(336, 322);
             PrintDropBoxLabel.Margin = new Padding(4, 0, 4, 0);
             PrintDropBoxLabel.Name = "PrintDropBoxLabel";
-            PrintDropBoxLabel.Size = new Size(263, 32);
+            PrintDropBoxLabel.Size = new Size(270, 32);
             PrintDropBoxLabel.TabIndex = 1;
             PrintDropBoxLabel.Text = "Choose subject to print";
             // 
@@ -919,7 +1027,7 @@
             // 
             PrintDropBox.FormattingEnabled = true;
             PrintDropBox.Items.AddRange(new object[] { "All Members", "Active Members", "Inactive Members", "Popular Classes (Sum)" });
-            PrintDropBox.Location = new Point(163, 269);
+            PrintDropBox.Location = new Point(336, 358);
             PrintDropBox.Margin = new Padding(4);
             PrintDropBox.Name = "PrintDropBox";
             PrintDropBox.Size = new Size(502, 40);
@@ -940,11 +1048,12 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2502, 1184);
+            BackColor = Color.White;
+            ClientSize = new Size(2217, 931);
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "FitHub";
             tabControl1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
@@ -1049,5 +1158,9 @@
         private SaveFileDialog saveFileDialog1;
         private Button button4;
         private TextBox textBox5;
+        private Label label23;
+        private Label label22;
+        private Label label25;
+        private Label label24;
     }
 }
