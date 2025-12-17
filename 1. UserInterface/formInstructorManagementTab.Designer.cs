@@ -46,13 +46,14 @@
             labelHelp_InstructorManagement2 = new Label();
             pictureBox_InstructorManagement2 = new PictureBox();
             labelClassOverviewClassManagement = new Label();
-            dataGridViewClassOverviewClassManagement = new DataGridView();
+            dataGridViewInstructorOverviewInstructorManagement = new DataGridView();
             labelHelp_InstructorManagement1 = new Label();
             pictureBox_InstructorManagement1 = new PictureBox();
             labelHelp_InstructorManagement33 = new Label();
             pictureBox_InstructorManagement3 = new PictureBox();
+            buttonDeleteInstructor = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInstructorOverviewInstructorManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement3).BeginInit();
             SuspendLayout();
@@ -207,7 +208,7 @@
             buttonAddInstructor.ForeColor = Color.FromArgb(73, 125, 201);
             buttonAddInstructor.Image = (Image)resources.GetObject("buttonAddInstructor.Image");
             buttonAddInstructor.ImageAlign = ContentAlignment.TopRight;
-            buttonAddInstructor.Location = new Point(26, 434);
+            buttonAddInstructor.Location = new Point(26, 429);
             buttonAddInstructor.Margin = new Padding(4);
             buttonAddInstructor.Name = "buttonAddInstructor";
             buttonAddInstructor.Size = new Size(320, 41);
@@ -215,6 +216,7 @@
             buttonAddInstructor.Text = "Add Instructor";
             buttonAddInstructor.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAddInstructor.UseVisualStyleBackColor = false;
+            buttonAddInstructor.Click += buttonAddInstructor_Click;
             // 
             // labelHelp_InstructorManagement2
             // 
@@ -254,17 +256,18 @@
             labelClassOverviewClassManagement.TabIndex = 95;
             labelClassOverviewClassManagement.Text = "Instructor Overview";
             // 
-            // dataGridViewClassOverviewClassManagement
+            // dataGridViewInstructorOverviewInstructorManagement
             // 
-            dataGridViewClassOverviewClassManagement.BackgroundColor = SystemColors.Window;
-            dataGridViewClassOverviewClassManagement.BorderStyle = BorderStyle.None;
-            dataGridViewClassOverviewClassManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClassOverviewClassManagement.Location = new Point(403, 137);
-            dataGridViewClassOverviewClassManagement.Margin = new Padding(1);
-            dataGridViewClassOverviewClassManagement.Name = "dataGridViewClassOverviewClassManagement";
-            dataGridViewClassOverviewClassManagement.RowHeadersWidth = 82;
-            dataGridViewClassOverviewClassManagement.Size = new Size(482, 333);
-            dataGridViewClassOverviewClassManagement.TabIndex = 94;
+            dataGridViewInstructorOverviewInstructorManagement.BackgroundColor = SystemColors.Window;
+            dataGridViewInstructorOverviewInstructorManagement.BorderStyle = BorderStyle.None;
+            dataGridViewInstructorOverviewInstructorManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInstructorOverviewInstructorManagement.Location = new Point(403, 137);
+            dataGridViewInstructorOverviewInstructorManagement.Margin = new Padding(1);
+            dataGridViewInstructorOverviewInstructorManagement.Name = "dataGridViewInstructorOverviewInstructorManagement";
+            dataGridViewInstructorOverviewInstructorManagement.RowHeadersWidth = 82;
+            dataGridViewInstructorOverviewInstructorManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewInstructorOverviewInstructorManagement.Size = new Size(482, 333);
+            dataGridViewInstructorOverviewInstructorManagement.TabIndex = 94;
             // 
             // labelHelp_InstructorManagement1
             // 
@@ -320,12 +323,31 @@
             pictureBox_InstructorManagement3.MouseEnter += pictureBox_InstructorManagement3_MouseEnter;
             pictureBox_InstructorManagement3.MouseLeave += pictureBox_InstructorManagement3_MouseLeave;
             // 
+            // buttonDeleteInstructor
+            // 
+            buttonDeleteInstructor.BackColor = Color.FromArgb(31, 34, 56);
+            buttonDeleteInstructor.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonDeleteInstructor.FlatStyle = FlatStyle.Flat;
+            buttonDeleteInstructor.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            buttonDeleteInstructor.ForeColor = Color.FromArgb(73, 125, 201);
+            buttonDeleteInstructor.ImageAlign = ContentAlignment.TopRight;
+            buttonDeleteInstructor.Location = new Point(182, 375);
+            buttonDeleteInstructor.Margin = new Padding(4);
+            buttonDeleteInstructor.Name = "buttonDeleteInstructor";
+            buttonDeleteInstructor.Size = new Size(163, 30);
+            buttonDeleteInstructor.TabIndex = 102;
+            buttonDeleteInstructor.Text = "Delete";
+            buttonDeleteInstructor.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonDeleteInstructor.UseVisualStyleBackColor = false;
+            buttonDeleteInstructor.Click += buttonDeleteInstructor_Click;
+            // 
             // formInstructorManagementTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(buttonDeleteInstructor);
             Controls.Add(labelHelp_InstructorManagement33);
             Controls.Add(pictureBox_InstructorManagement3);
             Controls.Add(labelHelp_InstructorManagement1);
@@ -333,7 +355,7 @@
             Controls.Add(labelHelp_InstructorManagement2);
             Controls.Add(pictureBox_InstructorManagement2);
             Controls.Add(labelClassOverviewClassManagement);
-            Controls.Add(dataGridViewClassOverviewClassManagement);
+            Controls.Add(dataGridViewInstructorOverviewInstructorManagement);
             Controls.Add(buttonAddInstructor);
             Controls.Add(buttonSearchInstructorManagement);
             Controls.Add(textBoxSearchBarInstructorManagement);
@@ -352,7 +374,7 @@
             Name = "formInstructorManagementTab";
             Text = "formInstructorManagementTab";
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInstructorOverviewInstructorManagement).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement3).EndInit();
             ResumeLayout(false);
@@ -378,10 +400,11 @@
         private Label labelHelp_InstructorManagement2;
         private PictureBox pictureBox_InstructorManagement2;
         private Label labelClassOverviewClassManagement;
-        private DataGridView dataGridViewClassOverviewClassManagement;
+        private DataGridView dataGridViewInstructorOverviewInstructorManagement;
         private Label labelHelp_InstructorManagement1;
         private PictureBox pictureBox_InstructorManagement1;
         private Label labelHelp_InstructorManagement33;
         private PictureBox pictureBox_InstructorManagement3;
+        private Button buttonDeleteInstructor;
     }
 }

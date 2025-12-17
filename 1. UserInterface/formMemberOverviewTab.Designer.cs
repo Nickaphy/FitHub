@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMemberOverviewTab));
-            InstructorGridViewInstructorManagement = new DataGridView();
-            buttonSearchInstructorManagement = new Button();
-            textBoxSearchBarInstructorManagement = new TextBox();
+            DataGridViewMembersMembersOverview = new DataGridView();
+            buttonSearchMember = new Button();
+            textBoxSearchBarMember = new TextBox();
             labelMemberBooking = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridViewMemberHistory = new DataGridView();
             label1 = new Label();
             buttonMemberHistory = new Button();
             labelHelp_MemberOverview1 = new Label();
@@ -41,51 +41,52 @@
             labelHelp_MemberOverview2 = new Label();
             pictureBox_MemberOverview2 = new PictureBox();
             labelHelp_MemberOverview3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)InstructorGridViewInstructorManagement).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewMembersMembersOverview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMemberHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_MemberOverview1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_MemberOverview2).BeginInit();
             SuspendLayout();
             // 
-            // InstructorGridViewInstructorManagement
+            // DataGridViewMembersMembersOverview
             // 
-            InstructorGridViewInstructorManagement.AccessibleRole = AccessibleRole.Cursor;
-            InstructorGridViewInstructorManagement.BackgroundColor = SystemColors.Window;
-            InstructorGridViewInstructorManagement.BorderStyle = BorderStyle.None;
-            InstructorGridViewInstructorManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            InstructorGridViewInstructorManagement.Location = new Point(26, 131);
-            InstructorGridViewInstructorManagement.Margin = new Padding(4);
-            InstructorGridViewInstructorManagement.Name = "InstructorGridViewInstructorManagement";
-            InstructorGridViewInstructorManagement.RowHeadersWidth = 82;
-            InstructorGridViewInstructorManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            InstructorGridViewInstructorManagement.Size = new Size(191, 339);
-            InstructorGridViewInstructorManagement.TabIndex = 51;
+            DataGridViewMembersMembersOverview.AccessibleRole = AccessibleRole.Cursor;
+            DataGridViewMembersMembersOverview.BackgroundColor = SystemColors.Window;
+            DataGridViewMembersMembersOverview.BorderStyle = BorderStyle.None;
+            DataGridViewMembersMembersOverview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridViewMembersMembersOverview.Location = new Point(26, 131);
+            DataGridViewMembersMembersOverview.Margin = new Padding(4);
+            DataGridViewMembersMembersOverview.Name = "DataGridViewMembersMembersOverview";
+            DataGridViewMembersMembersOverview.RowHeadersWidth = 82;
+            DataGridViewMembersMembersOverview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewMembersMembersOverview.Size = new Size(191, 339);
+            DataGridViewMembersMembersOverview.TabIndex = 51;
             // 
-            // buttonSearchInstructorManagement
+            // buttonSearchMember
             // 
-            buttonSearchInstructorManagement.BackgroundImage = (Image)resources.GetObject("buttonSearchInstructorManagement.BackgroundImage");
-            buttonSearchInstructorManagement.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonSearchInstructorManagement.FlatAppearance.BorderColor = Color.FromArgb(31, 34, 56);
-            buttonSearchInstructorManagement.FlatStyle = FlatStyle.Flat;
-            buttonSearchInstructorManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchInstructorManagement.ForeColor = SystemColors.ButtonHighlight;
-            buttonSearchInstructorManagement.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSearchInstructorManagement.Location = new Point(630, 23);
-            buttonSearchInstructorManagement.Name = "buttonSearchInstructorManagement";
-            buttonSearchInstructorManagement.Size = new Size(36, 35);
-            buttonSearchInstructorManagement.TabIndex = 61;
-            buttonSearchInstructorManagement.UseVisualStyleBackColor = true;
+            buttonSearchMember.BackgroundImage = (Image)resources.GetObject("buttonSearchMember.BackgroundImage");
+            buttonSearchMember.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonSearchMember.FlatAppearance.BorderColor = Color.FromArgb(31, 34, 56);
+            buttonSearchMember.FlatStyle = FlatStyle.Flat;
+            buttonSearchMember.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSearchMember.ForeColor = SystemColors.ButtonHighlight;
+            buttonSearchMember.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSearchMember.Location = new Point(388, 168);
+            buttonSearchMember.Name = "buttonSearchMember";
+            buttonSearchMember.Size = new Size(36, 35);
+            buttonSearchMember.TabIndex = 61;
+            buttonSearchMember.UseVisualStyleBackColor = true;
+            buttonSearchMember.Click += buttonSearchMember_Click;
             // 
-            // textBoxSearchBarInstructorManagement
+            // textBoxSearchBarMember
             // 
-            textBoxSearchBarInstructorManagement.BackColor = Color.FromArgb(74, 79, 99);
-            textBoxSearchBarInstructorManagement.BorderStyle = BorderStyle.None;
-            textBoxSearchBarInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            textBoxSearchBarInstructorManagement.Location = new Point(677, 30);
-            textBoxSearchBarInstructorManagement.Name = "textBoxSearchBarInstructorManagement";
-            textBoxSearchBarInstructorManagement.Size = new Size(205, 20);
-            textBoxSearchBarInstructorManagement.TabIndex = 60;
-            textBoxSearchBarInstructorManagement.Text = "Search for...";
+            textBoxSearchBarMember.BackColor = Color.FromArgb(74, 79, 99);
+            textBoxSearchBarMember.BorderStyle = BorderStyle.None;
+            textBoxSearchBarMember.ForeColor = Color.FromArgb(73, 125, 201);
+            textBoxSearchBarMember.Location = new Point(255, 176);
+            textBoxSearchBarMember.Name = "textBoxSearchBarMember";
+            textBoxSearchBarMember.Size = new Size(133, 20);
+            textBoxSearchBarMember.TabIndex = 60;
+            textBoxSearchBarMember.Text = "Search for...";
             // 
             // labelMemberBooking
             // 
@@ -98,26 +99,26 @@
             labelMemberBooking.TabIndex = 62;
             labelMemberBooking.Text = "Members";
             // 
-            // dataGridView1
+            // dataGridViewMemberHistory
             // 
-            dataGridView1.AccessibleRole = AccessibleRole.Cursor;
-            dataGridView1.BackgroundColor = SystemColors.Window;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(335, 131);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(550, 339);
-            dataGridView1.TabIndex = 63;
+            dataGridViewMemberHistory.AccessibleRole = AccessibleRole.Cursor;
+            dataGridViewMemberHistory.BackgroundColor = SystemColors.Window;
+            dataGridViewMemberHistory.BorderStyle = BorderStyle.None;
+            dataGridViewMemberHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMemberHistory.Location = new Point(451, 131);
+            dataGridViewMemberHistory.Margin = new Padding(4);
+            dataGridViewMemberHistory.Name = "dataGridViewMemberHistory";
+            dataGridViewMemberHistory.RowHeadersWidth = 82;
+            dataGridViewMemberHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewMemberHistory.Size = new Size(431, 339);
+            dataGridViewMemberHistory.TabIndex = 63;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(73, 125, 201);
-            label1.Location = new Point(330, 87);
+            label1.Location = new Point(446, 87);
             label1.Name = "label1";
             label1.Size = new Size(167, 28);
             label1.TabIndex = 64;
@@ -132,12 +133,13 @@
             buttonMemberHistory.FlatStyle = FlatStyle.Flat;
             buttonMemberHistory.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonMemberHistory.ForeColor = Color.FromArgb(73, 125, 201);
-            buttonMemberHistory.Location = new Point(250, 262);
+            buttonMemberHistory.Location = new Point(311, 267);
             buttonMemberHistory.Margin = new Padding(4);
             buttonMemberHistory.Name = "buttonMemberHistory";
             buttonMemberHistory.Size = new Size(50, 50);
             buttonMemberHistory.TabIndex = 65;
             buttonMemberHistory.UseVisualStyleBackColor = false;
+            buttonMemberHistory.Click += buttonMemberHistory_Click;
             buttonMemberHistory.MouseEnter += buttonMemberHistory_MouseEnter;
             buttonMemberHistory.MouseLeave += buttonMemberHistory_MouseLeave;
             // 
@@ -175,7 +177,7 @@
             labelHelp_MemberOverview2.BorderStyle = BorderStyle.FixedSingle;
             labelHelp_MemberOverview2.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp_MemberOverview2.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp_MemberOverview2.Location = new Point(498, 67);
+            labelHelp_MemberOverview2.Location = new Point(614, 67);
             labelHelp_MemberOverview2.Name = "labelHelp_MemberOverview2";
             labelHelp_MemberOverview2.Padding = new Padding(1);
             labelHelp_MemberOverview2.Size = new Size(300, 19);
@@ -187,7 +189,7 @@
             // 
             pictureBox_MemberOverview2.BackgroundImage = (Image)resources.GetObject("pictureBox_MemberOverview2.BackgroundImage");
             pictureBox_MemberOverview2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox_MemberOverview2.Location = new Point(498, 95);
+            pictureBox_MemberOverview2.Location = new Point(614, 95);
             pictureBox_MemberOverview2.Name = "pictureBox_MemberOverview2";
             pictureBox_MemberOverview2.Size = new Size(20, 20);
             pictureBox_MemberOverview2.TabIndex = 68;
@@ -202,7 +204,7 @@
             labelHelp_MemberOverview3.BorderStyle = BorderStyle.FixedSingle;
             labelHelp_MemberOverview3.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp_MemberOverview3.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp_MemberOverview3.Location = new Point(261, 248);
+            labelHelp_MemberOverview3.Location = new Point(325, 312);
             labelHelp_MemberOverview3.Name = "labelHelp_MemberOverview3";
             labelHelp_MemberOverview3.Padding = new Padding(1);
             labelHelp_MemberOverview3.Size = new Size(500, 19);
@@ -221,18 +223,18 @@
             Controls.Add(pictureBox_MemberOverview2);
             Controls.Add(labelHelp_MemberOverview1);
             Controls.Add(pictureBox_MemberOverview1);
-            Controls.Add(dataGridView1);
-            Controls.Add(buttonSearchInstructorManagement);
-            Controls.Add(textBoxSearchBarInstructorManagement);
-            Controls.Add(InstructorGridViewInstructorManagement);
+            Controls.Add(dataGridViewMemberHistory);
+            Controls.Add(textBoxSearchBarMember);
+            Controls.Add(DataGridViewMembersMembersOverview);
             Controls.Add(labelMemberBooking);
             Controls.Add(label1);
             Controls.Add(buttonMemberHistory);
+            Controls.Add(buttonSearchMember);
             FormBorderStyle = FormBorderStyle.None;
             Name = "formMemberOverviewTab";
             Text = "formMemberOverviewTab";
-            ((System.ComponentModel.ISupportInitialize)InstructorGridViewInstructorManagement).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewMembersMembersOverview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMemberHistory).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_MemberOverview1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_MemberOverview2).EndInit();
             ResumeLayout(false);
@@ -240,11 +242,11 @@
         }
 
         #endregion
-        private DataGridView InstructorGridViewInstructorManagement;
-        private Button buttonSearchInstructorManagement;
-        private TextBox textBoxSearchBarInstructorManagement;
+        private DataGridView DataGridViewMembersMembersOverview;
+        private Button buttonSearchMember;
+        private TextBox textBoxSearchBarMember;
         private Label labelMemberBooking;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewMemberHistory;
         private Label label1;
         private Button buttonMemberHistory;
         private Label labelHelp_MemberOverview1;

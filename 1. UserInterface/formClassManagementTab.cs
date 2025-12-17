@@ -41,13 +41,10 @@ namespace FitHub._1._UserInterface
             List<Class> classes = bll.GetAllClassesBLL();
             dataGridViewClassOverviewClassManagement.DataSource = classes;
 
-
-
             ClassInstructorDropBox();
-
-
+           
         }
-
+       
         private void ClassManGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;

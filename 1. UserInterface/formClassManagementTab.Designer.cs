@@ -175,6 +175,7 @@
             dataGridViewClassOverviewClassManagement.Margin = new Padding(1);
             dataGridViewClassOverviewClassManagement.Name = "dataGridViewClassOverviewClassManagement";
             dataGridViewClassOverviewClassManagement.RowHeadersWidth = 82;
+            dataGridViewClassOverviewClassManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClassOverviewClassManagement.Size = new Size(482, 333);
             dataGridViewClassOverviewClassManagement.TabIndex = 15;
             // 

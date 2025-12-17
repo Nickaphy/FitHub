@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitHub._2._BusinessLogicLayer.ENT_OBJ;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,15 @@ namespace FitHub._1._UserInterface
             RoundedCornersHelper.Apply(this, 20);
 
         }
+
+        public void SetMembers(List<InstructorViewMembersDTO> members)
+        {
+            dataGridViewClassInformation.DataSource = members;
+            dataGridViewClassInformation.AutoResizeColumns();
+        }
+
+
+
 
         private void buttonCloseDown_Click(object sender, EventArgs e)
         {

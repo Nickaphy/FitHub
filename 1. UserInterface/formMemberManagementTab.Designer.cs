@@ -53,6 +53,8 @@
             pictureBoxHelp_MemberManagement1 = new PictureBox();
             labelHelp_MemberManagement3 = new Label();
             pictureBox_MemberManagement3 = new PictureBox();
+            buttonActiveOnOffMemberManagement = new Button();
+            buttonDeleteMemberManagement = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox_MemberManagement2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewClassManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_MemberManagement1).BeginInit();
@@ -230,15 +232,15 @@
             buttonAddMember.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonAddMember.ForeColor = Color.FromArgb(73, 125, 201);
             buttonAddMember.Image = (Image)resources.GetObject("buttonAddMember.Image");
-            buttonAddMember.ImageAlign = ContentAlignment.TopRight;
-            buttonAddMember.Location = new Point(24, 429);
+            buttonAddMember.Location = new Point(24, 402);
             buttonAddMember.Margin = new Padding(4);
             buttonAddMember.Name = "buttonAddMember";
-            buttonAddMember.Size = new Size(318, 41);
+            buttonAddMember.Size = new Size(197, 68);
             buttonAddMember.TabIndex = 37;
             buttonAddMember.Text = "Add Member";
             buttonAddMember.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAddMember.UseVisualStyleBackColor = false;
+            buttonAddMember.Click += buttonAddMember_Click;
             // 
             // labelHelp_MemberManagement2
             // 
@@ -287,6 +289,7 @@
             dataGridViewClassOverviewClassManagement.Margin = new Padding(1);
             dataGridViewClassOverviewClassManagement.Name = "dataGridViewClassOverviewClassManagement";
             dataGridViewClassOverviewClassManagement.RowHeadersWidth = 82;
+            dataGridViewClassOverviewClassManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClassOverviewClassManagement.Size = new Size(482, 333);
             dataGridViewClassOverviewClassManagement.TabIndex = 90;
             // 
@@ -344,12 +347,50 @@
             pictureBox_MemberManagement3.MouseEnter += pictureBox_MemberManagement3_MouseEnter;
             pictureBox_MemberManagement3.MouseLeave += pictureBox_MemberManagement3_MouseLeave;
             // 
+            // buttonActiveOnOffMemberManagement
+            // 
+            buttonActiveOnOffMemberManagement.BackColor = Color.FromArgb(31, 34, 56);
+            buttonActiveOnOffMemberManagement.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonActiveOnOffMemberManagement.FlatStyle = FlatStyle.Flat;
+            buttonActiveOnOffMemberManagement.Font = new Font("Nirmala UI", 6F, FontStyle.Bold);
+            buttonActiveOnOffMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            buttonActiveOnOffMemberManagement.ImageAlign = ContentAlignment.TopRight;
+            buttonActiveOnOffMemberManagement.Location = new Point(245, 402);
+            buttonActiveOnOffMemberManagement.Margin = new Padding(4);
+            buttonActiveOnOffMemberManagement.Name = "buttonActiveOnOffMemberManagement";
+            buttonActiveOnOffMemberManagement.Size = new Size(97, 29);
+            buttonActiveOnOffMemberManagement.TabIndex = 98;
+            buttonActiveOnOffMemberManagement.Text = "Active On / Off";
+            buttonActiveOnOffMemberManagement.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonActiveOnOffMemberManagement.UseVisualStyleBackColor = false;
+            buttonActiveOnOffMemberManagement.Click += buttonActiveOnOffMemberManagement_Click;
+            // 
+            // buttonDeleteMemberManagement
+            // 
+            buttonDeleteMemberManagement.BackColor = Color.FromArgb(31, 34, 56);
+            buttonDeleteMemberManagement.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonDeleteMemberManagement.FlatStyle = FlatStyle.Flat;
+            buttonDeleteMemberManagement.Font = new Font("Nirmala UI", 6F, FontStyle.Bold);
+            buttonDeleteMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
+            buttonDeleteMemberManagement.ImageAlign = ContentAlignment.TopRight;
+            buttonDeleteMemberManagement.Location = new Point(245, 439);
+            buttonDeleteMemberManagement.Margin = new Padding(4);
+            buttonDeleteMemberManagement.Name = "buttonDeleteMemberManagement";
+            buttonDeleteMemberManagement.Size = new Size(97, 29);
+            buttonDeleteMemberManagement.TabIndex = 99;
+            buttonDeleteMemberManagement.Text = "Delete";
+            buttonDeleteMemberManagement.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonDeleteMemberManagement.UseVisualStyleBackColor = false;
+            buttonDeleteMemberManagement.Click += buttonDeleteMemberManagement_Click;
+            // 
             // formMemberManagementTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
             ClientSize = new Size(911, 498);
+            Controls.Add(buttonDeleteMemberManagement);
+            Controls.Add(buttonActiveOnOffMemberManagement);
             Controls.Add(labelHelp_MemberManagement3);
             Controls.Add(pictureBox_MemberManagement3);
             Controls.Add(labelHelp_MemberManagement1);
@@ -411,5 +452,7 @@
         private PictureBox pictureBoxHelp_MemberManagement1;
         private Label labelHelp_MemberManagement3;
         private PictureBox pictureBox_MemberManagement3;
+        private Button buttonActiveOnOffMemberManagement;
+        private Button buttonDeleteMemberManagement;
     }
 }

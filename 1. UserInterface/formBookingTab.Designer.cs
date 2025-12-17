@@ -62,6 +62,7 @@
             buttonBooking.Size = new Size(45, 45);
             buttonBooking.TabIndex = 10;
             buttonBooking.UseVisualStyleBackColor = false;
+            buttonBooking.Click += buttonBooking_Click;
             buttonBooking.MouseEnter += buttonBooking_MouseEnter;
             buttonBooking.MouseLeave += buttonBooking_MouseLeave;
             // 
@@ -74,6 +75,7 @@
             dataGridViewClassOverviewBooking.Margin = new Padding(4);
             dataGridViewClassOverviewBooking.Name = "dataGridViewClassOverviewBooking";
             dataGridViewClassOverviewBooking.RowHeadersWidth = 82;
+            dataGridViewClassOverviewBooking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClassOverviewBooking.Size = new Size(479, 338);
             dataGridViewClassOverviewBooking.TabIndex = 9;
             // 
@@ -86,6 +88,7 @@
             dataGridViewMemberBooking.Margin = new Padding(4);
             dataGridViewMemberBooking.Name = "dataGridViewMemberBooking";
             dataGridViewMemberBooking.RowHeadersWidth = 82;
+            dataGridViewMemberBooking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewMemberBooking.Size = new Size(231, 338);
             dataGridViewMemberBooking.TabIndex = 8;
             // 

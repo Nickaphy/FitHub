@@ -51,6 +51,7 @@
             dataGridViewClassInformation.Margin = new Padding(4);
             dataGridViewClassInformation.Name = "dataGridViewClassInformation";
             dataGridViewClassInformation.RowHeadersWidth = 82;
+            dataGridViewClassInformation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClassInformation.Size = new Size(354, 390);
             dataGridViewClassInformation.TabIndex = 10;
             // 

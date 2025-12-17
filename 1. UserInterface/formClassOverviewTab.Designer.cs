@@ -29,51 +29,51 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formClassOverviewTab));
-            InstructorGridViewInstructorManagement = new DataGridView();
-            dataGridView1 = new DataGridView();
+            DataGridViewInstructor = new DataGridView();
+            dataGridViewClasses = new DataGridView();
             labelMemberBooking = new Label();
             label1 = new Label();
             buttonSearchBooking = new Button();
             textBoxSearchBarBooking = new TextBox();
-            buttonBooking = new Button();
+            buttonRetrieveClasses = new Button();
             buttonAddInstructor = new Button();
             labelHelp_ClassOverview1 = new Label();
             pictureBoxHelp_ClassOverview1 = new PictureBox();
             labelHelp_ClassOverview2 = new Label();
             pictureBoxHelp_ClassOverview2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)InstructorGridViewInstructorManagement).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewInstructor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClasses).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview2).BeginInit();
             SuspendLayout();
             // 
-            // InstructorGridViewInstructorManagement
+            // DataGridViewInstructor
             // 
-            InstructorGridViewInstructorManagement.AccessibleRole = AccessibleRole.Cursor;
-            InstructorGridViewInstructorManagement.BackgroundColor = SystemColors.Window;
-            InstructorGridViewInstructorManagement.BorderStyle = BorderStyle.None;
-            InstructorGridViewInstructorManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            InstructorGridViewInstructorManagement.Location = new Point(26, 145);
-            InstructorGridViewInstructorManagement.Margin = new Padding(4);
-            InstructorGridViewInstructorManagement.Name = "InstructorGridViewInstructorManagement";
-            InstructorGridViewInstructorManagement.RowHeadersWidth = 82;
-            InstructorGridViewInstructorManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            InstructorGridViewInstructorManagement.Size = new Size(290, 326);
-            InstructorGridViewInstructorManagement.TabIndex = 32;
+            DataGridViewInstructor.AccessibleRole = AccessibleRole.Cursor;
+            DataGridViewInstructor.BackgroundColor = SystemColors.Window;
+            DataGridViewInstructor.BorderStyle = BorderStyle.None;
+            DataGridViewInstructor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridViewInstructor.Location = new Point(26, 145);
+            DataGridViewInstructor.Margin = new Padding(4);
+            DataGridViewInstructor.Name = "DataGridViewInstructor";
+            DataGridViewInstructor.RowHeadersWidth = 82;
+            DataGridViewInstructor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewInstructor.Size = new Size(290, 326);
+            DataGridViewInstructor.TabIndex = 32;
             // 
-            // dataGridView1
+            // dataGridViewClasses
             // 
-            dataGridView1.AccessibleRole = AccessibleRole.Cursor;
-            dataGridView1.BackgroundColor = SystemColors.Window;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(377, 145);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(240, 326);
-            dataGridView1.TabIndex = 51;
+            dataGridViewClasses.AccessibleRole = AccessibleRole.Cursor;
+            dataGridViewClasses.BackgroundColor = SystemColors.Window;
+            dataGridViewClasses.BorderStyle = BorderStyle.None;
+            dataGridViewClasses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClasses.Location = new Point(377, 145);
+            dataGridViewClasses.Margin = new Padding(4);
+            dataGridViewClasses.Name = "dataGridViewClasses";
+            dataGridViewClasses.RowHeadersWidth = 82;
+            dataGridViewClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewClasses.Size = new Size(240, 326);
+            dataGridViewClasses.TabIndex = 51;
             // 
             // labelMemberBooking
             // 
@@ -123,19 +123,20 @@
             textBoxSearchBarBooking.TabIndex = 15;
             textBoxSearchBarBooking.Text = "Search for...";
             // 
-            // buttonBooking
+            // buttonRetrieveClasses
             // 
-            buttonBooking.BackColor = Color.FromArgb(31, 34, 56);
-            buttonBooking.FlatStyle = FlatStyle.Flat;
-            buttonBooking.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            buttonBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            buttonBooking.Location = new Point(175, 93);
-            buttonBooking.Margin = new Padding(4);
-            buttonBooking.Name = "buttonBooking";
-            buttonBooking.Size = new Size(141, 31);
-            buttonBooking.TabIndex = 55;
-            buttonBooking.Text = "Retrieve Classes";
-            buttonBooking.UseVisualStyleBackColor = false;
+            buttonRetrieveClasses.BackColor = Color.FromArgb(31, 34, 56);
+            buttonRetrieveClasses.FlatStyle = FlatStyle.Flat;
+            buttonRetrieveClasses.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            buttonRetrieveClasses.ForeColor = Color.FromArgb(73, 125, 201);
+            buttonRetrieveClasses.Location = new Point(175, 93);
+            buttonRetrieveClasses.Margin = new Padding(4);
+            buttonRetrieveClasses.Name = "buttonRetrieveClasses";
+            buttonRetrieveClasses.Size = new Size(141, 31);
+            buttonRetrieveClasses.TabIndex = 55;
+            buttonRetrieveClasses.Text = "Retrieve Classes";
+            buttonRetrieveClasses.UseVisualStyleBackColor = false;
+            buttonRetrieveClasses.Click += buttonRetrieveClasses_Click;
             // 
             // buttonAddInstructor
             // 
@@ -221,9 +222,9 @@
             Controls.Add(labelHelp_ClassOverview1);
             Controls.Add(pictureBoxHelp_ClassOverview1);
             Controls.Add(buttonAddInstructor);
-            Controls.Add(buttonBooking);
-            Controls.Add(dataGridView1);
-            Controls.Add(InstructorGridViewInstructorManagement);
+            Controls.Add(buttonRetrieveClasses);
+            Controls.Add(dataGridViewClasses);
+            Controls.Add(DataGridViewInstructor);
             Controls.Add(labelMemberBooking);
             Controls.Add(label1);
             Controls.Add(buttonSearchBooking);
@@ -231,8 +232,8 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "formClassOverviewTab";
             Text = "formClassOverviewTab";
-            ((System.ComponentModel.ISupportInitialize)InstructorGridViewInstructorManagement).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewInstructor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClasses).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxHelp_ClassOverview2).EndInit();
             ResumeLayout(false);
@@ -241,13 +242,13 @@
 
         #endregion
 
-        private DataGridView InstructorGridViewInstructorManagement;
-        private DataGridView dataGridView1;
+        private DataGridView DataGridViewInstructor;
+        private DataGridView dataGridViewClasses;
         private Label labelMemberBooking;
         private Label label1;
         private Button buttonSearchBooking;
         private TextBox textBoxSearchBarBooking;
-        private Button buttonBooking;
+        private Button buttonRetrieveClasses;
         private Button buttonAddInstructor;
         private Label labelHelp_ClassOverview1;
         private PictureBox pictureBoxHelp_ClassOverview1;

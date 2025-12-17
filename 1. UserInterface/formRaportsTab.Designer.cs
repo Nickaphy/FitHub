@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formRaportsTab));
             labelClassTypeClassManagement = new Label();
-            comboBoxClassTypeClassManagement = new ComboBox();
+            comboBoxSubjectPrint = new ComboBox();
             labelDateClassManagement = new Label();
-            dateTimePickerDateClassManagement = new DateTimePicker();
+            dateTimePickerStart = new DateTimePicker();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerEnd = new DateTimePicker();
             labelMemberInformationMemberManagement = new Label();
-            buttonAddMember = new Button();
+            buttonPrint = new Button();
             pictureBox1 = new PictureBox();
             labelHelp_Statistics = new Label();
             pictureBox_Statistics1 = new PictureBox();
@@ -56,16 +56,16 @@
             labelClassTypeClassManagement.TabIndex = 65;
             labelClassTypeClassManagement.Text = "Choose the subject";
             // 
-            // comboBoxClassTypeClassManagement
+            // comboBoxSubjectPrint
             // 
-            comboBoxClassTypeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            comboBoxClassTypeClassManagement.FormattingEnabled = true;
-            comboBoxClassTypeClassManagement.Items.AddRange(new object[] { "Trail running", "Forrest Yoga" });
-            comboBoxClassTypeClassManagement.Location = new Point(171, 96);
-            comboBoxClassTypeClassManagement.Margin = new Padding(4);
-            comboBoxClassTypeClassManagement.Name = "comboBoxClassTypeClassManagement";
-            comboBoxClassTypeClassManagement.Size = new Size(194, 28);
-            comboBoxClassTypeClassManagement.TabIndex = 64;
+            comboBoxSubjectPrint.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            comboBoxSubjectPrint.FormattingEnabled = true;
+            comboBoxSubjectPrint.Items.AddRange(new object[] { "All Members", "Active Members", "Inactive Members", "Popular Classes (Sum)" });
+            comboBoxSubjectPrint.Location = new Point(171, 96);
+            comboBoxSubjectPrint.Margin = new Padding(4);
+            comboBoxSubjectPrint.Name = "comboBoxSubjectPrint";
+            comboBoxSubjectPrint.Size = new Size(194, 28);
+            comboBoxSubjectPrint.TabIndex = 64;
             // 
             // labelDateClassManagement
             // 
@@ -79,15 +79,15 @@
             labelDateClassManagement.TabIndex = 67;
             labelDateClassManagement.Text = "Start";
             // 
-            // dateTimePickerDateClassManagement
+            // dateTimePickerStart
             // 
-            dateTimePickerDateClassManagement.CalendarFont = new Font("Nirmala UI", 9F);
-            dateTimePickerDateClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            dateTimePickerDateClassManagement.Location = new Point(171, 151);
-            dateTimePickerDateClassManagement.Margin = new Padding(4);
-            dateTimePickerDateClassManagement.Name = "dateTimePickerDateClassManagement";
-            dateTimePickerDateClassManagement.Size = new Size(228, 27);
-            dateTimePickerDateClassManagement.TabIndex = 66;
+            dateTimePickerStart.CalendarFont = new Font("Nirmala UI", 9F);
+            dateTimePickerStart.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            dateTimePickerStart.Location = new Point(171, 151);
+            dateTimePickerStart.Margin = new Padding(4);
+            dateTimePickerStart.Name = "dateTimePickerStart";
+            dateTimePickerStart.Size = new Size(228, 27);
+            dateTimePickerStart.TabIndex = 66;
             // 
             // label1
             // 
@@ -101,15 +101,15 @@
             label1.TabIndex = 69;
             label1.Text = "End";
             // 
-            // dateTimePicker1
+            // dateTimePickerEnd
             // 
-            dateTimePicker1.CalendarFont = new Font("Nirmala UI", 9F);
-            dateTimePicker1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            dateTimePicker1.Location = new Point(171, 202);
-            dateTimePicker1.Margin = new Padding(4);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(228, 27);
-            dateTimePicker1.TabIndex = 68;
+            dateTimePickerEnd.CalendarFont = new Font("Nirmala UI", 9F);
+            dateTimePickerEnd.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            dateTimePickerEnd.Location = new Point(171, 202);
+            dateTimePickerEnd.Margin = new Padding(4);
+            dateTimePickerEnd.Name = "dateTimePickerEnd";
+            dateTimePickerEnd.Size = new Size(228, 27);
+            dateTimePickerEnd.TabIndex = 68;
             // 
             // labelMemberInformationMemberManagement
             // 
@@ -122,23 +122,24 @@
             labelMemberInformationMemberManagement.TabIndex = 70;
             labelMemberInformationMemberManagement.Text = "Statistics to print";
             // 
-            // buttonAddMember
+            // buttonPrint
             // 
-            buttonAddMember.BackColor = Color.FromArgb(31, 34, 56);
-            buttonAddMember.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonAddMember.FlatStyle = FlatStyle.Flat;
-            buttonAddMember.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            buttonAddMember.ForeColor = Color.FromArgb(73, 125, 201);
-            buttonAddMember.Image = (Image)resources.GetObject("buttonAddMember.Image");
-            buttonAddMember.ImageAlign = ContentAlignment.TopRight;
-            buttonAddMember.Location = new Point(26, 428);
-            buttonAddMember.Margin = new Padding(4);
-            buttonAddMember.Name = "buttonAddMember";
-            buttonAddMember.Size = new Size(375, 41);
-            buttonAddMember.TabIndex = 71;
-            buttonAddMember.Text = "Print";
-            buttonAddMember.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonAddMember.UseVisualStyleBackColor = false;
+            buttonPrint.BackColor = Color.FromArgb(31, 34, 56);
+            buttonPrint.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonPrint.FlatStyle = FlatStyle.Flat;
+            buttonPrint.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            buttonPrint.ForeColor = Color.FromArgb(73, 125, 201);
+            buttonPrint.Image = (Image)resources.GetObject("buttonPrint.Image");
+            buttonPrint.ImageAlign = ContentAlignment.TopRight;
+            buttonPrint.Location = new Point(26, 428);
+            buttonPrint.Margin = new Padding(4);
+            buttonPrint.Name = "buttonPrint";
+            buttonPrint.Size = new Size(375, 41);
+            buttonPrint.TabIndex = 71;
+            buttonPrint.Text = "Print";
+            buttonPrint.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonPrint.UseVisualStyleBackColor = false;
+            buttonPrint.Click += buttonPrint_Click;
             // 
             // pictureBox1
             // 
@@ -185,13 +186,13 @@
             ClientSize = new Size(911, 498);
             Controls.Add(labelHelp_Statistics);
             Controls.Add(pictureBox_Statistics1);
-            Controls.Add(buttonAddMember);
+            Controls.Add(buttonPrint);
             Controls.Add(labelDateClassManagement);
-            Controls.Add(dateTimePickerDateClassManagement);
+            Controls.Add(dateTimePickerStart);
             Controls.Add(labelClassTypeClassManagement);
-            Controls.Add(comboBoxClassTypeClassManagement);
+            Controls.Add(comboBoxSubjectPrint);
             Controls.Add(label1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dateTimePickerEnd);
             Controls.Add(labelMemberInformationMemberManagement);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -205,13 +206,13 @@
 
         #endregion
         private Label labelClassTypeClassManagement;
-        private ComboBox comboBoxClassTypeClassManagement;
+        private ComboBox comboBoxSubjectPrint;
         private Label labelDateClassManagement;
-        private DateTimePicker dateTimePickerDateClassManagement;
+        private DateTimePicker dateTimePickerStart;
         private Label label1;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerEnd;
         private Label labelMemberInformationMemberManagement;
-        private Button buttonAddMember;
+        private Button buttonPrint;
         private PictureBox pictureBox1;
         private Label labelHelp_Statistics;
         private PictureBox pictureBox_Statistics1;
