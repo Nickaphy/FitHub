@@ -39,7 +39,7 @@ namespace FitHub._3._DataAccessLayer
 
         public List<Member> GetAllMembers()
         {
-            List<Member> member = new List<Member>();
+            List<Member> memberReport = new List<Member>();
 
             using var con = new SqlConnection(connectionstring.conn);
             con.Open();
@@ -49,7 +49,7 @@ namespace FitHub._3._DataAccessLayer
 
             while (reader.Read())
             {
-                member.Add(new Member
+                memberReport.Add(new Member
                 {
                     MemberID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                     FirstName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
@@ -62,7 +62,7 @@ namespace FitHub._3._DataAccessLayer
                 });
             }
 
-            return member;
+            return memberReport;
         }
 
         public List<Member> GetAllActive()
