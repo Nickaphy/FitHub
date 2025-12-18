@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
+    //Everyone has participated
     internal class DalPrintReport
     {
         ConnectionString connectionstring = new ConnectionString();
 
+        //Get all inactive members from database and return as a list
         public List<Member> GetAllInactive()
         {
             List<Member> member = new List<Member>();

@@ -135,7 +135,6 @@
             MemberDeleteButton.TabIndex = 0;
             MemberDeleteButton.Text = "Delete";
             MemberDeleteButton.UseVisualStyleBackColor = true;
-            MemberDeleteButton.Click += button1_Click_1;
             // 
             // tabControl1
             // 
@@ -170,7 +169,6 @@
             tabPage3.Size = new Size(1023, 613);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Booking";
-            tabPage3.Click += tabPage3_Click;
             // 
             // label19
             // 
@@ -627,7 +625,6 @@
             InstructorCert.Name = "InstructorCert";
             InstructorCert.Size = new Size(150, 28);
             InstructorCert.TabIndex = 30;
-            InstructorCert.SelectedIndexChanged += InstructorCert_SelectedIndexChanged;
             // 
             // label12
             // 
@@ -1032,7 +1029,6 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            Load += MainForm_Load;
             MouseDown += MainForm_MouseDown;
             tabControl1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);

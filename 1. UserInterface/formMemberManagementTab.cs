@@ -25,7 +25,6 @@ namespace FitHub._1._UserInterface
         DalClasses dalclasses;
         DalPrintReport dalprintreport;
 
-
         public formMemberManagementTab()
         {
             InitializeComponent();
@@ -39,16 +38,12 @@ namespace FitHub._1._UserInterface
             List<Member> members = bll.GetAllMembersBLL();
             dataGridViewClassOverviewClassManagement.DataSource = members;
             dataGridViewClassOverviewClassManagement.CellEndEdit += dataGridViewClassOverviewClassManagement_CellEndEdit;
-
-
         }
-
 
         private void UpdateMembers()
         {
             List<Member> members = bll.GetAllMembersBLL();
             dataGridViewClassOverviewClassManagement.DataSource = members;
-
         }
 
         public void dataGridViewClassOverviewClassManagement_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -58,7 +53,6 @@ namespace FitHub._1._UserInterface
 
             if (memberID == DBNull.Value || memberID == null) return;
             int memberID_ = Convert.ToInt32(memberID);
-
 
             string columnName = dataGridViewClassOverviewClassManagement.Columns[e.ColumnIndex].Name;
             object newValue = dataGridViewClassOverviewClassManagement.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
@@ -81,8 +75,6 @@ namespace FitHub._1._UserInterface
                     dalMembers.UpdateSingleColumnMember(memberID_, "Membertype", newValue); break;
             }
         }
-
-
 
         private void pictureBoxHelp_MemberManagement1_MouseEnter(object sender, EventArgs e)
         {
@@ -137,12 +129,7 @@ namespace FitHub._1._UserInterface
                 textBoxTlfMemberManagement.Text = "";
                 comboBoxMemberTypeMemberManagement.Text = null;
             }
-
-            //Call BLL to add member 
             UpdateMembers();
-
-
-
         }
 
         private void buttonDeleteMemberManagement_Click(object sender, EventArgs e)
@@ -168,7 +155,6 @@ namespace FitHub._1._UserInterface
                 // Refresh members after delete
                 dataGridViewClassOverviewClassManagement.DataSource = bll.GetAllMembersBLL();
             }
-
         }
 
         private void buttonActiveOnOffMemberManagement_Click(object sender, EventArgs e)
@@ -177,13 +163,6 @@ namespace FitHub._1._UserInterface
             var activityStatus = Convert.ToString(dataGridViewClassOverviewClassManagement.SelectedRows[0].Cells[7].Value);
             bll.ActivityStatus(memberID, activityStatus);
             UpdateMembers();
-
-
-        }
-
-        private void dataGridViewClassOverviewClassManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

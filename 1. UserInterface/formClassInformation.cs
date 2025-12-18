@@ -13,6 +13,7 @@ using static FitHub._1._UserInterface.RoundedCorners;
 
 namespace FitHub._1._UserInterface
 {
+    // -Lasse
     public partial class formClassInformation : Form
     {       
 
@@ -26,14 +27,10 @@ namespace FitHub._1._UserInterface
             int wParam,
             int lParam
             );
-
-
         public formClassInformation()
         {
             InitializeComponent();
-
             RoundedCornersHelper.Apply(this, 20);
-
         }
 
         public void SetMembers(List<InstructorViewMembersDTO> members)
@@ -41,9 +38,6 @@ namespace FitHub._1._UserInterface
             dataGridViewClassInformation.DataSource = members;
             dataGridViewClassInformation.AutoResizeColumns();
         }
-
-
-
 
         private void buttonCloseDown_Click(object sender, EventArgs e)
         {

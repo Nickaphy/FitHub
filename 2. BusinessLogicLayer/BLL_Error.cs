@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace FitHub._2._BusinessLogicLayer
 {
-
     internal class BLL_Error
     {
         ErrorMessages errormessages = new ErrorMessages();
+
+        //Email error check, checks if email contains "@" and "." and not null or whitespace
         public bool emailError(string email)
         {
             if (!email.Contains("@") || !email.Contains("."))
@@ -22,6 +23,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Name error check, checks if first name and surname are not null or whitespace and only contain letters
         public bool nameError(string firstName, string surName)
         {
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(surName)) { errormessages.NameErrorMessage(); return false; }
@@ -36,6 +38,7 @@ namespace FitHub._2._BusinessLogicLayer
             }
         }
 
+        //Telephone error check, checks if telephone number is 8 digits long and only contains digits
         public bool telephoneError(string telephone)
         {
             if (!telephone.All(char.IsDigit) || telephone.Length != 8)
@@ -50,6 +53,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Makes sure something is selected in the drop box
         public bool DropBoxTypeError(string memberType)
         {
 
@@ -61,6 +65,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Makes sure class capacity is a number between 1 and 25
         public bool classCapacityError(string capacityString)
         {
             if (!int.TryParse(capacityString.ToString(), out int capacity))
@@ -76,6 +81,7 @@ namespace FitHub._2._BusinessLogicLayer
 
         }
 
+        //Makes sure class type is not null or whitespace
         public bool classTypeError(string classType)
         {
             if (string.IsNullOrWhiteSpace(classType))
@@ -86,6 +92,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Makes sure instructor ID is not null or whitespace
         public bool instructorIdError(string instructorID)
         {
             if (string.IsNullOrWhiteSpace(instructorID))
@@ -96,6 +103,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Makes sure class date is not in the past or null
         public bool classDateError(DateTime classDate)
         {
             if (classDate < DateTime.Now.Date || classDate == null)
@@ -106,6 +114,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Makes sure class time is not null or whitespace
         public bool classTimeError(string classTime)
         {
             if (string.IsNullOrWhiteSpace(classTime))
@@ -116,6 +125,7 @@ namespace FitHub._2._BusinessLogicLayer
             return true;
         }
 
+        //Makes sure class location is not null or whitespace
         public bool classLocationError(string classLocation)
         {
             if (string.IsNullOrWhiteSpace(classLocation))

@@ -18,8 +18,6 @@ namespace FitHub._1._UserInterface
 {
     public partial class formClassManagementTab : Form
     {
-
-        //Initialisere gridview med data fra databasen fra start
         BLL bll;
         DalMembers dalMembers;
         DalInstructor dalinstructor;
@@ -39,10 +37,10 @@ namespace FitHub._1._UserInterface
             dataGridViewClassOverviewClassManagement.DataSource = classes;
             dataGridViewClassOverviewClassManagement.CellEndEdit += dataGridViewClassOverviewClassManagement_CellEndEdit;
             dataGridViewClassOverviewClassManagement.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             ClassInstructorDropBox();
         }
 
+        // Event handling for figuring out which item in a cell is chosen -Nicklas and Søren
         private void dataGridViewClassOverviewClassManagement_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -50,7 +48,6 @@ namespace FitHub._1._UserInterface
 
             if (classID == DBNull.Value || classID == null) return;
             int classID_ = Convert.ToInt32(classID);
-
 
             string columnName = dataGridViewClassOverviewClassManagement.Columns[e.ColumnIndex].Name;
             object newValue = dataGridViewClassOverviewClassManagement.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
@@ -82,9 +79,9 @@ namespace FitHub._1._UserInterface
         {
             List<Class> classes = bll.GetAllClassesBLL();
             dataGridViewClassOverviewClassManagement.DataSource = classes;
-
         }
 
+        // Populates the instructor drop-down box with instructor names and IDs - Nicklas and Erik
         public void ClassInstructorDropBox()
         {
             comboBoxInstructorClassManagement.Items.Clear();
@@ -98,12 +95,9 @@ namespace FitHub._1._UserInterface
 
                 comboBoxInstructorClassManagement.Items.Add(fullName);
             }
-
             // leave no selection by default
             comboBoxInstructorClassManagement.SelectedIndex = -1;
         }
-
-
 
         private void pictureBoxHelp_ClassManagement1_MouseEnter(object sender, EventArgs e)
         {
@@ -149,6 +143,8 @@ namespace FitHub._1._UserInterface
             labelHelp_ClassManagement4.Visible = false;
         }
 
+
+        //Creating class, and clearing textfields and ComboBoxes -Everyone
         private void buttonCreateClass_Click(object sender, EventArgs e)
         {
             Class classes = new Class();
@@ -173,11 +169,6 @@ namespace FitHub._1._UserInterface
                 comboBoxInstructorClassManagement.Text = null;
             }
             UpdateClasses();
-        }
-
-        private void dataGridViewClassOverviewClassManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitHub_UserInterface
 {
+    // This is a try to make UI, we dont use it, as we found a better solution - Lasse and Erik
    public class VerticalTabSettings
     {
         //-90f roterer mod venstre

@@ -61,7 +61,6 @@
             DataGridViewMembersMembersOverview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridViewMembersMembersOverview.Size = new Size(511, 542);
             DataGridViewMembersMembersOverview.TabIndex = 51;
-            DataGridViewMembersMembersOverview.CellContentClick += DataGridViewMembersMembersOverview_CellContentClick;
             // 
             // buttonSearchMember
             // 

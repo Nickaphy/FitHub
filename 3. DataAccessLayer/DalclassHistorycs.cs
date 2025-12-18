@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
+    //Everyone has participated
     public class DalClassHistory
     {
         ConnectionString connectionstring = new ConnectionString();
 
+        //Gets the class history for a specific instructor
         public List<ClassHistoryDTO> GetClassHistory(int instructorID)
         {
             List<ClassHistoryDTO> history = new List<ClassHistoryDTO>();
@@ -24,6 +26,7 @@ namespace FitHub._3._DataAccessLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    //Populate the ClassHistoryDTO object with data from the database
                     history.Add(new ClassHistoryDTO
                     {
                         ClassID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
@@ -40,6 +43,4 @@ namespace FitHub._3._DataAccessLayer
             return history;
         }
     }
-
-
 }

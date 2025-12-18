@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
+    //Everyone has participated
     internal class DalInstructor
     {
         ConnectionString connectionstring = new ConnectionString();

@@ -33,18 +33,17 @@ namespace FitHub._1._UserInterface
         }
 
         private PrintReportBLL bll2 = new PrintReportBLL();
-
         private void pictureBox_Statistics1_MouseEnter(object sender, EventArgs e)
         {
             labelHelp_Statistics.Location = new Point(pictureBox_Statistics1.Right + 10, pictureBox_Statistics1.Top);
             labelHelp_Statistics.Visible = true;
         }
-
         private void pictureBox_Statistics1_MouseLeave(object sender, EventArgs e)
         {
             labelHelp_Statistics.Visible = false;
         }
 
+        //Print report based on selected criteria - Erik, Søren.
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             string selectedReport = comboBoxSubjectPrint.Text;
@@ -62,7 +61,7 @@ namespace FitHub._1._UserInterface
                 members = bll2.GetMembersForReport(selectedReport);
             }
 
-            if (members.Count == -1)
+            if (members.Count == 0)
             {
                 MessageBox.Show("No members found for this report.");
                 return;

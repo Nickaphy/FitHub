@@ -13,26 +13,32 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace FitHub.B_BLL
 {
+    //Everyone has participated here.
     public class BLL
     {
         private readonly DalMembers dal = new();
+
+        // Middle call through BLL to delete a member
         public void DeleteMemberBLL(int memberID)
         {
             DalMembers dal = new DalMembers();
             dal.DeleteMember(memberID);
         }
 
+        //Middle call through BLL to get all members
         public List<Member> GetAllMembersBLL()
         {
             DalMembers dal = new DalMembers();
             return dal.GetAll();
         }
 
+        //Middle call through BLL to add a class -Nicklas
         public bool AddClassBLL(Class classes)
         {
             BLL_Error bll_error = new BLL_Error();
             DalClasses dal = new DalClasses();
 
+            //Validating inputs in bll_error and returning bools
             bool classCapacityErrorProceed = bll_error.classCapacityError(classes.ClassCapacity);
             bool classTypeErrorProceed = bll_error.classTypeError(classes.ClassType);
             bool instructorIdErrorProceed = bll_error.instructorIdError(classes.InstructorID.ToString());
@@ -40,6 +46,7 @@ namespace FitHub.B_BLL
             bool classTimeErrorProceed = bll_error.classTimeError(classes.ClassTime);
             bool classLocationErrorProceed = bll_error.classLocationError(classes.ClassLocation);
 
+            //Checking the bools to decide whether to proceed with adding the class
             if (classCapacityErrorProceed == true && classTypeErrorProceed == true && instructorIdErrorProceed == true && classDateErrorProceed == true && classTimeErrorProceed == true && classLocationErrorProceed == true)
             {
                 dal.AddClassDAL(classes);
@@ -48,16 +55,19 @@ namespace FitHub.B_BLL
             return false;
         }
 
+        //Middle call through BLL to add a member
         public bool AddMemberBLL(Member member)
         {
             BLL_Error bll_error = new BLL_Error();
             DalMembers dal = new DalMembers();
 
+            //Validating inputs in bll_error and returning bools
             bool emailErrorProceed = bll_error.emailError(member.Email);
             bool nameErrorProceed = bll_error.nameError(member.FirstName, member.SurName);
             bool telephoneErrorProceed = bll_error.telephoneError(member.Telephone);
             bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(member.MemberType);
 
+            //Checking the bools to decide whether to proceed with adding the member
             if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
                 //Capitalize first letter of first name and surname only and lower cases rest
@@ -75,6 +85,7 @@ namespace FitHub.B_BLL
             return false;
         }
 
+        //Middle call through BLL to update a the activity status of a member
         public string ActivityStatus(int memberID, string activityStatus)
         {
             DalMembers dalmembers = new DalMembers();
@@ -92,18 +103,21 @@ namespace FitHub.B_BLL
             return newStatus;
         }
 
+        //Middle call through BLL to get all instructors
         public List<Instructor> GetAllInstructorsBLL()
         {
             DalInstructor dal = new DalInstructor();
             return dal.GetAllInstructors();
         }
 
+        //Middle call through BLL to get all classes
         public List<Class> GetAllClassesBLL()
         {
             DalClasses dal = new DalClasses();
             return dal.GetAllClassesDAL();
         }
 
+        //Middle call through BLL to add an instructor
         public bool AddInstructorBLL(Instructor instructor)
         {
             BLL_Error bll_error = new BLL_Error();
@@ -119,12 +133,13 @@ namespace FitHub.B_BLL
                 instructor.SurName = char.ToUpperInvariant(instructor.SurName[0]) + instructor.SurName.Substring(1).ToLowerInvariant();
             }
 
+            //Validating inputs in bll_error and returning bools
             bool emailErrorProceed = bll_error.emailError(instructor.Email);
             bool nameErrorProceed = bll_error.nameError(instructor.FirstName, instructor.SurName);
             bool telephoneErrorProceed = bll_error.telephoneError(instructor.Telephone);
             bool DropBoxTypeErrorProceed = bll_error.DropBoxTypeError(instructor.Certification);
 
-
+            //Checking the bools to decide whether to proceed with adding the instructor
             if (emailErrorProceed == true && nameErrorProceed == true && telephoneErrorProceed == true && DropBoxTypeErrorProceed == true)
             {
                 dal.AddInstructor(instructor);
@@ -133,6 +148,7 @@ namespace FitHub.B_BLL
             return false;
         }
 
+        //Middle call through BLL to book a class
         public void BookingClass(int classID, int memberID)
         {
             DalBooking dal = new DalBooking();
@@ -145,12 +161,10 @@ namespace FitHub.B_BLL
             int capacity = 0;
             if (cls == null)
             {
-                // class not found
                 errorMessages.ClassCapacityErrorMessage();
             }
             else if (!int.TryParse(cls.ClassCapacity, out var parsed))
             {
-                // capacity value invalid
                 errorMessages.ClassCapacityErrorMessage();
             }
             else
@@ -179,24 +193,28 @@ namespace FitHub.B_BLL
             dal.BookingClassDAL(classID, memberID);
         }
 
+        //Middle call through BLL to get class history for an instructor
         public List<ClassHistoryDTO> GetClassHistory(int InstructorID)
         {
             DalClassHistory dal = new DalClassHistory();
             return dal.GetClassHistory(InstructorID);
         }
 
+        //Middle call through BLL to get member history
         DalMemberHistory dalHistory = new DalMemberHistory();
         public List<MemberHistoryDTO> GetMemberHistory(int memberID)
         {
             return dalHistory.GetMemberHistory(memberID);
         }
 
+        //Middle call through BLL to get instructor - view members
         DalInstructorViewMembers dalViewMembers = new DalInstructorViewMembers();
         public List<InstructorViewMembersDTO> GetInstructorViewMembers(int classID)
         {
             return dalViewMembers.GetInstructorViewMembers(classID);
         }
 
+        //Middle call through BLL to get popular classes (sum)
         DalPrintReport dalPopClassSum = new DalPrintReport();
         public List<Member> GetPopClassSum()
         {
@@ -209,6 +227,7 @@ namespace FitHub.B_BLL
 
             public List<Member> GetMembersForReport(string selectedReport)
             {
+                //Deciding which report was chosen and calling the relevant DAL method
                 switch (selectedReport)
                 {
                     case "Inactive Members":
@@ -228,7 +247,6 @@ namespace FitHub.B_BLL
                 }
             }
 
-            // New overload that accepts date range
             public List<Member> GetMembersForReport(string selectedReport, DateTime startDate, DateTime endDate)
             {
                 switch (selectedReport)
@@ -251,6 +269,4 @@ namespace FitHub.B_BLL
             }
         }
     }
-
-
 }

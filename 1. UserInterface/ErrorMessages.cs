@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace FitHub._1._UserInterface
 {
+    // This is errormessages class that contains all the error messages used in the application - Nicklas
     internal class ErrorMessages
     {
         public void NameErrorMessage()

@@ -36,8 +36,8 @@ namespace FitHub._1._UserInterface
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             dataGridViewInstructorOverviewInstructorManagement.DataSource = instructors;
+            //fix for new UI and in cell editing -Nicklas
             dataGridViewInstructorOverviewInstructorManagement.CellEndEdit += dataGridViewInstructorOverviewInstructorManagement_CellEndEdit;
-
         }
 
         private void UpdateInstructors()
@@ -46,6 +46,7 @@ namespace FitHub._1._UserInterface
             dataGridViewInstructorOverviewInstructorManagement.DataSource = instructors;
         }
 
+        //Event handling for figuring out which item in a cell is chosen and calling the correct update method -Søren and Nicklas
         private void dataGridViewInstructorOverviewInstructorManagement_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -53,7 +54,6 @@ namespace FitHub._1._UserInterface
 
             if (instructorID == DBNull.Value || instructorID == null) return;
             int instructorID_ = Convert.ToInt32(instructorID);
-
 
             string columnName = dataGridViewInstructorOverviewInstructorManagement.Columns[e.ColumnIndex].Name;
             object newValue = dataGridViewInstructorOverviewInstructorManagement.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
@@ -77,8 +77,7 @@ namespace FitHub._1._UserInterface
             }
         }
 
-
-
+        // Populates the instructor dropdown box -Everyone
         public void ClassInstructorDropBox()
         {
             comboBoxInstructorCertInstructorManagement.Items.Clear();
@@ -92,47 +91,45 @@ namespace FitHub._1._UserInterface
 
                 comboBoxInstructorCertInstructorManagement.Items.Add(fullName);
             }
-
             // leave no selection by default
             comboBoxInstructorCertInstructorManagement.SelectedIndex = -1;
         }
 
-
-
-
+        // -Lasse
         private void pictureBox_InstructorManagement1_MouseEnter(object sender, EventArgs e)
         {
             labelHelp_InstructorManagement1.Location = new Point(pictureBox_InstructorManagement1.Right - 100, pictureBox_InstructorManagement1.Bottom + 10);
             labelHelp_InstructorManagement1.Visible = true;
         }
-
+        // -Lasse
         private void pictureBox_InstructorManagement1_MouseLeave(object sender, EventArgs e)
         {
             labelHelp_InstructorManagement1.Visible = false;
         }
-
+        // -Lasse
         private void pictureBox_InstructorManagement2_MouseEnter(object sender, EventArgs e)
         {
             labelHelp_InstructorManagement2.Location = new Point(pictureBox_InstructorManagement2.Right + 10, pictureBox_InstructorManagement2.Top);
             labelHelp_InstructorManagement2.Visible = true;
         }
-
+        // -Lasse
         private void pictureBox_InstructorManagement2_MouseLeave(object sender, EventArgs e)
         {
             labelHelp_InstructorManagement2.Visible = false;
         }
-
+        // -Lasse
         private void pictureBox_InstructorManagement3_MouseEnter(object sender, EventArgs e)
         {
             labelHelp_InstructorManagement33.Location = new Point(pictureBox_InstructorManagement3.Right + 10, pictureBox_InstructorManagement3.Top);
             labelHelp_InstructorManagement33.Visible = true;
         }
 
+        // -Lasse
         private void pictureBox_InstructorManagement3_MouseLeave(object sender, EventArgs e)
         {
             labelHelp_InstructorManagement33.Visible = false;
         }
-
+        // -Lasse
         private void buttonAddInstructor_Click(object sender, EventArgs e)
         {
             Instructor instructor = new Instructor
@@ -158,11 +155,10 @@ namespace FitHub._1._UserInterface
                 // Refresh UI lists
                 UpdateInstructors();
                 ClassInstructorDropBox();
-
             }
-
-
         }
+
+        
         void buttonDeleteInstructor_Click(object sender, EventArgs e)
         {
             if (dataGridViewInstructorOverviewInstructorManagement.SelectedRows.Count > 0)
@@ -178,13 +174,6 @@ namespace FitHub._1._UserInterface
             {
                 MessageBox.Show("Please select a row");
             }
-
-
-        }
-
-        private void dataGridViewInstructorOverviewInstructorManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

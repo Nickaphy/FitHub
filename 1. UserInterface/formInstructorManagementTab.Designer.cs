@@ -244,7 +244,6 @@
             dataGridViewInstructorOverviewInstructorManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewInstructorOverviewInstructorManagement.Size = new Size(783, 533);
             dataGridViewInstructorOverviewInstructorManagement.TabIndex = 94;
-            dataGridViewInstructorOverviewInstructorManagement.CellContentClick += dataGridViewInstructorOverviewInstructorManagement_CellContentClick;
             // 
             // labelHelp_InstructorManagement1
             // 

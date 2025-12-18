@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
+    //Everyone has participated
     internal class DalMemberHistory
     {
         ConnectionString connectionstring = new ConnectionString();
 
+
+        //Gets the member history for a specific member
         public List<MemberHistoryDTO> GetMemberHistory(int memberID)
         {
             List<MemberHistoryDTO> history = new List<MemberHistoryDTO>();
@@ -41,6 +44,4 @@ namespace FitHub._3._DataAccessLayer
             return history;
         }
     }
-
-
 }

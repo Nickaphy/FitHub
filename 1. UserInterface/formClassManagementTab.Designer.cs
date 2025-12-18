@@ -178,7 +178,6 @@
             dataGridViewClassOverviewClassManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClassOverviewClassManagement.Size = new Size(783, 533);
             dataGridViewClassOverviewClassManagement.TabIndex = 15;
-            dataGridViewClassOverviewClassManagement.CellContentClick += dataGridViewClassOverviewClassManagement_CellContentClick;
             // 
             // labelClassOverviewClassManagement
             // 

@@ -9,8 +9,10 @@ namespace FitHub._3._DataAccessLayer
 {
     public class DalBooking
     {
+        //Everyone has participated
         ConnectionString connectionstring = new ConnectionString();
 
+        //Gets the number of bookings for a specific class
         public int GetBookingCountDAL(int classID)
         {
             using var con = new SqlConnection(connectionstring.conn);
@@ -22,6 +24,7 @@ namespace FitHub._3._DataAccessLayer
             return count;
         }
 
+        //Books a class for a member
         public void BookingClassDAL(int classID, int memberID)
         {
             using var con = new SqlConnection(connectionstring.conn);
@@ -36,6 +39,7 @@ namespace FitHub._3._DataAccessLayer
             con.Close();
         }
 
+        //Checks for double booking of a class for a member
         public int CheckDoubleBookingDAL(int classID, int memberID)
         {
             using var con = new SqlConnection(connectionstring.conn);

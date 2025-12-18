@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace FitHub._3._DataAccessLayer
 {
+    //Everyone has participated
     public class DalInstructorViewMembers
     {
         ConnectionString connectionstring = new ConnectionString();
 
+        //Gets the members booked for a specific class
         public List<InstructorViewMembersDTO> GetInstructorViewMembers(int classID)
         {
             List<InstructorViewMembersDTO> viewMembers = new List<InstructorViewMembersDTO>();

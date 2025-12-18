@@ -17,7 +17,6 @@ namespace FitHub._1._UserInterface
 {
     public partial class formMemberOverviewTab : Form
     {
-
         BLL bll;
         DalMembers dalMembers;
         DalInstructor dalinstructor;
@@ -80,6 +79,7 @@ namespace FitHub._1._UserInterface
             labelHelp_MemberOverview3.Visible = false;
         }
 
+        // Shows the selected member's history in the member history data grid view -Everyone
         private void buttonMemberHistory_Click(object sender, EventArgs e)
         {
 
@@ -95,6 +95,7 @@ namespace FitHub._1._UserInterface
             }
         }
 
+        // Member Search -Lasse, Erik and Lucas
         private void buttonSearchMember_Click(object sender, EventArgs e)
         {
             Member member = new Member();
@@ -114,11 +115,6 @@ namespace FitHub._1._UserInterface
             textBoxSearchBarMember.Text = "";
             textBoxSearchBarMember.Text = "Search for...";
             textBoxSearchBarMember.ForeColor = Color.FromArgb(73, 125, 201);
-        }
-
-        private void DataGridViewMembersMembersOverview_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void textBoxSearchBarMember_MouseClick(object sender, MouseEventArgs e)

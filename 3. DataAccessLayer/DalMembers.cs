@@ -12,10 +12,12 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace FitHub.C_DAL
 {
+    //Everyone has participated
     public class DalMembers
     {
         ConnectionString connectionstring = new ConnectionString();
 
+        //Delete member from database via memberID
         public void DeleteMember(int memberID)
         {
             using var con = new SqlConnection(connectionstring.conn);
@@ -25,6 +27,7 @@ namespace FitHub.C_DAL
             delMemCmd.ExecuteNonQuery();
         }
 
+        //Get all members from database and return as a list
         public List<Member> GetAll()
         {
             List<Member> memberList = new List<Member>();
@@ -35,6 +38,7 @@ namespace FitHub.C_DAL
 
             while (reader.Read())
             {
+                //Reads members into list
                 memberList.Add(new Member
                 {
                     MemberID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
@@ -51,6 +55,7 @@ namespace FitHub.C_DAL
             return memberList;
         }
 
+        //Adding member 
         public void AddMember(Member member)
         {
             BLL bll = new BLL();
@@ -72,6 +77,7 @@ namespace FitHub.C_DAL
             con.Close();
         }
 
+        //Update single column for a member based on memberID and column name. (CellEndEdit)
         public void UpdateSingleColumnMember(int memberID_, string columnName, object newValue)
         {
             using (SqlConnection con = new SqlConnection(connectionstring.conn))
@@ -98,6 +104,7 @@ namespace FitHub.C_DAL
             }
         }
 
+        //Changing activity status for a member
         public void ChangeActivity(string newStatus, int memberID)
         {
             using var con = new SqlConnection(connectionstring.conn);
