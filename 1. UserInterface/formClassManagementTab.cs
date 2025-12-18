@@ -26,11 +26,8 @@ namespace FitHub._1._UserInterface
         DalClasses dalclasses;
         DalPrintReport dalprintreport;
 
-        
-
         public formClassManagementTab()
         {
-           
             InitializeComponent();
             bll = new BLL();
             dalinstructor = new DalInstructor();
@@ -40,12 +37,13 @@ namespace FitHub._1._UserInterface
 
             List<Class> classes = bll.GetAllClassesBLL();
             dataGridViewClassOverviewClassManagement.DataSource = classes;
+            dataGridViewClassOverviewClassManagement.CellEndEdit += dataGridViewClassOverviewClassManagement_CellEndEdit;
+            dataGridViewClassOverviewClassManagement.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             ClassInstructorDropBox();
-           
         }
-       
-        private void ClassManGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridViewClassOverviewClassManagement_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             var classID = dataGridViewClassOverviewClassManagement.Rows[e.RowIndex].Cells["ClassID"].Value;
@@ -85,7 +83,6 @@ namespace FitHub._1._UserInterface
             List<Class> classes = bll.GetAllClassesBLL();
             dataGridViewClassOverviewClassManagement.DataSource = classes;
 
-            
         }
 
         public void ClassInstructorDropBox()
@@ -176,8 +173,11 @@ namespace FitHub._1._UserInterface
                 comboBoxInstructorClassManagement.Text = null;
             }
             UpdateClasses();
-
         }
 
+        private void dataGridViewClassOverviewClassManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

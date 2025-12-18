@@ -47,12 +47,13 @@
             dataGridViewClassInformation.BackgroundColor = SystemColors.Window;
             dataGridViewClassInformation.BorderStyle = BorderStyle.None;
             dataGridViewClassInformation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClassInformation.Location = new Point(22, 81);
-            dataGridViewClassInformation.Margin = new Padding(4);
+            dataGridViewClassInformation.Location = new Point(36, 130);
+            dataGridViewClassInformation.Margin = new Padding(6, 6, 6, 6);
             dataGridViewClassInformation.Name = "dataGridViewClassInformation";
+            dataGridViewClassInformation.RowHeadersVisible = false;
             dataGridViewClassInformation.RowHeadersWidth = 82;
             dataGridViewClassInformation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewClassInformation.Size = new Size(354, 390);
+            dataGridViewClassInformation.Size = new Size(575, 624);
             dataGridViewClassInformation.TabIndex = 10;
             // 
             // labelClassOverviewBooking
@@ -61,9 +62,10 @@
             labelClassOverviewBooking.BackColor = Color.FromArgb(31, 34, 56);
             labelClassOverviewBooking.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             labelClassOverviewBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewBooking.Location = new Point(19, 30);
+            labelClassOverviewBooking.Location = new Point(31, 48);
+            labelClassOverviewBooking.Margin = new Padding(5, 0, 5, 0);
             labelClassOverviewBooking.Name = "labelClassOverviewBooking";
-            labelClassOverviewBooking.Size = new Size(259, 28);
+            labelClassOverviewBooking.Size = new Size(407, 45);
             labelClassOverviewBooking.TabIndex = 68;
             labelClassOverviewBooking.Text = "Members on specific class";
             // 
@@ -72,9 +74,10 @@
             pictureBox1.BackColor = Color.FromArgb(31, 34, 56);
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(467, 135);
+            pictureBox1.Location = new Point(759, 216);
+            pictureBox1.Margin = new Padding(5, 5, 5, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(495, 330);
+            pictureBox1.Size = new Size(804, 528);
             pictureBox1.TabIndex = 70;
             pictureBox1.TabStop = false;
             // 
@@ -85,9 +88,10 @@
             buttonCloseDown.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonCloseDown.ForeColor = SystemColors.ButtonHighlight;
             buttonCloseDown.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonCloseDown.Location = new Point(975, 10);
+            buttonCloseDown.Location = new Point(1584, 16);
+            buttonCloseDown.Margin = new Padding(5, 5, 5, 5);
             buttonCloseDown.Name = "buttonCloseDown";
-            buttonCloseDown.Size = new Size(34, 35);
+            buttonCloseDown.Size = new Size(55, 56);
             buttonCloseDown.TabIndex = 71;
             buttonCloseDown.Text = "X";
             buttonCloseDown.UseVisualStyleBackColor = true;
@@ -100,9 +104,10 @@
             panel1.Controls.Add(pictureBoxHelp_ClassInformation);
             panel1.Controls.Add(dataGridViewClassInformation);
             panel1.Controls.Add(labelClassOverviewBooking);
-            panel1.Location = new Point(58, 54);
+            panel1.Location = new Point(94, 86);
+            panel1.Margin = new Padding(5, 5, 5, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(911, 498);
+            panel1.Size = new Size(1480, 797);
             panel1.TabIndex = 72;
             // 
             // labelHelpClassinformation
@@ -112,10 +117,11 @@
             labelHelpClassinformation.BorderStyle = BorderStyle.FixedSingle;
             labelHelpClassinformation.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelpClassinformation.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelpClassinformation.Location = new Point(276, 9);
+            labelHelpClassinformation.Location = new Point(448, 14);
+            labelHelpClassinformation.Margin = new Padding(5, 0, 5, 0);
             labelHelpClassinformation.Name = "labelHelpClassinformation";
-            labelHelpClassinformation.Padding = new Padding(1);
-            labelHelpClassinformation.Size = new Size(307, 19);
+            labelHelpClassinformation.Padding = new Padding(2, 2, 2, 2);
+            labelHelpClassinformation.Size = new Size(487, 31);
             labelHelpClassinformation.TabIndex = 70;
             labelHelpClassinformation.Text = "A list of all the members assigned to this specific class";
             labelHelpClassinformation.Visible = false;
@@ -124,9 +130,10 @@
             // 
             pictureBoxHelp_ClassInformation.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_ClassInformation.BackgroundImage");
             pictureBoxHelp_ClassInformation.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBoxHelp_ClassInformation.Location = new Point(276, 37);
+            pictureBoxHelp_ClassInformation.Location = new Point(448, 59);
+            pictureBoxHelp_ClassInformation.Margin = new Padding(5, 5, 5, 5);
             pictureBoxHelp_ClassInformation.Name = "pictureBoxHelp_ClassInformation";
-            pictureBoxHelp_ClassInformation.Size = new Size(20, 20);
+            pictureBoxHelp_ClassInformation.Size = new Size(32, 32);
             pictureBoxHelp_ClassInformation.TabIndex = 69;
             pictureBoxHelp_ClassInformation.TabStop = false;
             pictureBoxHelp_ClassInformation.MouseEnter += pictureBoxHelp_ClassInformation_MouseEnter;
@@ -134,16 +141,17 @@
             // 
             // formClassInformation
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 49, 84);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1018, 597);
+            ClientSize = new Size(1654, 955);
             Controls.Add(buttonCloseDown);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(5, 5, 5, 5);
             Name = "formClassInformation";
             Text = "formClassInformation";
             MouseDown += formClassInformation_MouseDown;

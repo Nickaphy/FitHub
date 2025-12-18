@@ -118,18 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonSearchBooking.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACkAAAAjCAYAAAAJ+yOQAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFPSURBVFhH7ZfNDcIwDIU7AiN0hI7Qa26MwAgsEIkN
-        GIERGIFzTh2hIzAC6EWvUmSVkDQ/RSif5ItDm1fbsUPXNRqNfVDaDEqbkXaQ67tBQXelzVNp83BsVtpM
-        SpuTfKYaiBTFQchRrgNG9kbBg1wvCgVC3FWurYGPqC6U6bxIvw9GFSVRvlZRYxAp/SHgw5B+6c8O0zxK
-        fyhMey/92WAtztIfA+q46Ilnu0lKFw9RVD1HQZFJG/Adm2o6CG4Q1HY+keMdXthGkqKgtDmnZuMrqaeT
-        3aFsU2ev2xQJpnqS/uywDWFyREVjaV9F24+LM+KChDqz/hXzXDJMHSLjTb3zOwhcrKpQRAhXMWxqJwlF
-        2YbtRG/N6lw2FigWAu2hoqHV9E5pSJEwfEQ9oT7+RWjSfSArFCoFwpKmWHZYu1JkuVm+Fec/j031z9Rk
-        o9HYiTd+GlhY24cgOAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="buttonAddInstructor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACkAAAAjCAYAAAAJ+yOQAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m

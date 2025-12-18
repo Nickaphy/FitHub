@@ -38,6 +38,7 @@ namespace FitHub._1._UserInterface
 
             List<Member> members = bll.GetAllMembersBLL();
             dataGridViewClassOverviewClassManagement.DataSource = members;
+            dataGridViewClassOverviewClassManagement.CellEndEdit += dataGridViewClassOverviewClassManagement_CellEndEdit;
 
 
         }
@@ -50,7 +51,7 @@ namespace FitHub._1._UserInterface
 
         }
 
-        public void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        public void dataGridViewClassOverviewClassManagement_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             var memberID = dataGridViewClassOverviewClassManagement.Rows[e.RowIndex].Cells["MemberID"].Value;
@@ -177,6 +178,11 @@ namespace FitHub._1._UserInterface
             bll.ActivityStatus(memberID, activityStatus);
             UpdateMembers();
 
+
+        }
+
+        private void dataGridViewClassOverviewClassManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

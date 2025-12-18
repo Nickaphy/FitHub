@@ -36,7 +36,7 @@ namespace FitHub._1._UserInterface
 
             List<Instructor> instructors = bll.GetAllInstructorsBLL();
             dataGridViewInstructorOverviewInstructorManagement.DataSource = instructors;
-
+            dataGridViewInstructorOverviewInstructorManagement.CellEndEdit += dataGridViewInstructorOverviewInstructorManagement_CellEndEdit;
 
         }
 
@@ -46,7 +46,7 @@ namespace FitHub._1._UserInterface
             dataGridViewInstructorOverviewInstructorManagement.DataSource = instructors;
         }
 
-        private void InstructorGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewInstructorOverviewInstructorManagement_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             var instructorID = dataGridViewInstructorOverviewInstructorManagement.Rows[e.RowIndex].Cells["InstructorID"].Value;
@@ -163,7 +163,7 @@ namespace FitHub._1._UserInterface
 
 
         }
-         void buttonDeleteInstructor_Click(object sender, EventArgs e)
+        void buttonDeleteInstructor_Click(object sender, EventArgs e)
         {
             if (dataGridViewInstructorOverviewInstructorManagement.SelectedRows.Count > 0)
             {
@@ -179,6 +179,11 @@ namespace FitHub._1._UserInterface
                 MessageBox.Show("Please select a row");
             }
 
+
+        }
+
+        private void dataGridViewInstructorOverviewInstructorManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

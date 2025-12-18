@@ -35,19 +35,17 @@ namespace FitHub._1._UserInterface
 
             List<Member> members = bll.GetAllMembersBLL();
             DataGridViewMembersMembersOverview.DataSource = members;
-
-
             UpdateMembers();
         }
+
+
+
 
         private void UpdateMembers()
         {
             List<Member> members = bll.GetAllMembersBLL();
             DataGridViewMembersMembersOverview.DataSource = members;
-            
         }
-
-
 
         private void pictureBox_MemberOverview1_MouseEnter(object sender, EventArgs e)
         {
@@ -94,17 +92,13 @@ namespace FitHub._1._UserInterface
                 var history = bll.GetMemberHistory(memberID);
 
                 dataGridViewMemberHistory.DataSource = history;
-
             }
-
-
         }
 
         private void buttonSearchMember_Click(object sender, EventArgs e)
         {
             Member member = new Member();
             string searchTerm = textBoxSearchBarMember.Text;
-
 
             if (string.IsNullOrWhiteSpace(searchTerm) == false)
                 searchTerm = char.ToUpperInvariant(searchTerm[0]) + searchTerm.Substring(1).ToLowerInvariant();
@@ -118,9 +112,22 @@ namespace FitHub._1._UserInterface
             ).ToList();
             DataGridViewMembersMembersOverview.DataSource = filteredMembers;
             textBoxSearchBarMember.Text = "";
-            //Capitalize first
+            textBoxSearchBarMember.Text = "Search for...";
+            textBoxSearchBarMember.ForeColor = Color.FromArgb(73, 125, 201);
+        }
 
+        private void DataGridViewMembersMembersOverview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
+
+        private void textBoxSearchBarMember_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBoxSearchBarMember.Text == "Search for...")
+            {
+                textBoxSearchBarMember.Text = "";
+                textBoxSearchBarMember.ForeColor = Color.White;
+            }
         }
     }
 }
