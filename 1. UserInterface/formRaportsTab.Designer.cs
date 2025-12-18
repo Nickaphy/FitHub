@@ -47,12 +47,12 @@
             // labelClassTypeClassManagement
             // 
             labelClassTypeClassManagement.AutoSize = true;
-            labelClassTypeClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelClassTypeClassManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelClassTypeClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassTypeClassManagement.Location = new Point(22, 98);
+            labelClassTypeClassManagement.Location = new Point(22, 140);
             labelClassTypeClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelClassTypeClassManagement.Name = "labelClassTypeClassManagement";
-            labelClassTypeClassManagement.Size = new Size(141, 20);
+            labelClassTypeClassManagement.Size = new Size(239, 35);
             labelClassTypeClassManagement.TabIndex = 65;
             labelClassTypeClassManagement.Text = "Choose the subject";
             // 
@@ -61,21 +61,21 @@
             comboBoxSubjectPrint.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             comboBoxSubjectPrint.FormattingEnabled = true;
             comboBoxSubjectPrint.Items.AddRange(new object[] { "All Members", "Active Members", "Inactive Members", "Popular Classes (Sum)" });
-            comboBoxSubjectPrint.Location = new Point(171, 96);
+            comboBoxSubjectPrint.Location = new Point(279, 149);
             comboBoxSubjectPrint.Margin = new Padding(4);
             comboBoxSubjectPrint.Name = "comboBoxSubjectPrint";
-            comboBoxSubjectPrint.Size = new Size(194, 28);
+            comboBoxSubjectPrint.Size = new Size(202, 28);
             comboBoxSubjectPrint.TabIndex = 64;
             // 
             // labelDateClassManagement
             // 
             labelDateClassManagement.AutoSize = true;
-            labelDateClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelDateClassManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelDateClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelDateClassManagement.Location = new Point(23, 155);
+            labelDateClassManagement.Location = new Point(23, 211);
             labelDateClassManagement.Margin = new Padding(4, 0, 4, 0);
             labelDateClassManagement.Name = "labelDateClassManagement";
-            labelDateClassManagement.Size = new Size(43, 20);
+            labelDateClassManagement.Size = new Size(72, 35);
             labelDateClassManagement.TabIndex = 67;
             labelDateClassManagement.Text = "Start";
             // 
@@ -83,21 +83,21 @@
             // 
             dateTimePickerStart.CalendarFont = new Font("Nirmala UI", 9F);
             dateTimePickerStart.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            dateTimePickerStart.Location = new Point(171, 151);
+            dateTimePickerStart.Location = new Point(279, 218);
             dateTimePickerStart.Margin = new Padding(4);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(228, 27);
+            dateTimePickerStart.Size = new Size(231, 27);
             dateTimePickerStart.TabIndex = 66;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            label1.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(73, 125, 201);
-            label1.Location = new Point(23, 207);
+            label1.Location = new Point(23, 281);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(35, 20);
+            label1.Size = new Size(58, 35);
             label1.TabIndex = 69;
             label1.Text = "End";
             // 
@@ -105,20 +105,20 @@
             // 
             dateTimePickerEnd.CalendarFont = new Font("Nirmala UI", 9F);
             dateTimePickerEnd.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
-            dateTimePickerEnd.Location = new Point(171, 202);
+            dateTimePickerEnd.Location = new Point(279, 287);
             dateTimePickerEnd.Margin = new Padding(4);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(228, 27);
+            dateTimePickerEnd.Size = new Size(231, 27);
             dateTimePickerEnd.TabIndex = 68;
             // 
             // labelMemberInformationMemberManagement
             // 
             labelMemberInformationMemberManagement.AutoSize = true;
-            labelMemberInformationMemberManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
+            labelMemberInformationMemberManagement.Font = new Font("Nirmala UI", 25F, FontStyle.Bold);
             labelMemberInformationMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelMemberInformationMemberManagement.Location = new Point(22, 21);
+            labelMemberInformationMemberManagement.Location = new Point(15, 11);
             labelMemberInformationMemberManagement.Name = "labelMemberInformationMemberManagement";
-            labelMemberInformationMemberManagement.Size = new Size(216, 35);
+            labelMemberInformationMemberManagement.Size = new Size(361, 57);
             labelMemberInformationMemberManagement.TabIndex = 70;
             labelMemberInformationMemberManagement.Text = "Statistics to print";
             // 
@@ -131,7 +131,7 @@
             buttonPrint.ForeColor = Color.FromArgb(73, 125, 201);
             buttonPrint.Image = (Image)resources.GetObject("buttonPrint.Image");
             buttonPrint.ImageAlign = ContentAlignment.TopRight;
-            buttonPrint.Location = new Point(26, 428);
+            buttonPrint.Location = new Point(26, 666);
             buttonPrint.Margin = new Padding(4);
             buttonPrint.Name = "buttonPrint";
             buttonPrint.Size = new Size(375, 41);
@@ -145,9 +145,9 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(433, 86);
+            pictureBox1.Location = new Point(488, 121);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(495, 330);
+            pictureBox1.Size = new Size(804, 466);
             pictureBox1.TabIndex = 72;
             pictureBox1.TabStop = false;
             // 
@@ -158,7 +158,7 @@
             labelHelp_Statistics.BorderStyle = BorderStyle.FixedSingle;
             labelHelp_Statistics.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp_Statistics.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp_Statistics.Location = new Point(379, 72);
+            labelHelp_Statistics.Location = new Point(488, 126);
             labelHelp_Statistics.Name = "labelHelp_Statistics";
             labelHelp_Statistics.Padding = new Padding(1);
             labelHelp_Statistics.Size = new Size(336, 19);
@@ -170,7 +170,7 @@
             // 
             pictureBox_Statistics1.BackgroundImage = (Image)resources.GetObject("pictureBox_Statistics1.BackgroundImage");
             pictureBox_Statistics1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox_Statistics1.Location = new Point(379, 100);
+            pictureBox_Statistics1.Location = new Point(488, 152);
             pictureBox_Statistics1.Name = "pictureBox_Statistics1";
             pictureBox_Statistics1.Size = new Size(20, 20);
             pictureBox_Statistics1.TabIndex = 73;
@@ -183,7 +183,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
-            ClientSize = new Size(911, 498);
+            ClientSize = new Size(1225, 738);
             Controls.Add(labelHelp_Statistics);
             Controls.Add(pictureBox_Statistics1);
             Controls.Add(buttonPrint);

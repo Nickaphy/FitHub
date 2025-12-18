@@ -48,17 +48,18 @@
             // buttonBooking
             // 
             buttonBooking.BackColor = Color.FromArgb(31, 34, 56);
-            buttonBooking.BackgroundImage = (Image)resources.GetObject("buttonBooking.BackgroundImage");
             buttonBooking.BackgroundImageLayout = ImageLayout.Center;
-            buttonBooking.FlatAppearance.BorderSize = 0;
             buttonBooking.FlatStyle = FlatStyle.Flat;
             buttonBooking.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            buttonBooking.Location = new Point(496, 440);
-            buttonBooking.Margin = new Padding(6);
+            buttonBooking.Image = (Image)resources.GetObject("buttonBooking.Image");
+            buttonBooking.Location = new Point(441, 364);
+            buttonBooking.Margin = new Padding(4);
             buttonBooking.Name = "buttonBooking";
-            buttonBooking.Size = new Size(73, 72);
+            buttonBooking.Size = new Size(128, 62);
             buttonBooking.TabIndex = 10;
+            buttonBooking.Text = "Add member";
+            buttonBooking.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonBooking.UseVisualStyleBackColor = false;
             buttonBooking.Click += buttonBooking_Click;
             buttonBooking.MouseEnter += buttonBooking_MouseEnter;
@@ -69,13 +70,13 @@
             dataGridViewClassOverviewBooking.BackgroundColor = SystemColors.Window;
             dataGridViewClassOverviewBooking.BorderStyle = BorderStyle.None;
             dataGridViewClassOverviewBooking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClassOverviewBooking.Location = new Point(656, 214);
-            dataGridViewClassOverviewBooking.Margin = new Padding(6);
+            dataGridViewClassOverviewBooking.Location = new Point(592, 128);
+            dataGridViewClassOverviewBooking.Margin = new Padding(4);
             dataGridViewClassOverviewBooking.Name = "dataGridViewClassOverviewBooking";
             dataGridViewClassOverviewBooking.RowHeadersVisible = false;
             dataGridViewClassOverviewBooking.RowHeadersWidth = 82;
             dataGridViewClassOverviewBooking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewClassOverviewBooking.Size = new Size(778, 541);
+            dataGridViewClassOverviewBooking.Size = new Size(606, 582);
             dataGridViewClassOverviewBooking.TabIndex = 9;
             // 
             // dataGridViewMemberBooking
@@ -83,36 +84,34 @@
             dataGridViewMemberBooking.BackgroundColor = SystemColors.Window;
             dataGridViewMemberBooking.BorderStyle = BorderStyle.None;
             dataGridViewMemberBooking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMemberBooking.Location = new Point(41, 214);
-            dataGridViewMemberBooking.Margin = new Padding(6);
+            dataGridViewMemberBooking.Location = new Point(26, 128);
+            dataGridViewMemberBooking.Margin = new Padding(4);
             dataGridViewMemberBooking.Name = "dataGridViewMemberBooking";
             dataGridViewMemberBooking.RowHeadersVisible = false;
             dataGridViewMemberBooking.RowHeadersWidth = 82;
             dataGridViewMemberBooking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewMemberBooking.Size = new Size(375, 541);
+            dataGridViewMemberBooking.Size = new Size(395, 584);
             dataGridViewMemberBooking.TabIndex = 8;
             // 
             // labelMemberBooking
             // 
             labelMemberBooking.AutoSize = true;
-            labelMemberBooking.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
+            labelMemberBooking.Font = new Font("Nirmala UI", 20F, FontStyle.Bold);
             labelMemberBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelMemberBooking.Location = new Point(29, 133);
-            labelMemberBooking.Margin = new Padding(5, 0, 5, 0);
+            labelMemberBooking.Location = new Point(19, 59);
             labelMemberBooking.Name = "labelMemberBooking";
-            labelMemberBooking.Size = new Size(147, 45);
+            labelMemberBooking.Size = new Size(155, 46);
             labelMemberBooking.TabIndex = 11;
             labelMemberBooking.Text = "Member";
             // 
             // labelClassOverviewBooking
             // 
             labelClassOverviewBooking.AutoSize = true;
-            labelClassOverviewBooking.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
+            labelClassOverviewBooking.Font = new Font("Nirmala UI", 20F, FontStyle.Bold);
             labelClassOverviewBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewBooking.Location = new Point(645, 133);
-            labelClassOverviewBooking.Margin = new Padding(5, 0, 5, 0);
+            labelClassOverviewBooking.Location = new Point(584, 59);
             labelClassOverviewBooking.Name = "labelClassOverviewBooking";
-            labelClassOverviewBooking.Size = new Size(244, 45);
+            labelClassOverviewBooking.Size = new Size(258, 46);
             labelClassOverviewBooking.TabIndex = 12;
             labelClassOverviewBooking.Text = "Class Overview";
             // 
@@ -120,10 +119,9 @@
             // 
             pictureBoxHelp_Booking.BackgroundImage = (Image)resources.GetObject("pictureBoxHelp_Booking.BackgroundImage");
             pictureBoxHelp_Booking.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBoxHelp_Booking.Location = new Point(177, 141);
-            pictureBoxHelp_Booking.Margin = new Padding(5);
+            pictureBoxHelp_Booking.Location = new Point(170, 78);
             pictureBoxHelp_Booking.Name = "pictureBoxHelp_Booking";
-            pictureBoxHelp_Booking.Size = new Size(32, 32);
+            pictureBoxHelp_Booking.Size = new Size(20, 20);
             pictureBoxHelp_Booking.TabIndex = 15;
             pictureBoxHelp_Booking.TabStop = false;
             pictureBoxHelp_Booking.MouseEnter += pictureBoxHelp_Booking_MouseEnter;
@@ -136,11 +134,10 @@
             labelHelp.BorderStyle = BorderStyle.FixedSingle;
             labelHelp.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp.Location = new Point(177, 96);
-            labelHelp.Margin = new Padding(5, 0, 5, 0);
+            labelHelp.Location = new Point(168, 52);
             labelHelp.Name = "labelHelp";
-            labelHelp.Padding = new Padding(2);
-            labelHelp.Size = new Size(253, 31);
+            labelHelp.Padding = new Padding(1);
+            labelHelp.Size = new Size(158, 19);
             labelHelp.TabIndex = 16;
             labelHelp.Text = "A list showing all members";
             labelHelp.Visible = false;
@@ -152,11 +149,10 @@
             labelAddingMemberToClass.BorderStyle = BorderStyle.FixedSingle;
             labelAddingMemberToClass.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelAddingMemberToClass.ForeColor = Color.FromArgb(73, 125, 201);
-            labelAddingMemberToClass.Location = new Point(515, 418);
-            labelAddingMemberToClass.Margin = new Padding(5, 0, 5, 0);
+            labelAddingMemberToClass.Location = new Point(496, 332);
             labelAddingMemberToClass.Name = "labelAddingMemberToClass";
-            labelAddingMemberToClass.Padding = new Padding(2);
-            labelAddingMemberToClass.Size = new Size(262, 31);
+            labelAddingMemberToClass.Padding = new Padding(1);
+            labelAddingMemberToClass.Size = new Size(162, 19);
             labelAddingMemberToClass.TabIndex = 17;
             labelAddingMemberToClass.Text = "Adding a member to a class";
             labelAddingMemberToClass.Visible = false;
@@ -168,11 +164,10 @@
             labelHelpClassOverviewBooking.BorderStyle = BorderStyle.FixedSingle;
             labelHelpClassOverviewBooking.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelpClassOverviewBooking.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelpClassOverviewBooking.Location = new Point(897, 98);
-            labelHelpClassOverviewBooking.Margin = new Padding(5, 0, 5, 0);
+            labelHelpClassOverviewBooking.Location = new Point(837, 52);
             labelHelpClassOverviewBooking.Name = "labelHelpClassOverviewBooking";
-            labelHelpClassOverviewBooking.Padding = new Padding(2);
-            labelHelpClassOverviewBooking.Size = new Size(229, 31);
+            labelHelpClassOverviewBooking.Padding = new Padding(1);
+            labelHelpClassOverviewBooking.Size = new Size(142, 19);
             labelHelpClassOverviewBooking.TabIndex = 19;
             labelHelpClassOverviewBooking.Text = "A list showing all classes";
             labelHelpClassOverviewBooking.Visible = false;
@@ -181,10 +176,9 @@
             // 
             pictureBoxHelpClassOverview.BackgroundImage = (Image)resources.GetObject("pictureBoxHelpClassOverview.BackgroundImage");
             pictureBoxHelpClassOverview.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBoxHelpClassOverview.Location = new Point(897, 142);
-            pictureBoxHelpClassOverview.Margin = new Padding(5);
+            pictureBoxHelpClassOverview.Location = new Point(838, 78);
             pictureBoxHelpClassOverview.Name = "pictureBoxHelpClassOverview";
-            pictureBoxHelpClassOverview.Size = new Size(32, 32);
+            pictureBoxHelpClassOverview.Size = new Size(20, 20);
             pictureBoxHelpClassOverview.TabIndex = 18;
             pictureBoxHelpClassOverview.TabStop = false;
             pictureBoxHelpClassOverview.MouseEnter += pictureBoxHelpClassOverview_MouseEnter;
@@ -192,10 +186,10 @@
             // 
             // formBookingTab
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
-            ClientSize = new Size(1480, 797);
+            ClientSize = new Size(1225, 738);
             Controls.Add(labelHelpClassOverviewBooking);
             Controls.Add(pictureBoxHelpClassOverview);
             Controls.Add(labelAddingMemberToClass);
@@ -207,7 +201,6 @@
             Controls.Add(dataGridViewClassOverviewBooking);
             Controls.Add(dataGridViewMemberBooking);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5);
             Name = "formBookingTab";
             Text = "formBookingTab";
             ((System.ComponentModel.ISupportInitialize)dataGridViewClassOverviewBooking).EndInit();

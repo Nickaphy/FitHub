@@ -146,7 +146,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.ImeMode = ImeMode.Alpha;
             tabControl1.ItemSize = new Size(140, 35);
-            tabControl1.Location = new Point(815, 425);
+            tabControl1.Location = new Point(1042, 615);
             tabControl1.Margin = new Padding(1);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
@@ -776,9 +776,9 @@
             pictureBoxFitHubLogo.BackColor = Color.FromArgb(31, 34, 56);
             pictureBoxFitHubLogo.BackgroundImage = (Image)resources.GetObject("pictureBoxFitHubLogo.BackgroundImage");
             pictureBoxFitHubLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBoxFitHubLogo.Location = new Point(51, 24);
+            pictureBoxFitHubLogo.Location = new Point(47, 20);
             pictureBoxFitHubLogo.Name = "pictureBoxFitHubLogo";
-            pictureBoxFitHubLogo.Size = new Size(108, 77);
+            pictureBoxFitHubLogo.Size = new Size(223, 145);
             pictureBoxFitHubLogo.TabIndex = 2;
             pictureBoxFitHubLogo.TabStop = false;
             // 
@@ -796,13 +796,13 @@
             panel1.Controls.Add(buttonClassOverview);
             panel1.Location = new Point(0, 132);
             panel1.Name = "panel1";
-            panel1.Size = new Size(220, 527);
+            panel1.Size = new Size(322, 774);
             panel1.TabIndex = 3;
             // 
             // panelNavagation
             // 
             panelNavagation.BackColor = Color.FromArgb(0, 126, 189);
-            panelNavagation.Location = new Point(0, 1);
+            panelNavagation.Location = new Point(0, 62);
             panelNavagation.Name = "panelNavagation";
             panelNavagation.Size = new Size(3, 62);
             panelNavagation.TabIndex = 4;
@@ -816,9 +816,9 @@
             buttonBookingTab.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBookingTab.ForeColor = Color.FromArgb(73, 125, 201);
             buttonBookingTab.Image = (Image)resources.GetObject("buttonBookingTab.Image");
-            buttonBookingTab.Location = new Point(0, 1);
+            buttonBookingTab.Location = new Point(0, 56);
             buttonBookingTab.Name = "buttonBookingTab";
-            buttonBookingTab.Size = new Size(220, 62);
+            buttonBookingTab.Size = new Size(322, 62);
             buttonBookingTab.TabIndex = 7;
             buttonBookingTab.Text = "Booking";
             buttonBookingTab.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -837,9 +837,9 @@
             button2.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.FromArgb(73, 125, 201);
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(0, 372);
+            button2.Location = new Point(0, 428);
             button2.Name = "button2";
-            button2.Size = new Size(220, 62);
+            button2.Size = new Size(322, 62);
             button2.TabIndex = 6;
             button2.Text = "Statistics \r\nReports";
             button2.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -857,9 +857,9 @@
             buttonMemberOverview.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonMemberOverview.ForeColor = Color.FromArgb(73, 125, 201);
             buttonMemberOverview.Image = (Image)resources.GetObject("buttonMemberOverview.Image");
-            buttonMemberOverview.Location = new Point(0, 248);
+            buttonMemberOverview.Location = new Point(0, 304);
             buttonMemberOverview.Name = "buttonMemberOverview";
-            buttonMemberOverview.Size = new Size(220, 62);
+            buttonMemberOverview.Size = new Size(322, 62);
             buttonMemberOverview.TabIndex = 5;
             buttonMemberOverview.Text = "Member\r\nOverview";
             buttonMemberOverview.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -877,9 +877,9 @@
             buttonInstructorManagemant.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInstructorManagemant.ForeColor = Color.FromArgb(73, 125, 201);
             buttonInstructorManagemant.Image = (Image)resources.GetObject("buttonInstructorManagemant.Image");
-            buttonInstructorManagemant.Location = new Point(0, 186);
+            buttonInstructorManagemant.Location = new Point(0, 242);
             buttonInstructorManagemant.Name = "buttonInstructorManagemant";
-            buttonInstructorManagemant.Size = new Size(220, 62);
+            buttonInstructorManagemant.Size = new Size(322, 62);
             buttonInstructorManagemant.TabIndex = 4;
             buttonInstructorManagemant.Text = "Instructor\r\nManagement";
             buttonInstructorManagemant.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -897,9 +897,9 @@
             buttonMemberManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonMemberManagement.ForeColor = Color.FromArgb(73, 125, 201);
             buttonMemberManagement.Image = (Image)resources.GetObject("buttonMemberManagement.Image");
-            buttonMemberManagement.Location = new Point(0, 124);
+            buttonMemberManagement.Location = new Point(0, 180);
             buttonMemberManagement.Name = "buttonMemberManagement";
-            buttonMemberManagement.Size = new Size(220, 62);
+            buttonMemberManagement.Size = new Size(322, 62);
             buttonMemberManagement.TabIndex = 3;
             buttonMemberManagement.Text = "Member\r\nManagement";
             buttonMemberManagement.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -917,9 +917,9 @@
             buttonClassManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
             buttonClassManagement.Image = (Image)resources.GetObject("buttonClassManagement.Image");
-            buttonClassManagement.Location = new Point(0, 62);
+            buttonClassManagement.Location = new Point(0, 118);
             buttonClassManagement.Name = "buttonClassManagement";
-            buttonClassManagement.Size = new Size(220, 62);
+            buttonClassManagement.Size = new Size(322, 62);
             buttonClassManagement.TabIndex = 2;
             buttonClassManagement.Text = "Class\r\nManagement";
             buttonClassManagement.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -937,9 +937,9 @@
             buttonLogout.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogout.ForeColor = Color.FromArgb(73, 125, 201);
             buttonLogout.Image = (Image)resources.GetObject("buttonLogout.Image");
-            buttonLogout.Location = new Point(0, 465);
+            buttonLogout.Location = new Point(0, 706);
             buttonLogout.Name = "buttonLogout";
-            buttonLogout.Size = new Size(220, 62);
+            buttonLogout.Size = new Size(322, 62);
             buttonLogout.TabIndex = 8;
             buttonLogout.Text = "Logout";
             buttonLogout.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -957,9 +957,9 @@
             buttonClassOverview.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonClassOverview.ForeColor = Color.FromArgb(73, 125, 201);
             buttonClassOverview.Image = (Image)resources.GetObject("buttonClassOverview.Image");
-            buttonClassOverview.Location = new Point(0, 310);
+            buttonClassOverview.Location = new Point(0, 366);
             buttonClassOverview.Name = "buttonClassOverview";
-            buttonClassOverview.Size = new Size(220, 62);
+            buttonClassOverview.Size = new Size(322, 62);
             buttonClassOverview.TabIndex = 9;
             buttonClassOverview.Text = "Class\r\nOverview";
             buttonClassOverview.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -974,7 +974,7 @@
             panel2.Controls.Add(pictureBoxFitHubLogo);
             panel2.Location = new Point(0, 1);
             panel2.Name = "panel2";
-            panel2.Size = new Size(220, 132);
+            panel2.Size = new Size(322, 187);
             panel2.TabIndex = 0;
             // 
             // buttonCloseDown
@@ -984,7 +984,7 @@
             buttonCloseDown.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonCloseDown.ForeColor = SystemColors.ButtonHighlight;
             buttonCloseDown.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonCloseDown.Location = new Point(1138, 12);
+            buttonCloseDown.Location = new Point(1554, 12);
             buttonCloseDown.Name = "buttonCloseDown";
             buttonCloseDown.Size = new Size(34, 35);
             buttonCloseDown.TabIndex = 5;
@@ -995,19 +995,19 @@
             // panelFormLoader
             // 
             panelFormLoader.Controls.Add(tabControl1);
-            panelFormLoader.Location = new Point(249, 133);
+            panelFormLoader.Location = new Point(349, 133);
             panelFormLoader.Name = "panelFormLoader";
-            panelFormLoader.Size = new Size(911, 498);
+            panelFormLoader.Size = new Size(1225, 738);
             panelFormLoader.TabIndex = 6;
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Microsoft Sans Serif", 38.2F, FontStyle.Bold);
+            labelTitle.Font = new Font("Microsoft Sans Serif", 46.2F, FontStyle.Bold);
             labelTitle.ForeColor = Color.White;
-            labelTitle.Location = new Point(249, 29);
+            labelTitle.Location = new Point(349, 23);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(272, 73);
+            labelTitle.Size = new Size(323, 87);
             labelTitle.TabIndex = 7;
             labelTitle.Text = "Booking";
             // 
@@ -1018,7 +1018,7 @@
             BackColor = Color.FromArgb(46, 49, 84);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1184, 659);
+            ClientSize = new Size(1600, 900);
             Controls.Add(labelTitle);
             Controls.Add(panelFormLoader);
             Controls.Add(buttonCloseDown);

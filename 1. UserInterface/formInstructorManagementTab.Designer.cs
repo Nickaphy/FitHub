@@ -62,112 +62,112 @@
             comboBoxInstructorCertInstructorManagement.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBoxInstructorCertInstructorManagement.FormattingEnabled = true;
             comboBoxInstructorCertInstructorManagement.Items.AddRange(new object[] { "Trail Running", "Forrest Yoga" });
-            comboBoxInstructorCertInstructorManagement.Location = new Point(208, 485);
+            comboBoxInstructorCertInstructorManagement.Location = new Point(199, 423);
+            comboBoxInstructorCertInstructorManagement.Margin = new Padding(2);
             comboBoxInstructorCertInstructorManagement.Name = "comboBoxInstructorCertInstructorManagement";
-            comboBoxInstructorCertInstructorManagement.Size = new Size(301, 40);
+            comboBoxInstructorCertInstructorManagement.Size = new Size(145, 28);
             comboBoxInstructorCertInstructorManagement.TabIndex = 42;
             // 
             // labelCertificationInstructorManagement
             // 
             labelCertificationInstructorManagement.AutoSize = true;
-            labelCertificationInstructorManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelCertificationInstructorManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelCertificationInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelCertificationInstructorManagement.Location = new Point(36, 498);
-            labelCertificationInstructorManagement.Margin = new Padding(2, 0, 2, 0);
+            labelCertificationInstructorManagement.Location = new Point(19, 416);
+            labelCertificationInstructorManagement.Margin = new Padding(1, 0, 1, 0);
             labelCertificationInstructorManagement.Name = "labelCertificationInstructorManagement";
-            labelCertificationInstructorManagement.Size = new Size(156, 32);
+            labelCertificationInstructorManagement.Size = new Size(162, 35);
             labelCertificationInstructorManagement.TabIndex = 41;
             labelCertificationInstructorManagement.Text = "Certification";
             // 
             // labelTLFInstructorManagement
             // 
             labelTLFInstructorManagement.AutoSize = true;
-            labelTLFInstructorManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelTLFInstructorManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelTLFInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelTLFInstructorManagement.Location = new Point(36, 408);
-            labelTLFInstructorManagement.Margin = new Padding(2, 0, 2, 0);
+            labelTLFInstructorManagement.Location = new Point(19, 347);
+            labelTLFInstructorManagement.Margin = new Padding(1, 0, 1, 0);
             labelTLFInstructorManagement.Name = "labelTLFInstructorManagement";
-            labelTLFInstructorManagement.Size = new Size(44, 32);
+            labelTLFInstructorManagement.Size = new Size(47, 35);
             labelTLFInstructorManagement.TabIndex = 40;
             labelTLFInstructorManagement.Text = "Tlf";
             // 
             // labelEmailInstructorManagement
             // 
             labelEmailInstructorManagement.AutoSize = true;
-            labelEmailInstructorManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelEmailInstructorManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelEmailInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelEmailInstructorManagement.Location = new Point(36, 318);
-            labelEmailInstructorManagement.Margin = new Padding(2, 0, 2, 0);
+            labelEmailInstructorManagement.Location = new Point(19, 278);
+            labelEmailInstructorManagement.Margin = new Padding(1, 0, 1, 0);
             labelEmailInstructorManagement.Name = "labelEmailInstructorManagement";
-            labelEmailInstructorManagement.Size = new Size(76, 32);
+            labelEmailInstructorManagement.Size = new Size(78, 35);
             labelEmailInstructorManagement.TabIndex = 39;
             labelEmailInstructorManagement.Text = "Email";
             // 
             // labelSurNameInstructorManagement
             // 
             labelSurNameInstructorManagement.AutoSize = true;
-            labelSurNameInstructorManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelSurNameInstructorManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelSurNameInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelSurNameInstructorManagement.Location = new Point(36, 238);
-            labelSurNameInstructorManagement.Margin = new Padding(2, 0, 2, 0);
+            labelSurNameInstructorManagement.Location = new Point(19, 211);
+            labelSurNameInstructorManagement.Margin = new Padding(1, 0, 1, 0);
             labelSurNameInstructorManagement.Name = "labelSurNameInstructorManagement";
-            labelSurNameInstructorManagement.Size = new Size(126, 32);
+            labelSurNameInstructorManagement.Size = new Size(131, 35);
             labelSurNameInstructorManagement.TabIndex = 38;
             labelSurNameInstructorManagement.Text = "Sur Name";
             // 
             // labelFirstNameInstructorManagement
             // 
             labelFirstNameInstructorManagement.AutoSize = true;
-            labelFirstNameInstructorManagement.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
+            labelFirstNameInstructorManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
             labelFirstNameInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelFirstNameInstructorManagement.Location = new Point(36, 163);
-            labelFirstNameInstructorManagement.Margin = new Padding(2, 0, 2, 0);
+            labelFirstNameInstructorManagement.Location = new Point(19, 146);
+            labelFirstNameInstructorManagement.Margin = new Padding(1, 0, 1, 0);
             labelFirstNameInstructorManagement.Name = "labelFirstNameInstructorManagement";
-            labelFirstNameInstructorManagement.Size = new Size(137, 32);
+            labelFirstNameInstructorManagement.Size = new Size(143, 35);
             labelFirstNameInstructorManagement.TabIndex = 37;
             labelFirstNameInstructorManagement.Text = "First Name";
             // 
             // textBoxTLFInstructorManagement
             // 
-            textBoxTLFInstructorManagement.Location = new Point(208, 397);
-            textBoxTLFInstructorManagement.Margin = new Padding(2);
+            textBoxTLFInstructorManagement.Location = new Point(199, 356);
+            textBoxTLFInstructorManagement.Margin = new Padding(1);
             textBoxTLFInstructorManagement.Name = "textBoxTLFInstructorManagement";
-            textBoxTLFInstructorManagement.Size = new Size(201, 39);
+            textBoxTLFInstructorManagement.Size = new Size(176, 27);
             textBoxTLFInstructorManagement.TabIndex = 36;
             // 
             // textBoxEmailInstructorManagement
             // 
-            textBoxEmailInstructorManagement.Location = new Point(208, 314);
-            textBoxEmailInstructorManagement.Margin = new Padding(2);
+            textBoxEmailInstructorManagement.Location = new Point(199, 288);
+            textBoxEmailInstructorManagement.Margin = new Padding(1);
             textBoxEmailInstructorManagement.Name = "textBoxEmailInstructorManagement";
-            textBoxEmailInstructorManagement.Size = new Size(352, 39);
+            textBoxEmailInstructorManagement.Size = new Size(176, 27);
             textBoxEmailInstructorManagement.TabIndex = 35;
             // 
             // textBoxSurNameInstructorManagement
             // 
-            textBoxSurNameInstructorManagement.Location = new Point(208, 227);
-            textBoxSurNameInstructorManagement.Margin = new Padding(2);
+            textBoxSurNameInstructorManagement.Location = new Point(199, 219);
+            textBoxSurNameInstructorManagement.Margin = new Padding(1);
             textBoxSurNameInstructorManagement.Name = "textBoxSurNameInstructorManagement";
-            textBoxSurNameInstructorManagement.Size = new Size(201, 39);
+            textBoxSurNameInstructorManagement.Size = new Size(176, 27);
             textBoxSurNameInstructorManagement.TabIndex = 34;
             // 
             // textBoxFirstNameInstructorManagement
             // 
-            textBoxFirstNameInstructorManagement.Location = new Point(208, 152);
-            textBoxFirstNameInstructorManagement.Margin = new Padding(2);
+            textBoxFirstNameInstructorManagement.Location = new Point(199, 156);
+            textBoxFirstNameInstructorManagement.Margin = new Padding(1);
             textBoxFirstNameInstructorManagement.Name = "textBoxFirstNameInstructorManagement";
-            textBoxFirstNameInstructorManagement.Size = new Size(201, 39);
+            textBoxFirstNameInstructorManagement.Size = new Size(176, 27);
             textBoxFirstNameInstructorManagement.TabIndex = 33;
             // 
             // labelInstructorInformationInstructorManagement
             // 
             labelInstructorInformationInstructorManagement.AutoSize = true;
-            labelInstructorInformationInstructorManagement.Font = new Font("Nirmala UI", 15F, FontStyle.Bold);
+            labelInstructorInformationInstructorManagement.Font = new Font("Nirmala UI", 25F, FontStyle.Bold);
             labelInstructorInformationInstructorManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelInstructorInformationInstructorManagement.Location = new Point(32, 29);
-            labelInstructorInformationInstructorManagement.Margin = new Padding(5, 0, 5, 0);
+            labelInstructorInformationInstructorManagement.Location = new Point(13, 13);
             labelInstructorInformationInstructorManagement.Name = "labelInstructorInformationInstructorManagement";
-            labelInstructorInformationInstructorManagement.Size = new Size(446, 54);
+            labelInstructorInformationInstructorManagement.Size = new Size(467, 57);
             labelInstructorInformationInstructorManagement.TabIndex = 48;
             labelInstructorInformationInstructorManagement.Text = "Instructor Information";
             // 
@@ -180,10 +180,10 @@
             buttonAddInstructor.ForeColor = Color.FromArgb(73, 125, 201);
             buttonAddInstructor.Image = (Image)resources.GetObject("buttonAddInstructor.Image");
             buttonAddInstructor.ImageAlign = ContentAlignment.TopRight;
-            buttonAddInstructor.Location = new Point(42, 686);
-            buttonAddInstructor.Margin = new Padding(6);
+            buttonAddInstructor.Location = new Point(26, 668);
+            buttonAddInstructor.Margin = new Padding(4);
             buttonAddInstructor.Name = "buttonAddInstructor";
-            buttonAddInstructor.Size = new Size(520, 66);
+            buttonAddInstructor.Size = new Size(349, 41);
             buttonAddInstructor.TabIndex = 51;
             buttonAddInstructor.Text = "Add Instructor";
             buttonAddInstructor.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -197,11 +197,10 @@
             labelHelp_InstructorManagement2.BorderStyle = BorderStyle.FixedSingle;
             labelHelp_InstructorManagement2.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp_InstructorManagement2.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp_InstructorManagement2.Location = new Point(973, 102);
-            labelHelp_InstructorManagement2.Margin = new Padding(5, 0, 5, 0);
+            labelHelp_InstructorManagement2.Location = new Point(733, 78);
             labelHelp_InstructorManagement2.Name = "labelHelp_InstructorManagement2";
-            labelHelp_InstructorManagement2.Padding = new Padding(2);
-            labelHelp_InstructorManagement2.Size = new Size(385, 31);
+            labelHelp_InstructorManagement2.Padding = new Padding(1);
+            labelHelp_InstructorManagement2.Size = new Size(242, 19);
             labelHelp_InstructorManagement2.TabIndex = 97;
             labelHelp_InstructorManagement2.Text = "A list over the already existing instructors";
             labelHelp_InstructorManagement2.Visible = false;
@@ -210,10 +209,9 @@
             // 
             pictureBox_InstructorManagement2.BackgroundImage = (Image)resources.GetObject("pictureBox_InstructorManagement2.BackgroundImage");
             pictureBox_InstructorManagement2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox_InstructorManagement2.Location = new Point(973, 147);
-            pictureBox_InstructorManagement2.Margin = new Padding(5);
+            pictureBox_InstructorManagement2.Location = new Point(733, 106);
             pictureBox_InstructorManagement2.Name = "pictureBox_InstructorManagement2";
-            pictureBox_InstructorManagement2.Size = new Size(32, 32);
+            pictureBox_InstructorManagement2.Size = new Size(20, 20);
             pictureBox_InstructorManagement2.TabIndex = 96;
             pictureBox_InstructorManagement2.TabStop = false;
             pictureBox_InstructorManagement2.MouseEnter += pictureBox_InstructorManagement2_MouseEnter;
@@ -222,12 +220,11 @@
             // labelClassOverviewClassManagement
             // 
             labelClassOverviewClassManagement.AutoSize = true;
-            labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
+            labelClassOverviewClassManagement.Font = new Font("Nirmala UI", 20F, FontStyle.Bold);
             labelClassOverviewClassManagement.ForeColor = Color.FromArgb(73, 125, 201);
-            labelClassOverviewClassManagement.Location = new Point(648, 138);
-            labelClassOverviewClassManagement.Margin = new Padding(5, 0, 5, 0);
+            labelClassOverviewClassManagement.Location = new Point(399, 90);
             labelClassOverviewClassManagement.Name = "labelClassOverviewClassManagement";
-            labelClassOverviewClassManagement.Size = new Size(317, 45);
+            labelClassOverviewClassManagement.Size = new Size(338, 46);
             labelClassOverviewClassManagement.TabIndex = 95;
             labelClassOverviewClassManagement.Text = "Instructor Overview";
             // 
@@ -236,13 +233,13 @@
             dataGridViewInstructorOverviewInstructorManagement.BackgroundColor = SystemColors.Window;
             dataGridViewInstructorOverviewInstructorManagement.BorderStyle = BorderStyle.None;
             dataGridViewInstructorOverviewInstructorManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewInstructorOverviewInstructorManagement.Location = new Point(655, 219);
-            dataGridViewInstructorOverviewInstructorManagement.Margin = new Padding(2);
+            dataGridViewInstructorOverviewInstructorManagement.Location = new Point(403, 156);
+            dataGridViewInstructorOverviewInstructorManagement.Margin = new Padding(1);
             dataGridViewInstructorOverviewInstructorManagement.Name = "dataGridViewInstructorOverviewInstructorManagement";
             dataGridViewInstructorOverviewInstructorManagement.RowHeadersVisible = false;
             dataGridViewInstructorOverviewInstructorManagement.RowHeadersWidth = 82;
             dataGridViewInstructorOverviewInstructorManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewInstructorOverviewInstructorManagement.Size = new Size(783, 533);
+            dataGridViewInstructorOverviewInstructorManagement.Size = new Size(796, 556);
             dataGridViewInstructorOverviewInstructorManagement.TabIndex = 94;
             // 
             // labelHelp_InstructorManagement1
@@ -252,11 +249,10 @@
             labelHelp_InstructorManagement1.BorderStyle = BorderStyle.FixedSingle;
             labelHelp_InstructorManagement1.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp_InstructorManagement1.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp_InstructorManagement1.Location = new Point(484, -3);
-            labelHelp_InstructorManagement1.Margin = new Padding(5, 0, 5, 0);
+            labelHelp_InstructorManagement1.Location = new Point(474, 11);
             labelHelp_InstructorManagement1.Name = "labelHelp_InstructorManagement1";
-            labelHelp_InstructorManagement1.Padding = new Padding(2);
-            labelHelp_InstructorManagement1.Size = new Size(1087, 31);
+            labelHelp_InstructorManagement1.Padding = new Padding(1);
+            labelHelp_InstructorManagement1.Size = new Size(675, 19);
             labelHelp_InstructorManagement1.TabIndex = 99;
             labelHelp_InstructorManagement1.Text = "Register an new instructor, with following information; First- and Sur name, an email, a phonenumber and a certification";
             labelHelp_InstructorManagement1.Visible = false;
@@ -265,10 +261,9 @@
             // 
             pictureBox_InstructorManagement1.BackgroundImage = (Image)resources.GetObject("pictureBox_InstructorManagement1.BackgroundImage");
             pictureBox_InstructorManagement1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox_InstructorManagement1.Location = new Point(484, 42);
-            pictureBox_InstructorManagement1.Margin = new Padding(5);
+            pictureBox_InstructorManagement1.Location = new Point(474, 39);
             pictureBox_InstructorManagement1.Name = "pictureBox_InstructorManagement1";
-            pictureBox_InstructorManagement1.Size = new Size(32, 32);
+            pictureBox_InstructorManagement1.Size = new Size(20, 20);
             pictureBox_InstructorManagement1.TabIndex = 98;
             pictureBox_InstructorManagement1.TabStop = false;
             pictureBox_InstructorManagement1.MouseEnter += pictureBox_InstructorManagement1_MouseEnter;
@@ -281,11 +276,10 @@
             labelHelp_InstructorManagement33.BorderStyle = BorderStyle.FixedSingle;
             labelHelp_InstructorManagement33.Font = new Font("Nirmala UI", 7F, FontStyle.Bold);
             labelHelp_InstructorManagement33.ForeColor = Color.FromArgb(73, 125, 201);
-            labelHelp_InstructorManagement33.Location = new Point(528, 443);
-            labelHelp_InstructorManagement33.Margin = new Padding(5, 0, 5, 0);
+            labelHelp_InstructorManagement33.Location = new Point(325, 396);
             labelHelp_InstructorManagement33.Name = "labelHelp_InstructorManagement33";
-            labelHelp_InstructorManagement33.Padding = new Padding(2);
-            labelHelp_InstructorManagement33.Size = new Size(518, 31);
+            labelHelp_InstructorManagement33.Padding = new Padding(1);
+            labelHelp_InstructorManagement33.Size = new Size(327, 19);
             labelHelp_InstructorManagement33.TabIndex = 101;
             labelHelp_InstructorManagement33.Text = "Every instructor must have a certification to teach a class";
             labelHelp_InstructorManagement33.Visible = false;
@@ -294,10 +288,9 @@
             // 
             pictureBox_InstructorManagement3.BackgroundImage = (Image)resources.GetObject("pictureBox_InstructorManagement3.BackgroundImage");
             pictureBox_InstructorManagement3.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox_InstructorManagement3.Location = new Point(528, 488);
-            pictureBox_InstructorManagement3.Margin = new Padding(5);
+            pictureBox_InstructorManagement3.Location = new Point(354, 428);
             pictureBox_InstructorManagement3.Name = "pictureBox_InstructorManagement3";
-            pictureBox_InstructorManagement3.Size = new Size(32, 32);
+            pictureBox_InstructorManagement3.Size = new Size(20, 20);
             pictureBox_InstructorManagement3.TabIndex = 100;
             pictureBox_InstructorManagement3.TabStop = false;
             pictureBox_InstructorManagement3.MouseEnter += pictureBox_InstructorManagement3_MouseEnter;
@@ -311,10 +304,10 @@
             buttonDeleteInstructor.Font = new Font("Nirmala UI", 9F, FontStyle.Bold);
             buttonDeleteInstructor.ForeColor = Color.FromArgb(73, 125, 201);
             buttonDeleteInstructor.ImageAlign = ContentAlignment.TopRight;
-            buttonDeleteInstructor.Location = new Point(296, 600);
-            buttonDeleteInstructor.Margin = new Padding(6);
+            buttonDeleteInstructor.Location = new Point(182, 614);
+            buttonDeleteInstructor.Margin = new Padding(4);
             buttonDeleteInstructor.Name = "buttonDeleteInstructor";
-            buttonDeleteInstructor.Size = new Size(265, 48);
+            buttonDeleteInstructor.Size = new Size(192, 30);
             buttonDeleteInstructor.TabIndex = 102;
             buttonDeleteInstructor.Text = "Delete";
             buttonDeleteInstructor.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -323,10 +316,10 @@
             // 
             // formInstructorManagementTab
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 34, 56);
-            ClientSize = new Size(1480, 797);
+            ClientSize = new Size(1225, 738);
             Controls.Add(buttonDeleteInstructor);
             Controls.Add(labelHelp_InstructorManagement33);
             Controls.Add(pictureBox_InstructorManagement3);
@@ -349,7 +342,6 @@
             Controls.Add(textBoxFirstNameInstructorManagement);
             Controls.Add(labelInstructorInformationInstructorManagement);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5);
             Name = "formInstructorManagementTab";
             Text = "formInstructorManagementTab";
             ((System.ComponentModel.ISupportInitialize)pictureBox_InstructorManagement2).EndInit();
